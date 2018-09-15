@@ -8,25 +8,38 @@ namespace Algorithm
 {
     static class Combination
     {
-        public static void Merge<T>(List<T> original)
+        //Receives a list with the elements T and generates a list of the combinations
+        public static List<List<T>> Merge<T>(List<T> original)
         {
             List<List<T>> input = new List<List<T>>();
             original.ForEach(n => input.Add(new List<T> { n }));
-            Merge(input, original);
+            return Merge(input, original);
+
         }
 
-        public static void Merge<T>(List<List<T>> input, List<T> original)
+        //Recive a itemset whit a Previous combination and combines it with the list of initial elements
+        public static List<List<T>> Merge<T>(List<List<T>> input, List<T> original)
         {
+            List<List<T>> output = new List<List<T>>();
+
             foreach (List<T> elements in input)
             {
                 foreach (T data in original)
                 {
+                   
                     if (!elements.Contains(data))
                     {
-                        elements.Add(data);
+                        List<T> temp = new List<T>();
+                        temp.AddRange(elements);
+                        temp.Add(data);
+                        temp.OrderBy(n => n);
+
+                        output.Add(temp);
+                        
                     }
                 }
             }
+            return output;
         }
 
     }

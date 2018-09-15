@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Transaction
+    public class Transaction
     {
         public string ClientCode { get; set; }
         public int Code { get; set; }

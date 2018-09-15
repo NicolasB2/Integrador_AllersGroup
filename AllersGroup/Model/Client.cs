@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Client
+    public class Client
     {
         public Client(String[] info)
         {

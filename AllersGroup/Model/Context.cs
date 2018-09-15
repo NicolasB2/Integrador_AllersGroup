@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Context
+    public class Context
     {
         public List<Client> Clients { get; set; }
         public List<Item> Items { get; set; }
@@ -26,7 +26,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\Source\Repos\AllersGroup_IntegradorI\WindowsFormsApp1\Allers\Data\Items.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\Source\Repos\AllersGroup_IntegradorI\WindowsFormsApp1\Model\Data\Items.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -52,7 +52,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\Source\Repos\AllersGroup_IntegradorI\WindowsFormsApp1\Allers\Data\Clients.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\Source\Repos\AllersGroup_IntegradorI\WindowsFormsApp1\Model\Data\Clients.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -79,7 +79,7 @@ namespace Model
             int c = 0;
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\Source\Repos\AllersGroup_IntegradorI\WindowsFormsApp1\Allers\Data\Transactions.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\Source\Repos\AllersGroup_IntegradorI\WindowsFormsApp1\Model\Data\Transactions.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
