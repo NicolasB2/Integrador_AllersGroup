@@ -8,9 +8,15 @@ namespace Allers
 {
     class Client
     {
-        public Client()
+        public Client(String[] info)
         {
             this.Transactions = new HashSet<Transaction>();
+
+            Code = info[0];
+            Name = info[1];
+            City = info[2];
+            Departament = info[3];
+            Payment = info[4];
         }
 
         public string Code { get; set; }
@@ -19,6 +25,6 @@ namespace Allers
         public string Departament { get; set; }
         public string Payment { get; set; }
 
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public ICollection<Transaction> Transactions { get; set; }
     }
 }
