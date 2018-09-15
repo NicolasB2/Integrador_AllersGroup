@@ -8,8 +8,14 @@ namespace Allers
 {
     class Program
     {
+        public void Load()
+        {
+
+        }
+
         static void Main(string[] args)
         {
+
         }
     }
 }
