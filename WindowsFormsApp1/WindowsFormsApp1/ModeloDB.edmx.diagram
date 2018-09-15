@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f1fdc6ebc644598b1d434a7342ebb05" Name="Diagram1" DisplayType="true" >
+        <EntityTypeShape EntityType="ModeloDB.Item" Width="1.875" PointX="0.875" PointY="1.125" />
+        <EntityTypeShape EntityType="ModeloDB.Client" Width="2" PointX="6.375" PointY="1" />
+        <EntityTypeShape EntityType="ModeloDB.Transaction" Width="1.875" PointX="3.75" PointY="1" />
+        <AssociationConnector Association="ModeloDB.ClientTransaction" />
+        <AssociationConnector Association="ModeloDB.ItemTransaction" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

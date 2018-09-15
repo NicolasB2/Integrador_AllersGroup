@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ModeloDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="ModeloDBTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModeloDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModeloDBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Articles" EntityType="ModeloDB.Item" />
+          <EntitySet Name="Clients" EntityType="ModeloDB.Client" />
+          <EntitySet Name="TransactionSet" EntityType="ModeloDB.Transaction" />
+          <AssociationSet Name="ClientTransaction" Association="ModeloDB.ClientTransaction">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Transaction" EntitySet="TransactionSet" />
+          </AssociationSet>
+          <AssociationSet Name="ItemTransaction" Association="ModeloDB.ItemTransaction">
+            <End Role="Item" EntitySet="Articles" />
+            <End Role="Transaction" EntitySet="TransactionSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Clasification" Type="String" Nullable="false" />
+          <NavigationProperty Name="Transactions" Relationship="ModeloDB.ItemTransaction" FromRole="Item" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" />
+          <Property Name="Departament" Type="String" Nullable="false" />
+          <Property Name="Payment" Type="String" Nullable="false" />
+          <NavigationProperty Name="Transactions" Relationship="ModeloDB.ClientTransaction" FromRole="Client" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Total" Type="String" Nullable="false" />
+          <Property Name="QuantityItems" Type="String" Nullable="false" />
+          <Property Name="ItemPrice" Type="String" Nullable="false" />
+          <Property Name="Subtotal" Type="String" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="ModeloDB.ClientTransaction" FromRole="Transaction" ToRole="Client" />
+          <Property Name="ClientCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="ModeloDB.ItemTransaction" FromRole="Transaction" ToRole="Item" />
+          <Property Name="ItemCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ClientTransaction">
+          <End Type="ModeloDB.Client" Role="Client" Multiplicity="1" />
+          <End Type="ModeloDB.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="ClientCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemTransaction">
+          <End Type="ModeloDB.Item" Role="Item" Multiplicity="1" />
+          <End Type="ModeloDB.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ModeloDB" />
+        <Alias Key="Target" Value="ModeloDB.Store" />
+        <EntityContainerMapping CdmEntityContainer="ModeloDBContainer" StorageEntityContainer="ModeloDBTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
