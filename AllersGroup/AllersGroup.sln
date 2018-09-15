@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllersGroup", "AllersGroup\AllersGroup.csproj", "{38F5EFEA-9F32-41CE-9BAF-24B3C25E6BC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{8E8E6505-40F9-47BB-94AB-50E86C6556E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm", "Algorithm\Algorithm.csproj", "{60DA772B-F777-431C-891A-88CA3931D208}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38F5EFEA-9F32-41CE-9BAF-24B3C25E6BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F5EFEA-9F32-41CE-9BAF-24B3C25E6BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F5EFEA-9F32-41CE-9BAF-24B3C25E6BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F5EFEA-9F32-41CE-9BAF-24B3C25E6BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E8E6505-40F9-47BB-94AB-50E86C6556E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8E6505-40F9-47BB-94AB-50E86C6556E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8E6505-40F9-47BB-94AB-50E86C6556E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8E6505-40F9-47BB-94AB-50E86C6556E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60DA772B-F777-431C-891A-88CA3931D208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60DA772B-F777-431C-891A-88CA3931D208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60DA772B-F777-431C-891A-88CA3931D208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60DA772B-F777-431C-891A-88CA3931D208}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B63B49A2-D3A0-461E-BDFF-1289782FC822}
+	EndGlobalSection
+EndGlobal
