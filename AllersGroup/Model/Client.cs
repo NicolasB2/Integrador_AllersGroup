@@ -8,13 +8,13 @@ namespace Model
 {
     public class Client
     {
-        private List<string> itemsRelacionados;
+       
 
         public Client(String[] info)
         {
             this.Transactions = new HashSet<Transaction>();
 
-            itemsRelacionados = new List<string>();
+            ItemsRelacionados = new List<Item>();
             Code = info[0];
             Name = info[1];
             City = info[2];
@@ -27,7 +27,7 @@ namespace Model
         public string City { get; set; }
         public string Departament { get; set; }
         public string Payment { get; set; }
-        public List<string> ItemsRelacionados { get; set; }
+        public List<Item> ItemsRelacionados { get; set; }
 
         public ICollection<Transaction> Transactions { get; set; }
 
