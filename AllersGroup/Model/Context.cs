@@ -25,7 +25,9 @@ namespace Model
             LoadClients();
             LoadTransactions();
 
-            agruparProductos();
+            //agruparProductos();
+
+            agruparClientesPorRegion();
 
             DateTime tiempo2 = DateTime.Now;
             TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
@@ -35,59 +37,59 @@ namespace Model
         }
 
 
-        public void generarCombinacionesClientes()
-        {
-            for(int i = 0; i < Clients.Count; i++) {
-                Client c = Clients.ElementAt(i);
-                List<string> itemsRelacionados = new List<string>();
-                string code = c.Code;
-                for(int j = 0; j < Transactions.Count; j++)
-                {
-                    if (Transactions.ElementAt(j).ClientCode.Equals(code))
-                    {
-                        itemsRelacionados.Add(Transactions.ElementAt(j).ItemCode+"");
-                    }
-                }
-                c.ItemsRelacionados = itemsRelacionados;
+        //public void generarCombinacionesClientes()
+        //{
+        //    for(int i = 0; i < Clients.Count; i++) {
+        //        Client c = Clients.ElementAt(i);
+        //        List<string> itemsRelacionados = new List<string>();
+        //        string code = c.Code;
+        //        for(int j = 0; j < Transactions.Count; j++)
+        //        {
+        //            if (Transactions.ElementAt(j).ClientCode.Equals(code))
+        //            {
+        //                itemsRelacionados.Add(Transactions.ElementAt(j).ItemCode+"");
+        //            }
+        //        }
+        //        c.ItemsRelacionados = itemsRelacionados;
 
-            }
+        //    }
             
-            List<List<Client>> combinaciones = new List<List<Client>>();
+        //    List<List<Client>> combinaciones = new List<List<Client>>();
 
-            for(int i = 0; i < Clients.Count; i++)
-            {
-                Client actual = Clients.ElementAt(i);
-                List<Client> combinacionActual = new List<Client>();
-                combinacionActual.Add(actual);
+        //    for(int i = 0; i < Clients.Count; i++)
+        //    {
+        //        Client actual = Clients.ElementAt(i);
+        //        List<Client> combinacionActual = new List<Client>();
+        //        combinacionActual.Add(actual);
 
-                for(int j = 0; j < Clients.Count; j++)
-                {
-                    if(i!=j && actual.ItemsRelacionados.Equals(Clients.ElementAt(j).ItemsRelacionados))
-                    {
-                        combinacionActual.Add(Clients.ElementAt(j));
-                    }
-                }
+        //        for(int j = 0; j < Clients.Count; j++)
+        //        {
+        //            if(i!=j && actual.ItemsRelacionados.Equals(Clients.ElementAt(j).ItemsRelacionados))
+        //            {
+        //                combinacionActual.Add(Clients.ElementAt(j));
+        //            }
+        //        }
 
-                combinaciones.Add(combinacionActual);
-            }
+        //        combinaciones.Add(combinacionActual);
+        //    }
 
-            //for(int i = 0; i < combinaciones.Count; i++)
-            //{
-            //    List<Client> actual = combinaciones.ElementAt(i);
-            //    Console.WriteLine("Cliente relacionados con: {0}",actual.First().Code);
-            //    for(int j = 0; j < actual.Count; j++)
-            //    {
-            //        Console.WriteLine(actual.ElementAt(j).Code);
-            //    }
+        //    //for(int i = 0; i < combinaciones.Count; i++)
+        //    //{
+        //    //    List<Client> actual = combinaciones.ElementAt(i);
+        //    //    Console.WriteLine("Cliente relacionados con: {0}",actual.First().Code);
+        //    //    for(int j = 0; j < actual.Count; j++)
+        //    //    {
+        //    //        Console.WriteLine(actual.ElementAt(j).Code);
+        //    //    }
 
-            //    Console.WriteLine("---------------------------------------------");
-            //}
+        //    //    Console.WriteLine("---------------------------------------------");
+        //    //}
 
-        }
+        //}
 
 
 
-        public void agruparProductos()
+        public List<List<Item>> agruparProductos()
         {
             List<List<Item>> prodAgrupados = new List<List<Item>>();
 
@@ -114,17 +116,94 @@ namespace Model
             }
 
 
-            for(int i = 0; i < prodAgrupados.Count; i++)
+            //for(int i = 0; i < prodAgrupados.Count; i++)
+            //{
+            //    Console.WriteLine("-------------------------------------");
+            //    for(int j = 0; j < prodAgrupados.ElementAt(i).Count; j++)
+            //    {
+            //        Console.WriteLine(prodAgrupados.ElementAt(i).ElementAt(j).Name);
+            //    }
+            //}
+
+
+            return prodAgrupados;
+        }
+
+
+        public List<List<Client>> agruparClientesPorRegion()
+        {
+            List<List<Client>> agrupacion = new List<List<Client>>();
+            
+
+            List<string> regionesAgrupadas = new List<string>();
+
+            for (int i = 0; i < Clients.Count; i++)
             {
-                Console.WriteLine("-------------------------------------");
-                for(int j = 0; j < prodAgrupados.ElementAt(i).Count; j++)
+                if (!regionesAgrupadas.Contains(Clients.ElementAt(i).Departament))
                 {
-                    Console.WriteLine(prodAgrupados.ElementAt(i).ElementAt(j).Name);
+                    regionesAgrupadas.Add(Clients.ElementAt(i).Departament);
+                    List<Client> lista = new List<Client>();
+
+                    for (int j = i; j < Clients.Count; j++)
+                    {
+                        if (Clients.ElementAt(j).Departament.Equals(Clients.ElementAt(i).Departament))
+                        {
+                            lista.Add(Clients.ElementAt(j));
+                        }
+                    }
+
+                    agrupacion.Add(lista);
                 }
+
             }
+            
+            
+
+            //for (int i = 0; i < agrupacion.Count; i++)
+            //{
+            //    Console.WriteLine("-------------------------------------");
+            //    for (int j = 0; j < agrupacion.ElementAt(i).Count; j++)
+            //    {
+            //        Console.WriteLine(agrupacion.ElementAt(i).ElementAt(j).Name);
+            //    }
+            //}
+
+
+            return agrupacion;
 
         }
 
+
+
+        public List<List<Client>> agrupacionClientes()
+        {
+            List<List<Client>> agrupacionFinal = new List<List<Client>>();
+            List<List<Client>> agrupacionRegion = agruparClientesPorRegion();
+            List<List<Item>> agrupacionItems = agruparProductos();
+
+
+            for(int i = 0; i < agrupacionRegion.Count; i++)
+            {
+
+                //Empieza a analizar los clientes que ya estan agrupados por region
+
+
+                List<Client> agrupacionActual = agrupacionRegion.ElementAt(i);
+
+                List<Client> nuevaAgrupacion = new List<Client>();
+
+                for(int j = 0; j < agrupacionActual.Count; j++)
+                {
+
+                }
+
+
+
+            }
+            
+
+            return agrupacionFinal;
+        }
         
 
         private void LoadItems()

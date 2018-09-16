@@ -14,6 +14,7 @@ namespace Model
         {
             this.Transactions = new HashSet<Transaction>();
 
+            itemsRelacionados = new List<string>();
             Code = info[0];
             Name = info[1];
             City = info[2];
