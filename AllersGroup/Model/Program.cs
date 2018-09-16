@@ -10,6 +10,8 @@ namespace Model
     {
         static void Main(string[] args)
         {
+            Context contexto = new Context();
+
         }
     }
 }

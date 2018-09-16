@@ -15,18 +15,123 @@ namespace Model
 
         public Context()
         {
+
+            DateTime tiempo1 = DateTime.Now;
+
             Items = new List<Item>();
             Clients = new List<Client>();
             Transactions = new List<Transaction>();
             LoadItems();
             LoadClients();
             LoadTransactions();
+
+            agruparProductos();
+
+            DateTime tiempo2 = DateTime.Now;
+            TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
+            Console.Write("TIEMPO: " + total.ToString());
+
+            Console.ReadLine();
         }
+
+
+        public void generarCombinacionesClientes()
+        {
+            for(int i = 0; i < Clients.Count; i++) {
+                Client c = Clients.ElementAt(i);
+                List<string> itemsRelacionados = new List<string>();
+                string code = c.Code;
+                for(int j = 0; j < Transactions.Count; j++)
+                {
+                    if (Transactions.ElementAt(j).ClientCode.Equals(code))
+                    {
+                        itemsRelacionados.Add(Transactions.ElementAt(j).ItemCode+"");
+                    }
+                }
+                c.ItemsRelacionados = itemsRelacionados;
+
+            }
+            
+            List<List<Client>> combinaciones = new List<List<Client>>();
+
+            for(int i = 0; i < Clients.Count; i++)
+            {
+                Client actual = Clients.ElementAt(i);
+                List<Client> combinacionActual = new List<Client>();
+                combinacionActual.Add(actual);
+
+                for(int j = 0; j < Clients.Count; j++)
+                {
+                    if(i!=j && actual.ItemsRelacionados.Equals(Clients.ElementAt(j).ItemsRelacionados))
+                    {
+                        combinacionActual.Add(Clients.ElementAt(j));
+                    }
+                }
+
+                combinaciones.Add(combinacionActual);
+            }
+
+            //for(int i = 0; i < combinaciones.Count; i++)
+            //{
+            //    List<Client> actual = combinaciones.ElementAt(i);
+            //    Console.WriteLine("Cliente relacionados con: {0}",actual.First().Code);
+            //    for(int j = 0; j < actual.Count; j++)
+            //    {
+            //        Console.WriteLine(actual.ElementAt(j).Code);
+            //    }
+
+            //    Console.WriteLine("---------------------------------------------");
+            //}
+
+        }
+
+
+
+        public void agruparProductos()
+        {
+            List<List<Item>> prodAgrupados = new List<List<Item>>();
+
+            List<string> clasificacionesAgrupadas = new List<string>();
+
+            for(int i = 0; i < Items.Count; i++)
+            {
+                if(!Items.ElementAt(i).Clasification.Equals("NULL") && !clasificacionesAgrupadas.Contains(Items.ElementAt(i).Clasification))
+                {
+                    clasificacionesAgrupadas.Add(Items.ElementAt(i).Clasification);
+                    List<Item> lista = new List<Item>();
+
+                    for(int j = i; j < Items.Count; j++)
+                    {
+                        if (Items.ElementAt(j).Clasification.Equals(Items.ElementAt(i).Clasification))
+                        {
+                            lista.Add(Items.ElementAt(j));
+                        }
+                    }
+
+                    prodAgrupados.Add(lista);
+                }
+                
+            }
+
+
+            for(int i = 0; i < prodAgrupados.Count; i++)
+            {
+                Console.WriteLine("-------------------------------------");
+                for(int j = 0; j < prodAgrupados.ElementAt(i).Count; j++)
+                {
+                    Console.WriteLine(prodAgrupados.ElementAt(i).ElementAt(j).Name);
+                }
+            }
+
+        }
+
+        
+
         private void LoadItems()
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\Source\Repos\AllersGroup_IntegradorI\WindowsFormsApp1\Model\Data\Items.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\manuel\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -44,7 +149,7 @@ namespace Model
             {
                 Console.WriteLine("Exception: " + e.Message);
             }
-            //Console.WriteLine(items.Count +"");
+            Console.WriteLine("Numero de items: "+Items.Count + "");
             //Console.ReadLine();
         }
 
@@ -52,7 +157,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\Source\Repos\AllersGroup_IntegradorI\WindowsFormsApp1\Model\Data\Clients.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\manuel\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -70,8 +175,8 @@ namespace Model
             {
                 Console.WriteLine("Exception: " + e.Message);
             }
-            Console.WriteLine(Clients.Count + "");
-            Console.ReadLine();
+            Console.WriteLine("Numero de clientes: "+Clients.Count + "");
+            //Console.ReadLine();
         }
 
         private void LoadTransactions()
@@ -79,7 +184,7 @@ namespace Model
             int c = 0;
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\Source\Repos\AllersGroup_IntegradorI\WindowsFormsApp1\Model\Data\Transactions.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\manuel\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -99,7 +204,7 @@ namespace Model
             {
                 Console.WriteLine("Exception: " + e.Message + "     " + c);
             }
-            //Console.WriteLine(transactions.Count +"");
+            Console.WriteLine("Numero de transacciones: "+Transactions.Count + "");
             //Console.ReadLine();
         }
 

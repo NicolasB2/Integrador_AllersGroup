@@ -8,6 +8,8 @@ namespace Model
 {
     public class Client
     {
+        private List<string> itemsRelacionados;
+
         public Client(String[] info)
         {
             this.Transactions = new HashSet<Transaction>();
@@ -24,8 +26,13 @@ namespace Model
         public string City { get; set; }
         public string Departament { get; set; }
         public string Payment { get; set; }
+        public List<string> ItemsRelacionados { get; set; }
 
         public ICollection<Transaction> Transactions { get; set; }
+
+
+
+
     }
 
 }

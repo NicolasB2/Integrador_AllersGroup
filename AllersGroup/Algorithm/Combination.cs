@@ -42,5 +42,11 @@ namespace Algorithm
             return output;
         }
 
+
+        public static List<T> BruteForce<T>()
+        {
+            return null;
+        }
+
     }
 }
