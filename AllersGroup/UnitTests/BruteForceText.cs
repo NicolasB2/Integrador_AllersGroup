@@ -15,6 +15,17 @@ namespace UnitTests
 
         public void SetUp1()
         {
+            Data = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Eggs" };
+            Solution = new List<String[]>{ new String[]{"Beer"},
+                                           new String[]{"Milk"},
+                                           new String[]{"Diapers"},
+                                           new String[]{"Bread"},
+                                           new String[]{"Eggs"}
+            };
+        }
+
+        public void SetUp2()
+        {
             Data =new List<string>{ "Beer", "Milk", "Diapers", "Bread", "Eggs" };
             Solution = new List<String[]>{ new String[]{"Beer", "Milk" },
                                            new String[]{"Beer", "Diapers" },
@@ -28,7 +39,7 @@ namespace UnitTests
                                            new String[]{"Bread", "Eggs"}};
         }
 
-        public void SetUp2()
+        public void SetUp3()
         {
             Data = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Eggs" };
             Solution = new List<String[]>{ new String[]{"Beer", "Milk", "Diapers"},
@@ -43,7 +54,7 @@ namespace UnitTests
                                            new String[]{ "Diapers", "Bread", "Eggs"}};
         }
 
-        public void SetUp3()
+        public void SetUp4()
         {
             Data = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Eggs" };
             Solution = new List<String[]>{ new String[]{"Beer", "Milk", "Diapers", "Bread"},
@@ -54,7 +65,7 @@ namespace UnitTests
             };            
         }
 
-        public void SetUp4()
+        public void SetUp5()
         {
             Data = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Eggs" };
             Solution = new List<String[]>{ new String[] { "Beer", "Milk", "Diapers", "Bread", "Eggs" }};
@@ -71,30 +82,37 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void Combinations_size_2()
+        public void Combinations_size_1()
         {
             SetUp1();
+            Comparer(1);
+        }
+
+        [TestMethod]
+        public void Combinations_size_2()
+        {
+            SetUp2();
             Comparer(2);
         }
 
         [TestMethod]
         public void Combinations_size_3()
         {
-            SetUp2();
+            SetUp3();
             Comparer(3);
         }
 
         [TestMethod]
         public void Combinations_size_4()
         {
-            SetUp3();
+            SetUp4();
             Comparer(4);
         }
 
         [TestMethod]
         public void Combinations_size_5()
         {
-            SetUp4();
+            SetUp5();
             Comparer(5);
         }
     }
