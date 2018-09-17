@@ -4,26 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm
+namespace Algorithms
 {
     class Program
     {
 
         static void Main(string[] args)
         {
-            List<String> Data = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Eggs" };
-            List<List<String>> x =  Combination.Merge(Data);
-            foreach(List<String> d in x)
-            {
-                String ret = "";
-                foreach (String j in d)
-                {
-                    ret += "    "+j;
-                } ;
+            List<String> data = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Eggs" };
 
-                Console.WriteLine(ret);
+            IEnumerable<String[]> a = Algorithms.BruteForce.Combinations(data, 2);
+
+            var b = a.ToList();
+            foreach (var x in b) {
+                Console.WriteLine("Grupo: ");
+                foreach (var q in x.ToList())
+                {
+                    Console.WriteLine(q);
+                }
             }
-            Console.ReadLine();
+
+         Console.ReadLine();
         }
     }
 }

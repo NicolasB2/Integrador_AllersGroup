@@ -28,9 +28,6 @@ namespace Model
             agruparClientesPorRegion();
             agruparProductos();
 
-
-            
-
             DateTime tiempo2 = DateTime.Now;
             TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
             Console.Write("TIEMPO: " + total.ToString());
@@ -49,14 +46,14 @@ namespace Model
 
             List<string> clasificacionesAgrupadas = new List<string>();
 
-            for(int i = 0; i < Items.Count; i++)
+            for (int i = 0; i < Items.Count; i++)
             {
-                if(!Items.ElementAt(i).Clasification.Equals("NULL") && !clasificacionesAgrupadas.Contains(Items.ElementAt(i).Clasification))
+                if (!Items.ElementAt(i).Clasification.Equals("NULL") && !clasificacionesAgrupadas.Contains(Items.ElementAt(i).Clasification))
                 {
                     clasificacionesAgrupadas.Add(Items.ElementAt(i).Clasification);
                     List<Item> lista = new List<Item>();
 
-                    for(int j = i; j < Items.Count; j++)
+                    for (int j = i; j < Items.Count; j++)
                     {
                         if (Items.ElementAt(j).Clasification.Equals(Items.ElementAt(i).Clasification))
                         {
@@ -66,20 +63,8 @@ namespace Model
 
                     prodAgrupados.Add(lista);
                 }
-                
+
             }
-
-
-            //for(int i = 0; i < prodAgrupados.Count; i++)
-            //{
-            //    Console.WriteLine("-------------------------------------");
-            //    for(int j = 0; j < prodAgrupados.ElementAt(i).Count; j++)
-            //    {
-            //        Console.WriteLine(prodAgrupados.ElementAt(i).ElementAt(j).Name);
-            //    }
-            //}
-
-
             return prodAgrupados;
         }
 
@@ -109,103 +94,10 @@ namespace Model
                     agrupacion.Add(lista);
                 }
 
-            }
-            
-            
-
-            //for (int i = 0; i < agrupacion.Count; i++)
-            //{
-            //    Console.WriteLine("-------------------------------------");
-            //    for (int j = 0; j < agrupacion.ElementAt(i).Count; j++)
-            //    {
-            //        Console.WriteLine(agrupacion.ElementAt(i).ElementAt(j).Name);
-            //    }
-            //}
-
-
+            }         
             return agrupacion;
-
         }
-
-
-
-        //public List<List<Client>> agrupacionClientes()
-        //{
-        //    List<List<Client>> agrupacionFinal = new List<List<Client>>();
-        //    List<List<Client>> agrupacionRegion = agruparClientesPorRegion();
-        //    List<List<Item>> agrupacionItems = agruparProductos();
-
-
-        //    for(int i = 0; i < agrupacionRegion.Count; i++)
-        //    {
-
-        //        //Empieza a analizar los clientes que ya estan agrupados por region
-
-
-        //        List<Client> agrupacionActual = agrupacionRegion.ElementAt(i);
-
-                
-
-        //        for(int j = 0; j < agrupacionActual.Count; j++)
-        //        {
-        //            Client clienteActual = agrupacionActual.ElementAt(j);
-        //            List<Client> nuevaAgrupacion = new List<Client>();
-        //            //nuevaAgrupacion.Add(clienteActual);
-
-        //            for (int h = 0; h < agrupacionActual.Count; h++)
-        //            {
-
-        //                //Compara un cliente con todos los otros de la misma region
-
-        //                Client clienteAComparar = agrupacionActual.ElementAt(h);
-
-        //                Boolean cond = false;
-
-        //                for(int y = 0;!cond && y < agrupacionItems.Count; y++)
-        //                {
-
-        //                    Boolean contieneActual = false;
-        //                    Boolean contieneAComparar = false;
-
-        //                    for (int x = 0; !cond && x < agrupacionItems.ElementAt(y).Count; x++)
-        //                    {
-        //                        if (clienteActual.ItemsRelacionados.Contains(agrupacionItems.ElementAt(y).ElementAt(x))){
-        //                            contieneActual = true;
-        //                        }
-
-        //                        if (clienteAComparar.ItemsRelacionados.Contains(agrupacionItems.ElementAt(y).ElementAt(x))){
-        //                            contieneAComparar = true;
-        //                        }
-
-        //                        if(contieneAComparar && contieneActual)
-        //                        {
-        //                            cond = true;
-        //                        }
-
-        //                        Console.WriteLine(clienteActual.ItemsRelacionados.Count+" "+ clienteAComparar.ItemsRelacionados.Count);
-        //                    }
-        //                }
-
-        //                if (cond)
-        //                {
-        //                    nuevaAgrupacion.Add(clienteAComparar);
-        //                }
-        //            }
-        //            Console.WriteLine(nuevaAgrupacion.Count);
-        //            agrupacionFinal.Add(nuevaAgrupacion);
-
-                    
-        //        }
-
-        //        Console.WriteLine("Terminaron las agrupaciones de la región {0}", agrupacionRegion.ElementAt(i).ElementAt(0).Departament);
-
-        //    }
-            
-
-        //    return agrupacionFinal;
-        //}
         
-
         private void LoadItems()
         {
             try
@@ -228,8 +120,6 @@ namespace Model
             {
                 Console.WriteLine("Exception: " + e.Message);
             }
-            Console.WriteLine("Numero de items: "+Items.Count + "");
-            //Console.ReadLine();
         }
 
         private void LoadClients()
@@ -254,8 +144,6 @@ namespace Model
             {
                 Console.WriteLine("Exception: " + e.Message);
             }
-            Console.WriteLine("Numero de clientes: "+Clients.Count + "");
-            //Console.ReadLine();
         }
 
         private void LoadTransactions()
@@ -274,20 +162,7 @@ namespace Model
                     {
                         Transaction t = new Transaction(datos);
                         Transactions.Add(t);
-
-                        //try
-                        //{
-                        //    Boolean cond = Clients.Where(cl => cl.Code.Equals(t.ClientCode)).First().ItemsRelacionados.Contains(t.Item);
-                        //    if (!cond)
-                        //    {
-                        //        Clients.Where(cl => cl.Code.Equals(t.ClientCode)).First().ItemsRelacionados.Add(t.Item);
-                        //    }
-                        //}
-                        //catch
-                        //{
-
-                        //}
-                        
+                       
 
                     }
                 }
@@ -298,8 +173,6 @@ namespace Model
 
                 Console.WriteLine("Exception: " + e.StackTrace + "     " + c);
             }
-            Console.WriteLine("Numero de transacciones: "+Transactions.Count + "");
-            //Console.ReadLine();
         }
 
     }
