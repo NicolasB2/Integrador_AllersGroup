@@ -42,6 +42,24 @@ namespace UnitTests
                                            new String[]{"Milk", "Bread", "Eggs" },
                                            new String[]{ "Diapers", "Bread", "Eggs"}};
         }
+
+        public void SetUp3()
+        {
+            Data = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Eggs" };
+            Solution = new List<String[]>{ new String[]{"Beer", "Milk", "Diapers", "Bread"},
+                                           new String[]{"Beer", "Milk", "Diapers", "Eggs" },
+                                           new String[]{"Beer", "Milk", "Bread", "Eggs" },
+                                           new String[]{"Beer", "Diapers", "Bread", "Eggs" },
+                                           new String[]{"Milk", "Diapers", "Bread", "Eggs" }
+            };            
+        }
+
+        public void SetUp4()
+        {
+            Data = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Eggs" };
+            Solution = new List<String[]>{ new String[] { "Beer", "Milk", "Diapers", "Bread", "Eggs" }};
+        }
+
         private void Comparer(int x) {
             IEnumerable<List<String>> a = Algorithms.BruteForce.Combinations(Data, x);
             int aux = 0;
@@ -64,6 +82,20 @@ namespace UnitTests
         {
             SetUp2();
             Comparer(3);
+        }
+
+        [TestMethod]
+        public void Combinations_size_4()
+        {
+            SetUp3();
+            Comparer(4);
+        }
+
+        [TestMethod]
+        public void Combinations_size_5()
+        {
+            SetUp4();
+            Comparer(5);
         }
     }
 }
