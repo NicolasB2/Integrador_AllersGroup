@@ -13,15 +13,16 @@ namespace Algorithms
         {
             List<String> data = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Eggs" };
 
-            IEnumerable<String[]> a = Algorithms.BruteForce.Combinations(data, 2);
-
+            IEnumerable<List<String>> a = Algorithms.BruteForce.Combinations(data, 2);
+            
             var b = a.ToList();
             foreach (var x in b) {
-                Console.WriteLine("Grupo: ");
+                String mmm = "";
                 foreach (var q in x.ToList())
                 {
-                    Console.WriteLine(q);
+                    mmm += q + "    ";
                 }
+                Console.WriteLine(mmm);
             }
 
          Console.ReadLine();
