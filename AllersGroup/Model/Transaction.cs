@@ -16,6 +16,8 @@ namespace Model
         public int QuantityItems { get; set; }
         public int ItemPrice { get; set; }
         public long Subtotal { get; set; }
+        public List<Item> items; 
+
 
         public Transaction(String[] info)
         {
@@ -27,6 +29,8 @@ namespace Model
             QuantityItems = int.Parse(info[5]);
             ItemPrice = int.Parse(info[6]);
             Subtotal = long.Parse(info[7]);
+
+            items = new List<Item>;
 
         }
     }
