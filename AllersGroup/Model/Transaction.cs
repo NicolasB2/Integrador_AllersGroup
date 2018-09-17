@@ -30,6 +30,7 @@ namespace Model
             QuantityItems = int.Parse(info[5]);
             ItemPrice = int.Parse(info[6]);
             Subtotal = long.Parse(info[7]);
+
         }
     }
 

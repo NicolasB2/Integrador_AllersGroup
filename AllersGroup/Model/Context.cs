@@ -24,10 +24,7 @@ namespace Model
             LoadItems();
             LoadClients();
             LoadTransactions();
-
-            agruparClientesPorRegion();
-            agruparProductos();
-
+            
             DateTime tiempo2 = DateTime.Now;
             TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
             Console.Write("TIEMPO: " + total.ToString());
@@ -35,12 +32,7 @@ namespace Model
             Console.ReadLine();
         }
 
-
-        
-
-
-
-        public List<List<Item>> agruparProductos()
+        public List<List<Item>> agruparProductosPorClasificacion()
         {
             List<List<Item>> prodAgrupados = new List<List<Item>>();
 

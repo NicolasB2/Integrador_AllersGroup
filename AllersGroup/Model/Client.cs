@@ -33,7 +33,17 @@ namespace Model
 
 
 
-
+        public Client findClient(String c)
+        {
+            if (Code.Equals(c))
+            {
+                return this;
+            }
+            else
+            {
+            return null;
+            }
+        }
     }
 
 }
