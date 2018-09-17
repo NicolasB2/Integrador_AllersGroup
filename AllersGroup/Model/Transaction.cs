@@ -17,9 +17,6 @@ namespace Model
         public int ItemPrice { get; set; }
         public long Subtotal { get; set; }
 
-        public Client Client { get; set; }
-        public Item Item { get; set; }
-
         public Transaction(String[] info)
         {
             ClientCode = info[0];

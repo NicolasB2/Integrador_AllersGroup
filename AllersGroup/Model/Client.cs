@@ -31,8 +31,6 @@ namespace Model
 
         public ICollection<Transaction> Transactions { get; set; }
 
-
-
         public Client findClient(String c)
         {
             if (Code.Equals(c))

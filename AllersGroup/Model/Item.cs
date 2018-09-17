@@ -12,7 +12,7 @@ namespace Model
         public string Name { get; set; }
         public string Clasification { get; set; }
 
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public ICollection<Transaction> Transactions { get; set; }
 
         public Item(String[] info)
         {

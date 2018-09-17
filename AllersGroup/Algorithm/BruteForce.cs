@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms
 {
-    public  static class BruteForce
+    public static class BruteForce
     {
      
         public static IEnumerable<List<T>> Combinations<T>(this IEnumerable<T> elements, int k){
@@ -14,7 +14,7 @@ namespace Algorithms
 
             if (k == 0)
             {
-                // single combination: empty set
+                // Single combination: empty set
                 result.Add(new List<T>());
             }
             else
@@ -22,7 +22,7 @@ namespace Algorithms
                 int current = 1;
                 foreach (T element in elements)
                 {
-                    // combine each element with (k - 1)-combinations of subsequent elements
+                    // Combine each element with (k - 1)-combinations of subsequent elements
                     result.AddRange(elements.Skip(current++).Combinations(k-1).Select(combination=>(new List<T> {element}).Concat(combination).ToList()));
                 }
             }

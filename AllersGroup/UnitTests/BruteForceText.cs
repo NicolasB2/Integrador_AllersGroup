@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Model;
 using Algorithms;
 
 
@@ -60,6 +61,12 @@ namespace UnitTests
             Solution = new List<String[]>{ new String[] { "Beer", "Milk", "Diapers", "Bread", "Eggs" }};
         }
 
+        public void SetUp5()
+        {
+           
+
+        }
+
         private void Comparer(int x) {
             IEnumerable<List<String>> a = Algorithms.BruteForce.Combinations(Data, x);
             int aux = 0;
@@ -69,6 +76,8 @@ namespace UnitTests
                 aux++;
             }
         }
+
+
 
         [TestMethod]
         public void Combinations_size_2()

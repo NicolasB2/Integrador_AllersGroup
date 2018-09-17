@@ -9,7 +9,7 @@ namespace Model
 {
     public class Context
     {
-        public List<Client> Clients { get; set; }
+        public static List<Client> Clients { get; set; }
         public List<Item> Items { get; set; }
         public List<Transaction> Transactions { get; set; }
 
@@ -23,11 +23,10 @@ namespace Model
             Items = new List<Item>();
             Clients = new List<Client>();
             Transactions = new List<Transaction>();
+
             LoadItems();
             LoadClients();
             LoadTransactions();
-
-            Console.ReadLine();
         }
 
 
@@ -36,17 +35,19 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\manuel\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
                 {
                     String[] datos = line.Split(';');
-                    if (!(datos[0].Equals("NULL") || datos[1].Equals("NULL") || datos[2].Equals("NULL")))
+                    if (datos[2].Equals("NULL"))
                     {
-                        Item i = new Item(datos);
-                        Items.Add(i);
+                        datos[2] = "-1";
                     }
+                    Item i = new Item(datos);
+                    Items.Add(i);
+
                 }
                 sr.Close();
             }
@@ -60,17 +61,25 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\manuel\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
                 {
                     String[] datos = line.Split(';');
-                    if (!(datos[0].Equals("NULL") || datos[1].Equals("NULL") || datos[2].Equals("NULL") || datos[3].Equals("NULL") || datos[4].Equals("NULL")))
+
+                    if (datos[2].Equals("NULL"))
                     {
-                        Client c = new Client(datos);
-                        Clients.Add(c);
+                        datos[2] = "No indica ciudad";
                     }
+                    else if (datos[3].Equals("NULL"))
+                    {
+                        datos[2] = "No indica departamento";
+                    }
+
+                    Client c = new Client(datos);
+                    Clients.Add(c);
+
                 }
                 sr.Close();
             }
@@ -82,36 +91,44 @@ namespace Model
 
         private void LoadTransactions()
         {
-            int c = 0;
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\manuel\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    c++;
                     String[] datos = line.Split(';');
+
                     if (!(datos[4].Equals("NULL")))
                     {
-                        Transaction t = new Transaction(datos);
-                        Transactions.Add(t);
-                       
+                        datos[4] = "-1";
 
                     }
+                    Transaction t = new Transaction(datos);
+                    Transactions.Add(t);
+
+                    Clients.First(c => c.Code.Equals(t.ClientCode)).Transactions.Add(t);
+                    Items.First(i => i.Code.Equals(t.ItemCode)).Transactions.Add(t);
                 }
                 sr.Close();
             }
             catch (Exception e)
             {
 
-                Console.WriteLine("Exception: " + e.StackTrace + "     " + c);
+                Console.WriteLine("Exception: " + e.StackTrace);
             }
         }
 
 
-        //consults
-        public List<List<Item>> Group_Products()
+        //Consults
+
+        public List<Item> itemsOnTransactions()
+        {
+            return Items.Where(i => i.Transactions.Any()).ToList();
+        }
+
+        public List<List<Item>> ProductsByClasification()
         {
             List<List<Item>> prodAgrupados = new List<List<Item>>();
 
@@ -139,7 +156,7 @@ namespace Model
             return prodAgrupados;
         }
 
-        public List<List<Client>> Group_clients_by_Deparment()
+        public List<List<Client>> ClientsByDepartment()
         {
             List<List<Client>> agrupacion = new List<List<Client>>();
 
@@ -168,6 +185,10 @@ namespace Model
             return agrupacion;
         }
 
-    }
+        static void Main(string[] args)
+        {
 
+
+        }
+    }
 }
