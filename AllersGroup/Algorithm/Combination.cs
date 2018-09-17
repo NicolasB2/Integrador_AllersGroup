@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    static class Combination
+    public  class Combination
     {
         //Receives a list with the elements T and generates a list of the combinations
-        public static List<List<T>> Merge<T>(List<T> original)
+        public List<List<T>> Merge<T>(List<T> original)
         {
             List<List<T>> input = new List<List<T>>();
             original.ForEach(n => input.Add(new List<T> { n }));
@@ -18,7 +18,7 @@ namespace Algorithm
         }
 
         //Recive a itemset whit a Previous combination and combines it with the list of initial elements
-        public static List<List<T>> Merge<T>(List<List<T>> input, List<T> original)
+        public List<List<T>> Merge<T>(List<List<T>> input, List<T> original)
         {
             List<List<T>> output = new List<List<T>>();
 
@@ -43,7 +43,7 @@ namespace Algorithm
         }
 
 
-        public static List<T> BruteForce<T>()
+        public  List<T> BruteForce<T>()
         {
             return null;
         }
