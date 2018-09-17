@@ -25,20 +25,15 @@ namespace Model
             for (int i = maxItemSet; i<0;i++)
             {
                 IEnumerable<List<Item>> itemsets = Algorithms.BruteForce.Combinations(c.itemsOnTransactions(), i);
+                var aux = itemsets.ToList().Select(n => new {
 
-                itemsets.ToList().Select(n=> new {
-                });
-                    ForEach(iset=> {
-                    var aux = iset.Select(m=>m.Code);
-                    c.Transactions.GroupBy(t => t.Code).ToList().Count(n=>n.All(j=>aux.Contains(j.ItemCode)));
+                    items = n,
+                    cant = c.Transactions.GroupBy(t => t.Code).ToList().Count(g => g.All(j => n.Select(its => its.Code).Contains(j.ItemCode)))
 
-
-                })    
-                ;
-                
+                }).OrderBy(gr=>gr).Max();
+                if (aux.cant > 0)
+                    return aux.items;
             }
-
-            
                 return null;
         }
 
