@@ -48,8 +48,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="BruteForceText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ContextTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
