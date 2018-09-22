@@ -13,31 +13,38 @@ namespace Model
         {
             IEnumerable<List<Item>> itemsets = Algorithms.BruteForce.Combinations(c.itemsOnTransactions(), size);
 
+            for (int i = 0; i < itemsets.Count(); i++)
+            {
 
-
+            }
+            
             return null;
         }
 
+        private static int TransactionContainsItemset(Context c, List<Item> itemset)
+        {
+           var transaction = c.Transactions.GroupBy(t => t.Code).ToList();
+
+            int x = 0; 
+                foreach (var t in transaction)
+                {
+                for (int i = 0; i < itemset.Count(); i++)
+                {
+                    if (t.Equals(itemset.ElementAt(i)))
+                    {
+                        x++;
+                    }
+                }
+                }
+
+                 
+            return  ;
+        }
+
+
+
         public static List<Item> LargestItemset(Context c)
         {
-            int maxItemSet = c.Transactions.GroupBy(t => t.Code).Select(g => g.Count()).Max();
-
-            for (int i = maxItemSet; i<0;i++)
-            {
-                IEnumerable<List<Item>> itemsets = Algorithms.BruteForce.Combinations(c.itemsOnTransactions(), i);
-
-                itemsets.ToList().Select(n=> new {
-                });
-                    ForEach(iset=> {
-                    var aux = iset.Select(m=>m.Code);
-                    c.Transactions.GroupBy(t => t.Code).ToList().Count(n=>n.All(j=>aux.Contains(j.ItemCode)));
-
-
-                })    
-                ;
-                
-            }
-
             
                 return null;
         }
