@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
 
-namespace Model
+namespace Algorithms
 {
-    static class Consult
+    public static class Consult
     {
 
         public static List<Item> MostFrequentItemset(Context c, int size)
@@ -37,15 +38,13 @@ namespace Model
                 }
                 }
 
-                 
-            return  ;
-        }
+                    items = n,
+                    //cant = c.Transactions.GroupBy(t => t.Code).ToList().Count(g => g.All(j => n.Select(its => its.Code).Contains(j.ItemCode)))
 
-
-
-        public static List<Item> LargestItemset(Context c)
-        {
-            
+                }).First();
+                //if (aux.cant > 0)
+                    return aux.items;
+            }
                 return null;
         }
 

@@ -35,7 +35,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -43,7 +43,7 @@ namespace Model
                     String[] datos = line.Split(';');
                     if (datos[2].Equals("NULL"))
                     {
-                        datos[2] = "-1";
+                        datos[2] = "0";
                     }
                     Item i = new Item(datos);
                     Items.Add(i);
@@ -61,7 +61,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -93,23 +93,23 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
                 {
                     String[] datos = line.Split(';');
 
-                    if (!(datos[4].Equals("NULL")))
+                    if (datos[4].Equals("NULL"))
                     {
-                        datos[4] = "-1";
+                        datos[4] = "0";
 
                     }
                     Transaction t = new Transaction(datos);
                     Transactions.Add(t);
 
-                    Clients.First(c => c.Code.Equals(t.ClientCode)).Transactions.Add(t);
-                    Items.First(i => i.Code.Equals(t.ItemCode)).Transactions.Add(t);
+                    //Clients.First(c => c.Code.Equals(t.ClientCode)).Transactions.Add(t);
+                    //Items.First(i => i.Code.Equals(t.ItemCode)).Transactions.Add(t);
                 }
                 sr.Close();
             }
@@ -187,8 +187,9 @@ namespace Model
 
         static void Main(string[] args)
         {
-
-
+            Context ctx = new Context();
+            Console.WriteLine("okay");
+            Console.ReadLine();
         }
     }
 }

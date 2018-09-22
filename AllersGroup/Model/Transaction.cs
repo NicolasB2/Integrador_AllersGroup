@@ -29,6 +29,7 @@ namespace Model
             ItemPrice = int.Parse(info[6]);
             Subtotal = long.Parse(info[7]);
 
+            items = new List<Item>();
 
         }
     }
