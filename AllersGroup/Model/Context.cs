@@ -9,10 +9,11 @@ namespace Model
 {
     public class Context
     {
-        public static List<Client> Clients { get; set; }
+        public List<Client> Clients { get; set; }
         public List<Item> Items { get; set; }
         public List<Transaction> Transactions { get; set; }
 
+        public Dictionary<int, List<Item[]>> Combinations { get; set; }
 
         //Constructor
         public Context()
@@ -35,7 +36,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -61,7 +62,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -82,6 +83,8 @@ namespace Model
 
                 }
                 sr.Close();
+
+
             }
             catch (Exception e)
             {
@@ -93,68 +96,54 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
                 {
                     String[] datos = line.Split(';');
 
-                    if (datos[4].Equals("NULL"))
+                    if (!datos[4].Equals("NULL"))
                     {
-                        datos[4] = "0";
-
+                        if (Clients.FirstOrDefault(c => c.Code.Equals(datos[0])) != null && Items.FirstOrDefault(i => i.Code.Equals(datos[4])) != null)
+                        {
+                            Transaction t = new Transaction(datos);
+                            Transactions.Add(t);
+                            Clients.Find(c => c.Code.Equals(t.ClientCode)).Transactions.Add(t);
+                            Items.Find(i => i.Code.Equals(t.ItemCode)).Transactions.Add(t);
+                        }
                     }
-                    Transaction t = new Transaction(datos);
-                    Transactions.Add(t);
 
-                    //Clients.First(c => c.Code.Equals(t.ClientCode)).Transactions.Add(t);
-                    //Items.First(i => i.Code.Equals(t.ItemCode)).Transactions.Add(t);
                 }
                 sr.Close();
             }
             catch (Exception e)
             {
 
-                Console.WriteLine("Exception: " + e.StackTrace);
+                Console.WriteLine(e);
             }
         }
 
 
         //Consults
 
-        public List<Item> itemsOnTransactions()
+            public void trimClients()
         {
-            return Items.Where(i => i.Transactions.Any()).ToList();
-        }
-
-        public List<List<Item>> ProductsByClasification()
-        {
-            List<List<Item>> prodAgrupados = new List<List<Item>>();
-
-            List<string> clasificacionesAgrupadas = new List<string>();
-
-            for (int i = 0; i < Items.Count; i++)
+            foreach (Client c in Clients)
             {
-                if (!Items.ElementAt(i).Clasification.Equals("NULL") && !clasificacionesAgrupadas.Contains(Items.ElementAt(i).Clasification))
+                if (c.Transactions.GroupBy(g => g.Code).Count() <= 6)
                 {
-                    clasificacionesAgrupadas.Add(Items.ElementAt(i).Clasification);
-                    List<Item> lista = new List<Item>();
 
-                    for (int j = i; j < Items.Count; j++)
-                    {
-                        if (Items.ElementAt(j).Clasification.Equals(Items.ElementAt(i).Clasification))
-                        {
-                            lista.Add(Items.ElementAt(j));
-                        }
-                    }
-
-                    prodAgrupados.Add(lista);
+                    
+                    Clients.Remove(c);
+                    Transactions.RemoveAll(n => n.ClientCode.Equals(c.Code));
                 }
-
+                    
+               
+                    
             }
-            return prodAgrupados;
         }
+
 
         public List<List<Client>> ClientsByDepartment()
         {
@@ -185,10 +174,11 @@ namespace Model
             return agrupacion;
         }
 
+
         static void Main(string[] args)
         {
             Context ctx = new Context();
-            Console.WriteLine("okay");
+
             Console.ReadLine();
         }
     }

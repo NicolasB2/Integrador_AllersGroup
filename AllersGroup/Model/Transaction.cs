@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace Model
         public int ItemPrice { get; set; }
         public long Subtotal { get; set; }
 
+        public ICollection<Item> items { get; set; }
 
         public Transaction(String[] info)
         {
@@ -32,6 +34,8 @@ namespace Model
             items = new List<Item>();
 
         }
+
+
     }
 
 }

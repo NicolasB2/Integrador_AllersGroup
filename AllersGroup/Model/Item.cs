@@ -19,7 +19,8 @@ namespace Model
             Code = int.Parse(info[0]);
             Name = info[1];
             Clasification = info[2];
-            this.Transactions = new HashSet<Transaction>();
+
+            this.Transactions = new List<Transaction>();
 
         }
 

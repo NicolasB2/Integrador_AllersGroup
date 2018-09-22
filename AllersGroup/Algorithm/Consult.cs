@@ -7,46 +7,33 @@ using Model;
 
 namespace Algorithms
 {
-    public static class Consult
+    public class Consult
     {
+        private Context context;
 
-        public static List<Item> MostFrequentItemset(Context c, int size)
+        public Consult()
         {
-            IEnumerable<List<Item>> itemsets = Algorithms.BruteForce.Combinations(c.itemsOnTransactions(), size);
+            context = new Context();
+        }
 
-            for (int i = 0; i < itemsets.Count(); i++)
+        /**
+         * Return a list of all the itemsets of a determinated size.
+         * size: the size of the itemset. 
+         **/
+        public List<Item[]> GenerateItemSet(int size) {
+
+            List<Item[]> itemset = null;
+            if (context.Combinations.ContainsKey(size)) {
+                itemset= context.Combinations[size];
+            }
+            else
             {
-
+                itemset= BruteForce.Combinations(context.Items, size).ToList();
+                context.Combinations.Add(size, itemset);
             }
+
             
-            return null;
+            return itemset;
         }
-
-        private static int TransactionContainsItemset(Context c, List<Item> itemset)
-        {
-           var transaction = c.Transactions.GroupBy(t => t.Code).ToList();
-
-            int x = 0; 
-                foreach (var t in transaction)
-                {
-                for (int i = 0; i < itemset.Count(); i++)
-                {
-                    if (t.Equals(itemset.ElementAt(i)))
-                    {
-                        x++;
-                    }
-                }
-                }
-
-                    items = n,
-                    //cant = c.Transactions.GroupBy(t => t.Code).ToList().Count(g => g.All(j => n.Select(its => its.Code).Contains(j.ItemCode)))
-
-                }).First();
-                //if (aux.cant > 0)
-                    return aux.items;
-            }
-                return null;
-        }
-
     }
 }

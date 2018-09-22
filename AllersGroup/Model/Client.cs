@@ -12,9 +12,8 @@ namespace Model
 
         public Client(String[] info)
         {
-            this.Transactions = new HashSet<Transaction>();
+            this.Transactions = new List<Transaction>();
 
-            ItemsRelacionados = new List<Item>();
             Code = info[0];
             Name = info[1];
             City = info[2];
@@ -27,11 +26,10 @@ namespace Model
         public string City { get; set; }
         public string Departament { get; set; }
         public string Payment { get; set; }
-        public List<Item> ItemsRelacionados { get; set; }
 
-        public ICollection<Transaction> Transactions { get; set; }
+        public List <Transaction>Transactions { get; set; }
 
-        public Client findClient(String c)
+        public Client FindClient(String c)
         {
             if (Code.Equals(c))
             {
@@ -42,6 +40,19 @@ namespace Model
             return null;
             }
         }
+
+        public void addTransaction(Transaction t)
+        {
+            if (t != null)
+            {
+                Transactions.Add(t);
+            }
+            else
+            {
+                throw new Exception("Null transaction. (Class: Client) ");
+            }
+        }
+
     }
 
 }
