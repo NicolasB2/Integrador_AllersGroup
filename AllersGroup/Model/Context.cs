@@ -133,14 +133,9 @@ namespace Model
             {
                 if (c.Transactions.GroupBy(g => g.Code).Count() <= 6)
                 {
-
-                    
                     Clients.Remove(c);
                     Transactions.RemoveAll(n => n.ClientCode.Equals(c.Code));
-                }
-                    
-               
-                    
+                }                    
             }
         }
 
