@@ -30,8 +30,8 @@ namespace UnitTests
             Assert.IsTrue(ctx.Items.Any());
             Assert.IsTrue(ctx.Transactions.Any());
 
-            Assert.IsTrue(ctx.Clients.Count()== 4862);
-            Assert.IsTrue(ctx.Items.Count()== 10932);
+            Assert.IsTrue(ctx.Clients.Count() == 4862);
+            Assert.IsTrue(ctx.Items.Count() == 10932);
             Assert.IsTrue(ctx.Transactions.Count()== 149299);
         }
 

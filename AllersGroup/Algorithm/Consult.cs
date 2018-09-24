@@ -9,7 +9,7 @@ namespace Algorithms
 {
     public class Consult
     {
-        private static Context context;
+        public Context context;
 
         public Consult()
         {
@@ -20,7 +20,7 @@ namespace Algorithms
          * Return a list of all the itemsets of a determinated size.
          * size: the size of the itemset. 
          **/
-        public static List<Item[]> GenerateItemSet(int size) {
+        public List<Item[]> GenerateItemSet(int size) {
 
             List<Item[]> itemset = null;
             if (context.Combinations.ContainsKey(size)) {
@@ -37,10 +37,10 @@ namespace Algorithms
         }
 
          /**
-         * Counts in how many transactions a given itemset occurs.
-         * itemsetCodes : Array of codes of a itemset.
+          * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
+         * itemset : Array of codes of a itemset.
          **/
-        public static int FrecuencyItemSet(int[] itemsetCodes)
+        public int SupportCount(Item[] itemset)
         {            
             int c = 0;
 
@@ -53,9 +53,9 @@ namespace Algorithms
 
                 bool containsAll = true;
 
-                for (int j = 0; j < itemsetCodes.Count() && containsAll; j++)
+                for (int j = 0; j < itemset.Count() && containsAll; j++)
                 {
-                    if (!listItemCodes.Contains(itemsetCodes.ElementAt(j)))
+                    if (!listItemCodes.Contains(itemset.ElementAt(j).Code))
                     {
                         containsAll = false; 
                     }   
@@ -67,6 +67,31 @@ namespace Algorithms
                 }
             }
             return c;
+        }
+
+        public List<Item[]> FrequentItemset(int threshold, int itemsetSize)
+        {
+            List<Item[]> itemsets = GenerateItemSet(itemsetSize);
+            List<Item[]> frequentItemset = new List<Item[]>();
+
+
+            for (int i = 0; i < itemsets.Count(); i++)
+            {
+
+                if (Support(itemsets.ElementAt(i)) > threshold )
+                {
+                    frequentItemset.Add(itemsets.ElementAt(i)); 
+                }
+            }
+            return frequentItemset; 
+        }
+
+        public double Support(Item[] itemset)
+        {
+            int supportCount = SupportCount(itemset);
+            int totalTransactions = context.Transactions.GroupBy(t => t.Code).ToList().Count();
+
+            return supportCount / totalTransactions; 
         }
     }
 }
