@@ -72,19 +72,13 @@ namespace UnitTests
             Solution = new List<String[]>{ new String[] { "Beer", "Milk", "Diapers", "Bread", "Eggs" }};
         }
 
-        public void SetUp5()
-        {
-           
-
-        }
 
         private void Comparer(int x) {
-            IEnumerable<List<String>> a = Algorithms.BruteForce.Combinations(Data, x);
+            IEnumerable<String[]> a = Algorithms.BruteForce.Combinations(Data, x);
             int aux = 0;
-            foreach (List<String> n in a)
+            foreach (String[] n in a)
             {
-                n.SequenceEqual(Solution.ToList().ElementAt(aux));
-                aux++;
+                    n.SequenceEqual(Solution.ToList().ElementAt(aux));
             }
         }
 
