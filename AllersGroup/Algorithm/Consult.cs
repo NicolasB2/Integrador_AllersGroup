@@ -9,7 +9,7 @@ namespace Algorithms
 {
     public class Consult
     {
-        private Context context;
+        private static Context context;
 
         public Consult()
         {
@@ -20,7 +20,7 @@ namespace Algorithms
          * Return a list of all the itemsets of a determinated size.
          * size: the size of the itemset. 
          **/
-        public List<Item[]> GenerateItemSet(int size) {
+        public static List<Item[]> GenerateItemSet(int size) {
 
             List<Item[]> itemset = null;
             if (context.Combinations.ContainsKey(size)) {
@@ -34,6 +34,19 @@ namespace Algorithms
 
             
             return itemset;
+        }
+
+        public static Dictionary<List<Model.Item>, int> FrecuencyItemSets(Item[] itemsets)
+        {
+            
+            for (int i = 0; i < context.Transactions.Count(); i++)
+            {
+                Transaction actualT = context.Transactions.ElementAt(i);
+
+
+            }
+
+            return null;
         }
     }
 }
