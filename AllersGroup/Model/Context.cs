@@ -36,7 +36,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -62,7 +62,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -96,7 +96,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -105,13 +105,13 @@ namespace Model
 
                     if (!datos[4].Equals("NULL"))
                     {
-                        if (Clients.FirstOrDefault(c => c.Code.Equals(datos[0])) != null && Items.FirstOrDefault(i => i.Code.Equals(datos[4])) != null)
-                        {
+                        //if (Clients.FirstOrDefault(c => c.Code.Equals(datos[0])) != null && Items.FirstOrDefault(i => i.Code.Equals(datos[4])) != null)
+                        //{
                             Transaction t = new Transaction(datos);
                             Transactions.Add(t);
-                            Clients.Find(c => c.Code.Equals(t.ClientCode)).Transactions.Add(t);
-                            Items.Find(i => i.Code.Equals(t.ItemCode)).Transactions.Add(t);
-                        }
+                            //Clients.Find(c => c.Code.Equals(t.ClientCode)).Transactions.Add(t);
+                            //Items.Find(i => i.Code.Equals(t.ItemCode)).Transactions.Add(t);
+                        //}
                     }
 
                 }
@@ -119,7 +119,6 @@ namespace Model
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e);
             }
         }
@@ -127,7 +126,7 @@ namespace Model
 
         //Consults
 
-            public void trimClients()
+            public void TrimClients()
         {
             foreach (Client c in Clients)
             {
@@ -173,7 +172,11 @@ namespace Model
         static void Main(string[] args)
         {
             Context ctx = new Context();
+            Console.WriteLine("clients {0}", ctx.Clients.Count());
+            Console.WriteLine("Items {0}", ctx.Items.Count());
+            Console.WriteLine("Transactions {0}", ctx.Transactions.Count());
 
+            Console.WriteLine("yes");
             Console.ReadLine();
         }
     }
