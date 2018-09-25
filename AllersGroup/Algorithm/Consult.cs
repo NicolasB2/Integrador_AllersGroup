@@ -28,7 +28,8 @@ namespace Algorithms
             }
             else
             {
-                itemset= BruteForce.Combinations(context.Items, size).ToList();
+                var m = context.Items.Select(s => s.Value).ToList();
+                itemset = BruteForce.Combinations(m, size).ToList();
                 context.Combinations.Add(size, itemset);
             }
 
@@ -41,33 +42,20 @@ namespace Algorithms
          * itemset : Array of codes of a itemset.
          **/
         public int SupportCount(Item[] itemset)
-        {            
-            int c = 0;
-
-            List<IGrouping<int, Transaction>> transactionsByCode = context.Transactions.GroupBy(t => t.Code).ToList();
-
-            for (int i = 0; i < transactionsByCode.Count(); i++)
-            {
-                IGrouping<int, Transaction> actualT = transactionsByCode.ElementAt(i);
-                List<int> listItemCodes = actualT.Select(g => g.ItemCode).Distinct().ToList();
-
-                bool containsAll = true;
-
-                for (int j = 0; j < itemset.Count() && containsAll; j++)
-                {
-                    if (!listItemCodes.Contains(itemset.ElementAt(j).Code))
-                    {
-                        containsAll = false; 
-                    }   
-                }
-
-                if (containsAll)
-                {
-                    c++;
-                }
-            }
-            return c;
+        {
+            List<List<Item>> dataBase = context.Transactions.Select(t => t.Value.Items).ToList(); 
+            return BruteForce.SupportCount(itemset, dataBase);
         }
+
+        public double Support(Item[] itemset)
+        {
+            List<List<Item>> dataBase = context.Transactions.Select(t => t.Value.Items).ToList();
+            int supportCount = SupportCount(itemset);
+            int totalTransactions = context.Transactions.Select(t=>t.Value).GroupBy(t => t.Code).ToList().Count();
+
+            return BruteForce.Support(itemset,dataBase,totalTransactions);
+        }
+
 
         public List<Item[]> FrequentItemset(int threshold, int itemsetSize)
         {
@@ -86,12 +74,6 @@ namespace Algorithms
             return frequentItemset; 
         }
 
-        public double Support(Item[] itemset)
-        {
-            int supportCount = SupportCount(itemset);
-            int totalTransactions = context.Transactions.GroupBy(t => t.Code).ToList().Count();
-
-            return supportCount / totalTransactions; 
-        }
+       
     }
 }

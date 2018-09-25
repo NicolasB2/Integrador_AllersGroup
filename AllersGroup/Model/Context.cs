@@ -9,10 +9,13 @@ namespace Model
 {
     public class Context
     {
-        public List<Client> Clients { get; set; }
-        public List<Item> Items { get; set; }
-        public List<Transaction> Transactions { get; set; }
+        //public List<Client> Clients { get; set; }
+        //public List<Item> Items { get; set; }
+        //public List<Transaction> Transactions { get; set; }
 
+        public Dictionary<String, Client> Clients { get; set; }
+        public Dictionary<int,Item> Items { get; set; }
+        public Dictionary<int, Transaction> Transactions { get; set; }
         public Dictionary<int, List<Item[]>> Combinations { get; set; }
 
         //Constructor
@@ -21,9 +24,9 @@ namespace Model
 
             DateTime tiempo1 = DateTime.Now;
 
-            Items = new List<Item>();
-            Clients = new List<Client>();
-            Transactions = new List<Transaction>();
+            Items = new Dictionary<int, Item>();
+            Clients = new Dictionary<String, Client>() ;
+            Transactions = new Dictionary<int, Transaction>();
 
             LoadItems();
             LoadClients();
@@ -36,7 +39,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -47,8 +50,7 @@ namespace Model
                         datos[2] = "0";
                     }
                     Item i = new Item(datos);
-                    Items.Add(i);
-
+                    Items.Add(i.Code,i);
                 }
                 sr.Close();
             }
@@ -58,11 +60,12 @@ namespace Model
             }
         }
 
+
         private void LoadClients()
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -78,9 +81,11 @@ namespace Model
                         datos[2] = "No indica departamento";
                     }
 
-                    Client c = new Client(datos);
-                    Clients.Add(c);
-
+                    if (!Clients.ContainsKey(datos[0]))
+                    {
+                        Client c = new Client(datos);
+                        Clients.Add(c.Code, c);
+                    }
                 }
                 sr.Close();
 
@@ -96,7 +101,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -107,8 +112,21 @@ namespace Model
                     {
                         //if (Clients.FirstOrDefault(c => c.Code.Equals(datos[0])) != null && Items.FirstOrDefault(i => i.Code.Equals(datos[4])) != null)
                         //{
-                            Transaction t = new Transaction(datos);
-                            Transactions.Add(t);
+                        if (!Transactions.ContainsKey(int.Parse(datos[1])))
+                        {
+                            if (Items.ContainsKey(Int32.Parse(datos[4])))
+                            {
+                                Transaction t = new Transaction(datos, Items[Int32.Parse(datos[4])]);
+                                Transactions.Add(t.Code, t);
+                            }
+                            
+                        }
+                        else
+                        {
+                            if (Items.ContainsKey(Int32.Parse(datos[4])))
+                                Transactions[int.Parse(datos[1])].AddSold(datos[4], datos[5], datos[6], datos[7],Items[Int32.Parse(datos[4])]);
+                        }
+                            
                             //Clients.Find(c => c.Code.Equals(t.ClientCode)).Transactions.Add(t);
                             //Items.Find(i => i.Code.Equals(t.ItemCode)).Transactions.Add(t);
                         //}
@@ -126,48 +144,21 @@ namespace Model
 
         //Consults
 
-            public void TrimClients()
+        public void TrimClients()
         {
-            foreach (Client c in Clients)
+            foreach (var c in Clients)
             {
-                if (c.Transactions.GroupBy(g => g.Code).Count() <= 6)
+                if (Transactions.Count(t => t.Value.ClientCode == c.Key) <= 6)
                 {
-                    Clients.Remove(c);
-                    Transactions.RemoveAll(n => n.ClientCode.Equals(c.Code));
-                }                    
-            }
-        }
-
-
-        public List<List<Client>> ClientsByDepartment()
-        {
-            List<List<Client>> agrupacion = new List<List<Client>>();
-
-
-            List<string> regionesAgrupadas = new List<string>();
-
-            for (int i = 0; i < Clients.Count; i++)
-            {
-                if (!regionesAgrupadas.Contains(Clients.ElementAt(i).Departament))
-                {
-                    regionesAgrupadas.Add(Clients.ElementAt(i).Departament);
-                    List<Client> lista = new List<Client>();
-
-                    for (int j = i; j < Clients.Count; j++)
+                    Clients.Remove(c.Key);
+                    foreach (var t in Transactions)
                     {
-                        if (Clients.ElementAt(j).Departament.Equals(Clients.ElementAt(i).Departament))
-                        {
-                            lista.Add(Clients.ElementAt(j));
-                        }
+                        if (t.Value.ClientCode == c.Key)
+                            Transactions.Remove(t.Key);
                     }
-
-                    agrupacion.Add(lista);
-                }
-
+                }                   
             }
-            return agrupacion;
         }
-
 
         static void Main(string[] args)
         {

@@ -18,24 +18,31 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void Text1()
+        public void LoadClientsTest()
         {
             SetUp1();
-
             Assert.IsNotNull(ctx.Clients);
-            Assert.IsNotNull(ctx.Items);
-            Assert.IsNotNull(ctx.Transactions);
-
             Assert.IsTrue(ctx.Clients.Any());
-            Assert.IsTrue(ctx.Items.Any());
-            Assert.IsTrue(ctx.Transactions.Any());
-
-            Assert.IsTrue(ctx.Clients.Count() == 4862);
-            Assert.IsTrue(ctx.Items.Count() == 10932);
-            Assert.IsTrue(ctx.Transactions.Count()== 149299);
+            Assert.IsTrue(ctx.Clients.Count() == 4334);
         }
 
- 
+        [TestMethod]
+        public void LoadItemsTest()
+        {
+            SetUp1();
+            Assert.IsNotNull(ctx.Items);
+            Assert.IsTrue(ctx.Items.Any());
+            Assert.IsTrue(ctx.Items.Count() == 10932);
+        }
 
-    }
+        [TestMethod]
+        public void LoadTransactionTest()
+        {
+            SetUp1();
+            Assert.IsNotNull(ctx.Transactions);
+            Assert.IsTrue(ctx.Transactions.Any());
+            Assert.IsTrue(ctx.Transactions.Count() == 22175);
+        }
+
+    }        
 }

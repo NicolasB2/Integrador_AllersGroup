@@ -13,28 +13,33 @@ namespace Model
         public int Code { get; set; }
         public System.DateTime Date { get; set; }
         public long Total { get; set; }
-        public int ItemCode { get; set; }
-        public int QuantityItems { get; set; }
-        public int ItemPrice { get; set; }
-        public long Subtotal { get; set; }
+        public List<Sold> Solds { get; set; }
+        public List<Item> Items { get; set; }
 
-        public ICollection<Item> items { get; set; }
-
-        public Transaction(String[] info)
+        public Transaction(String[] info,Item item)
         {
+            Solds = new List<Sold>();
+            Items = new List<Item>();
+
             ClientCode = info[0];
             Code = int.Parse(info[1]);
             Date = Convert.ToDateTime(info[2]);
             Total = long.Parse(info[3]);
-            ItemCode = int.Parse(info[4]);
-            QuantityItems = int.Parse(info[5]);
-            ItemPrice = int.Parse(info[6]);
-            Subtotal = long.Parse(info[7]);
 
-            items = new List<Item>();
+           
+            Sold a = new Sold(info[4], info[5], info[6], info[7]);
+            Solds.Add(a);
+            Items.Add(item);
+               
 
         }
 
+        public void AddSold(String ItemCode, String QuantityItems, String ItemPrice, String Subtotal, Item item)
+        {
+            Sold a = new Sold(ItemCode,QuantityItems,ItemPrice,Subtotal);
+            Solds.Add(a);
+            Items.Add(item);
+        }
 
     }
 
