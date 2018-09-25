@@ -9,7 +9,7 @@ using Algorithms;
 namespace UnitTests
 {
     [TestClass]
-    public class BruteForceText
+    public class CombinationText
     {
         private List<String> Data;
         private IEnumerable<String[]> Solution;
