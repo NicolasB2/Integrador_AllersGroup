@@ -48,10 +48,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BruteForceText.cs" />
+    <Compile Include="CombinationText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContextTest.cs" />
-    <Compile Include="ConsultTest.cs" />
+    <Compile Include="BruteForceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
