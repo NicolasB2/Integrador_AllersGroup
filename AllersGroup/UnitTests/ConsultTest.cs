@@ -16,22 +16,7 @@ namespace UnitTests
 
         public void SetUp()
         {
-            consult = new Consult();
-            Solution =new [] {0,0,0,0,0,0,3,4,3,3};
-
-
-            itemSets = new List<Item[]>
-            {   new Item[]{consult.context.Items.First(n=> n.Value.Code == 18210).Value, consult.context.Items.First(n => n.Value.Code == 516).Value, consult.context.Items.First(n => n.Value.Code == 524).Value},
-                new Item[]{consult.context.Items.First(n=> n.Value.Code == 18210).Value, consult.context.Items.First(n => n.Value.Code == 516).Value, consult.context.Items.First(n => n.Value.Code == 514).Value},
-                new Item[]{consult.context.Items.First(n=> n.Value.Code == 18210).Value, consult.context.Items.First(n => n.Value.Code == 516).Value, consult.context.Items.First(n => n.Value.Code == 552).Value},
-                new Item[]{consult.context.Items.First(n=> n.Value.Code == 18210).Value, consult.context.Items.First(n => n.Value.Code == 524).Value, consult.context.Items.First(n => n.Value.Code == 514).Value},
-                new Item[]{consult.context.Items.First(n=> n.Value.Code == 18210).Value, consult.context.Items.First(n => n.Value.Code == 524).Value, consult.context.Items.First(n => n.Value.Code == 552).Value},
-                new Item[]{consult.context.Items.First(n=> n.Value.Code == 18210).Value, consult.context.Items.First(n => n.Value.Code == 514).Value, consult.context.Items.First(n => n.Value.Code == 552).Value},
-                new Item[]{consult.context.Items.First(n=> n.Value.Code == 516).Value, consult.context.Items.First(n => n.Value.Code == 524).Value, consult.context.Items.First(n => n.Value.Code == 514).Value},
-                new Item[]{consult.context.Items.First(n=> n.Value.Code == 516).Value, consult.context.Items.First(n => n.Value.Code == 524).Value, consult.context.Items.First(n => n.Value.Code == 552).Value},
-                new Item[]{consult.context.Items.First(n=> n.Value.Code == 516).Value, consult.context.Items.First(n => n.Value.Code == 514).Value, consult.context.Items.First(n => n.Value.Code == 552).Value},
-                new Item[]{consult.context.Items.First(n=> n.Value.Code == 524).Value, consult.context.Items.First(n => n.Value.Code == 514).Value, consult.context.Items.First(n => n.Value.Code == 552).Value }
-            };
+           
 
                                          
         }

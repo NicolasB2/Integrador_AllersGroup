@@ -11,14 +11,18 @@ namespace Algorithms
         /**
         * Return a list of all the itemsets of a determinated size.
         * size: the size of the itemset. 
+        * items: List of items to co
         **/
-        public static IEnumerable<T[]> Combinations<T>(this IList<T> argList, int argSetSize)
+        public static IEnumerable<T[]> Combinations<T>(this IList<T> items, int size)
         {
-            if (argList == null) throw new ArgumentNullException("argList");
-            if (argSetSize <= 0) throw new ArgumentException("argSetSize Must be greater than 0", "argSetSize");
-            return combinationsImpl(argList, 0, argSetSize - 1);
+            if (items == null) throw new ArgumentNullException("The item list can't be empty.");
+            if (size <= 0) throw new ArgumentException("The size of the itemset must be greater than 0");
+            return combinationsImpl(items, 0, size - 1);
         }
 
+        /**  
+         * 
+         **/
         private static IEnumerable<T[]> combinationsImpl<T>(IList<T> argList, int argStart, int argIteration, List<int> argIndicies = null)
         {
             argIndicies = argIndicies ?? new List<int>();
@@ -47,13 +51,12 @@ namespace Algorithms
         }
 
 
-
-
         /**
          * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
         * itemset : Array of codes of a itemset.
+        * dataBase: List of all itemsets of a determinated size.
         **/
-        public static int SupportCount<T>(T[] itemset,List<List<T>> dataBase)
+        public static int SupportCount<T>(T[] itemset, List<List<T>> dataBase)
         {
             int c = 0;
 
@@ -79,22 +82,34 @@ namespace Algorithms
             return c;
         }
 
-
-        public static double Support<T>(T[] itemset,List<List<T>> dataBase,int total)
+        /**
+         * Fraction of the transactions in which an itemset appears.
+         * itemset: Array of items that form the itemset.
+         * transactionsDataBase: List of all the transactions.
+         **/
+        public static double Support<T>(T[] itemset, List<List<T>> transactionsDataBase, int total)
         {
-            int supportCount = SupportCount(itemset,dataBase);
+            int supportCount = SupportCount(itemset, transactionsDataBase);
             return supportCount / total;
         }
 
-        public static List<T[]> FrequentItemset<T>(List<T[]> itemsets, List<List<T>> dataBase,int total, int threshold, int itemsetSize)
+        /**
+         *Finds all the itemsets whose support is greater than or equal to a given threshold.
+         * Returns a List
+         *itemsets:
+         * dataBase: List of all the itemsets
+         * total:
+         * threshold:
+         **/
+
+        public static List<T[]> FrequentItemset<T>(List<T[]> itemsets, List<List<T>> dataBase, int total, 
+            int threshold)
         {
             List<T[]> frequentItemset = new List<T[]>();
-
-
             for (int i = 0; i < itemsets.Count(); i++)
             {
 
-                if (Support(itemsets.ElementAt(i),dataBase,total) > threshold)
+                if (Support(itemsets.ElementAt(i), dataBase, total) > threshold)
                 {
                     frequentItemset.Add(itemsets.ElementAt(i));
                 }

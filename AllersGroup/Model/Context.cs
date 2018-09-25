@@ -9,9 +9,6 @@ namespace Model
 {
     public class Context
     {
-        //public List<Client> Clients { get; set; }
-        //public List<Item> Items { get; set; }
-        //public List<Transaction> Transactions { get; set; }
 
         public Dictionary<String, Client> Clients { get; set; }
         public Dictionary<int,Item> Items { get; set; }
@@ -39,7 +36,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Items.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -65,7 +62,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Clients.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
@@ -101,7 +98,7 @@ namespace Model
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
+                StreamReader sr = new StreamReader(@"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\Transactions.csv");
 
                 String line;
                 while ((line = sr.ReadLine()) != null)
