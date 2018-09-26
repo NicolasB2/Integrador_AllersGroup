@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Sold
+    public class Asset
     {
 
         public int ItemCode { get; set; }
@@ -14,7 +14,7 @@ namespace Model
         public int ItemPrice { get; set; }
         public long Subtotal { get; set; }
 
-        public Sold(String ItemCode, String QuantityItems, String ItemPrice, String Subtotal)
+        public Asset(String ItemCode, String QuantityItems, String ItemPrice, String Subtotal)
         {
             this.ItemCode = int.Parse(ItemCode);
             this.QuantityItems = int.Parse(QuantityItems);
