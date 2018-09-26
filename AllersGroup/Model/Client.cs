@@ -41,7 +41,7 @@ namespace Model
             }
         }
 
-        public void addTransaction(Transaction t)
+        public void AddTransaction(Transaction t)
         {
             if (t != null)
             {

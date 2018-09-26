@@ -13,7 +13,7 @@ namespace Algorithms
 
         public Consult()
         {
-            context = new Context();
+            context = new Context(Context.dataBase);
         }
 
         /**

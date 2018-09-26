@@ -24,5 +24,10 @@ namespace Model
 
         }
 
+        public void AddTransaction(Transaction t)
+        {
+            Transactions.Add(t);
+        } 
+
     }
 }

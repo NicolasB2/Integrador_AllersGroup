@@ -14,7 +14,7 @@ namespace UnitTests
         private Context ctx;
         public void SetUp1()
         {
-            ctx = new Context();
+            ctx = new Context(Context.dataBase);
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace UnitTests
             SetUp1();
             Assert.IsNotNull(ctx.Transactions);
             Assert.IsTrue(ctx.Transactions.Any());
-            Assert.IsTrue(ctx.Transactions.Count() == 22175);
+            Assert.IsTrue(ctx.Transactions.Count() == 21843);
         }
 
     }        

@@ -11,7 +11,6 @@ namespace UnitTests
     public class BruteForceTest
     {
         private List<List <String>> model;
-        private List<String[]> itemsets;
         private List<String> data;
  
 
