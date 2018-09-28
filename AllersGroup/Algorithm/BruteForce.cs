@@ -52,18 +52,17 @@ namespace Algorithms
 
 
         /**
-         * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
-        * itemset : Array of codes of a itemset.
-        * dataBase: List of all itemsets of a determinated size.
+        * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
+        * itemset : Itemset
+        * transactions: List of all transactions
         **/
-        public static int SupportCount<T>(T[] itemset, List<List<T>> dataBase)
+        public static int SupportCount<T>(T[] itemset, List<List<T>> transactions)
         {
             int c = 0;
 
-            for (int i = 0; i < dataBase.Count(); i++)
+            for (int i = 0; i < transactions.Count(); i++)
             {
-
-                List<T> actualT = dataBase.ElementAt(i);
+                List<T> actualT = transactions.ElementAt(i);
                 bool containsAll = true;
 
                 for (int j = 0; j < itemset.Count() && containsAll; j++)
@@ -84,7 +83,7 @@ namespace Algorithms
 
         /**
          * Fraction of the transactions in which an itemset appears.
-         * itemset: Array of items that form the itemset.
+         * itemset: A given itemset.
          * transactionsDataBase: List of all the transactions.
          **/
         public static double Support<T>(T[] itemset, List<List<T>> transactionsDataBase)
@@ -115,5 +114,7 @@ namespace Algorithms
             }
             return frequentItemset;
         }
+
+
     }
 }

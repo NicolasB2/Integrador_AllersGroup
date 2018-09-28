@@ -43,18 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BruteForce.cs" />
-    <Compile Include="Consult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{8e8e6505-40f9-47bb-94ab-50e86c6556e1}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

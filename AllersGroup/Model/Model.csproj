@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="Consult.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,6 +55,12 @@
     <None Include="Data\Clients.csv" />
     <None Include="Data\Items.csv" />
     <None Include="Data\Transactions.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Algorithm\Algorithms.csproj">
+      <Project>{60da772b-f777-431c-891a-88ca3931d208}</Project>
+      <Name>Algorithms</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

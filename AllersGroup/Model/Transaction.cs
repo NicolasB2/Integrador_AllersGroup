@@ -13,12 +13,13 @@ namespace Model
         public int Code { get; set; }
         public System.DateTime Date { get; set; }
         public long Total { get; set; }
-        public List<Asset> Solds { get; set; }
+
+        public List<Asset> Assets { get; set; }
         public List<Item> Items { get; set; }
 
         public Transaction(String[] info,Item item)
         {
-            Solds = new List<Asset>();
+            Assets = new List<Asset>();
             Items = new List<Item>();
 
             ClientCode = info[0];
@@ -28,16 +29,17 @@ namespace Model
 
            
             Asset a = new Asset(info[4], info[5], info[6], info[7]);
-            Solds.Add(a);
+            Assets.Add(a);
+
             Items.Add(item);
                
 
         }
 
-        public void AddSold(String ItemCode, String QuantityItems, String ItemPrice, String Subtotal, Item item)
+        public void AddAsset(String ItemCode, String QuantityItems, String ItemPrice, String Subtotal, Item item)
         {
             Asset a = new Asset(ItemCode,QuantityItems,ItemPrice,Subtotal);
-            Solds.Add(a);
+            Assets.Add(a);
             Items.Add(item);
         }
 
