@@ -48,11 +48,11 @@ namespace UnitTests
         public void SupportTest()
         {
             SetUp();
-            Assert.IsTrue(BruteForce.Support(new String[] { "Bread", "Milk", "Diapers" }, model,model.Count()) == 2/5);
-            Assert.IsTrue(BruteForce.Support(new String[] { "Milk", "Diapers" }, model, model.Count()) == 3 / 5);
-            Assert.IsTrue(BruteForce.Support(new String[] { "Eggs", "Coke" }, model, model.Count()) == 0 / 5);
-            Assert.IsTrue(BruteForce.Support(new String[] { "Bread", "Milk" }, model, model.Count()) == 3 / 5);
-            Assert.IsTrue(BruteForce.Support(new String[] { "Beer", "Diapers" }, model, model.Count()) == 3 / 5); ;
+            Assert.IsTrue(BruteForce.Support(new String[] { "Bread", "Milk", "Diapers" }, model) == 2/5);
+            Assert.IsTrue(BruteForce.Support(new String[] { "Milk", "Diapers" }, model) == 3 / 5);
+            Assert.IsTrue(BruteForce.Support(new String[] { "Eggs", "Coke" }, model) == 0 / 5);
+            Assert.IsTrue(BruteForce.Support(new String[] { "Bread", "Milk" }, model) == 3 / 5);
+            Assert.IsTrue(BruteForce.Support(new String[] { "Beer", "Diapers" }, model) == 3 / 5); ;
 
         }
     }

@@ -87,10 +87,10 @@ namespace Algorithms
          * itemset: Array of items that form the itemset.
          * transactionsDataBase: List of all the transactions.
          **/
-        public static double Support<T>(T[] itemset, List<List<T>> transactionsDataBase, int total)
+        public static double Support<T>(T[] itemset, List<List<T>> transactionsDataBase)
         {
             int supportCount = SupportCount(itemset, transactionsDataBase);
-            return supportCount / total;
+            return supportCount / transactionsDataBase.Count();
         }
 
         /**
@@ -102,14 +102,13 @@ namespace Algorithms
          * threshold:
          **/
 
-        public static List<T[]> FrequentItemset<T>(List<T[]> itemsets, List<List<T>> dataBase, int total, 
-            int threshold)
+        public static List<T[]> FrequentItemset<T>(List<T[]> itemsets, List<List<T>> dataBase, int threshold)
         {
             List<T[]> frequentItemset = new List<T[]>();
             for (int i = 0; i < itemsets.Count(); i++)
             {
 
-                if (Support(itemsets.ElementAt(i), dataBase, total) > threshold)
+                if (Support(itemsets.ElementAt(i), dataBase) > threshold)
                 {
                     frequentItemset.Add(itemsets.ElementAt(i));
                 }
