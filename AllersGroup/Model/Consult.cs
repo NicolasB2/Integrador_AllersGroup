@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Algorithms;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Model
@@ -80,31 +78,55 @@ namespace Model
 
         public void TrimClientsAndTransactions()
         {
+            List<String> clientsD = new List<String>();
+            List<int> transactiondsD = new List<int>();
 
             foreach (var c in context.Clients)
             {
                 if (context.Transactions.Count(t => t.Value.ClientCode == c.Key) <= 6)
                 {
                     //context.Clients.Remove(c.Key);
+                    clientsD.Add(c.Key);
+
                     foreach (var t in context.Transactions)
                     {
-                        if (t.Value.ClientCode == c.Key) { }
-                            //context.Transactions.Remove(t.Key);
+
+                        if (t.Value.ClientCode == c.Key)
+                        {
+                            transactiondsD.Add(t.Key);
+                        }
                     }
                 }
             }
-        }
 
+            foreach (var c in clientsD)
+            {
+                context.Clients.Remove(c);
+            }
+
+            foreach (var t in transactiondsD)
+            {
+                context.Transactions.Remove(t);
+            }
+        }
 
         public void TrimItems()
         {
+            List<int> itemsD = new List<int>();
+
             List<Item[]> itemset_1 = GenerateItemSet(1);
             foreach (var i in itemset_1)
             {
-                if (!(SupportCount(i) < 2000))
+                if (SupportCount(i) == 0)
                 {
-                    context.Items.Remove(i[0].Code);
+                    itemsD.Add(i[0].Code);
+                    Console.WriteLine(SupportCount(i));
                 }
+            }
+
+            foreach (var i in itemsD)
+            {
+                context.Items.Remove(i);
             }
         }
 
@@ -124,6 +146,7 @@ namespace Model
             Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Items {0}", c.context.Items.Count());
 
+            Console.WriteLine("yes");
             Console.ReadLine();
         }
 

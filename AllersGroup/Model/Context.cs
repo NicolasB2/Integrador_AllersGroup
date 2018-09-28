@@ -17,6 +17,7 @@ namespace Model
         public Dictionary<String, Client> Clients { get; set; }
         public Dictionary<int, Item> Items { get; set; }
         public Dictionary<int, Transaction> Transactions { get; set; }
+
         public Dictionary<int, List<Item[]>> Combinations { get; set; }
 
 
