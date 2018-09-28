@@ -11,7 +11,7 @@ namespace Model
     public class Context
     {
 
-        public static String dataBase = @"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
+        public static String dataBase = @"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
 
         public String path;
         public Dictionary<String, Client> Clients { get; set; }
@@ -21,13 +21,12 @@ namespace Model
 
 
         //Constructor
-        public Context(String path)
+        public Context()
         {
             Combinations = new Dictionary<int, List<Item[]>>();
-            //FALTA AGREGAR COMBINACIONS A Combinatios.
 
 
-            this.path = path;
+            this.path = dataBase;
             DateTime tiempo1 = DateTime.Now;
 
             Items = new Dictionary<int, Item>();

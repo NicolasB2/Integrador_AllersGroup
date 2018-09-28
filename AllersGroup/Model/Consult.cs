@@ -14,7 +14,8 @@ namespace Model
 
         public Consult()
         {
-            context = new Context(Context.dataBase);
+            context = new Context();
+            GenerateItemSet(1);
         }
 
         /**
@@ -81,17 +82,28 @@ namespace Model
         public void TrimClientsAndTransactions()
         {
 
+            List<int> codes = new List<int>();
+            List<String> delet = new List<string>();
             foreach (var c in context.Clients)
             {
                 if (context.Transactions.Count(t => t.Value.ClientCode == c.Key) <= 6)
                 {
-                    //context.Clients.Remove(c.Key);
+                    delet.Add(c.Key);
                     foreach (var t in context.Transactions)
                     {
-                        if (t.Value.ClientCode == c.Key) { }
-                            //context.Transactions.Remove(t.Key);
+                        if (t.Value.ClientCode == c.Key)
+                            codes.Add(t.Key);
                     }
                 }
+            }
+            foreach (var n in delet)
+            {
+                context.Clients.Remove(n);
+            }
+
+            foreach (var n in codes)
+            {
+                context.Transactions.Remove(n);
             }
         }
 
@@ -101,7 +113,7 @@ namespace Model
             List<Item[]> itemset_1 = GenerateItemSet(1);
             foreach (var i in itemset_1)
             {
-                if (!(SupportCount(i) < 2000))
+                if (!(SupportCount(i) < 200))
                 {
                     context.Items.Remove(i[0].Code);
                 }
@@ -124,7 +136,9 @@ namespace Model
             Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Items {0}", c.context.Items.Count());
 
-            Console.ReadLine();
+            Console.WriteLine("fin");
+
+           Console.ReadLine();
         }
 
     }
