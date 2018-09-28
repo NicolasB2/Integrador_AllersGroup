@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Algorithms;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Model
@@ -14,8 +12,7 @@ namespace Model
 
         public Consult()
         {
-            context = new Context();
-            GenerateItemSet(1);
+            context = new Context(Context.dataBase);
         }
 
         /**
@@ -81,42 +78,55 @@ namespace Model
 
         public void TrimClientsAndTransactions()
         {
+            List<String> clientsD = new List<String>();
+            List<int> transactiondsD = new List<int>();
 
-            List<int> codes = new List<int>();
-            List<String> delet = new List<string>();
             foreach (var c in context.Clients)
             {
                 if (context.Transactions.Count(t => t.Value.ClientCode == c.Key) <= 6)
                 {
-                    delet.Add(c.Key);
+                    //context.Clients.Remove(c.Key);
+                    clientsD.Add(c.Key);
+
                     foreach (var t in context.Transactions)
                     {
+
                         if (t.Value.ClientCode == c.Key)
-                            codes.Add(t.Key);
+                        {
+                            transactiondsD.Add(t.Key);
+                        }
                     }
                 }
             }
-            foreach (var n in delet)
+
+            foreach (var c in clientsD)
             {
-                context.Clients.Remove(n);
+                context.Clients.Remove(c);
             }
 
-            foreach (var n in codes)
+            foreach (var t in transactiondsD)
             {
-                context.Transactions.Remove(n);
+                context.Transactions.Remove(t);
             }
         }
 
-
         public void TrimItems()
         {
+            List<int> itemsD = new List<int>();
+
             List<Item[]> itemset_1 = GenerateItemSet(1);
             foreach (var i in itemset_1)
             {
-                if (!(SupportCount(i) < 200))
+                if (SupportCount(i) == 0)
                 {
-                    context.Items.Remove(i[0].Code);
+                    itemsD.Add(i[0].Code);
+                    Console.WriteLine(SupportCount(i));
                 }
+            }
+
+            foreach (var i in itemsD)
+            {
+                context.Items.Remove(i);
             }
         }
 
@@ -136,9 +146,8 @@ namespace Model
             Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Items {0}", c.context.Items.Count());
 
-            Console.WriteLine("fin");
-
-           Console.ReadLine();
+            Console.WriteLine("yes");
+            Console.ReadLine();
         }
 
     }
