@@ -59,7 +59,8 @@ namespace Algorithms
             return candidates;
         }
 
-        public static List<T[]> GenerateFrequentItemsetsFromCandidates<T>(List<T[]> itemsets, List<List<T>> dataBse, int threshold)
+        public static List<T[]> GenerateFrequentItemsetsFromCandidates<T>(List<T[]> itemsets, 
+            List<List<T>> dataBse, int threshold)
         {
             return BruteForce.FrequentItemset(itemsets, dataBse, threshold);
         }
