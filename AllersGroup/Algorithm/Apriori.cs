@@ -34,7 +34,7 @@ namespace Algorithms
                 if (flag)
                 {
                     candidate[length - 1] = itemset1[length - 1];
-                    candidate[length - 0] = itemset2[length - 1];
+                    candidate[length] = itemset2[length - 1];
                 }
 
             }
