@@ -1,18 +1,12 @@
-﻿using System;
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
-namespace Algorithm
+namespace Algorithms
 {
-    public class Apriori
+    public static class Apriori
     {
-
-
-        public T[] GenerateCandidates<T>(T[] itemset1, T[] itemset2)
+        public static T[] GenerateCandidates<T>(T[] itemset1, T[] itemset2)
         {
 
             if (itemset1.Count() == itemset2.Count())
@@ -46,20 +40,28 @@ namespace Algorithm
             return null;
         }
 
-        public List<T[]> GenerateNextCandidates<T>(List<T[]> itemsets)
+        public static List<T[]> GenerateNextCandidates<T>(List<T[]> itemsets)
         {
             List<T[]> candidates = new List<T[]>();
 
             for (int i = 0; i < itemsets.Count(); i++)
             {
-                for (int j = i+1; j < itemsets.Count(); j++ )
+                for (int j = i + 1; j < itemsets.Count(); j++)
                 {
-                    candidates.Add(GenerateCandidates(itemsets.ElementAt(i), itemsets.ElementAt(j)));
+                    T[] newItemSet = GenerateCandidates(itemsets.ElementAt(i), itemsets.ElementAt(j));
+                    if (newItemSet != null)
+                    {
+                        candidates.Add(newItemSet);
+                    }
                 }
             }
-            return candidates; 
+            return candidates;
         }
 
+        public static List<T[]> GenerateFrequentItemsets<T>(List<T[]> itemsets, List<List<T>> dataBse, int threshold)
+        {
+            return BruteForce.FrequentItemset(itemsets, dataBse, threshold);
+        }
 
     }
 }
