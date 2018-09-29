@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    class Apriori
+    public class Apriori
     {
+
+
         public T[] GenerateCandidates<T>(T[] itemset1, T[] itemset2)
         {
 
@@ -42,5 +44,21 @@ namespace Algorithm
             }
             return null;
         }
+
+        public List<T[]> GenerateNextCandidates<T>(List<T[]> itemsets)
+        {
+            List<T[]> candidates = new List<T[]>();
+
+            for (int i = 0; i < itemsets.Count(); i++)
+            {
+                for (int j = i+1; j < itemsets.Count(); j++ )
+                {
+                    candidates.Add(GenerateCandidates(itemsets.ElementAt(i), itemsets.ElementAt(j)));
+                }
+            }
+            return candidates; 
+        }
+
+
     }
 }
