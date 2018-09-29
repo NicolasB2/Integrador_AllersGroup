@@ -27,6 +27,7 @@ namespace Algorithm
                 {
                     if (itemset1.ElementAt(i).Equals(itemset2.ElementAt(i)))
                     {
+                        Console.WriteLine("bb");
                         candidate[i] = itemset1[i];
                     }
                     else
