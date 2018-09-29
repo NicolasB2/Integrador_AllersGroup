@@ -8,7 +8,7 @@ namespace Algorithms
     {
         public static T[] GenerateCandidate<T>(T[] itemset1, T[] itemset2)
         {
-            T[] candidate = null;
+            T[] candidate = null; 
 
             if (itemset1.Count() == itemset2.Count())
             {
@@ -16,6 +16,7 @@ namespace Algorithms
                 int length = itemset1.Count();
                 candidate = new T[length+1];
                 bool flag = true;
+
 
                 for (int i = 0; i < length - 1 && flag; i++)
                 {
@@ -58,7 +59,7 @@ namespace Algorithms
             return candidates;
         }
 
-        public static List<T[]> GenerateFrequentItemsets<T>(List<T[]> itemsets, List<List<T>> dataBse, int threshold)
+        public static List<T[]> GenerateFrequentItemsetsFromCandidates<T>(List<T[]> itemsets, List<List<T>> dataBse, int threshold)
         {
             return BruteForce.FrequentItemset(itemsets, dataBse, threshold);
         }
