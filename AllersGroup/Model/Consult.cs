@@ -131,6 +131,18 @@ namespace Model
         }
 
 
+        public void Apriori()
+        {
+
+            //Itemsets of size 1.
+            List<Item[]> itemsets = GenerateItemSet(1);
+            for (int i = 0; i < itemsets.Count(); i++) 
+            {
+
+            }
+
+        }
+
         static void Main(string[] args)
         {
             Consult c = new Consult();

@@ -6,16 +6,17 @@ namespace Algorithms
 {
     public static class Apriori
     {
-        public static T[] GenerateCandidates<T>(T[] itemset1, T[] itemset2)
+        public static T[] GenerateCandidate<T>(T[] itemset1, T[] itemset2)
         {
+            T[] candidate = null; 
 
             if (itemset1.Count() == itemset2.Count())
             {
 
                 int length = itemset1.Count();
-                T[] candidate = new T[length];
-
+                candidate = new T[length+1];
                 bool flag = true;
+
 
                 for (int i = 0; i < length - 1 && flag; i++)
                 {
@@ -26,17 +27,18 @@ namespace Algorithms
                     else
                     {
                         flag = false;
+                        candidate = null;
                     }
                 }
 
                 if (flag)
                 {
-                    candidate[length - 2] = itemset1[length - 1];
-                    candidate[length - 1] = itemset2[length - 1];
+                    candidate[length - 1] = itemset1[length - 1];
+                    candidate[length - 0] = itemset2[length - 1];
                 }
 
             }
-            return null;
+            return candidate;
         }
 
         public static List<T[]> GenerateNextCandidates<T>(List<T[]> itemsets)
@@ -47,7 +49,7 @@ namespace Algorithms
             {
                 for (int j = i + 1; j < itemsets.Count(); j++)
                 {
-                    T[] newItemSet = GenerateCandidates(itemsets.ElementAt(i), itemsets.ElementAt(j));
+                    T[] newItemSet = GenerateCandidate(itemsets.ElementAt(i), itemsets.ElementAt(j));
                     if (newItemSet != null)
                     {
                         candidates.Add(newItemSet);
@@ -57,7 +59,7 @@ namespace Algorithms
             return candidates;
         }
 
-        public static List<T[]> GenerateFrequentItemsets<T>(List<T[]> itemsets, List<List<T>> dataBse, int threshold)
+        public static List<T[]> GenerateFrequentItemsetsFromCandidates<T>(List<T[]> itemsets, List<List<T>> dataBse, int threshold)
         {
             return BruteForce.FrequentItemset(itemsets, dataBse, threshold);
         }
