@@ -8,7 +8,16 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            List<String[]>  data = new List<String[]> { new[] { "Beer" }, new[] { "Bread" },new[] {"Eggs" }, new[] { "Diapers" }, new[] { "Milk" } };
+            List<String[]>  data = new List<String[]>
+                        {
+                        new[] {"Beer",   "Eggs" },
+                        new[] {"Beer"   ,"Diapers" },
+                        new[] {"Bread"   ,"Eggs" },
+                        new[] {"Bread"   ,"Milk" },
+                        new[] {"Eggs"   ,"Milk" },
+                        new[] {"Diapers"   ,"Milk" },
+                        };
+
             var sara = Apriori.GenerateNextCandidates(data);
             foreach(String[] s in sara)
             {

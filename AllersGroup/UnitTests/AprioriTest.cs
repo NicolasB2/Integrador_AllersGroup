@@ -12,7 +12,7 @@ namespace UnitTests
         private  List<String[]> data;
         private List<String[]> solution;
 
-        private void SetUp()
+        private void SetUp1()
         {
             data = new List<String[]> { new[] { "Beer" }, new[] { "Bread" }, new[] { "Eggs" }, new[] { "Diapers" }, new[] { "Milk" } };
             solution = new List<String[]>
@@ -27,6 +27,29 @@ namespace UnitTests
                         new[] {"Eggs"   ,"Milk" },
                         new[] {"Diapers"   ,"Milk" },
                         };
+
+
+        }
+
+
+        private void SetUp2()
+        {
+
+            data = new List<String[]>
+                        {
+                        new[] {"Beer",   "Cola" },
+                        new[] {"Beer"   ,"Diapers" },
+                        new[] {"Bread"   ,"Eggs" },
+                        new[] {"Bread"   ,"Milk" },
+                        new[] {"Eggs"   ,"Milk" },
+                        new[] {"Diapers"   ,"Milk" },
+                        };
+
+            solution = new List<String[]>
+                        {
+                        new[] {"Beer",   "Cola" ,  "Diapers"},
+                        new[] { "Bread",   "Eggs", "Milk" }
+                         };
         }
 
         [TestMethod]
@@ -71,10 +94,23 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void TestNextCandidates()
+        public void TestNextCandidatesSize2()
         {
-            SetUp();
+            SetUp1();
             var a =  Apriori.GenerateNextCandidates(data);
+            int aux = 0;
+            foreach (String[] n in a)
+            {
+                n.SequenceEqual(solution.ToList().ElementAt(aux));
+                aux++;
+            }
+        }
+
+
+        public void TestNextCandidatesSize3()
+        {
+            SetUp2();
+            var a = Apriori.GenerateNextCandidates(data);
             int aux = 0;
             foreach (String[] n in a)
             {

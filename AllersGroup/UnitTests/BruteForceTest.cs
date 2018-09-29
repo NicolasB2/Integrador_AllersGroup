@@ -102,7 +102,6 @@ namespace UnitTests
         }
 
 
-
         [TestMethod]
         public void Combinations_size_1()
         {
