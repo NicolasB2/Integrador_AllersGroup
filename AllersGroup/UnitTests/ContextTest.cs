@@ -14,7 +14,7 @@ namespace UnitTests
         private Context ctx;
         public void SetUp1()
         {
-            ctx = new Context(Context.dataBase);
+            ctx = new Context();
         }
 
         [TestMethod]

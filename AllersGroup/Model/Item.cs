@@ -12,22 +12,17 @@ namespace Model
         public string Name { get; set; }
         public string Clasification { get; set; }
 
-        public ICollection<Transaction> Transactions { get; set; }
+        /**
+         * Creates and Item.
+         * info: Array of the information of the item; code, name and clasification.
+         **/
 
         public Item(String[] info)
         {
             Code = int.Parse(info[0]);
             Name = info[1];
             Clasification = info[2];
-
-            this.Transactions = new List<Transaction>();
-
         }
-
-        public void AddTransaction(Transaction t)
-        {
-            Transactions.Add(t);
-        } 
 
     }
 }

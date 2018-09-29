@@ -10,25 +10,21 @@ namespace Model
 {
     public class Context
     {
-
-        public static String dataBase = @"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
-
-        public String path;
+        public static String path= @"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
         public Dictionary<String, Client> Clients { get; set; }
         public Dictionary<int, Item> Items { get; set; }
         public Dictionary<int, Transaction> Transactions { get; set; }
 
         public Dictionary<int, List<Item[]>> Combinations { get; set; }
 
-
-        //Constructor
-        public Context(String path)
+        /**
+         * Creates a Context.
+         **/
+        public Context()
         {
             Combinations = new Dictionary<int, List<Item[]>>();
             //FALTA AGREGAR COMBINACIONS A Combinatios.
-
-
-            this.path = path;
+            
             DateTime tiempo1 = DateTime.Now;
 
             Items = new Dictionary<int, Item>();
@@ -41,7 +37,11 @@ namespace Model
         }
 
 
-        //Loads
+
+        /**
+         * Load the items.
+         * If the item has it's clasifications as 'NULL' then it's given the '0' clasification. 
+         **/
         private void LoadItems()
         {
             try
@@ -67,7 +67,11 @@ namespace Model
             }
         }
 
-
+        /**
+         * Load the clients.
+         * If the city equals to 'NULL' then is asigned the value of 'No indica ciudad' 
+         * If the department equals to 'NULL' then is asigned the value 'No indica departamento'
+         **/
         private void LoadClients()
         {
             try
@@ -85,7 +89,7 @@ namespace Model
                     }
                     else if (datos[3].Equals("NULL"))
                     {
-                        datos[2] = "No indica departamento";
+                        datos[3] = "No indica departamento";
                     }
 
                     if (!Clients.ContainsKey(datos[0]))
@@ -104,6 +108,9 @@ namespace Model
             }
         }
 
+        /**
+         * Load the Transactions 
+         **/
         private void LoadTransactions()
         {
             try
@@ -121,9 +128,9 @@ namespace Model
                         {
                             if (Items.ContainsKey(Int32.Parse(datos[4])) && Clients.ContainsKey(datos[0]))
                             {
-                                Transaction t = new Transaction(datos, Items[Int32.Parse(datos[4])]);
+                                Transaction t = new Transaction(datos);
+                                t.AddItem(Items[Int32.Parse(datos[4])]);
                                 Transactions.Add(t.Code, t);
-                                Items[Int32.Parse(datos[4])].AddTransaction(t);
                                 Clients[datos[0]].AddTransaction(t);
                             }
 
@@ -131,7 +138,11 @@ namespace Model
                         else
                         {
                             if (Items.ContainsKey(Int32.Parse(datos[4])))
-                                Transactions[int.Parse(datos[1])].AddAsset(datos[4], datos[5], datos[6], datos[7], Items[Int32.Parse(datos[4])]);
+                            {
+                                Transactions[int.Parse(datos[1])].AddAsset(datos[4], datos[5], datos[6], datos[7]);
+                                Transactions[int.Parse(datos[1])].AddItem(Items[Int32.Parse(datos[4])]);
+                            }
+                                
                         }
                     }
 

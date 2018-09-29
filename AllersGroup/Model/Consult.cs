@@ -12,7 +12,7 @@ namespace Model
 
         public Consult()
         {
-            context = new Context(Context.dataBase);
+            context = new Context();
         }
 
         /**
@@ -76,7 +76,7 @@ namespace Model
             return frequentItemset;
         }
 
-        public void TrimClientsAndTransactions()
+        public void PrunningClientsAndTransactions()
         {
             List<String> clientsD = new List<String>();
             List<int> transactiondsD = new List<int>();
@@ -110,7 +110,7 @@ namespace Model
             }
         }
 
-        public void TrimItems()
+        public void PrunningItems()
         {
             List<int> itemsD = new List<int>();
 
@@ -139,8 +139,8 @@ namespace Model
             Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
-            c.TrimClientsAndTransactions();
-            c.TrimItems();
+            c.PrunningClientsAndTransactions();
+            c.PrunningItems();
 
             Console.WriteLine("Clients {0}", c.context.Clients.Count());
             Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
