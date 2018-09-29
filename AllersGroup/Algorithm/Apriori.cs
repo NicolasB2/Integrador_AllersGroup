@@ -6,7 +6,7 @@ namespace Algorithms
 {
     public static class Apriori
     {
-        public static T[] GenerateCandidates<T>(T[] itemset1, T[] itemset2)
+        public static T[] GenerateCandidate<T>(T[] itemset1, T[] itemset2)
         {
             T[] candidate = null;
 
@@ -48,7 +48,7 @@ namespace Algorithms
             {
                 for (int j = i + 1; j < itemsets.Count(); j++)
                 {
-                    T[] newItemSet = GenerateCandidates(itemsets.ElementAt(i), itemsets.ElementAt(j));
+                    T[] newItemSet = GenerateCandidate(itemsets.ElementAt(i), itemsets.ElementAt(j));
                     if (newItemSet != null)
                     {
                         candidates.Add(newItemSet);

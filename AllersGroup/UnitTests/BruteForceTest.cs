@@ -97,6 +97,7 @@ namespace UnitTests
             foreach (String[] n in a)
             {
                 n.SequenceEqual(solution.ToList().ElementAt(aux));
+                aux++;
             }
         }
 
