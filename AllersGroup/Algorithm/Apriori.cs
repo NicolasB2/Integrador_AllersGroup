@@ -8,36 +8,36 @@ namespace Algorithms
     {
         public static T[] GenerateCandidates<T>(T[] itemset1, T[] itemset2)
         {
+            T[] candidate = null;
 
             if (itemset1.Count() == itemset2.Count())
             {
 
                 int length = itemset1.Count();
-                T[] candidate = new T[length];
-
+                candidate = new T[length+1];
                 bool flag = true;
 
                 for (int i = 0; i < length - 1 && flag; i++)
                 {
                     if (itemset1.ElementAt(i).Equals(itemset2.ElementAt(i)))
                     {
-                        Console.WriteLine("bb");
                         candidate[i] = itemset1[i];
                     }
                     else
                     {
                         flag = false;
+                        candidate = null;
                     }
                 }
 
                 if (flag)
                 {
-                    candidate[length - 2] = itemset1[length - 1];
-                    candidate[length - 1] = itemset2[length - 1];
+                    candidate[length - 1] = itemset1[length - 1];
+                    candidate[length] = itemset2[length - 1];
                 }
 
             }
-            return null;
+            return candidate;
         }
 
         public static List<T[]> GenerateNextCandidates<T>(List<T[]> itemsets)
