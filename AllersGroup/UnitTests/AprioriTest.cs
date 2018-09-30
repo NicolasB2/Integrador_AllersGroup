@@ -9,10 +9,44 @@ namespace UnitTests
     [TestClass]
     public class AprioriTest
     {
-        private  List<String[]> data;
+        private List<String[]> data;
         private List<String[]> solution;
+        private List<String[]> imputs;
+        private String[] candidates;
+
 
         private void SetUp1()
+        {
+            imputs = new List<String[]>();
+            imputs.Add(new[] { "Bread", "Milk" });
+            imputs.Add(new[] { "Beer", "Diapers" });
+            imputs.Add(new[] { "Cola", "Diapers" });
+            imputs.Add(new[] { "Beer", "Cola" });
+
+        }
+
+        private void SetUp2()
+        {
+            imputs = new List<String[]>();
+            imputs.Add(new[] { "Bread", "Diapers" });
+            imputs.Add(new[] { "Bread", "Milk" });
+            imputs.Add(new[] { "Beer", "Cola" });
+            imputs.Add(new[] { "Beer", "Diapers" });
+            imputs.Add(new[] { "Bread", "Eggs" });
+        }
+
+        private void SetUp3()
+        {
+            imputs = new List<String[]>();
+            imputs.Add(new[] { "Beer", "Bread", "Milk" });
+            imputs.Add(new[] { "Beer", "Bread", "Diapers" });
+            imputs.Add(new[] { "Beer", "Cola", "Diapers" });
+            imputs.Add(new[] { "Beer", "Cola", "Eggs" });
+            imputs.Add(new[] { "Bread", "Diapers", "Eggs" });
+            imputs.Add(new[] { "Bread", "Diapers", "Milk" });
+        }
+
+        private void SetUp4()
         {
             data = new List<String[]> { new[] { "Beer" }, new[] { "Bread" }, new[] { "Eggs" }, new[] { "Diapers" }, new[] { "Milk" } };
             solution = new List<String[]>
@@ -27,14 +61,10 @@ namespace UnitTests
                         new[] {"Eggs"   ,"Milk" },
                         new[] {"Diapers"   ,"Milk" },
                         };
-
-
         }
 
-
-        private void SetUp2()
+        private void SetUp5()
         {
-
             data = new List<String[]>
                         {
                         new[] {"Beer",   "Cola" },
@@ -52,64 +82,59 @@ namespace UnitTests
                          };
         }
 
+        private void SetUp6()
+        {
+
+        }
+
         [TestMethod]
         public void TestCandidateNull()
         {
-            var sara = Apriori.GenerateCandidate(new[] { "Bread", "Milk" }, new[] { "Beer", "Diapers" });
-            Assert.IsTrue(sara == null);
-            sara = Apriori.GenerateCandidate(new[] { "Bread", "Milk" }, new[] { "Cola", "Diapers" });
-            Assert.IsTrue(sara == null);
-            sara = Apriori.GenerateCandidate(new[] { "Bread", "Milk" }, new[] { "Cola", "Beer" });
-            Assert.IsTrue(sara == null);
+            SetUp1();
+            candidates = Apriori.GenerateCandidate(imputs.ElementAt(0), imputs.ElementAt(1));
+            Assert.IsTrue(candidates == null);
+            candidates = Apriori.GenerateCandidate(imputs.ElementAt(0), imputs.ElementAt(2));
+            Assert.IsTrue(candidates == null);
+            candidates = Apriori.GenerateCandidate(imputs.ElementAt(0), imputs.ElementAt(3));
+            Assert.IsTrue(candidates == null);
         }
 
         [TestMethod]
         public void TestCandidate2x2()
         {
-            var sara = Apriori.GenerateCandidate(new[] { "Bread", "Milk" }, new[] { "Bread", "Diapers" });
-            Assert.IsTrue(sara != null);
-            Assert.IsTrue(sara.Length == 3);
-            Assert.IsTrue(sara[2] == "Diapers");
-            sara = Apriori.GenerateCandidate(new[] { "Beer", "Diapers" }, new[] { "Beer", "Cola" });
-            Assert.IsTrue(sara != null);
-            Assert.IsTrue(sara[2] == "Cola");
-            sara = Apriori.GenerateCandidate(new[] { "Bread", "Milk" }, new[] { "Bread", "Eggs" });
-            Assert.IsTrue(sara != null);
-            Assert.IsTrue(sara[2] == "Eggs");
+            SetUp2();
+            candidates = Apriori.GenerateCandidate(imputs.ElementAt(0), imputs.ElementAt(1));
+            Assert.IsTrue(candidates != null);
+            Assert.IsTrue(candidates.Length == 3);
+            Assert.IsTrue(candidates[2] == "Milk");
+            candidates = Apriori.GenerateCandidate(imputs.ElementAt(2), imputs.ElementAt(3));
+            Assert.IsTrue(candidates != null);
+            Assert.IsTrue(candidates[1] == "Cola");
+            candidates = Apriori.GenerateCandidate(imputs.ElementAt(0), imputs.ElementAt(4));
+            Assert.IsTrue(candidates != null);
+            Assert.IsTrue(candidates[2] == "Eggs");
         }
 
         [TestMethod]
         public void TestCandidate3x3()
         {
-            var sara = Apriori.GenerateCandidate(new[] { "Bread", "Milk", "Beer" }, new[] { "Bread", "Diapers", "Beer" });
-            Assert.IsTrue(sara == null);
-            sara = Apriori.GenerateCandidate(new[] { "Beer", "Diapers", "Cola" }, new[] { "Beer", "Diapers", "Eggs" });
-            Assert.IsTrue(sara != null);
-            Assert.IsTrue(sara[2] == "Cola");
-            Assert.IsTrue(sara[3] == "Eggs");
-            sara = Apriori.GenerateCandidate(new[] { "Bread", "Milk", "Diapers" }, new[] { "Bread", "Milk", "Eggs" });
-            Assert.IsTrue(sara != null);
-            Assert.IsTrue(sara[2] == "Diapers");
-            Assert.IsTrue(sara[3] == "Eggs");
+            SetUp3();
+            candidates = Apriori.GenerateCandidate(imputs.ElementAt(0), imputs.ElementAt(4));
+            Assert.IsTrue(candidates == null);
+            candidates = Apriori.GenerateCandidate(imputs.ElementAt(2), imputs.ElementAt(3));
+            Assert.IsTrue(candidates != null);
+            Assert.IsTrue(candidates[2] == "Diapers");
+            Assert.IsTrue(candidates[3] == "Eggs");
+            candidates = Apriori.GenerateCandidate(imputs.ElementAt(4), imputs.ElementAt(5));
+            Assert.IsTrue(candidates != null);
+            Assert.IsTrue(candidates[2] == "Eggs");
+            Assert.IsTrue(candidates[3] == "Milk");
         }
 
         [TestMethod]
-        public void TestNextCandidatesSize2()
+        public void TestNextCandidates_Size2()
         {
-            SetUp1();
-            var a =  Apriori.GenerateNextCandidates(data);
-            int aux = 0;
-            foreach (String[] n in a)
-            {
-                n.SequenceEqual(solution.ToList().ElementAt(aux));
-                aux++;
-            }
-        }
-
-
-        public void TestNextCandidatesSize3()
-        {
-            SetUp2();
+            SetUp4();
             var a = Apriori.GenerateNextCandidates(data);
             int aux = 0;
             foreach (String[] n in a)
@@ -117,6 +142,24 @@ namespace UnitTests
                 n.SequenceEqual(solution.ToList().ElementAt(aux));
                 aux++;
             }
+        }
+
+        [TestMethod]
+        public void TestNextCandidates_Size3()
+        {
+            SetUp5();
+            var a = Apriori.GenerateNextCandidates(data);
+            int aux = 0;
+            foreach (String[] n in a)
+            {
+                n.SequenceEqual(solution.ToList().ElementAt(aux));
+                aux++;
+            }
+        }
+
+        [TestMethod]
+        public void GenerateFrequentCandidates()
+        {
         }
     }
 }

@@ -12,11 +12,9 @@ namespace Algorithms
 
             if (itemset1.Count() == itemset2.Count())
             {
-
                 int length = itemset1.Count();
                 candidate = new T[length+1];
                 bool flag = true;
-
 
                 for (int i = 0; i < length - 1 && flag; i++)
                 {
@@ -36,7 +34,6 @@ namespace Algorithms
                     candidate[length - 1] = itemset1[length - 1];
                     candidate[length] = itemset2[length - 1];
                 }
-
             }
             return candidate;
         }
@@ -59,7 +56,7 @@ namespace Algorithms
             return candidates;
         }
 
-        public static List<T[]> GenerateFrequentItemsetsFromCandidates<T>(List<T[]> itemsets, 
+        public static List<T[]> GenerateFrequentCandidates<T>(List<T[]> itemsets, 
             List<List<T>> dataBse, int threshold)
         {
             return BruteForce.FrequentItemset(itemsets, dataBse, threshold);
