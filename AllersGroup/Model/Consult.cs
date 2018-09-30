@@ -19,7 +19,7 @@ namespace Model
          * Return a list of all the itemsets of a determinated size.
          * size: the size of the itemset. 
          **/
-        public List<Item[]> GenerateItemSet(int size)
+        public List<Item[]> GenerateItemSet_BruteForce(int size)
         {
 
             List<Item[]> itemset = null;
@@ -61,7 +61,7 @@ namespace Model
 
         public List<Item[]> FrequentItemset(int threshold, int itemsetSize)
         {
-            List<Item[]> itemsets = GenerateItemSet(itemsetSize);
+            List<Item[]> itemsets = GenerateItemSet_BruteForce(itemsetSize);
             List<Item[]> frequentItemset = new List<Item[]>();
 
 
@@ -85,7 +85,6 @@ namespace Model
             {
                 if (context.Transactions.Count(t => t.Value.ClientCode == c.Key) <= 6)
                 {
-                    //context.Clients.Remove(c.Key);
                     clientsD.Add(c.Key);
 
                     foreach (var t in context.Transactions)
@@ -114,7 +113,7 @@ namespace Model
         {
             List<int> itemsD = new List<int>();
 
-            List<Item[]> itemset_1 = GenerateItemSet(1);
+            List<Item[]> itemset_1 = GenerateItemSet_BruteForce(1);
             foreach (var i in itemset_1)
             {
                 if (SupportCount(i) == 0)
@@ -131,16 +130,10 @@ namespace Model
         }
 
 
-        public void Apriori()
+        public void Apriori(int threshold)
         {
-
             //Itemsets of size 1.
-            List<Item[]> itemsets = GenerateItemSet(1);
-            for (int i = 0; i < itemsets.Count(); i++) 
-            {
-
-            }
-
+            List<Item[]> itemsets = GenerateItemSet_BruteForce(1);
         }
 
         static void Main(string[] args)

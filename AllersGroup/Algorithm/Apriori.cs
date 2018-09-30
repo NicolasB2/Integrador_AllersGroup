@@ -6,6 +6,24 @@ namespace Algorithms
 {
     public static class Apriori
     {
+
+        public static List<T[]> GenerateAllFrecuentItemsets<T>(List<T[]> items, List<List<T>> transactions,int threshold)
+        {
+
+            List<T[]> frecuentItemsSets = new List<T[]>();
+            List<T[]> itemsets = Algorithms.Apriori.GenerateFrequentItemsetsFromCandidates(items, transactions, threshold);
+            int size = 1;
+                
+            while (itemsets.Count() != 0)
+            {
+                itemsets = Algorithms.Apriori.GenerateNextCandidates(itemsets);
+                itemsets = Algorithms.Apriori.GenerateFrequentItemsetsFromCandidates(itemsets, transactions, threshold);
+                frecuentItemsSets.AddRange(itemsets);
+                size++;
+            }
+            return frecuentItemsSets;
+        }
+
         public static T[] GenerateCandidate<T>(T[] itemset1, T[] itemset2)
         {
             T[] candidate = null; 
