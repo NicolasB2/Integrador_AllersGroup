@@ -130,10 +130,14 @@ namespace Model
         }
 
 
-        public void Apriori(int threshold)
+        public List<Item[]> Apriori(int threshold)
         {
             //Itemsets of size 1.
             List<Item[]> itemsets = GenerateItemSet_BruteForce(1);
+            List<List<Item>> transactions = context.Transactions.Select(t => t.Value.Items).ToList();
+            Algorithms.Apriori.GenerateAllFrecuentItemsets(itemsets,transactions,threshold);
+            return null;
+
         }
 
         static void Main(string[] args)
