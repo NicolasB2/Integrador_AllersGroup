@@ -7,17 +7,17 @@ namespace Algorithms
     public static class Apriori
     {
 
-        public static List<T[]> GenerateAllFrecuentItemsets<T>(List<T[]> items, List<List<T>> transactions,int threshold)
+        public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(List<T[]> items, List<List<T>> transactions,int threshold)
         {
 
             List<T[]> frecuentItemsSets = new List<T[]>();
-            List<T[]> itemsets = Algorithms.Apriori.GenerateFrequentItemsetsFromCandidates(items, transactions, threshold);
+            IEnumerable<T[]> itemsets = GenerateFrequentCandidates(items, transactions, threshold);
             int size = 1;
                 
             while (itemsets.Count() != 0)
             {
-                itemsets = Algorithms.Apriori.GenerateNextCandidates(itemsets);
-                itemsets = Algorithms.Apriori.GenerateFrequentItemsetsFromCandidates(itemsets, transactions, threshold);
+                itemsets = GenerateNextCandidates(itemsets);
+                itemsets = GenerateFrequentCandidates(itemsets, transactions, threshold);
                 frecuentItemsSets.AddRange(itemsets);
                 size++;
             }
@@ -56,7 +56,7 @@ namespace Algorithms
             return candidate;
         }
 
-        public static List<T[]> GenerateNextCandidates<T>(List<T[]> itemsets)
+        public static IEnumerable<T[]> GenerateNextCandidates<T>(IEnumerable<T[]> itemsets)
         {
             List<T[]> candidates = new List<T[]>();
 
@@ -74,7 +74,7 @@ namespace Algorithms
             return candidates;
         }
 
-        public static List<T[]> GenerateFrequentCandidates<T>(List<T[]> itemsets, 
+        public static IEnumerable<T[]> GenerateFrequentCandidates<T>(IEnumerable<T[]> itemsets, 
             List<List<T>> dataBse, int threshold)
         {
             return BruteForce.FrequentItemset(itemsets, dataBse, threshold);

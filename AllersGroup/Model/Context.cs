@@ -4,28 +4,22 @@ using System.IO;
 using System.Linq;
 using Algorithms;
 
-
-
 namespace Model
 {
     public class Context
     {
-        public static String path= @"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
+        public static String path= @"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
         public Dictionary<String, Client> Clients { get; set; }
         public Dictionary<int, Item> Items { get; set; }
         public Dictionary<int, Transaction> Transactions { get; set; }
-
-        public Dictionary<int, List<Item[]>> Combinations { get; set; }
+        public List<Item[]> FrecuentItemsets { get; set; }
 
         /**
          * Creates a Context.
          **/
         public Context()
         {
-            Combinations = new Dictionary<int, List<Item[]>>();
-            //FALTA AGREGAR COMBINACIONS A Combinatios.
-            
-            DateTime tiempo1 = DateTime.Now;
+            FrecuentItemsets = new List<Item[]>();
 
             Items = new Dictionary<int, Item>();
             Clients = new Dictionary<String, Client>();
@@ -35,7 +29,6 @@ namespace Model
             LoadClients();
             LoadTransactions();
         }
-
 
 
         /**
@@ -99,8 +92,6 @@ namespace Model
                     }
                 }
                 sr.Close();
-
-
             }
             catch (Exception e)
             {
@@ -133,7 +124,6 @@ namespace Model
                                 Transactions.Add(t.Code, t);
                                 Clients[datos[0]].AddTransaction(t);
                             }
-
                         }
                         else
                         {
@@ -141,11 +131,9 @@ namespace Model
                             {
                                 Transactions[int.Parse(datos[1])].AddAsset(datos[4], datos[5], datos[6], datos[7]);
                                 Transactions[int.Parse(datos[1])].AddItem(Items[Int32.Parse(datos[4])]);
-                            }
-                                
+                            }                                
                         }
                     }
-
                 }
                 sr.Close();
             }
@@ -154,9 +142,5 @@ namespace Model
                 Console.WriteLine(e);
             }
         }
-
-
-
-
     }
 }

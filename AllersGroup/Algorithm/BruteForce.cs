@@ -6,6 +6,17 @@ namespace Algorithms
 {
     public static class BruteForce
     {
+
+        /**
+         * 
+         **/
+        public static IEnumerable<T[]> GenerateFrecuentItemsets<T>(IList<T> items, List<List<T>> transactions, int size, double threshold)
+        {
+            IEnumerable<T[]> itemSet = Combinations(items, size);
+            itemSet = FrequentItemset(itemSet,transactions,threshold);
+            return itemSet;
+        }
+
         /**
         * Return a list of all the itemsets of a determinated size.
         * size: the size of the itemset. 
@@ -15,13 +26,17 @@ namespace Algorithms
         {
             if (items == null) throw new ArgumentNullException("The item list can't be empty.");
             if (size <= 0) throw new ArgumentException("The size of the itemset must be greater than 0");
-            return combinationsImpl(items, 0, size - 1);
+            return CombinationsImpl(items, 0, size - 1);
         }
 
+
         /**  
-         * 
+         * argList:
+         * argStart:
+         * argIteration:
+         * argIndices:
          **/
-        private static IEnumerable<T[]> combinationsImpl<T>(IList<T> argList, int argStart, int argIteration, List<int> argIndicies = null)
+        private static IEnumerable<T[]> CombinationsImpl<T>(IList<T> argList, int argStart, int argIteration, List<int> argIndicies = null)
         {
             argIndicies = argIndicies ?? new List<int>();
             for (int i = argStart; i < argList.Count; i++)
@@ -29,7 +44,7 @@ namespace Algorithms
                 argIndicies.Add(i);
                 if (argIteration > 0)
                 {
-                    foreach (var array in combinationsImpl(argList, i + 1, argIteration - 1, argIndicies))
+                    foreach (var array in CombinationsImpl(argList, i + 1, argIteration - 1, argIndicies))
                     {
                         yield return array;
                     }
@@ -41,7 +56,6 @@ namespace Algorithms
                     {
                         array[j] = argList[argIndicies[j]];
                     }
-
                     yield return array;
                 }
                 argIndicies.RemoveAt(argIndicies.Count - 1);
@@ -54,13 +68,13 @@ namespace Algorithms
         * itemset : Itemset
         * transactions: List of all transactions
         **/
-        public static int SupportCount<T>(T[] itemset, List<List<T>> transactions)
+        public static int SupportCount<T>(T[] itemset, IEnumerable<IEnumerable<T>> transactions)
         {
             int c = 0;
 
             for (int i = 0; i < transactions.Count(); i++)
             {
-                List<T> actualT = transactions.ElementAt(i);
+                IEnumerable<T> actualT = transactions.ElementAt(i);
                 bool containsAll = true;
 
                 for (int j = 0; j < itemset.Count() && containsAll; j++)
@@ -79,16 +93,18 @@ namespace Algorithms
             return c;
         }
 
+
         /**
          * Fraction of the transactions in which an itemset appears.
          * itemset: A given itemset.
          * transactionsDataBase: List of all the transactions.
          **/
-        public static double Support<T>(T[] itemset, List<List<T>> transactionsDataBase)
+        public static double Support<T>(T[] itemset, IEnumerable<IEnumerable<T>> transactionsDataBase)
         {
             int supportCount = SupportCount(itemset, transactionsDataBase);
             return supportCount / transactionsDataBase.Count();
         }
+
 
         /**
          *Finds all the itemsets whose support is greater than or equal to a given threshold.
@@ -98,8 +114,8 @@ namespace Algorithms
          * total:
          * threshold:
          **/
-
-        public static List<T[]> FrequentItemset<T>(List<T[]> itemsets, List<List<T>> dataBase, int threshold)
+        public static IEnumerable<T[]> FrequentItemset<T>(IEnumerable<T[]> itemsets,
+            IEnumerable<IEnumerable<T>> dataBase, double threshold)
         {
             List<T[]> frequentItemset = new List<T[]>();
             for (int i = 0; i < itemsets.Count(); i++)
@@ -112,7 +128,5 @@ namespace Algorithms
             }
             return frequentItemset;
         }
-
-
     }
 }

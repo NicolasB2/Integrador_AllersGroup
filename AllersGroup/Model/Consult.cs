@@ -21,23 +21,21 @@ namespace Model
          **/
         public List<Item[]> GenerateItemSet_BruteForce(int size)
         {
-
             List<Item[]> itemset = null;
-
-            if (context.Combinations.ContainsKey(size))
-            {
-                itemset = context.Combinations[size];
-            }
-            else
-            {
-                var m = context.Items.Select(s => s.Value).ToList();
-                itemset = BruteForce.Combinations(m, size).ToList();
-                context.Combinations.Add(size, itemset);
-            }
-
+            var m = context.Items.Select(s => s.Value).ToList();
+            itemset = BruteForce.Combinations(m, size).ToList();
 
             return itemset;
         }
+
+        public List<Item[]> FrequentItemset_BruteForce(int threshold, int itemsetSize)
+        {
+            List<List<Item>> transactions = context.Transactions.Select(t => t.Value.Items).ToList();
+            var itemset = context.Items.Select(s => s.Value).ToList();
+
+            return BruteForce.GenerateFrecuentItemsets(itemset, transactions, itemsetSize, threshold).ToList();
+        }
+
 
         /**
          * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
@@ -56,24 +54,6 @@ namespace Model
             int totalTransactions = context.Transactions.Select(t => t.Value).GroupBy(t => t.Code).ToList().Count();
 
             return BruteForce.Support(itemset, dataBase);
-        }
-
-
-        public List<Item[]> FrequentItemset(int threshold, int itemsetSize)
-        {
-            List<Item[]> itemsets = GenerateItemSet_BruteForce(itemsetSize);
-            List<Item[]> frequentItemset = new List<Item[]>();
-
-
-            for (int i = 0; i < itemsets.Count(); i++)
-            {
-
-                if (Support(itemsets.ElementAt(i)) > threshold)
-                {
-                    frequentItemset.Add(itemsets.ElementAt(i));
-                }
-            }
-            return frequentItemset;
         }
 
         public void PrunningClientsAndTransactions()
@@ -135,8 +115,7 @@ namespace Model
             //Itemsets of size 1.
             List<Item[]> itemsets = GenerateItemSet_BruteForce(1);
             List<List<Item>> transactions = context.Transactions.Select(t => t.Value.Items).ToList();
-            Algorithms.Apriori.GenerateAllFrecuentItemsets(itemsets,transactions,threshold);
-            return null;
+            return Algorithms.Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
 
         }
 

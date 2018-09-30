@@ -11,8 +11,6 @@ namespace UnitTests
     {
         private List<List<String>> model;
         private List<String> data;
-        private int threshold;
-
         private IEnumerable<String[]> solution;
 
         public void SetUp()
@@ -26,8 +24,6 @@ namespace UnitTests
                 new List<String>{"Milk", "Diapers", "Beer", "Coke"},
                 new List<String>{"Bread", "Milk", "Diapers", "Beer"},
                 new List<String>{"Bread", "Milk", "Diapers", "Coke"}
-                
-
              };
 
         }

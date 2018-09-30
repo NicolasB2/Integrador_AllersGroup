@@ -11,7 +11,7 @@ namespace Algorithms
         {
             List<String[]>  data = new List<String[]>{ new[] {"Beer",   "Eggs" }};
             Console.WriteLine("a");
-            List<String[]> sara = Apriori.GenerateNextCandidates(data);
+            List<String[]> sara = Apriori.GenerateNextCandidates(data).ToList();
 
             Console.WriteLine(sara.Count());
             //Console.WriteLine(sara.Count());
