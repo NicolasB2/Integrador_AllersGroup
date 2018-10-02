@@ -101,8 +101,8 @@ namespace Algorithms
          **/
         public static double Support<T>(T[] itemset, IEnumerable<IEnumerable<T>> transactionsDataBase)
         {
-            int supportCount = SupportCount(itemset, transactionsDataBase);
-            return supportCount / transactionsDataBase.Count();
+            double supportCount = SupportCount(itemset, transactionsDataBase);
+            return (double)supportCount / transactionsDataBase.Count();
         }
 
 
@@ -120,9 +120,18 @@ namespace Algorithms
             List<T[]> frequentItemset = new List<T[]>();
             for (int i = 0; i < itemsets.Count(); i++)
             {
-
-                if (Support(itemsets.ElementAt(i), dataBase) > threshold)
+                
+                double support = Support(itemsets.ElementAt(i), dataBase);
+                if ( support > threshold)
                 {
+
+                    String a = "";
+                    for (int m = 0; m < itemsets.ElementAt(i).Length; m++)
+                    {
+                        a += itemsets.ElementAt(i)[m] + " ";
+                    }
+                    Console.WriteLine(a);
+
                     frequentItemset.Add(itemsets.ElementAt(i));
                 }
             }

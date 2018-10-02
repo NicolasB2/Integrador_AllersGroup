@@ -16,7 +16,7 @@ namespace Model
         public long Total { get; set; }
 
         public List<Asset> Assets { get; set; }
-        public List<Item> Items { get; set; }
+        public List<int> Items { get; set; }
 
         /**
          * Creates a transaction.
@@ -25,7 +25,7 @@ namespace Model
         public Transaction(String[] info)
         {
             Assets = new List<Asset>();
-            Items = new List<Item>();
+            Items = new List<int>();
 
             ClientCode = info[0];
             Code = int.Parse(info[1]);
@@ -41,7 +41,7 @@ namespace Model
          * Add the item to the list of Items of the Transaction.
          * i: the item that is going to be added. 
          **/
-        public void AddItem(Item i)
+        public void AddItem(int i)
         {
             Items.Add(i);
         }

@@ -120,7 +120,7 @@ namespace Model
                             if (Items.ContainsKey(Int32.Parse(datos[4])) && Clients.ContainsKey(datos[0]))
                             {
                                 Transaction t = new Transaction(datos);
-                                t.AddItem(Items[Int32.Parse(datos[4])]);
+                                t.AddItem(Int32.Parse(datos[4]));
                                 Transactions.Add(t.Code, t);
                                 Clients[datos[0]].AddTransaction(t);
                             }
@@ -130,7 +130,7 @@ namespace Model
                             if (Items.ContainsKey(Int32.Parse(datos[4])))
                             {
                                 Transactions[int.Parse(datos[1])].AddAsset(datos[4], datos[5], datos[6], datos[7]);
-                                Transactions[int.Parse(datos[1])].AddItem(Items[Int32.Parse(datos[4])]);
+                                Transactions[int.Parse(datos[1])].AddItem(Int32.Parse(datos[4]));
                             }                                
                         }
                     }

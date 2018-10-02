@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -7,18 +8,30 @@ namespace Algorithms
     public static class Apriori
     {
 
-        public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(List<T[]> items, List<List<T>> transactions,int threshold)
+        public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(List<T[]> items, List<List<T>> transactions,double threshold)
         {
-
             List<T[]> frecuentItemsSets = new List<T[]>();
             IEnumerable<T[]> itemsets = GenerateFrequentCandidates(items, transactions, threshold);
             int size = 1;
-                
+            
             while (itemsets.Count() != 0)
             {
+                
                 itemsets = GenerateNextCandidates(itemsets);
+
                 itemsets = GenerateFrequentCandidates(itemsets, transactions, threshold);
                 frecuentItemsSets.AddRange(itemsets);
+
+                //foreach (T[] pre in itemsets)
+                //{
+                //    String a = "";
+                //    for (int i = 0; i < pre.Length; i++)
+                //    {
+                //        a += pre[i] + " ";
+                //    }
+                //    Console.WriteLine(a);
+                //}
+
                 size++;
             }
             return frecuentItemsSets;
@@ -75,7 +88,7 @@ namespace Algorithms
         }
 
         public static IEnumerable<T[]> GenerateFrequentCandidates<T>(IEnumerable<T[]> itemsets, 
-            List<List<T>> dataBse, int threshold)
+            List<List<T>> dataBse, double threshold)
         {
             return BruteForce.FrequentItemset(itemsets, dataBse, threshold);
         }

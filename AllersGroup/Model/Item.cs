@@ -24,5 +24,10 @@ namespace Model
             Clasification = info[2];
         }
 
+        public override string ToString()
+        {
+            return this.Code+"";
+        }
+
     }
 }
