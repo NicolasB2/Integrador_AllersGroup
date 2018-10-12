@@ -91,22 +91,19 @@ namespace Model
 
         public void PrunningItems()
         {
-            List<int> itemsD = new List<int>();
-
-            List<int[]> itemset_1 = GenerateItemSet_BruteForce(1);
-            foreach (var i in itemset_1)
+            List<int> dataBase = context.Transactions.SelectMany(t => t.Value.Items).Distinct().ToList();
+            Dictionary<int, Item> aux = new Dictionary<int, Item>();
+         
+            foreach (KeyValuePair<int, Item> entry in context.Items)
             {
-                if (SupportCount(i) == 0)
+                if (dataBase.Contains(entry.Key))
                 {
-                    itemsD.Add(i[0]);
+                    aux.Add(entry.Key, (Item)entry.Value);
                 }
-                
+               
             }
 
-            foreach (var i in itemsD)
-            {
-                context.Items.Remove(i);
-            }
+            context.Items = aux;
         }
 
 
@@ -129,18 +126,18 @@ namespace Model
             Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
-            c.PrunningClientsAndTransactions();
-            //c.PrunningItems();
+            //c.PrunningClientsAndTransactions();
+            c.PrunningItems();
 
             Console.WriteLine("Clients {0}", c.context.Clients.Count());
             Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Items {0}", c.context.Items.Count());
 
-            Console.WriteLine(" ");
-            double threshold = 0.005;
-            Console.WriteLine("threshold : {0} ",threshold);
-            c.Apriori(threshold);
-            Console.WriteLine("end");
+            //Console.WriteLine(" ");
+            //double threshold = 0.005;
+            //Console.WriteLine("threshold : {0} ",threshold);
+            //c.Apriori(threshold);
+            //Console.WriteLine("end");
             Console.ReadLine();
         }
 
