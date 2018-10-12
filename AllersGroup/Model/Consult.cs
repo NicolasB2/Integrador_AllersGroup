@@ -107,7 +107,7 @@ namespace Model
         }
 
 
-        public List<int[]> Apriori(double threshold)
+        public List<int[]> Get_Apriori(double threshold)
         {
             
             //Itemsets of size 1.
@@ -122,22 +122,27 @@ namespace Model
             Consult c = new Consult();
 
 
-            Console.WriteLine("Initial clients {0}", c.context.Clients.Count());
-            Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
-            Console.WriteLine("Initial Items {0}", c.context.Items.Count());
+            //Console.WriteLine("Initial clients {0}", c.context.Clients.Count());
+            //Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
+            //Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
             //c.PrunningClientsAndTransactions();
-            c.PrunningItems();
+            //c.PrunningItems();
 
-            Console.WriteLine("Clients {0}", c.context.Clients.Count());
-            Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
-            Console.WriteLine("Items {0}", c.context.Items.Count());
+            //Console.WriteLine("Clients {0}", c.context.Clients.Count());
+            //Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
+            //Console.WriteLine("Items {0}", c.context.Items.Count());
 
             //Console.WriteLine(" ");
             //double threshold = 0.005;
             //Console.WriteLine("threshold : {0} ",threshold);
             //c.Apriori(threshold);
             //Console.WriteLine("end");
+
+
+
+
+
             Console.ReadLine();
         }
 

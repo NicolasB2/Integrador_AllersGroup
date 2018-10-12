@@ -8,15 +8,15 @@ namespace Algorithms
     public static class Apriori
     {
 
-        public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(List<T[]> items, List<List<T>> transactions,double threshold)
+        public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(List<T[]> items, List<List<T>> transactions, double threshold)
         {
             List<T[]> frecuentItemsSets = new List<T[]>();
             IEnumerable<T[]> itemsets = GenerateFrequentCandidates(items, transactions, threshold);
             int size = 1;
-            
+
             while (itemsets.Count() != 0)
             {
-                
+
                 itemsets = GenerateNextCandidates(itemsets);
 
                 itemsets = GenerateFrequentCandidates(itemsets, transactions, threshold);
@@ -70,7 +70,7 @@ namespace Algorithms
         }
 
         public static IEnumerable<T[]> GenerateNextCandidates<T>(IEnumerable<T[]> itemsets)
-        {   
+        {
             List<T[]> candidates = new List<T[]>();
 
             for (int i = 0; i < itemsets.Count(); i++)
@@ -86,30 +86,25 @@ namespace Algorithms
             }
             return candidates;
         }
-
-        public static IEnumerable<T[]> GenerateFrequentCandidates<T>(IEnumerable<T[]> itemsets, 
+       
+        //Apriori
+        public static IEnumerable<T[]> GenerateFrequentCandidates<T>(IEnumerable<T[]> itemsets,
             List<List<T>> dataBse, double threshold)
         {
             return BruteForce.FrequentItemset(itemsets, dataBse, threshold);
         }
+        
 
-        public static double RuleConfidence<T>(T[] imtemsetLeft, T[] imtemsetRight, IEnumerable<IEnumerable<T>> transactions)
+        public static double Confidence<T>(T[] completeItemset, T[] itemset, IEnumerable<IEnumerable<T>> transactions)
         {
-
-            int supportCountLeft = BruteForce.SupportCount(imtemsetLeft, transactions);
-            List<T> combItemsets = new List<T>();
-            combItemsets.AddRange(imtemsetLeft.ToList());
-            combItemsets.AddRange(imtemsetRight.ToList());
-
-            int supportCountRight = BruteForce.SupportCount(imtemsetRight, transactions);
-
-
-            return supportCountRight/supportCountLeft ;
+            return (BruteForce.SupportCount(completeItemset, transactions) / BruteForce.SupportCount(itemset, transactions));
         }
+
 
         public static void RuleGenerator<T>(List<T[]> items, List<List<T>> transactions, int threshold)
         {
             IEnumerable<T[]> frequentItemsets = GenerateAllFrecuentItemsets(items, transactions, threshold);
+
             foreach (var f in frequentItemsets)
             {
                 T[] actual = f;
@@ -117,18 +112,39 @@ namespace Algorithms
 
         }
 
-        public static Dictionary<T[],List<T[]>> ApGenerateRules<T>(IEnumerable<T[]> itemsets, T[] itemset)
+        public static void GenerateRules<T>(T[] itemset)
         {
-            int sizeItemsets = itemsets.Count();
-            int sizeSingleItemset = itemset.Count();
-
-            if (sizeItemsets > sizeSingleItemset + 1 )
+            for (int i = 0; i < itemset.Length; i++)
             {
+                var x = itemset.ToList();
+                x.Remove(itemset[i]);
+                List<T[]> m = GenerateSubsets(x);
+
+
+                //foreach (T[] sara in m)
+                //{
+                //    String a = "";
+                //    for (int j = 0; j < sara.Length; j++)
+                //    {
+                //        a += sara[j];
+                //    }
+                //    Console.WriteLine(a + " -> " + itemset[i]);
+                //}
 
             }
-            return null; 
+
+        }
+
+        public static List<T[]> GenerateSubsets<T>(List<T> itemset)
+        {
+            List<T[]> subsets = new List<T[]>();
+
+            for (int i = 1; i < itemset.Count() + 1; i++)
+            {
+                subsets.AddRange(BruteForce.Combinations(itemset, i));
+            }
+            return subsets;
         }
 
     }
-
 }
