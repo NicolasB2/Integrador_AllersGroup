@@ -9,7 +9,7 @@ namespace Model
     public class Context
     {
 
-        public static String path= @"C:\Users\Sara\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
+        public static String path= @"C:\Users\Nicolas\Source\Repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
         public Dictionary<String, Client> Clients { get; set; }
         public Dictionary<int, Item> Items { get; set; }
         public Dictionary<int, Transaction> Transactions { get; set; }

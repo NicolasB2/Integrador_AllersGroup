@@ -9,13 +9,9 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            List<String[]>  data = new List<String[]>{ new[] {"Beer",   "Eggs" }};
-            Console.WriteLine("a");
-            List<String[]> sara = Apriori.GenerateNextCandidates(data).ToList();
+            String[]data = new String[] { "Bread", "Milk", "Diapers", "Bread", "Eggs", "Coke" };
+            Apriori.GenerateRules(data);
 
-            Console.WriteLine(sara.Count());
-            //Console.WriteLine(sara.Count());
-            Console.WriteLine("b");
             Console.ReadLine();
         }  
     }

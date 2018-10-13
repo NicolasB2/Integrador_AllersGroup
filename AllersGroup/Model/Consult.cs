@@ -33,7 +33,7 @@ namespace Model
             List<List<int>> transactions = context.Transactions.Select(t => t.Value.Items).ToList();
             var itemset = context.Items.Select(s => s.Value.Code).ToList();
 
-            return BruteForce.GenerateFrecuentItemsets(itemset, transactions, itemsetSize, threshold).ToList();
+            return BruteForce.GenerateAllFrecuentItemsets(itemset, transactions, itemsetSize, threshold).ToList();
         }
 
 
@@ -44,7 +44,7 @@ namespace Model
         public int SupportCount(int[] itemset)
         {
             List<List<int>> dataBase = context.Transactions.Select(t => t.Value.Items).ToList();
-            return BruteForce.SupportCount(itemset, dataBase);
+            return Statistic.SupportCount(itemset, dataBase);
         }
 
         public double Support(int[] itemset)
@@ -53,7 +53,7 @@ namespace Model
             int supportCount = SupportCount(itemset);
             int totalTransactions = context.Transactions.Select(t => t.Value).GroupBy(t => t.Code).ToList().Count();
 
-            return BruteForce.Support(itemset, dataBase);
+            return Statistic.Support(itemset, dataBase);
         }
 
         public void PrunningClientsAndTransactions()
@@ -132,7 +132,7 @@ namespace Model
             Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Items {0}", c.context.Items.Count());
 
-            c.
+
 
 
             Console.ReadLine();
