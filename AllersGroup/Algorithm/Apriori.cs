@@ -73,6 +73,17 @@ namespace Algorithms
                 itemsets = GenerateNextCandidates(itemsets);
                 itemsets = Statistic.FrequentItemset(itemsets, transactions, threshold);
                 frecuentItemsSets.AddRange(itemsets);
+
+                //foreach (T[] pre in itemsets)
+                //{
+                //    String a = "";
+                //    for (int i = 0; i < pre.Length; i++)
+                //    {
+                //        a += pre[i] + " ";
+                //    }
+                //    Console.WriteLine(a);
+                //}
+
                 size++;
             }
             return frecuentItemsSets;

@@ -114,7 +114,7 @@ namespace Model
         {
             List<int[]> itemsets = GenerateItemSet_BruteForce(1);
             List<List<int>> transactions = context.Transactions.Select(t => t.Value.Items).ToList();
-            return Algorithms.Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
+            return Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
         }
 
 
@@ -142,7 +142,9 @@ namespace Model
             Console.WriteLine("inicio");
             Dictionary<String, List<int>> dic = GenerateDictionary_CLient_items();
             Console.WriteLine();
-            new Cluster<int>(dic);
+            Cluster<int> clus = new Cluster<int>(dic);
+            Console.WriteLine();
+            clus.Clustering();
         }
 
         static void Main(string[] args)
@@ -165,6 +167,7 @@ namespace Model
             Console.WriteLine();
 
             c.Clustering();
+            //c.FrequentItemsets_Apriori(0.005);
 
             Console.WriteLine();
             Console.WriteLine("END");

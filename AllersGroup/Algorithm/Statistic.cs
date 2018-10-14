@@ -71,28 +71,30 @@ namespace Algorithms
          * total:
          * threshold:
          **/
-        public static IEnumerable<T[]> FrequentItemset<T>(IEnumerable<T[]> itemsets,
-            IEnumerable<IEnumerable<T>> transactions, double threshold)
+        public static IEnumerable<T[]> FrequentItemset<T>(IEnumerable<T[]> itemsets,IEnumerable<IEnumerable<T>> transactions, double threshold)
         {
-            List<T[]> frequentItemset = new List<T[]>();
-            for (int i = 0; i < itemsets.Count(); i++)
             {
-
-                double support = Statistic.Support(itemsets.ElementAt(i), transactions);
-                if (support > threshold)
+                List<T[]> frequentItemset = new List<T[]>();
+                for (int i = 0; i < itemsets.Count(); i++)
                 {
 
-                    String a = "";
-                    for (int m = 0; m < itemsets.ElementAt(i).Length; m++)
+                    double support = Support(itemsets.ElementAt(i), transactions);
+                    if (support > threshold)
                     {
-                        a += itemsets.ElementAt(i)[m] + " ";
-                    }
-                    Console.WriteLine(a);
 
-                    frequentItemset.Add(itemsets.ElementAt(i));
+                        String a = "";
+                        for (int m = 0; m < itemsets.ElementAt(i).Length; m++)
+                        {
+                            a += itemsets.ElementAt(i)[m] + " ";
+                        }
+
+                        Console.WriteLine(a);
+
+                        frequentItemset.Add(itemsets.ElementAt(i));
+                    }
                 }
+                return frequentItemset;
             }
-            return frequentItemset;
         }
 
         //que porcentaje tiene right es contenido en left
