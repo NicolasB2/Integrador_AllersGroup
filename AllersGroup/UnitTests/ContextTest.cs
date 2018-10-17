@@ -1,10 +1,8 @@
 ﻿
-using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using System.Linq;
 using Model;
-using Algorithms;
+using System.IO;
 
 namespace UnitTests
 {
@@ -22,27 +20,35 @@ namespace UnitTests
         {
             SetUp1();
             Assert.IsNotNull(ctx.Clients);
-            Assert.IsTrue(ctx.Clients.Any());
+
+            if ( File.Exists(ctx.path+ctx.pathNames[0] ))
+            {
+                Assert.IsTrue(ctx.Clients.Count() == 627);
+
+            }
+            else
+            {
             Assert.IsTrue(ctx.Clients.Count() == 4334);
+            }
         }
 
         [TestMethod]
-        public void LoadItemsTest()
+        public void LoadItemsTest_FirstTime()
         {
             SetUp1();
             Assert.IsNotNull(ctx.Items);
-            Assert.IsTrue(ctx.Items.Any());
             Assert.IsTrue(ctx.Items.Count() == 10932);
         }
 
         [TestMethod]
-        public void LoadTransactionTest()
+        public void LoadTransactionTest_FirstTime()
         {
             SetUp1();
             Assert.IsNotNull(ctx.Transactions);
-            Assert.IsTrue(ctx.Transactions.Any());
             Assert.IsTrue(ctx.Transactions.Count() == 21843);
         }
+
+
 
     }        
 }

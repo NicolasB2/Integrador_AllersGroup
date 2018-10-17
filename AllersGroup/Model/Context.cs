@@ -8,8 +8,9 @@ namespace Model
 {
     public class Context
     {
+        public String path = @"C:\Users\Sara\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
+        public String[] pathNames = { "PrunnedClients.txt", "PrunnedTransactions.txt", "PrunnedItems.txt" };
 
-        public static String path= @"C:\Users\Sara\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
         public Dictionary<String, Client> Clients { get; set; }
         public Dictionary<int, Item> Items { get; set; }
         public Dictionary<int, Transaction> Transactions { get; set; }
@@ -20,13 +21,14 @@ namespace Model
          **/
         public Context()
         {
+
             FrecuentItemsets = new List<Item[]>();
 
-            Items = new Dictionary<int, Item>();
+            //Items = new Dictionary<int, Item>();
             Clients = new Dictionary<String, Client>();
             Transactions = new Dictionary<int, Transaction>();
 
-            LoadItems();
+            //LoadItems();
             LoadClients();
             LoadTransactions();
         }
@@ -38,26 +40,54 @@ namespace Model
          **/
         private void LoadItems()
         {
-            try
+            if (File.Exists(path + pathNames[2]))
             {
-                StreamReader sr = new StreamReader(path + "Items.csv");
-
-                String line;
-                while ((line = sr.ReadLine()) != null)
+                try
                 {
-                    String[] datos = line.Split(';');
-                    if (datos[2].Equals("NULL"))
+                    StreamReader sr = new StreamReader(path + pathNames[2]);
+
+                    String line;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        datos[2] = "0";
+                        String[] datos = line.Split(';');
+                        Item i = new Item(datos);
+                        Items.Add(i.Code, i);
                     }
-                    Item i = new Item(datos);
-                    Items.Add(i.Code, i);
+                    sr.Close();
                 }
-                sr.Close();
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exception: " + e.Message);
+                }
+
+
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine("Exception: " + e.Message);
+
+
+                try
+                {
+                    StreamReader sr = new StreamReader(path + "Items.csv");
+
+                    String line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        String[] datos = line.Split(';');
+                        if (datos[2].Equals("NULL"))
+                        {
+                            datos[2] = "0";
+                        }
+                        Item i = new Item(datos);
+                        Items.Add(i.Code, i);
+                    }
+                    sr.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exception: " + e.Message);
+                }
+
             }
         }
 
@@ -68,35 +98,65 @@ namespace Model
          **/
         private void LoadClients()
         {
-            try
+
+
+            if (File.Exists(path + pathNames[0]))
             {
-                StreamReader sr = new StreamReader(path + "Clients.csv");
 
-                String line;
-                while ((line = sr.ReadLine()) != null)
+                try
                 {
-                    String[] datos = line.Split(';');
+                    StreamReader sr = new StreamReader(path + pathNames[0]);
 
-                    if (datos[2].Equals("NULL"))
+                    String line;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        datos[2] = "No indica ciudad";
-                    }
-                    else if (datos[3].Equals("NULL"))
-                    {
-                        datos[3] = "No indica departamento";
-                    }
+                        String[] datos = line.Split(';');
 
-                    if (!Clients.ContainsKey(datos[0]))
-                    {
                         Client c = new Client(datos);
                         Clients.Add(c.Code, c);
+
                     }
+                    sr.Close();
                 }
-                sr.Close();
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exception: " + e.Message);
+                }
+
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine("Exception: " + e.Message);
+
+                try
+                {
+                    StreamReader sr = new StreamReader(path + "Clients.csv");
+
+                    String line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        String[] datos = line.Split(';');
+
+                        if (datos[2].Equals("NULL"))
+                        {
+                            datos[2] = "No indica ciudad";
+                        }
+                        else if (datos[3].Equals("NULL"))
+                        {
+                            datos[3] = "No indica departamento";
+                        }
+
+                        if (!Clients.ContainsKey(datos[0]))
+                        {
+                            Client c = new Client(datos);
+                            Clients.Add(c.Code, c);
+                        }
+                    }
+                    sr.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exception: " + e.Message);
+                }
             }
         }
 
@@ -105,23 +165,29 @@ namespace Model
          **/
         private void LoadTransactions()
         {
-            try
+
+            if (File.Exists(path + pathNames[1]))
             {
-                StreamReader sr = new StreamReader(path + "Transactions.csv");
 
-                String line;
-                while ((line = sr.ReadLine()) != null)
+                try
                 {
-                    String[] datos = line.Split(';');
+                    StreamReader sr = new StreamReader(path + pathNames[1]);
 
-                    if (!datos[4].Equals("NULL"))
+                    String line;
+                    while ((line = sr.ReadLine()) != null)
                     {
+                        String[] datos = line.Split(';');
                         if (!Transactions.ContainsKey(int.Parse(datos[1])))
                         {
                             if (Items.ContainsKey(Int32.Parse(datos[4])) && Clients.ContainsKey(datos[0]))
                             {
                                 Transaction t = new Transaction(datos);
+
+                                //t.AddItem(Items[Int32.Parse(datos[4])]);
+
+
                                 t.AddItem(Int32.Parse(datos[4]));
+
                                 Transactions.Add(t.Code, t);
                                 Clients[datos[0]].AddTransaction(t);
                             }
@@ -131,17 +197,96 @@ namespace Model
                             if (Items.ContainsKey(Int32.Parse(datos[4])))
                             {
                                 Transactions[int.Parse(datos[1])].AddAsset(datos[4], datos[5], datos[6], datos[7]);
-                                Transactions[int.Parse(datos[1])].AddItem(Int32.Parse(datos[4]));
-                            }                                
+                            }
                         }
                     }
+                    sr.Close();
                 }
-                sr.Close();
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            else
+            {
+
+
+                try
+                {
+                    StreamReader sr = new StreamReader(path + "Transactions.csv");
+
+                    String line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        String[] datos = line.Split(';');
+
+                        if (!datos[4].Equals("NULL"))
+                        {
+                            if (!Transactions.ContainsKey(int.Parse(datos[1])))
+                            {
+                                if (Items.ContainsKey(Int32.Parse(datos[4])) && Clients.ContainsKey(datos[0]))
+                                {
+                                    Transaction t = new Transaction(datos);
+                                    t.AddItem(Int32.Parse(datos[4]));
+                                    Transactions.Add(t.Code, t);
+                                    Clients[datos[0]].AddTransaction(t);
+                                }
+                            }
+                            else
+                            {
+                                if (Items.ContainsKey(Int32.Parse(datos[4])))
+                                {
+                                    Transactions[int.Parse(datos[1])].AddAsset(datos[4], datos[5], datos[6], datos[7]);
+                                    Transactions[int.Parse(datos[1])].AddItem(Int32.Parse(datos[4]));
+                                }
+                            }
+
+                            Transactions[int.Parse(datos[1])].AddItem(Int32.Parse(datos[4]));
+                        }
+
+                    }
+                    sr.Close();
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+        }
+
+        public void createTxt()
+        {
+            try
+            {
+
+                File.Create(path + pathNames[0]).Dispose();
+                File.Create(path + pathNames[1]).Dispose();
+                File.Create(path + pathNames[2]).Dispose();
+
+
+                using (TextWriter tw = new StreamWriter(path + pathNames[0]))
+                {
+                    Clients.Select(c => c.Value).ToList().ForEach(n => tw.WriteLine(n.ToString()));
+                }
+
+                using (TextWriter tw = new StreamWriter(path + pathNames[2]))
+                {
+                    Items.Select(c => c.Value).ToList().ForEach(n => tw.WriteLine(n.ToString()));
+                }
+
+                using (TextWriter tw = new StreamWriter(path + pathNames[1]))
+                {
+                    Transactions.Select(c => c.Value).ToList().ForEach(n => tw.WriteLine(n.ToString()));
+                }
+
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e.StackTrace);
             }
+
         }
     }
 }
+

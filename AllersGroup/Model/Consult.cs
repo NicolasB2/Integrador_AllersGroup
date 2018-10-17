@@ -107,7 +107,7 @@ namespace Model
         }
 
 
-        public List<int[]> Get_Apriori(double threshold)
+        public List<int[]> GenerateItemSet_Apriori(double threshold)
         {
             
             //Itemsets of size 1.
@@ -116,6 +116,8 @@ namespace Model
             return Algorithms.Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
 
         }
+
+
 
         static void Main(string[] args)
         {
@@ -131,8 +133,6 @@ namespace Model
             Console.WriteLine("Clients {0}", c.context.Clients.Count());
             Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Items {0}", c.context.Items.Count());
-
-            c.
 
 
             Console.ReadLine();

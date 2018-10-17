@@ -86,14 +86,14 @@ namespace Algorithms
             }
             return candidates;
         }
-       
+
         //Apriori
         public static IEnumerable<T[]> GenerateFrequentCandidates<T>(IEnumerable<T[]> itemsets,
             List<List<T>> dataBse, double threshold)
         {
             return BruteForce.FrequentItemset(itemsets, dataBse, threshold);
         }
-        
+
 
         public static double Confidence<T>(T[] completeItemset, T[] itemset, IEnumerable<IEnumerable<T>> transactions)
         {
@@ -138,11 +138,26 @@ namespace Algorithms
         public static List<T[]> GenerateSubsets<T>(List<T> itemset)
         {
             List<T[]> subsets = new List<T[]>();
+            bool flag = true;
 
-            for (int i = 1; i < itemset.Count() + 1; i++)
+
+            itemset.Remove(itemset.ElementAt(0));
+
+            for (int i = 0; flag; i++)
             {
-                subsets.AddRange(BruteForce.Combinations(itemset, i));
-            }
+                subsets.AddRange(BruteForce.Combinations(itemset, i + 1));
+                flag = i < subsets.Count();
+
+                if (flag)
+                {
+                    foreach (var a in subsets.ElementAt(i))
+                    {
+                        Console.Write(a + " ");
+                    }
+                    Console.WriteLine(" ");
+                }
+
+            }Ge
             return subsets;
         }
 

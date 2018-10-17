@@ -9,13 +9,11 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            List<String[]>  data = new List<String[]>{ new[] {"Beer",   "Eggs" }};
-            Console.WriteLine("a");
-            List<String[]> sara = Apriori.GenerateNextCandidates(data).ToList();
+            List<String>  input2 = new List<String>() { "Bread", "Milk" };
+            List<String[]> solution = new List<String[]> { new String[] { "Milk" } };
+            List<String[]> n =  Apriori.GenerateSubsets(input2);
 
-            Console.WriteLine(sara.Count());
-            //Console.WriteLine(sara.Count());
-            Console.WriteLine("b");
+
             Console.ReadLine();
         }  
     }
