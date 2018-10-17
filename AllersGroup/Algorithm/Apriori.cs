@@ -157,7 +157,7 @@ namespace Algorithms
                     Console.WriteLine(" ");
                 }
 
-            }Ge
+            }
             return subsets;
         }
 
