@@ -93,41 +93,8 @@ namespace Algorithms
 
         //GENERATE ASOSATION RULE *****************************************************************************
 
+
         public static List<T[]> GenerateSubsets<T>(List<T> itemset)
-        {
-            List<T[]> subsets = new List<T[]>();
-
-            for (int i = 1; i < itemset.Count() + 1; i++)
-            {
-                subsets.AddRange(BruteForce.Combinations(itemset, i));
-            }
-            return subsets;
-        }
-
-        public static void GenerateRules<T>(T[] itemset)
-        {
-            for (int i = 0; i < itemset.Length; i++)
-            {
-                var x = itemset.ToList();
-                x.Remove(itemset[i]);
-                List<T[]> m = GenerateSubsets(x);
-
-
-                foreach (T[] sara in m)
-                {
-                    String a = "";
-                    for (int j = 0; j < sara.Length; j++)
-                    {
-                        a += sara[j]+" ";
-                    }
-                    Console.WriteLine(a + " -> " + itemset[i]);
-                }
-
-            }
-
-        }
-
-        public static void RuleGenerator<T>(List<T[]> items, List<List<T>> transactions, int threshold)
         {
             List<T[]> subsets = new List<T[]>();
             bool flag = true;
@@ -142,15 +109,39 @@ namespace Algorithms
 
                 if (flag)
                 {
-                    foreach (var a in subsets.ElementAt(i))
-                    {
-                        Console.Write(a + " ");
-                    }
-                    Console.WriteLine(" ");
+                    //foreach (var a in subsets.ElementAt(i))
+                    //{
+                    //    Console.Write(a + " ");
+                    //}
+                    //Console.WriteLine(" ");
                 }
 
             }
             return subsets;
         }
+
+        public static void GenerateRules<T>(T[] itemset)
+        {
+            for (int i = 0; i < itemset.Length; i++)
+            {
+                var x = itemset.ToList();
+                x.Remove(itemset[i]);
+                List<T[]> m = GenerateSubsets(x);
+
+                //foreach (T[] sara in m)
+                //{
+                //    String a = "";
+                //    for (int j = 0; j < sara.Length; j++)
+                //    {
+                //        a += sara[j]+" ";
+                //    }
+                //    Console.WriteLine(a + " -> " + itemset[i]);
+                //}
+
+            }
+
+        }
+
+        
     }
 }
