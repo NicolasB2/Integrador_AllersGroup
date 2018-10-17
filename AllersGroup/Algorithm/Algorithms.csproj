@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{60DA772B-F777-431C-891A-88CA3931D208}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Algorithm</RootNamespace>
-    <AssemblyName>Algorithm</AssemblyName>
+    <RootNamespace>Algorithms</RootNamespace>
+    <AssemblyName>Algorithms</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="Apriori.cs" />
     <Compile Include="BruteForce.cs" />
+    <Compile Include="Cluster.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Statistic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

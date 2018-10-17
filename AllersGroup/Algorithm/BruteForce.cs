@@ -8,16 +8,6 @@ namespace Algorithms
     {
 
         /**
-         * 
-         **/
-        public static IEnumerable<T[]> GenerateFrecuentItemsets<T>(IList<T> items, List<List<T>> transactions, int size, double threshold)
-        {
-            IEnumerable<T[]> itemSet = Combinations(items, size);
-            itemSet = FrequentItemset(itemSet,transactions,threshold);
-            return itemSet;
-        }
-
-        /**
         * Return a list of all the itemsets of a determinated size.
         * size: the size of the itemset. 
         * items: List of items to co
@@ -28,7 +18,6 @@ namespace Algorithms
             if (size <= 0) throw new ArgumentException("The size of the itemset must be greater than 0");
             return CombinationsImpl(items, 0, size - 1);
         }
-
 
         /**  
          * argList:
@@ -62,80 +51,14 @@ namespace Algorithms
             }
         }
 
-
         /**
-        * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
-        * itemset : Itemset
-        * transactions: List of all transactions
-        **/
-        public static int SupportCount<T>(T[] itemset, IEnumerable<IEnumerable<T>> transactions)
-        {
-            int c = 0;
-
-            for (int i = 0; i < transactions.Count(); i++)
-            {
-                IEnumerable<T> actualT = transactions.ElementAt(i);
-                bool containsAll = true;
-
-                for (int j = 0; j < itemset.Count() && containsAll; j++)
-                {
-                    if (!actualT.Contains(itemset.ElementAt(j)))
-                    {
-                        containsAll = false;
-                    }
-                }
-
-                if (containsAll)
-                {
-                    c++;
-                }
-            }
-            return c;
-        }
-
-
-        /**
-         * Fraction of the transactions in which an itemset appears.
-         * itemset: A given itemset.
-         * transactionsDataBase: List of all the transactions.
+         * 
          **/
-        public static double Support<T>(T[] itemset, IEnumerable<IEnumerable<T>> transactionsDataBase)
+        public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(IList<T> items, List<List<T>> transactions, int size, double threshold)
         {
-            double supportCount = SupportCount(itemset, transactionsDataBase);
-            return (double)supportCount / transactionsDataBase.Count();
-        }
-
-
-        /**
-         *Finds all the itemsets whose support is greater than or equal to a given threshold.
-         * Returns a List
-         *itemsets:
-         * dataBase: List of all the itemsets
-         * total:
-         * threshold:
-         **/
-        public static IEnumerable<T[]> FrequentItemset<T>(IEnumerable<T[]> itemsets,
-            IEnumerable<IEnumerable<T>> dataBase, double threshold)
-        {
-            List<T[]> frequentItemset = new List<T[]>();
-            for (int i = 0; i < itemsets.Count(); i++)
-            {
-                
-                double support = Support(itemsets.ElementAt(i), dataBase);
-                if ( support > threshold)
-                {
-
-                    String a = "";
-                    for (int m = 0; m < itemsets.ElementAt(i).Length; m++)
-                    {
-                        a += itemsets.ElementAt(i)[m] + " ";
-                    }
-                    Console.WriteLine(a);
-
-                    frequentItemset.Add(itemsets.ElementAt(i));
-                }
-            }
-            return frequentItemset;
+            IEnumerable<T[]> itemSet = Combinations(items, size);
+            itemSet = Statistic.FrequentItemset(itemSet, transactions, threshold);
+            return itemSet;
         }
     }
 }
