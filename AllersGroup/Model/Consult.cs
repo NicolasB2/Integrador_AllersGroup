@@ -98,6 +98,7 @@ namespace Model
         {
             List<int[]> itemset = null;
             var m = context.Items.Select(s => s.Value.Code).ToList();
+
             itemset = BruteForce.Combinations(m, size).ToList();
 
             return itemset;
@@ -112,6 +113,8 @@ namespace Model
 
         public List<int[]> FrequentItemsets_Apriori(double threshold)
         {
+            //No hacerlo con BruteForce, hacerlo con Consult.
+            
             List<int[]> itemsets = GenerateItemSet_BruteForce(1);
             List<List<int>> transactions = context.Transactions.Select(t => t.Value.Items).ToList();
             return Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();

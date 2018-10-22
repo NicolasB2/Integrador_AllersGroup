@@ -52,6 +52,8 @@
     <Compile Include="ContextTest.cs" />
     <Compile Include="BruteForceTest.cs" />
     <Compile Include="AprioriTest.cs" />
+    <Compile Include="StatisticTest.cs" />
+    <Compile Include="ClusterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

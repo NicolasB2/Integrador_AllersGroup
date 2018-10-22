@@ -13,20 +13,7 @@ namespace UnitTests
         private List<String> data;
         private IEnumerable<String[]> solution;
 
-        public void SetUp()
-        {
-            data = new List<string> { "Bread", "Milk", "Diapers", "Bread", "Eggs", "Coke" };
 
-            model = new List<List<String>>
-            {
-                new List<String>{"Bread", "Milk"},
-                new List<String>{"Bread", "Diapers", "Beer", "Eggs"},
-                new List<String>{"Milk", "Diapers", "Beer", "Coke"},
-                new List<String>{"Bread", "Milk", "Diapers", "Beer"},
-                new List<String>{"Bread", "Milk", "Diapers", "Coke"}
-             };
-
-        }
 
         public void SetUp1()
         {
@@ -131,37 +118,6 @@ namespace UnitTests
         {
             SetUp5();
             Comparer(5);
-        }
-
-        [TestMethod]
-        public void SupportCountTest()
-        {
-            SetUp();
-            Assert.IsTrue(BruteForce.SupportCount(new String[] { "Bread", "Milk", "Diapers" }, model) == 2);
-            Assert.IsTrue(BruteForce.SupportCount(new String[] { "Milk", "Diapers" }, model) == 3);
-            Assert.IsTrue(BruteForce.SupportCount(new String[] { "Eggs", "Coke" }, model) == 0);
-            Assert.IsTrue(BruteForce.SupportCount(new String[] { "Bread", "Milk" }, model) == 3);
-            Assert.IsTrue(BruteForce.SupportCount(new String[] { "Beer", "Diapers" }, model) == 3);
-
-
-        }
-
-        [TestMethod]
-        public void SupportTest()
-        {
-            SetUp();
-            Assert.IsTrue(BruteForce.Support(new String[] { "Bread", "Milk", "Diapers" }, model) == 2/5);
-            Assert.IsTrue(BruteForce.Support(new String[] { "Milk", "Diapers" }, model) == 3 / 5);
-            Assert.IsTrue(BruteForce.Support(new String[] { "Eggs", "Coke" }, model) == 0 / 5);
-            Assert.IsTrue(BruteForce.Support(new String[] { "Bread", "Milk" }, model) == 3 / 5);
-            Assert.IsTrue(BruteForce.Support(new String[] { "Beer", "Diapers" }, model) == 3 / 5); ;
-
-        }
-
-        [TestMethod]
-        public void FrequentItemsetTest_()
-        {
-            
         }
     }
 }

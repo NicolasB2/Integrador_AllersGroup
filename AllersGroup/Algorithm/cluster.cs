@@ -77,12 +77,6 @@ namespace Algorithms
                         max = matrix[i, j];
                         one = Position[i];
                         two = Position[j];
-
-                        //if (max == 1.0)
-                        //{
-                        //    i = Position.Length;
-                        //    j = Position.Length;
-                        //}
                     }
                 }
                 

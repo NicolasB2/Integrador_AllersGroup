@@ -100,7 +100,6 @@ namespace Algorithms
             bool flag = true;
 
 
-            itemset.Remove(itemset.ElementAt(0));
 
             for (int i = 0; flag; i++)
             {
@@ -109,11 +108,11 @@ namespace Algorithms
 
                 if (flag)
                 {
-                    //foreach (var a in subsets.ElementAt(i))
-                    //{
-                    //    Console.Write(a + " ");
-                    //}
-                    //Console.WriteLine(" ");
+                    foreach (var a in subsets.ElementAt(i))
+                    {
+                        Console.Write(a + " ");
+                    }
+                    Console.WriteLine(" ");
                 }
 
             }

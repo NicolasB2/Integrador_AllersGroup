@@ -1,6 +1,6 @@
 ﻿namespace AllersGroup
 {
-    partial class Form1
+    partial class MainView
     {
         /// <summary>
         /// Variable del diseñador necesaria.

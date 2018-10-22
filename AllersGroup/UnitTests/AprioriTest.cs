@@ -165,7 +165,7 @@ namespace UnitTests
         private void SetUp7()
         {
             input2 = new List<String>() { "Bread", "Milk" };
-            solution = new List<String[]> { new[] { "Milk" } };
+            solution = new List<String[]> { new[] { "Bread" } ,new[] { "Milk" }, new[] { "Bread" ,"Milk" } };
         }
 
         private void SetUp8()
@@ -203,11 +203,12 @@ namespace UnitTests
             SetUp7();
             List<String[]> subsets = Apriori.GenerateSubsets(input2);
 
-            Assert.IsTrue(subsets.Count() == 1);
+            Assert.IsTrue(subsets.Count() == 3);
 
-            //for (int i = 0; i < solution.Count(); i++)            {
-            //    Assert.IsTrue(subsets.Contains(solution.ElementAt(i)));                
-            //}
+            for (int i = 0; i < solution.Count(); i++)
+            {
+                Assert.IsTrue(subsets.Contains(solution.ElementAt(i)));
+            }
         }
 
 
