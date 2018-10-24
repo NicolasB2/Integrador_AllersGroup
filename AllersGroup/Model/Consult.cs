@@ -160,18 +160,19 @@ namespace Model
             Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
-            c.PrunningClientsAndTransactions();
-            c.PrunningItems();
+            //c.PrunningClientsAndTransactions();
+            //c.PrunningItems();
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            Console.WriteLine("Clients {0}", c.context.Clients.Count());
-            Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
-            Console.WriteLine("Items {0}", c.context.Items.Count());
+            //Console.WriteLine("Clients {0}", c.context.Clients.Count());
+            //Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
+            //Console.WriteLine("Items {0}", c.context.Items.Count());
 
-            Console.WriteLine();
+            //c.context.SavePrunns();
+            //Console.WriteLine();
 
-            c.Clustering();
+            //c.Clustering();
             //c.FrequentItemsets_Apriori(0.005);
 
             Console.WriteLine();

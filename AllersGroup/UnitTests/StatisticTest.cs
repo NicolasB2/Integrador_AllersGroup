@@ -12,7 +12,6 @@ namespace UnitTests
             
         private List<List<String>> model;
         private List<String> data;
-        private IEnumerable<String[]> solution;
 
         public void SetUp()
         {
@@ -44,11 +43,11 @@ namespace UnitTests
         public void SupportTest()
         {
             SetUp();
-            Assert.IsTrue(Statistic.Support(new String[] { "Bread", "Milk", "Diapers" }, model) == 2 / 5);
-            Assert.IsTrue(Statistic.Support(new String[] { "Milk", "Diapers" }, model) == 3 / 5);
-            Assert.IsTrue(Statistic.Support(new String[] { "Eggs", "Coke" }, model) == 0 / 5);
-            Assert.IsTrue(Statistic.Support(new String[] { "Bread", "Milk" }, model) == 3 / 5);
-            Assert.IsTrue(Statistic.Support(new String[] { "Beer", "Diapers" }, model) == 3 / 5); ;
+            Assert.IsTrue(Statistic.Support(new String[] { "Bread", "Milk", "Diapers" }, model) == (double)2/5);
+            Assert.IsTrue(Statistic.Support(new String[] { "Milk", "Diapers" }, model) == (double)3 / 5);
+            Assert.IsTrue(Statistic.Support(new String[] { "Eggs", "Coke" }, model) == (double)0 / 5);
+            Assert.IsTrue(Statistic.Support(new String[] { "Bread", "Milk" }, model) == (double)3 / 5);
+            Assert.IsTrue(Statistic.Support(new String[] { "Beer", "Diapers" }, model) == (double)3 / 5); ;
 
         }
 

@@ -29,5 +29,12 @@ namespace Model
             this.Subtotal = long.Parse(Subtotal);
 
         }
+
+        public override string ToString()
+        {
+            return ItemCode + ";" + Quantity + ";" + Price + ";" + Subtotal;
+        }
+
     }
+    
 }

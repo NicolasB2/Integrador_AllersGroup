@@ -26,7 +26,7 @@ namespace Model
 
         public override string ToString()
         {
-            return this.Code+"";
+            return this.Code+";"+Name+";"+Clasification;
         }
 
     }

@@ -45,6 +45,12 @@ namespace Model
             }
         }
 
+        public override string ToString()
+        {
+            return Code + ";" + Name + ";" + City + ";"+ Departament + ";"+Payment;
+
+        }
+
     }
 
 }

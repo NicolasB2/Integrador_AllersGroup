@@ -59,6 +59,24 @@ namespace Model
             Assets.Add(a);
         }
 
+        public override string ToString()
+        {
+            String a = ClientCode + ";" + Code + ";" + Date + ";" + Total;
+            String ret = "";
+
+            for (int i =  0;i < Assets.Count(); i++)
+            {
+                if (i == Assets.Count() - 1)
+                {
+                    ret += a + ";" + Assets.ElementAt(i).ToString();
+                }
+                else
+                {
+                    ret += a + ";"+ Assets.ElementAt(i).ToString() + "\r\n";
+                }
+            }
+            return ret;
+        }
     }
 
 }

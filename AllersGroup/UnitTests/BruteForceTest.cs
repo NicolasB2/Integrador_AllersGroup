@@ -9,7 +9,6 @@ namespace UnitTests
     [TestClass]
     public class BruteForceTest
     {
-        private List<List<String>> model;
         private List<String> data;
         private IEnumerable<String[]> solution;
 
