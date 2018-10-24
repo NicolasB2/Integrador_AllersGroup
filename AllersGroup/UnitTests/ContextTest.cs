@@ -16,36 +16,56 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void LoadItemsTest()
+        {
+            SetUp1();
+            Assert.IsNotNull(ctx.Items);
+
+            if (File.Exists(ctx.path + ctx.pathNames[0]))
+            {
+                Assert.IsTrue(ctx.Items.Count() == 3934);
+
+            }
+            else
+            {
+                Assert.IsTrue(ctx.Items.Count() == 10932);
+            }
+        }
+
+        [TestMethod]
         public void LoadClientsTest()
         {
             SetUp1();
             Assert.IsNotNull(ctx.Clients);
 
-            if ( File.Exists(ctx.path+ctx.pathNames[0] ))
+            if ( File.Exists(ctx.path+ctx.pathNames[1] ))
             {
                 Assert.IsTrue(ctx.Clients.Count() == 627);
 
             }
             else
             {
-            Assert.IsTrue(ctx.Clients.Count() == 4334);
+                Assert.IsTrue(ctx.Clients.Count() == 4334);
             }
         }
 
-        [TestMethod]
-        public void LoadItemsTest_FirstTime()
-        {
-            SetUp1();
-            Assert.IsNotNull(ctx.Items);
-            Assert.IsTrue(ctx.Items.Count() == 10932);
-        }
+
 
         [TestMethod]
-        public void LoadTransactionTest_FirstTime()
+        public void LoadTransactionTest()
         {
             SetUp1();
             Assert.IsNotNull(ctx.Transactions);
-            Assert.IsTrue(ctx.Transactions.Count() == 21843);
+
+            if (File.Exists(ctx.path + ctx.pathNames[2]))
+            {
+                Assert.IsTrue(ctx.Transactions.Count() == 18573);
+
+            }
+            else
+            {
+                Assert.IsTrue(ctx.Transactions.Count() == 21843);
+            }
         }
 
 

@@ -171,7 +171,7 @@ namespace Model
             //c.context.SavePrunns();
             //Console.WriteLine();
 
-            c.Clustering(0.8);
+            //c.Clustering(0.8);
             //c.FrequentItemsets_Apriori(0.005);
 
             Console.WriteLine();
