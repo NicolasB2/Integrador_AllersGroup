@@ -171,29 +171,20 @@ namespace UnitTests
         private void SetUp8()
         {
             input2 = new List<String>() { "Beer", "Bread", "Milk" };
-            solution = new List<String[]> { new[] { "Bread" },
-            new[] { "Milk" }, new[] { "Bread", "Milk" }};
+            solution = new List<String[]> { new[] { "Beer" }, new[] { "Bread" },
+            new[] { "Milk" }, new[] { "Beer", "Bread" }, new[] { "Beer", "Milk" },new[] { "Bread", "Milk" },new[]{ "Beer", "Bread", "Milk" }};
         }
         
         private void SetUp9()
         {
             input2 = new List<String>() { "Beer", "Bread", "Diapers", "Milk" };
-            solution = new List<String[]> { new[] { "Bread" },
-            new[] { "Diapers" }, new[] { "Milk" }, new[] { "Bread", "Diapers" },
-            new[] { "Bread", "Milk" }, new[] { "Diapers", "Milk" }};
-        }
+            solution = new List<String[]> { new[] { "Beer" },  new[] { "Bread" },new[] { "Diapers" }, new[] { "Milk" },
+                new[] { "Beer", "Bread" }, new[] { "Beer", "Diapers" }, new[] { "Beer", "Milk" },
+                new[] { "Bread", "Diapers" },new[] { "Bread", "Milk" }, new[] { "Diapers", "Milk" },
+                new[] { "Beer", "Bread", "Diapers" }, new[] { "Beer", "Bread", "Milk" },
+                new[] { "Beer",  "Diapers" , "Milk" },new[] { "Bread" , "Diapers" , "Milk"},
+                new[] {"Beer", "Bread", "Diapers", "Milk"},};
 
-        private void SetUp10()
-        {
-            input2 = new List<String> { "Beer", "Bread", "Eggs", "Diapers", "Milk" };
-            solution = new List<String[]> {
-                new[] { "Bread" },   new[] { "Eggs" }, new[] { "Diapers" }, new[] { "Milk" },
-                new[] { "Bread","Eggs" }, new[] { "Bread","Diapers" },
-                new[] { "Bread","Milk"}, new[] { "Eggs", "Diapers" },
-                new[] { "Eggs", "Milk" }, new[] { "Diapers", "Milk" },
-                new[] { "Bread" ,"Eggs", "Diapers" }, new[] { "Bread","Eggs", "Milk" },
-                new[] { "Bread" , "Diapers" , "Milk"}, new[] { "Eggs" , "Diapers", "Milk"},
-                new[] { "Bread","Eggs","Diapers","Milk" } };
         }
 
         [TestMethod]
@@ -207,7 +198,10 @@ namespace UnitTests
 
             for (int i = 0; i < solution.Count(); i++)
             {
-                Assert.IsTrue(subsets.Contains(solution.ElementAt(i)));
+                for (int j = 0; j < solution.ElementAt(i).Count(); j++)
+                {
+                    Assert.IsTrue(subsets.ElementAt(i).Contains(solution.ElementAt(i)[j]));
+                }
             }
         }
 
@@ -218,12 +212,15 @@ namespace UnitTests
             SetUp8();
             List<String[]> subsets = Apriori.GenerateSubsets(input2);
 
-            Assert.IsTrue(subsets.Count() == 3);
+            Assert.IsTrue(subsets.Count() == 7);
 
-            //for (int i = 0; i < solution.Count(); i++)
-            //{
-            //    Assert.IsTrue(subsets.Contains(solution.ElementAt(i)));
-            //}
+            for (int i = 0; i < solution.Count(); i++)
+            {
+                for (int j = 0; j < solution.ElementAt(i).Count(); j++)
+                {
+                    Assert.IsTrue(subsets.ElementAt(i).Contains(solution.ElementAt(i)[j]));
+                }
+            }
         }
 
         [TestMethod]
@@ -232,31 +229,16 @@ namespace UnitTests
             SetUp9();
             List<String[]> subsets = Apriori.GenerateSubsets(input2);
 
-            Assert.IsTrue(subsets.Count() == 7);
-
-            //for (int i = 0; i < solution.Count(); i++)
-            //{
-            //    Assert.IsTrue(subsets.Contains(solution.ElementAt(i)));
-            //}
-
-        }
-
-
-        [TestMethod]
-        public void TestGenerateSubsets_Size5()
-        {
-            SetUp10();
-            List<String[]> subsets = Apriori.GenerateSubsets(input2);
-
             Assert.IsTrue(subsets.Count() == 15);
 
-
-            //for (int i = 0; i < solution.Count(); i++)
-            //{
-            //    Assert.IsTrue(subsets.Contains(solution.ElementAt(i)));
-            //}
+            for (int i = 0; i < solution.Count(); i++)
+            {
+                for (int j = 0; j < solution.ElementAt(i).Count(); j++)
+                {
+                    Assert.IsTrue(subsets.ElementAt(i).Contains(solution.ElementAt(i)[j]));
+                }
+            }
 
         }
-
     }
 }

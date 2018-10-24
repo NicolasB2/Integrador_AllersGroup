@@ -9,7 +9,7 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            List<String>  input2 = new List<String>() { "Bread", "Milk" };
+            List<String>  input2 = new List<String>() { "Bread", "Milk", "Eggs", };
             List<String[]> n =  Apriori.GenerateSubsets(input2);
 
             Console.ReadLine();
