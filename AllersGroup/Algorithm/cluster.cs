@@ -15,11 +15,26 @@ namespace Algorithms
         public Cluster(Dictionary<String, List<T>> dic)
         {
             Clients= dic;
-            generatePosition();
+            GeneratePosition();
             GenerateMatrix();
         }
 
-        private void generatePosition()
+
+        //que porcentaje tiene right es contenido en left
+        public static double Relation_level(List<T> Left, List<T> Right)
+        {
+            double x = 0.0;
+            foreach (T data in Right)
+            {
+                if (Left.Contains(data))
+                    x++;
+            }
+
+            x = (double)x / Right.Count();
+            return x;
+        }
+
+        private void GeneratePosition()
         {
 
             int size = Clients.Count();
@@ -51,7 +66,7 @@ namespace Algorithms
 
                     else
                     {
-                        double relation = Statistic.Relation_level(Clients[Position[i]], Clients[Position[j]]);
+                        double relation = Relation_level(Clients[Position[i]], Clients[Position[j]]);
                         matrix [i, j] = relation ;
                         //aux += relation + " ";
                     }
@@ -114,7 +129,7 @@ namespace Algorithms
             while (aux)
             {
                 aux = Merge(Similarity_level);
-                generatePosition();
+                GeneratePosition();
                 GenerateMatrix();
             }  
         }

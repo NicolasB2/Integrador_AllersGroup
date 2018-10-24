@@ -98,18 +98,5 @@ namespace Algorithms
             }
         }
 
-        //que porcentaje tiene right es contenido en left
-        public static double Relation_level<T>(List<T> Left, List<T> Right)
-        {
-            double x = 0.0;
-            foreach (T data in Right)
-            {
-                if (Left.Contains(data))
-                    x++;
-            }
-
-            x = (double) x / Right.Count();
-            return x ;
-        }
     }
 }

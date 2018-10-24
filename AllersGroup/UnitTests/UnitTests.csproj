@@ -54,7 +54,6 @@
     <Compile Include="AprioriTest.cs" />
     <Compile Include="StatisticTest.cs" />
     <Compile Include="ClusterTest.cs" />
-    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
