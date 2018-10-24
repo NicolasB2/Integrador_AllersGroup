@@ -43,6 +43,19 @@ namespace UnitTests
             Right = new List<string> { "Beer" , "Milk", "Diapers", "Bread", "Eggs" };
         }
 
+        public void SetUp6()
+        {
+           Dictionary<String, List<String>> Clients = new Dictionary<string, List<string>>();
+            //Left = new List<string> { "Beer", "Milk", "Diapers", "Bread", "Coke" };
+            Clients.Add("A0", new List<string> { "Beer", "Milk", "Diapers", "Bread", "Coke" });
+            Clients.Add("A1", new List<string> { "Beer", "Milk", "Candies", "Soap", "Coke" });
+            Clients.Add("A2", new List<string> { "Beer", "Milk", "Diapers", "Soap", "Eggs" });
+            Clients.Add("A3", new List<string> { "Beer", "Milk", "toothbrush", "Bread", "Coke" });
+            Clients.Add("A4", new List<string> { "Beer", "Milk", "Diapers", "Bread", "Coke" });
+
+            Clus = new Cluster<String>(Clients);
+
+        }
 
         public void Test_Relation_level(List<String> a, List<String> b,double relation)
         {
@@ -108,6 +121,27 @@ namespace UnitTests
         {
             SetUp4();
             Test_Relation_level(Right, Left, (double)0.8);
+        }
+
+        [TestMethod]
+        public void Test_Matrixinvariant()
+        {
+            SetUp6();
+
+            double[,] mat = Clus.matrix;
+
+            for(int i = 0; i < mat.GetLength(0); i++)
+            {
+                Assert.AreEqual(mat[i, i], -1);
+            }
+        }
+
+        [TestMethod]
+        public void Test_clustering()
+        {
+            SetUp6();
+            Clus.Clustering(0.7);
+            Assert.IsTrue(Clus.Position.Length == 3);
         }
     }
 }

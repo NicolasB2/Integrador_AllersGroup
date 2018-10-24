@@ -79,7 +79,8 @@ namespace Algorithms
         {
             
             bool success = false;
-            double max = Similarity_level;
+
+            double max = 0.0;
             string one = "";
             string two = "";
 
@@ -88,7 +89,7 @@ namespace Algorithms
                 for (int j = 0; j < Position.Length; j++)
                 {
                     
-                    if (matrix[i, j] > max && matrix[i, j]<1.0)
+                    if (matrix[i,j] >= max && matrix[i, j]<=1.0)
                     {
                         max = matrix[i, j];
                         one = Position[i];
