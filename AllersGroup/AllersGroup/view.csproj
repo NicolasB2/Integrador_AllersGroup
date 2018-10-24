@@ -45,16 +45,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainView.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainView.Designer.cs">
-      <DependentUpon>MainView.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainView.resx">
-      <DependentUpon>MainView.cs</DependentUpon>
+    <Compile Include="UC_Clusters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Clusters.Designer.cs">
+      <DependentUpon>UC_Clusters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Logos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Logos.Designer.cs">
+      <DependentUpon>UC_Logos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Options.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Options.Designer.cs">
+      <DependentUpon>UC_Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Predictions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Predictions.Designer.cs">
+      <DependentUpon>UC_Predictions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Recommendations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Recommendations.Designer.cs">
+      <DependentUpon>UC_Recommendations.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,6 +95,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UC_Logos.resx">
+      <DependentUpon>UC_Logos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Options.resx">
+      <DependentUpon>UC_Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Recommendations.resx">
+      <DependentUpon>UC_Recommendations.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
