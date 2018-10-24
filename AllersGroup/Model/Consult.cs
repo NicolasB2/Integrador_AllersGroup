@@ -140,14 +140,13 @@ namespace Model
             return aux;
         }
 
-        public void Clustering()
+        public void Clustering(double Similarity_level)
         {
-            Console.WriteLine("inicio");
             Dictionary<String, List<int>> dic = GenerateDictionary_CLient_items();
             Console.WriteLine();
             Cluster<int> clus = new Cluster<int>(dic);
             Console.WriteLine();
-            clus.Clustering();
+            clus.Clustering(Similarity_level);
         }
 
 
@@ -172,7 +171,7 @@ namespace Model
             //c.context.SavePrunns();
             //Console.WriteLine();
 
-            //c.Clustering();
+            c.Clustering(0.8);
             //c.FrequentItemsets_Apriori(0.005);
 
             Console.WriteLine();

@@ -46,6 +46,7 @@ namespace Algorithms
                     if (i == j)
                     {
                         matrix[i, i] = -1;
+                        //aux += relation + " ";
                     }
 
                     else
@@ -59,11 +60,11 @@ namespace Algorithms
             }
         }
 
-        public Boolean Merge()
+        public Boolean Merge(double Similarity_level)
         {
             
             bool success = false;
-            double max = 0.5;
+            double max = Similarity_level;
             string one = "";
             string two = "";
 
@@ -83,7 +84,7 @@ namespace Algorithms
             }
 
             
-            if (max>0.5)
+            if (max>=Similarity_level)
             {
                 
                 Clients[one].AddRange(Clients[two]);
@@ -106,13 +107,13 @@ namespace Algorithms
             return success;
         }
 
-        public void Clustering()
+        public void Clustering(double Similarity_level)
         {
             bool aux = true;
 
             while (aux)
             {
-                aux = Merge();
+                aux = Merge(Similarity_level);
                 generatePosition();
                 GenerateMatrix();
             }  
