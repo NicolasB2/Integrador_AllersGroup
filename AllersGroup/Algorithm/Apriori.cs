@@ -9,6 +9,7 @@ namespace Algorithms
     {
 
 
+
         //GENERATE FRECUENT ITEM SETS ************************************************************
 
         public static T[] GenerateCandidate<T>(T[] itemset1, T[] itemset2)
@@ -60,7 +61,7 @@ namespace Algorithms
             }
             return candidates;
         }
-       
+
 
         public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(List<T[]> items, List<List<T>> transactions, double threshold)
         {
@@ -106,41 +107,55 @@ namespace Algorithms
                 subsets.AddRange(BruteForce.Combinations(itemset, i + 1));
                 flag = i < subsets.Count();
 
-                if (flag)
-                {
-                    foreach (var a in subsets.ElementAt(i))
-                    {
-                        Console.Write(a + " ");
-                    }
-                    Console.WriteLine(" ");
-                }
+                //if (flag)
+                //{
+                //    foreach (var a in subsets.ElementAt(i))
+                //    {
+                //        Console.Write(a + " ");
+                //    }
+                //    Console.WriteLine(" ");
+                //}
 
             }
             return subsets;
         }
 
-        public static void GenerateRules<T>(T[] itemset)
+        public static void GenerateRules<T>(T[] itemset, Dictionary<T, List<T[]>> rules)
         {
+
             for (int i = 0; i < itemset.Length; i++)
             {
                 var x = itemset.ToList();
                 x.Remove(itemset[i]);
-                List<T[]> m = GenerateSubsets(x);
+                List<T[]> sub = GenerateSubsets(x);
 
-                //foreach (T[] sara in m)
-                //{
-                //    String a = "";
-                //    for (int j = 0; j < sara.Length; j++)
-                //    {
-                //        a += sara[j]+" ";
-                //    }
-                //    Console.WriteLine(a + " -> " + itemset[i]);
-                //}
+                foreach (T[] aux in sub)
+                {
+
+                    String a = "";
+                    for (int j = 0; j < aux.Length; j++)
+                    {
+                        a += aux[j] + " ";
+
+                    }
+                    Console.WriteLine(a + " -> " + itemset[i]);
+                }
+
+
+                if (rules.ContainsKey(itemset[i]))
+                {
+                    List<T[]> implicant = rules[itemset[i]];
+                    implicant.AddRange(sub);
+                    rules.Remove(itemset[i]);
+                    rules.Add(itemset[i], implicant);
+                }
+                else
+                {
+                    rules.Add(itemset[i], sub);
+                }
+
 
             }
-
         }
-
-        
     }
 }

@@ -8,10 +8,7 @@ namespace UnitTests
 {
     [TestClass]
     public class AprioriTest
-
-
     {
-      
         private List<String[]> solution;
         private List<String[]> input;
         private String[] candidates;
@@ -162,10 +159,12 @@ namespace UnitTests
 
 
 
+
+
         private void SetUp7()
         {
             input2 = new List<String>() { "Bread", "Milk" };
-            solution = new List<String[]> { new[] { "Bread" } ,new[] { "Milk" }, new[] { "Bread" ,"Milk" } };
+            solution = new List<String[]> { new[] { "Bread" }, new[] { "Milk" }, new[] { "Bread", "Milk" } };
         }
 
         private void SetUp8()
@@ -174,7 +173,7 @@ namespace UnitTests
             solution = new List<String[]> { new[] { "Beer" }, new[] { "Bread" },
             new[] { "Milk" }, new[] { "Beer", "Bread" }, new[] { "Beer", "Milk" },new[] { "Bread", "Milk" },new[]{ "Beer", "Bread", "Milk" }};
         }
-        
+
         private void SetUp9()
         {
             input2 = new List<String>() { "Beer", "Bread", "Diapers", "Milk" };
@@ -184,6 +183,16 @@ namespace UnitTests
                 new[] { "Beer", "Bread", "Diapers" }, new[] { "Beer", "Bread", "Milk" },
                 new[] { "Beer",  "Diapers" , "Milk" },new[] { "Bread" , "Diapers" , "Milk"},
                 new[] {"Beer", "Bread", "Diapers", "Milk"},};
+
+        }
+
+        private void SetUp10()
+        {
+            candidates = new String[] { "Bread", "Milk", "Eggs", };
+
+            solution = new List<String[]> {
+                new[] { "Milk" },  new[] { "Eggs" },new[] { "Nilk","Eggs" }
+            };
 
         }
 
@@ -237,6 +246,40 @@ namespace UnitTests
                 {
                     Assert.IsTrue(subsets.ElementAt(i).Contains(solution.ElementAt(i)[j]));
                 }
+            }
+
+        }
+
+        [TestMethod]
+        public void TestGenerateRules()
+        {
+            SetUp10();
+
+            Dictionary<string, List<string[]>> rules = new Dictionary<string, List<string[]>>();
+            Apriori.GenerateRules(candidates, rules);
+
+            var n = rules["Bread"];
+            Assert.IsTrue(n.Count()==3);
+            List<String[]> res = new List<string[]> { new[] { "Milk" }, new[] { "Eggs" }, new[] { "Milk", "Eggs" } };
+            for(int i = 0; i < res.Count(); i++)
+            {
+                Assert.IsTrue(n.ElementAt(i).SequenceEqual(res.ElementAt(i)));
+            }
+
+            n = rules["Milk"];
+            Assert.IsTrue(n.Count() == 3);
+            res = new List<string[]> { new[] { "Bread" }, new[] { "Eggs" }, new[] { "Bread", "Eggs" } };
+            for (int i = 0; i < res.Count(); i++)
+            {
+                Assert.IsTrue(n.ElementAt(i).SequenceEqual(res.ElementAt(i)));
+            }
+
+            n = rules["Eggs"];
+            Assert.IsTrue(n.Count() == 3);
+            res = new List<string[]> { new[] { "Bread" }, new[] { "Milk" }, new[] { "Bread", "Milk" } };
+            for (int i = 0; i < res.Count(); i++)
+            {
+                Assert.IsTrue(n.ElementAt(i).SequenceEqual(res.ElementAt(i)));
             }
 
         }

@@ -137,11 +137,19 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void Test_clustering()
+        public void Test_clustering_07()
         {
             SetUp6();
             Clus.Clustering(0.7);
             Assert.IsTrue(Clus.Position.Length == 3);
+        }
+
+        [TestMethod]
+        public void Test_clustering_09()
+        {
+            SetUp6();
+            Clus.Clustering(0.9);
+            Assert.IsTrue(Clus.Position.Length == 4);
         }
     }
 }
