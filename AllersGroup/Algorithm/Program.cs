@@ -11,7 +11,7 @@ namespace Algorithms
         {
             List<String> input2 = new List<String>() { "Bread", "Milk", "Eggs", };
             //List<String[]> n = Apriori.GenerateSubsets(input2);
-            Apriori.GenerateRules(input2.ToArray(),new Dictionary<string, List<string[]>>());
+            AssociatonRule.GenerateRules(input2.ToArray(),new Dictionary<string, List<string[]>>());
 
 
             Console.ReadLine();

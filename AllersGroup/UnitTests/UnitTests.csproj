@@ -54,6 +54,7 @@
     <Compile Include="AprioriTest.cs" />
     <Compile Include="StatisticTest.cs" />
     <Compile Include="ClusterTest.cs" />
+    <Compile Include="AssociatonRuleTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

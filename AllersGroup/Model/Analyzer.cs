@@ -120,9 +120,7 @@ namespace Model
 
         public List<int[]> FrequentItemsets_Apriori(double threshold)
         {
-            //No hacerlo con BruteForce, hacerlo con Consult.
-            
-            List<int[]> itemsets = GenerateItemSet_BruteForce(1);
+            List<int[]> itemsets = context.Items.Select(s => new int[] { s.Value.Code }).ToList();
             List<List<int>> transactions = context.Transactions.Select(t => t.Value.Items).ToList();
             return Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
         }
@@ -163,27 +161,28 @@ namespace Model
             return "";
         }
 
-        public IGrouping ClientsByDepartment()
+        public IEnumerable< IGrouping<String,Client>> ClientsByDepartment()
+        {
+            return context.Clients.Select(n => n.Value).GroupBy(n => n.Departament);  
+        }
+
+        public IEnumerable<IGrouping<String, Client>> ClientsByType()
+        {
+            return context.Clients.Select(n => n.Value).GroupBy(n=>n.Type);
+        }
+
+        public IEnumerable<KeyValuePair<int,IEnumerable<String>>> ClientsByMonth()
+        {
+            return context.Transactions.Select(n => n.Value).GroupBy(n => n.Date.Month)
+                .Select(g=> new KeyValuePair<int,IEnumerable<String>>(g.Key,g.Select(t=> t.ClientCode)));
+        }
+
+        public IEnumerable<IGrouping<String, Item>> ItemsByDepartment()
         {
             return null;
         }
 
-        public IGrouping ClientsByType()
-        {
-            return null;
-        }
-
-        public IGrouping ClientsByMonth()
-        {
-            return null;
-        }
-
-        public IGrouping ItemsByDepartment()
-        {
-            return null;
-        }
-
-        public IGrouping ItemsByMonth()
+        public IEnumerable<IGrouping<String, Item>> ItemsByMonth()
         {
             return null;
         }
