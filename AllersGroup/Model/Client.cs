@@ -7,7 +7,7 @@ namespace Model
     {
 
         public string Code { get; set; }
-        public string Name { get; set; }
+        public string Type { get; set; }
         public string City { get; set; }
         public string Departament { get; set; }
         public string Payment { get; set; }
@@ -23,7 +23,7 @@ namespace Model
             this.Transactions = new List<Transaction>();
 
             Code = info[0];
-            Name = info[1];
+            Type = info[1];
             City = info[2];
             Departament = info[3];
             Payment = info[4];
@@ -47,7 +47,7 @@ namespace Model
 
         public override string ToString()
         {
-            return Code + ";" + Name + ";" + City + ";"+ Departament + ";"+Payment;
+            return Code + ";" + Type + ";" + City + ";"+ Departament + ";"+Payment;
 
         }
 

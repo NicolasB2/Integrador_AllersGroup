@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "view", "AllersGroup\view.csproj", "{38F5EFEA-9F32-41CE-9BAF-24B3C25E6BC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "AllersGroup\View.csproj", "{38F5EFEA-9F32-41CE-9BAF-24B3C25E6BC9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{8E8E6505-40F9-47BB-94AB-50E86C6556E1}"
 EndProject

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apriori.cs" />
+    <Compile Include="AssociatonRule.cs" />
     <Compile Include="BruteForce.cs" />
     <Compile Include="Cluster.cs" />
     <Compile Include="Program.cs" />

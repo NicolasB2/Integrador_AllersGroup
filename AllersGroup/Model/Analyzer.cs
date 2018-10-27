@@ -9,13 +9,15 @@ namespace Model
     public class Consult
     {
         public Context context;
+        public Cluster<int> cluster;
+        public Dictionary<int, int> AssociationRules;
 
         public Consult()
         {
             context = new Context();
         }
 
-        public void PrunningClientsAndTransactions()
+        private void  PrunningClientsAndTransactions()
         {
             List<String> clientsD = new List<String>();
             List<int> transactiondsD = new List<int>();
@@ -48,7 +50,7 @@ namespace Model
             }
         }
 
-        public void PrunningItems()
+        private void PrunningItems()
         {
             List<int> dataBase = context.Transactions.SelectMany(t => t.Value.Items).Distinct().ToList();
             Dictionary<int, Item> aux = new Dictionary<int, Item>();
@@ -69,7 +71,7 @@ namespace Model
          * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
         * itemset : Array of codes of a itemset.
         **/
-        public int SupportCount(int[] itemset)
+        private int SupportCount(int[] itemset)
         {
             List<List<int>> dataBase = context.Transactions.Select(t => t.Value.Items).ToList();
             return Statistic.SupportCount(itemset, dataBase);
@@ -81,7 +83,7 @@ namespace Model
          * itemset: A given itemset.
          * transactionsDataBase: List of all the transactions.
          **/
-        public double Support(int[] itemset)
+        private double Support(int[] itemset)
         {
             List<List<int>> dataBase = context.Transactions.Select(t => t.Value.Items).ToList();
             int supportCount = SupportCount(itemset);
@@ -94,7 +96,7 @@ namespace Model
          * Return a list of all the itemsets of a determinated size.
          * size: the size of the itemset. 
          **/
-        public List<int[]> GenerateItemSet_BruteForce(int size)
+        private List<int[]> GenerateItemSet_BruteForce(int size)
         {
             List<int[]> itemset = null;
             var m = context.Items.Select(s => s.Value.Code).ToList();
@@ -104,6 +106,11 @@ namespace Model
             return itemset;
         }
 
+        /**
+         * Returns a list of all the frequent itemset and it's support is bigger than the threshold.
+         * threshold: minimum of support.
+         * itemsetSize: size of the itemset.
+         * **/
         public List<int[]> FrequentItemsets_BruteForce(double threshold, int itemsetSize)
         {
             List<List<int>> transactions = context.Transactions.Select(t => t.Value.Items).ToList();
@@ -120,22 +127,14 @@ namespace Model
             return Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
         }
 
-
-        public Dictionary<String, List<int>> GenerateDictionary_CLient_items()
+        private Dictionary<String, List<int>> GenerateDictionary_CLient_items()
         {
-            Dictionary<String,List<int>> aux = context.Transactions.Select(t => t.Value).GroupBy(t => t.ClientCode).Select(g => new {
+            Dictionary<String, List<int>> aux = context.Transactions.Select(t => t.Value).GroupBy(t => t.ClientCode).Select(g => new {
 
                 code = g.Key,
-                items = g.SelectMany(n=>n.Items).Distinct().ToList()
+                items = g.SelectMany(n => n.Items).Distinct().ToList()
 
-            }).ToDictionary(k=>k.code,value=>value.items);
-
-            //Console.WriteLine(aux.Count());
-            //foreach (var data in aux)
-            //{
-            //    Console.WriteLine( data.Key);
-            //    Console.WriteLine(data.Value.Count());
-            //}
+            }).ToDictionary(k => k.code, value => value.items);
 
             return aux;
         }
@@ -144,11 +143,50 @@ namespace Model
         {
             Dictionary<String, List<int>> dic = GenerateDictionary_CLient_items();
             Console.WriteLine();
-            Cluster<int> clus = new Cluster<int>(dic);
+            cluster = new Cluster<int>(dic);
             Console.WriteLine();
-            clus.Clustering(Similarity_level);
+            cluster.Clustering(Similarity_level);
         }
 
+
+        public void GenerateRules()
+        {
+
+        }
+
+        public String GenerateReport_Itemset() {
+            return "";
+        }
+
+        public String GenerateReport_Client()
+        {
+            return "";
+        }
+
+        public IGrouping ClientsByDepartment()
+        {
+            return null;
+        }
+
+        public IGrouping ClientsByType()
+        {
+            return null;
+        }
+
+        public IGrouping ClientsByMonth()
+        {
+            return null;
+        }
+
+        public IGrouping ItemsByDepartment()
+        {
+            return null;
+        }
+
+        public IGrouping ItemsByMonth()
+        {
+            return null;
+        }
 
 
         static void Main(string[] args)
