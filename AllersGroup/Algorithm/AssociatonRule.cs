@@ -9,7 +9,7 @@ namespace Algorithms
     public class AssociatonRule
     {
 
-        public static List<T[]> GenerateSubsets<T>(List<T> itemset)
+        private static List<T[]> GenerateSubsets<T>(List<T> itemset)
         {
             List<T[]> subsets = new List<T[]>();
             bool flag = true;
@@ -34,7 +34,7 @@ namespace Algorithms
             return subsets;
         }
 
-        public static void GenerateRules<T>(T[] itemset, Dictionary<T, List<T[]>> rules)
+        private static void GenerateRules<T>(T[] itemset, Dictionary<T, List<T[]>> rules)
         {
 
             for (int i = 0; i < itemset.Length; i++)
@@ -69,8 +69,15 @@ namespace Algorithms
 
 
             }
-
-
         }
+
+        public static void GenerateAllRules<T>(List<T[]> itemset, Dictionary<T, List<T[]>> rules)
+        {
+            foreach(T[] iset in itemset)
+            {
+                GenerateRules(iset, rules);
+            }
+        }
+
     }
 }
