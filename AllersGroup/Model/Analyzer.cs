@@ -10,7 +10,7 @@ namespace Model
     {
         public Context context;
         public Cluster<int> cluster;
-        public Dictionary<int, int> AssociationRules;
+        public Dictionary<int, List<int[]>> Rules;
 
         public Consult()
         {
@@ -147,16 +147,17 @@ namespace Model
         }
 
 
-        public void GenerateRules()
+        public void GenerateRules(double threshold)
         {
+            AssociatonRule.GenerateAllRules<int>(FrequentItemsets_Apriori(threshold),Rules);
 
         }
 
-        public String GenerateReport_Itemset() {
+        public String GenerateReport_Itemset(int[]itemSet) {
             return "";
         }
 
-        public String GenerateReport_Client()
+        public String GenerateReport_Client(String clienCode)
         {
             return "";
         }
@@ -177,14 +178,16 @@ namespace Model
                 .Select(g=> new KeyValuePair<int,IEnumerable<String>>(g.Key,g.Select(t=> t.ClientCode)));
         }
 
-        public IEnumerable<IGrouping<String, Item>> ItemsByDepartment()
+        public IEnumerable<KeyValuePair<String,IEnumerable<int>>> ItemsByDepartment()
         {
-            return null;
+            return ClientsByDepartment().Select(n => new KeyValuePair<String, IEnumerable<int>>
+            (n.Key, n.SelectMany(t => t.Transactions.SelectMany(s => s.Items))));
         }
 
-        public IEnumerable<IGrouping<String, Item>> ItemsByMonth()
+        public IEnumerable<KeyValuePair<int, IEnumerable<int>>> ItemsByMonth()
         {
-            return null;
+            return context.Transactions.Select(n => n.Value).GroupBy(n => n.Date.Month).
+                Select(t => new KeyValuePair<int, IEnumerable<int>>(t.Key, t.SelectMany(n => n.Items)));
         }
 
 

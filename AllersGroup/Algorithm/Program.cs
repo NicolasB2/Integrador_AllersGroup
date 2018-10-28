@@ -9,11 +9,11 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            List<String> input2 = new List<String>() { "Bread", "Milk", "Eggs", };
+
+            String[] aux = new string[] { "Bread", "Milk", "Eggs", };
+            List<String[]> input2 = new List<String[]>() { aux};
             //List<String[]> n = Apriori.GenerateSubsets(input2);
-            AssociatonRule.GenerateRules(input2.ToArray(),new Dictionary<string, List<string[]>>());
-
-
+            AssociatonRule.GenerateAllRules(input2 ,new Dictionary<string, List<string[]>>());
             Console.ReadLine();
         }
     }
