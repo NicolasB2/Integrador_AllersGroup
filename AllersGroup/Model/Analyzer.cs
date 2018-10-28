@@ -67,6 +67,19 @@ namespace Model
             context.Items = aux;
         }
 
+        private void PrunningItemsBythreshold(double threshold)
+        {
+            List<int[]> itemsets = context.Items.Select(s => new int[] { s.Value.Code }).ToList();
+            foreach(int[] item in itemsets)
+            {
+                if (Support(item)<threshold)
+                {
+                    context.Items.Remove(item[0]);
+                }
+            }
+        }
+
+
         /**
          * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
         * itemset : Array of codes of a itemset.
