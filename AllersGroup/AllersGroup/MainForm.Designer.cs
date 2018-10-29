@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -43,9 +44,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.uC_Recommendations1 = new AllersGroup.UC_Recommendations();
             this.uC_Predictions1 = new AllersGroup.UC_Predictions();
             this.uC_Groups1 = new AllersGroup.UC_Groups();
-            this.uC_Recommendations1 = new AllersGroup.UC_Recommendations();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -77,7 +78,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::AllersGroup.Properties.Resources.minus;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(801, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 36);
@@ -87,7 +88,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::AllersGroup.Properties.Resources.Webp_net_resizeimage;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(12, 4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(129, 42);
@@ -96,7 +97,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::AllersGroup.Properties.Resources.cancel1;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(842, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(35, 36);
@@ -125,7 +126,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Image = global::AllersGroup.Properties.Resources.customer;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(12, 298);
             this.button6.Name = "button6";
@@ -141,7 +142,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Image = global::AllersGroup.Properties.Resources.group;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(12, 121);
             this.button2.Name = "button2";
@@ -155,7 +156,7 @@
             // 
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Image = global::AllersGroup.Properties.Resources.info;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.Location = new System.Drawing.Point(185, 434);
             this.button5.Name = "button5";
@@ -177,7 +178,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Image = global::AllersGroup.Properties.Resources.statistics;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(15, 239);
             this.button3.Name = "button3";
@@ -193,7 +194,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Image = global::AllersGroup.Properties.Resources.thumbs_up;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(12, 180);
             this.button4.Name = "button4";
@@ -209,7 +210,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Image = global::AllersGroup.Properties.Resources.power_button__2_;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(12, 62);
             this.button1.Name = "button1";
@@ -229,13 +230,20 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::AllersGroup.Properties.Resources.logo_allers_resizeimage1;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(806, 489);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(72, 42);
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // uC_Recommendations1
+            // 
+            this.uC_Recommendations1.Location = new System.Drawing.Point(228, 60);
+            this.uC_Recommendations1.Name = "uC_Recommendations1";
+            this.uC_Recommendations1.Size = new System.Drawing.Size(653, 427);
+            this.uC_Recommendations1.TabIndex = 9;
             // 
             // uC_Predictions1
             // 
@@ -250,13 +258,6 @@
             this.uC_Groups1.Name = "uC_Groups1";
             this.uC_Groups1.Size = new System.Drawing.Size(653, 427);
             this.uC_Groups1.TabIndex = 7;
-            // 
-            // uC_Recommendations1
-            // 
-            this.uC_Recommendations1.Location = new System.Drawing.Point(228, 60);
-            this.uC_Recommendations1.Name = "uC_Recommendations1";
-            this.uC_Recommendations1.Size = new System.Drawing.Size(653, 427);
-            this.uC_Recommendations1.TabIndex = 9;
             // 
             // MainForm
             // 

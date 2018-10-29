@@ -7,16 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace AllersGroup
 {
     public partial class UC_Groups : UserControl
     {
-        
+
+        public Consult model;
         public UC_Groups()
         {
             InitializeComponent();
-            
+        }
+
+        public void LoadModel(Consult model)
+        {
+            this.model = model;
         }
 
         public void Load_UC_Groups()
@@ -70,5 +76,27 @@ namespace AllersGroup
 
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            AuxForm f = new AuxForm(model);
+            f.Show();
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

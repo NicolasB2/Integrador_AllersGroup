@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
+using Model;
 
 namespace AllersGroup
 {
     public partial class MainForm : Form
     {
+
+        public AuxForm af;
+        public Consult model;
 
         public MainForm()
         {
@@ -14,7 +18,8 @@ namespace AllersGroup
             uC_Groups1.Hide();
             uC_Predictions1.Hide();
             uC_Recommendations1.Hide();
-            
+
+            model = new Consult();
 
         }
 
@@ -84,6 +89,7 @@ namespace AllersGroup
                 this.Controls.Remove(uC_Groups1);
             }
             uC_Groups1 = new UC_Groups();
+            uC_Groups1.LoadModel(model);
             this.Controls.Add(uC_Groups1);
 
             uC_Groups1.Left = 228;
@@ -108,6 +114,7 @@ namespace AllersGroup
                 this.Controls.Remove(uC_Predictions1);
             }
             uC_Predictions1 = new UC_Predictions();
+            uC_Predictions1.LoadModel(model);
             this.Controls.Add(uC_Predictions1);
 
             uC_Predictions1.Left = 228;
@@ -131,6 +138,7 @@ namespace AllersGroup
                 this.Controls.Remove(uC_Recommendations1);
             }
             uC_Recommendations1 = new UC_Recommendations();
+            uC_Recommendations1.LoadModel(model);
             this.Controls.Add(uC_Recommendations1);
 
             uC_Recommendations1.Left = 228;

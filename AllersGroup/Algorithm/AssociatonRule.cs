@@ -34,7 +34,7 @@ namespace Algorithms
             return subsets;
         }
 
-        private static void GenerateRules<T>(T[] itemset, Dictionary<T, List<T[]>> rules)
+        public static void GenerateRules<T>(T[] itemset, Dictionary<T, List<T[]>> rules)
         {
 
             for (int i = 0; i < itemset.Length; i++)

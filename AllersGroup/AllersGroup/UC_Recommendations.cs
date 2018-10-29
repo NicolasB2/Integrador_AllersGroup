@@ -7,14 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace AllersGroup
 {
     public partial class UC_Recommendations : UserControl
     {
+
+        public Consult model;
         public UC_Recommendations()
         {
             InitializeComponent();
+        }
+
+        public void LoadModel(Consult model)
+        {
+            this.model = model;
         }
 
         public void Load_UC_Recommendations()

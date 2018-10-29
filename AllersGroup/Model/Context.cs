@@ -8,7 +8,8 @@ namespace Model
 {
     public class Context
     {
-        public String path = @"C:\Users\Nicolas\source\repos\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
+       
+        public String path = @"C:\Users\Sara\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
         public String[] pathNames = { "PrunnedItems.txt", "PrunnedClients.txt", "PrunnedTransactions.txt"  };
 
         public Dictionary<String, Client> Clients { get; set; }

@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace AllersGroup
 {
     public partial class UC_Predictions : UserControl
     {
+        public Consult model;
+
         public UC_Predictions()
         {
             InitializeComponent();
+        }
+
+        public void LoadModel(Consult model)
+        {
+            this.model = model;
         }
 
         public void Load_UC_Predictions()

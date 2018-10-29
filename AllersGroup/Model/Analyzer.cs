@@ -96,7 +96,7 @@ namespace Model
          * itemset: A given itemset.
          * transactionsDataBase: List of all the transactions.
          **/
-        private double Support(int[] itemset)
+        public double Support(int[] itemset)
         {
             List<List<int>> dataBase = context.Transactions.Select(t => t.Value.Items).ToList();
             int supportCount = SupportCount(itemset);
