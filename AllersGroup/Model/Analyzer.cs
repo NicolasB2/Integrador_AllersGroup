@@ -163,30 +163,30 @@ namespace Model
             return "";
         }
 
-        public IGrouping ClientsByDepartment()
-        {
-            return null;
-        }
+        //public IGrouping ClientsByDepartment()
+        //{
+        //    return null;
+        //}
 
-        public IGrouping ClientsByType()
-        {
-            return null;
-        }
+        //public IGrouping ClientsByType()
+        //{
+        //    return null;
+        //}
 
-        public IGrouping ClientsByMonth()
-        {
-            return null;
-        }
+        //public IGrouping ClientsByMonth()
+        //{
+        //    return null;
+        //}
 
-        public IGrouping ItemsByDepartment()
-        {
-            return null;
-        }
+        //public IGrouping ItemsByDepartment()
+        //{
+        //    return null;
+        //}
 
-        public IGrouping ItemsByMonth()
-        {
-            return null;
-        }
+        //public IGrouping ItemsByMonth()
+        //{
+        //    return null;
+        //}
 
 
         static void Main(string[] args)

@@ -236,7 +236,7 @@ namespace UnitTests
         public void TestGenerateSubsets_Size4()
         {
             SetUp9();
-            List<String[]> subsets = Apriori.GenerateSubsets(input2);
+            List<String[]> subsets = AssociationRule.GenerateSubsets(input2);
 
             Assert.IsTrue(subsets.Count() == 15);
 

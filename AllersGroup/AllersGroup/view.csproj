@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CircularProgressBar, Version=2.6.6823.24527, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.6.6823.24527\lib\net35-client\CircularProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +46,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinFormAnimation, Version=1.5.6298.3372, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.5.6298.3372\lib\net35-client\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainForm.cs">
@@ -53,57 +59,47 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UC_Clusters.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Groups.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_Clusters.Designer.cs">
-      <DependentUpon>UC_Clusters.cs</DependentUpon>
+    <Compile Include="UC_Groups.Designer.cs">
+      <DependentUpon>UC_Groups.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Logos.cs">
+    <Compile Include="UC_Load.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_Logos.Designer.cs">
-      <DependentUpon>UC_Logos.cs</DependentUpon>
+    <Compile Include="UC_Load.Designer.cs">
+      <DependentUpon>UC_Load.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Options.cs">
+    <Compile Include="UC_Menu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_Options.Designer.cs">
-      <DependentUpon>UC_Options.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_Predictions.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_Predictions.Designer.cs">
-      <DependentUpon>UC_Predictions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_Recommendations.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_Recommendations.Designer.cs">
-      <DependentUpon>UC_Recommendations.cs</DependentUpon>
+    <Compile Include="UC_Menu.Designer.cs">
+      <DependentUpon>UC_Menu.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="UC_Logos.resx">
-      <DependentUpon>UC_Logos.cs</DependentUpon>
+    <EmbeddedResource Include="UC_Groups.resx">
+      <DependentUpon>UC_Groups.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Options.resx">
-      <DependentUpon>UC_Options.cs</DependentUpon>
+    <EmbeddedResource Include="UC_Load.resx">
+      <DependentUpon>UC_Load.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Recommendations.resx">
-      <DependentUpon>UC_Recommendations.cs</DependentUpon>
+    <EmbeddedResource Include="UC_Menu.resx">
+      <DependentUpon>UC_Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -122,6 +118,38 @@
       <Project>{8e8e6505-40f9-47bb-94ab-50e86c6556e1}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placeholder.png" />
+    <None Include="Resources\wallet.png" />
+    <None Include="Resources\shopping.png" />
+    <None Include="Resources\statistics.png" />
+    <None Include="Resources\thumbs-up.png" />
+    <None Include="Resources\power-button %282%29.png" />
+    <None Include="Resources\power-button %281%29.png" />
+    <None Include="Resources\power-button.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\12.png" />
+    <None Include="Resources\21.png" />
+    <None Include="Resources\3.png" />
+    <None Include="Resources\4.png" />
+    <None Include="Resources\calendar.png" />
+    <Content Include="Resources\cancel.png" />
+    <None Include="Resources\Webp.net-resizeimage.png" />
+    <None Include="Resources\logo-allers-resizeimage.png" />
+    <None Include="Resources\ezgif.com-resize.gif" />
+    <None Include="Resources\ezgif.com-resize1.gif" />
+    <None Include="Resources\logo-allers-resizeimage1.png" />
+    <None Include="Resources\cancel1.png" />
+    <None Include="Resources\ezgif.com-gif-maker.gif" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\group.png" />
+    <None Include="Resources\good.png" />
+    <None Include="Resources\customer.png" />
+    <None Include="Resources\location-pin.png" />
+    <None Include="Resources\deadline.png" />
+    <Content Include="Resources\minus.png" />
+    <None Include="Resources\logo_icesi.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

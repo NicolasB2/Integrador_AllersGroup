@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace AllersGroup
 {
-    public partial class UC_Options : UserControl
+    public partial class UC_Menu : UserControl
     {
-        public UC_Options()
+
+        public UC_Menu()
         {
             InitializeComponent();
+        }
+
+
+
+        private void UC_Menu_Load(object sender, EventArgs e)
+        {
         }
     }
 }

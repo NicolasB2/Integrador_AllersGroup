@@ -1,6 +1,6 @@
 ﻿namespace AllersGroup
 {
-    partial class UC_Predictions
+    partial class UC_Menu
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,8 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // UC_Menu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Menu;
+            this.Name = "UC_Menu";
+            this.Size = new System.Drawing.Size(653, 427);
+            this.Load += new System.EventHandler(this.UC_Menu_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
