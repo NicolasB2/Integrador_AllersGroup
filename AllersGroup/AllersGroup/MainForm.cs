@@ -6,17 +6,13 @@ namespace AllersGroup
     public partial class MainForm : Form
     {
 
-        public static string LOADING = "Loading";
-        public static string MENU = "Menu";
-
-        public string state;
-
         public MainForm()
         {
             InitializeComponent();
             SlidePanel.Height = button1.Height;
             //uC_Menu1.BringToFront();
             uC_Groups1.Hide();
+            uC_Predictions1.Hide();
             uC_Recommendations1.Hide();
             
 
@@ -70,7 +66,7 @@ namespace AllersGroup
             //uC_Menu1.BringToFront();
 
             uC_Groups1.Hide();
-            uC_Recommendations1.Hide();
+            uC_Predictions1.Hide();
         }
 
         //Groups
@@ -79,6 +75,8 @@ namespace AllersGroup
 
             SlidePanel.Height = button2.Height;
             SlidePanel.Top = button2.Top;
+
+            uC_Predictions1.Hide();
             uC_Recommendations1.Hide();
 
             if (this.Contains(uC_Groups1))
@@ -96,11 +94,26 @@ namespace AllersGroup
             
         }
 
-        
+        //Predictions
         private void button3_Click(object sender, EventArgs e)
         {
             SlidePanel.Height = button3.Height;
             SlidePanel.Top = button3.Top;
+
+            uC_Groups1.Hide();
+            uC_Recommendations1.Hide();
+
+            if (this.Contains(uC_Predictions1))
+            {
+                this.Controls.Remove(uC_Predictions1);
+            }
+            uC_Predictions1 = new UC_Predictions();
+            this.Controls.Add(uC_Predictions1);
+
+            uC_Predictions1.Left = 228;
+            uC_Predictions1.Top = 60;
+            uC_Predictions1.Show();
+            uC_Predictions1.Load_UC_Predictions();
 
         }
 
@@ -111,6 +124,7 @@ namespace AllersGroup
             SlidePanel.Top = button4.Top;
 
             uC_Groups1.Hide();
+            uC_Predictions1.Hide();
 
             if (this.Contains(uC_Recommendations1))
             {
@@ -123,8 +137,6 @@ namespace AllersGroup
             uC_Recommendations1.Top = 60;
             uC_Recommendations1.Show();
             uC_Recommendations1.Load_UC_Recommendations();
-
-
 
         }
 

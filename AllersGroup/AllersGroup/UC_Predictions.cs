@@ -10,20 +10,24 @@ using System.Windows.Forms;
 
 namespace AllersGroup
 {
-    public partial class UC_Recommendations : UserControl
+    public partial class UC_Predictions : UserControl
     {
-        public UC_Recommendations()
+        public UC_Predictions()
         {
             InitializeComponent();
         }
 
-        public void Load_UC_Recommendations()
+        public void Load_UC_Predictions()
         {
             timer1.Start();
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

@@ -70,6 +70,12 @@
     <Compile Include="UC_Groups.Designer.cs">
       <DependentUpon>UC_Groups.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_G_Department.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G_Department.Designer.cs">
+      <DependentUpon>UC_G_Department.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Load.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="UC_Menu.Designer.cs">
       <DependentUpon>UC_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Predictions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Predictions.Designer.cs">
+      <DependentUpon>UC_Predictions.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_Recommendations.cs">
       <SubType>UserControl</SubType>
@@ -99,11 +111,17 @@
     <EmbeddedResource Include="UC_Groups.resx">
       <DependentUpon>UC_Groups.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_G_Department.resx">
+      <DependentUpon>UC_G_Department.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Load.resx">
       <DependentUpon>UC_Load.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Menu.resx">
       <DependentUpon>UC_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Predictions.resx">
+      <DependentUpon>UC_Predictions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Recommendations.resx">
       <DependentUpon>UC_Recommendations.cs</DependentUpon>
@@ -129,6 +147,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\price-tag.png" />
+    <None Include="Resources\signs.png" />
     <None Include="Resources\route.png" />
     <None Include="Resources\placeholder.png" />
     <None Include="Resources\wallet.png" />
@@ -146,6 +166,7 @@
     <None Include="Resources\calendar.png" />
     <None Include="Resources\bill.png" />
     <None Include="Resources\box.png" />
+    <None Include="Resources\calendar %281%29.png" />
     <Content Include="Resources\cancel.png" />
     <None Include="Resources\Webp.net-resizeimage.png" />
     <None Include="Resources\logo-allers-resizeimage.png" />
