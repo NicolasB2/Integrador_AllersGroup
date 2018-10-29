@@ -10,7 +10,7 @@ namespace Model
     {
         public Context context;
         public Cluster<int> cluster;
-        public Dictionary<int, int> AssociationRules;
+        public Dictionary<int, List<int[]>> Rules;
 
         public Consult()
         {
@@ -67,6 +67,19 @@ namespace Model
             context.Items = aux;
         }
 
+        private void PrunningItemsBythreshold(double threshold)
+        {
+            List<int[]> itemsets = context.Items.Select(s => new int[] { s.Value.Code }).ToList();
+            foreach(int[] item in itemsets)
+            {
+                if (Support(item)<threshold)
+                {
+                    context.Items.Remove(item[0]);
+                }
+            }
+        }
+
+
         /**
          * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
         * itemset : Array of codes of a itemset.
@@ -120,9 +133,7 @@ namespace Model
 
         public List<int[]> FrequentItemsets_Apriori(double threshold)
         {
-            //No hacerlo con BruteForce, hacerlo con Consult.
-            
-            List<int[]> itemsets = GenerateItemSet_BruteForce(1);
+            List<int[]> itemsets = context.Items.Select(s => new int[] { s.Value.Code }).ToList();
             List<List<int>> transactions = context.Transactions.Select(t => t.Value.Items).ToList();
             return Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
         }
@@ -149,44 +160,48 @@ namespace Model
         }
 
 
-        public void GenerateRules()
+        public void GenerateRules(double threshold)
         {
+            AssociatonRule.GenerateAllRules<int>(FrequentItemsets_Apriori(threshold),Rules);
 
         }
 
-        public String GenerateReport_Itemset() {
+        public String GenerateReport_Itemset(int[]itemSet) {
             return "";
         }
 
-        public String GenerateReport_Client()
+        public String GenerateReport_Client(String clienCode)
         {
             return "";
         }
 
-        //public IGrouping ClientsByDepartment()
-        //{
-        //    return null;
-        //}
+        public IEnumerable< IGrouping<String,Client>> ClientsByDepartment()
+        {
+            return context.Clients.Select(n => n.Value).GroupBy(n => n.Departament);  
+        }
 
-        //public IGrouping ClientsByType()
-        //{
-        //    return null;
-        //}
+        public IEnumerable<IGrouping<String, Client>> ClientsByType()
+        {
+            return context.Clients.Select(n => n.Value).GroupBy(n=>n.Type);
+        }
 
-        //public IGrouping ClientsByMonth()
-        //{
-        //    return null;
-        //}
+        public IEnumerable<KeyValuePair<int,IEnumerable<String>>> ClientsByMonth()
+        {
+            return context.Transactions.Select(n => n.Value).GroupBy(n => n.Date.Month)
+                .Select(g=> new KeyValuePair<int,IEnumerable<String>>(g.Key,g.Select(t=> t.ClientCode)));
+        }
 
-        //public IGrouping ItemsByDepartment()
-        //{
-        //    return null;
-        //}
+        public IEnumerable<KeyValuePair<String,IEnumerable<int>>> ItemsByDepartment()
+        {
+            return ClientsByDepartment().Select(n => new KeyValuePair<String, IEnumerable<int>>
+            (n.Key, n.SelectMany(t => t.Transactions.SelectMany(s => s.Items))));
+        }
 
-        //public IGrouping ItemsByMonth()
-        //{
-        //    return null;
-        //}
+        public IEnumerable<KeyValuePair<int, IEnumerable<int>>> ItemsByMonth()
+        {
+            return context.Transactions.Select(n => n.Value).GroupBy(n => n.Date.Month).
+                Select(t => new KeyValuePair<int, IEnumerable<int>>(t.Key, t.SelectMany(n => n.Items)));
+        }
 
 
         static void Main(string[] args)

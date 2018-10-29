@@ -13,9 +13,6 @@ namespace UnitTests
         private List<String[]> input;
         private String[] candidates;
 
-        private List<String> input2;
-
-
         private void SetUp1()
         {
             input = new List<String[]>();
