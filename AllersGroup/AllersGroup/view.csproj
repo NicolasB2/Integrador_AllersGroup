@@ -82,6 +82,12 @@
     <Compile Include="UC_Menu.Designer.cs">
       <DependentUpon>UC_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Recommendations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Recommendations.Designer.cs">
+      <DependentUpon>UC_Recommendations.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Menu.resx">
       <DependentUpon>UC_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Recommendations.resx">
+      <DependentUpon>UC_Recommendations.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -120,6 +129,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\route.png" />
     <None Include="Resources\placeholder.png" />
     <None Include="Resources\wallet.png" />
     <None Include="Resources\shopping.png" />
@@ -134,6 +144,8 @@
     <None Include="Resources\3.png" />
     <None Include="Resources\4.png" />
     <None Include="Resources\calendar.png" />
+    <None Include="Resources\bill.png" />
+    <None Include="Resources\box.png" />
     <Content Include="Resources\cancel.png" />
     <None Include="Resources\Webp.net-resizeimage.png" />
     <None Include="Resources\logo-allers-resizeimage.png" />

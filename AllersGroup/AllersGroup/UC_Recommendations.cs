@@ -10,65 +10,51 @@ using System.Windows.Forms;
 
 namespace AllersGroup
 {
-    public partial class UC_Groups : UserControl
+    public partial class UC_Recommendations : UserControl
     {
-        
-        public UC_Groups()
+        public UC_Recommendations()
         {
             InitializeComponent();
-            
         }
 
-        public void Load_UC_Groups()
+        public void Load_UC_Recommendations()
         {
             timer1.Start();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
             pictureBox1.Left -= 8;
             pictureBox2.Left -= 8;
             pictureBox3.Left -= 8;
 
-            if (pictureBox1.Left <= 86)
+            if (pictureBox1.Left <= 87)
             {
                 timer1.Stop();
                 timer2.Start();
             }
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void UC_Groups_Load(object sender, EventArgs e)
-        {
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            panel1.Top -= 3;
             panel2.Top -= 3;
             panel3.Top -= 3;
-            panel4.Top -= 3;
 
-            if (panel2.Top <= 267)
+            if (panel1.Top <= 267)
             {
                 timer2.Stop();
             }
         }
-
-        private void panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
     }
 }

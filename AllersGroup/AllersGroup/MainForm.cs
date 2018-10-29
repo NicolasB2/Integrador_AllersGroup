@@ -17,6 +17,7 @@ namespace AllersGroup
             SlidePanel.Height = button1.Height;
             //uC_Menu1.BringToFront();
             uC_Groups1.Hide();
+            uC_Recommendations1.Hide();
             
 
         }
@@ -61,6 +62,7 @@ namespace AllersGroup
 
         }
 
+        //Menu
         private void button1_Click(object sender, EventArgs e)
         {
             SlidePanel.Height = button1.Height;
@@ -68,13 +70,16 @@ namespace AllersGroup
             //uC_Menu1.BringToFront();
 
             uC_Groups1.Hide();
+            uC_Recommendations1.Hide();
         }
 
+        //Groups
         private void button2_Click(object sender, EventArgs e)
         {
 
             SlidePanel.Height = button2.Height;
             SlidePanel.Top = button2.Top;
+            uC_Recommendations1.Hide();
 
             if (this.Contains(uC_Groups1))
             {
@@ -91,6 +96,7 @@ namespace AllersGroup
             
         }
 
+        
         private void button3_Click(object sender, EventArgs e)
         {
             SlidePanel.Height = button3.Height;
@@ -98,10 +104,27 @@ namespace AllersGroup
 
         }
 
+        //Recommendations
         private void button4_Click(object sender, EventArgs e)
         {
             SlidePanel.Height = button4.Height;
             SlidePanel.Top = button4.Top;
+
+            uC_Groups1.Hide();
+
+            if (this.Contains(uC_Recommendations1))
+            {
+                this.Controls.Remove(uC_Recommendations1);
+            }
+            uC_Recommendations1 = new UC_Recommendations();
+            this.Controls.Add(uC_Recommendations1);
+
+            uC_Recommendations1.Left = 228;
+            uC_Recommendations1.Top = 60;
+            uC_Recommendations1.Show();
+            uC_Recommendations1.Load_UC_Recommendations();
+
+
 
         }
 
@@ -109,6 +132,11 @@ namespace AllersGroup
         {
             SlidePanel.Height = button6.Height;
             SlidePanel.Top = button6.Top;
+
+        }
+
+        private void uC_Recommendations1_Load(object sender, EventArgs e)
+        {
 
         }
     }

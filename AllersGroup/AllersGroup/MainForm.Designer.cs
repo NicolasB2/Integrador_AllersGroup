@@ -44,6 +44,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.uC_Groups1 = new AllersGroup.UC_Groups();
+            this.uC_Recommendations1 = new AllersGroup.UC_Recommendations();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -228,7 +229,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::AllersGroup.Properties.Resources.logo_allers_resizeimage1;
-            this.pictureBox3.Location = new System.Drawing.Point(806, 486);
+            this.pictureBox3.Location = new System.Drawing.Point(806, 489);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(72, 42);
             this.pictureBox3.TabIndex = 3;
@@ -242,12 +243,21 @@
             this.uC_Groups1.Size = new System.Drawing.Size(653, 427);
             this.uC_Groups1.TabIndex = 7;
             // 
+            // uC_Recommendations1
+            // 
+            this.uC_Recommendations1.Location = new System.Drawing.Point(228, 60);
+            this.uC_Recommendations1.Name = "uC_Recommendations1";
+            this.uC_Recommendations1.Size = new System.Drawing.Size(653, 427);
+            this.uC_Recommendations1.TabIndex = 8;
+            this.uC_Recommendations1.Load += new System.EventHandler(this.uC_Recommendations1_Load);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(880, 530);
+            this.Controls.Add(this.uC_Recommendations1);
             this.Controls.Add(this.uC_Groups1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -286,5 +296,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button6;
         private UC_Groups uC_Groups1;
+        private UC_Recommendations uC_Recommendations1;
     }
 }
