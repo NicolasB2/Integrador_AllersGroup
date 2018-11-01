@@ -1,43 +1,77 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AllersGroup
 {
     public partial class UC_Load : UserControl
     {
-        public int TimerValue;
-
         public UC_Load()
         {
             InitializeComponent();
+            panel2.Left = 0;
             timer1.Start();
 
-            progressBar1.ForeColor = Color.White;
-            progressBar1.Style = ProgressBarStyle.Continuous;
+            panel3.Left = 117;
+            panel3.Top = 182;
 
+            panel1.Left = 117;
+            panel1.Top = 182;
 
+            pictureBox2.Visible = false;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+        int time = 0; 
+        int plus = 4;
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Increment(2);
+            panel2.Left += plus;
 
-            TimerValue = progressBar1.Value;
-            if (progressBar1.Value == 100)
+            if (panel2.Left > 420)
             {
+                plus = -4;
+                time += 1;
+
+            }
+            if (panel2.Left < 118)
+            {
+                plus = 4;
+
+            }
+
+            if (time == 2)
+            {
+                
+                panel2.Visible = false;
+                panel1.Visible = false;
+                
+                timer2.Start();
+                timer1.Stop();
             }
         }
 
-        private void UC_Load_Load(object sender, EventArgs e)
+        int tp = 1;
+        private void timer2_Tick(object sender, EventArgs e)
         {
+            panel3.BringToFront();
+            pictureBox2.Visible = true;
+            label1.Visible = false;
+            panel3.Top -= tp;
 
+            if (panel3.Top < -140)
+            {
+                panel3.Top += tp;
+                timer2.Stop();
+                
+            }
+            
         }
     }
 }
-

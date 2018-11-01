@@ -177,6 +177,7 @@
     <None Include="Resources\bill.png" />
     <None Include="Resources\box.png" />
     <None Include="Resources\calendar %281%29.png" />
+    <None Include="Resources\and.png" />
     <Content Include="Resources\cancel.png" />
     <None Include="Resources\Webp.net-resizeimage.png" />
     <None Include="Resources\logo-allers-resizeimage.png" />
@@ -191,6 +192,8 @@
     <None Include="Resources\customer.png" />
     <None Include="Resources\location-pin.png" />
     <None Include="Resources\deadline.png" />
+    <None Include="Resources\Justificación %281%29.png" />
+    <None Include="Resources\Justificación %281%291.png" />
     <Content Include="Resources\minus.png" />
     <None Include="Resources\logo_icesi.png" />
   </ItemGroup>
