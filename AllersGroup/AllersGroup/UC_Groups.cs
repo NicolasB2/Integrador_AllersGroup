@@ -84,8 +84,8 @@ namespace AllersGroup
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            AuxForm f = new AuxForm(model);
-            f.Show();
+            //AuxForm f = new AuxForm(model);
+            //f.Show();
 
         }
 

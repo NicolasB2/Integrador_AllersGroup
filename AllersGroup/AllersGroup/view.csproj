@@ -58,6 +58,12 @@
     <Compile Include="AuxForm.Designer.cs">
       <DependentUpon>AuxForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,18 @@
     <Compile Include="UC_Menu.Designer.cs">
       <DependentUpon>UC_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_MenuPredictions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MenuPredictions.Designer.cs">
+      <DependentUpon>UC_MenuPredictions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_MenuRecommendations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MenuRecommendations.Designer.cs">
+      <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Predictions.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,8 +125,17 @@
     <Compile Include="UC_Recommendations.Designer.cs">
       <DependentUpon>UC_Recommendations.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_MenuGroups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MenuGroups.Designer.cs">
+      <DependentUpon>UC_MenuGroups.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AuxForm.resx">
       <DependentUpon>AuxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -130,12 +157,22 @@
     <EmbeddedResource Include="UC_Menu.resx">
       <DependentUpon>UC_Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_MenuPredictions.resx">
+      <DependentUpon>UC_MenuPredictions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_MenuRecommendations.resx">
+      <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Predictions.resx">
       <DependentUpon>UC_Predictions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Recommendations.resx">
       <DependentUpon>UC_Recommendations.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_MenuGroups.resx">
+      <DependentUpon>UC_MenuGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -194,6 +231,24 @@
     <None Include="Resources\deadline.png" />
     <None Include="Resources\Justificación %281%29.png" />
     <None Include="Resources\Justificación %281%291.png" />
+    <None Include="Resources\icons8-delete-48.png" />
+    <None Include="Resources\icons8-subtract-48.png" />
+    <None Include="Resources\icons8-circled-menu-48.png" />
+    <None Include="Resources\icons8-staff-48.png" />
+    <None Include="Resources\icons8-ok-hand-filled-50.png" />
+    <None Include="Resources\icons8-increase-48.png" />
+    <None Include="Resources\icons8-database-administrator-filled-50.png" />
+    <None Include="Resources\icons8-database-administrator-filled-501.png" />
+    <None Include="Resources\icons8-info-64.png" />
+    <None Include="Resources\icons8-place-marker-48.png" />
+    <None Include="Resources\icons8-calendar-12-48.png" />
+    <None Include="Resources\icons8-cash-in-hand-48.png" />
+    <None Include="Resources\icons8-tags-48.png" />
+    <None Include="Resources\icons8-shopping-cart-48.png" />
+    <None Include="Resources\icons8-map-pin-48.png" />
+    <None Include="Resources\icons8-marker-48.png" />
+    <None Include="Resources\icons8-calendar-48.png" />
+    <None Include="Resources\icons8-shopping-bag-48.png" />
     <Content Include="Resources\minus.png" />
     <None Include="Resources\logo_icesi.png" />
   </ItemGroup>

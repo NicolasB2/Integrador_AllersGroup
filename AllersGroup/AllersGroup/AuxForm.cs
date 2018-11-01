@@ -13,21 +13,26 @@ namespace AllersGroup
 {
     public partial class AuxForm : Form
     {
-        public AuxForm(Consult m)
+        public AuxForm()
         {
             InitializeComponent();
-            cargar(m);
+            //cargar(m);
         }
 
         public void cargar(Consult m)
         {
-            uC_G_Department1.LoadModel(m);
-            uC_G_Department1.cargarComboBox();
+            //uC_G_Department1.LoadModel(m);
+            //uC_G_Department1.cargarComboBox();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            uC_G_Department1.Show();
+            //uC_G_Department1.Show();
+        }
+
+        private void AuxForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

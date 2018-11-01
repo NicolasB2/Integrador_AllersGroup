@@ -62,7 +62,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Goldenrod;
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(434, 413);
+            this.panel2.Location = new System.Drawing.Point(434, 358);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(129, 160);
             this.panel2.TabIndex = 15;
@@ -82,7 +82,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Goldenrod;
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(87, 413);
+            this.panel1.Location = new System.Drawing.Point(87, 358);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(129, 160);
             this.panel1.TabIndex = 16;
@@ -113,7 +113,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Goldenrod;
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(261, 413);
+            this.panel3.Location = new System.Drawing.Point(261, 358);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(129, 160);
             this.panel3.TabIndex = 14;

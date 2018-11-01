@@ -9,17 +9,24 @@ namespace AllersGroup
 
         public AuxForm af;
         public Consult model;
+        public Form1 f;
+
+        int panelWidth;
+        bool Hidden;
 
         public MainForm()
         {
+            f = new Form1();
             InitializeComponent();
-            SlidePanel.Height = button1.Height;
             //uC_Menu1.BringToFront();
-            uC_Groups1.Hide();
-            uC_Predictions1.Hide();
-            uC_Recommendations1.Hide();
+            //uC_Groups1.Hide();
+            //uC_Predictions1.Hide();
+            //uC_Recommendations1.Hide();
 
             model = new Consult();
+
+            panelWidth = PanelSlide.Width;
+            Hidden = false;
 
         }
 
@@ -28,6 +35,35 @@ namespace AllersGroup
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (Hidden)
+            {
+                PanelSlide.Width = PanelSlide.Width + 10;
+                if (PanelSlide.Width >= panelWidth)
+                {
+                    timer1.Stop();
+                    Hidden = false;
+                    this.Refresh();
+                }
+            }
+            else
+            {
+                PanelSlide.Width = PanelSlide.Width - 10;
+                if (PanelSlide.Width <= 0)
+                {
+                    timer1.Stop();
+                    Hidden = true;
+                    this.Refresh();
+                }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+        
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -38,27 +74,8 @@ namespace AllersGroup
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void circularProgressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void uC_Load1_Load(object sender, EventArgs e)
-        {
-           
-        }
 
         private void MainForm_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -66,12 +83,11 @@ namespace AllersGroup
         //Menu
         private void button1_Click(object sender, EventArgs e)
         {
-            SlidePanel.Height = button1.Height;
-            SlidePanel.Top = button1.Top;
+
             //uC_Menu1.BringToFront();
 
-            uC_Groups1.Hide();
-            uC_Predictions1.Hide();
+            //uC_Groups1.Hide();
+            //uC_Predictions1.Hide();
         }
 
         //Groups
@@ -81,21 +97,21 @@ namespace AllersGroup
             SlidePanel.Height = button2.Height;
             SlidePanel.Top = button2.Top;
 
-            uC_Predictions1.Hide();
-            uC_Recommendations1.Hide();
+            //uC_Predictions1.Hide();
+            //uC_Recommendations1.Hide();
 
-            if (this.Contains(uC_Groups1))
-            {
-                this.Controls.Remove(uC_Groups1);
-            }
-            uC_Groups1 = new UC_Groups();
-            uC_Groups1.LoadModel(model);
-            this.Controls.Add(uC_Groups1);
+            //if (this.Contains(uC_Groups1))
+            //{
+            //    this.Controls.Remove(uC_Groups1);
+            //}
+            //uC_Groups1 = new UC_Groups();
+            //uC_Groups1.LoadModel(model);
+            //this.Controls.Add(uC_Groups1);
 
-            uC_Groups1.Left = 228;
-            uC_Groups1.Top = 60;
-            uC_Groups1.Show();
-            uC_Groups1.Load_UC_Groups();
+            //uC_Groups1.Left = 228;
+            //uC_Groups1.Top = 60;
+            //uC_Groups1.Show();
+            //uC_Groups1.Load_UC_Groups();
 
             
         }
@@ -106,21 +122,21 @@ namespace AllersGroup
             SlidePanel.Height = button3.Height;
             SlidePanel.Top = button3.Top;
 
-            uC_Groups1.Hide();
-            uC_Recommendations1.Hide();
+            //uC_Groups1.Hide();
+            //uC_Recommendations1.Hide();
 
-            if (this.Contains(uC_Predictions1))
-            {
-                this.Controls.Remove(uC_Predictions1);
-            }
-            uC_Predictions1 = new UC_Predictions();
-            uC_Predictions1.LoadModel(model);
-            this.Controls.Add(uC_Predictions1);
+            //if (this.Contains(uC_Predictions1))
+            //{
+            //    this.Controls.Remove(uC_Predictions1);
+            //}
+            //uC_Predictions1 = new UC_Predictions();
+            //uC_Predictions1.LoadModel(model);
+            //this.Controls.Add(uC_Predictions1);
 
-            uC_Predictions1.Left = 228;
-            uC_Predictions1.Top = 60;
-            uC_Predictions1.Show();
-            uC_Predictions1.Load_UC_Predictions();
+            //uC_Predictions1.Left = 228;
+            //uC_Predictions1.Top = 60;
+            //uC_Predictions1.Show();
+            //uC_Predictions1.Load_UC_Predictions();
 
         }
 
@@ -130,21 +146,21 @@ namespace AllersGroup
             SlidePanel.Height = button4.Height;
             SlidePanel.Top = button4.Top;
 
-            uC_Groups1.Hide();
-            uC_Predictions1.Hide();
+            //uC_Groups1.Hide();
+            //uC_Predictions1.Hide();
 
-            if (this.Contains(uC_Recommendations1))
-            {
-                this.Controls.Remove(uC_Recommendations1);
-            }
-            uC_Recommendations1 = new UC_Recommendations();
-            uC_Recommendations1.LoadModel(model);
-            this.Controls.Add(uC_Recommendations1);
+            //if (this.Contains(uC_Recommendations1))
+            //{
+            //    this.Controls.Remove(uC_Recommendations1);
+            //}
+            //uC_Recommendations1 = new UC_Recommendations();
+            //uC_Recommendations1.LoadModel(model);
+            //this.Controls.Add(uC_Recommendations1);
 
-            uC_Recommendations1.Left = 228;
-            uC_Recommendations1.Top = 60;
-            uC_Recommendations1.Show();
-            uC_Recommendations1.Load_UC_Recommendations();
+            //uC_Recommendations1.Left = 228;
+            //uC_Recommendations1.Top = 60;
+            //uC_Recommendations1.Show();
+            //uC_Recommendations1.Load_UC_Recommendations();
 
         }
 
@@ -159,6 +175,14 @@ namespace AllersGroup
         {
 
         }
+
+
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 
 }

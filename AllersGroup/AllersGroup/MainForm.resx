@@ -334,30 +334,6 @@
         RK5CYII=
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        9gAAAPYBa0iqmwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQBSURBVFhHxZfd
-        TxNBEMD7hn8C/BH8BQr6ZELU+KgPvvlswgsRNDFE0QdMfMAYvkzwK34lxhhFBBUo36lIihAQGij0ClKO
-        tnClQEvv1pnr3rm3N9cWE+Mmv37szs7M7s3M7vkYYyVx5WOo7GrvZk1Dr9pW36v6gUUgVdURQRarOiP+
-        Ex2RtuMdSk1NS6iM0kFBdopc+6RW1PeprWBMA5gMGCdY1eC7tap9pYLSKUJ2Io0D4WP1vVtNYCQtG0Vu
-        D8TVzm87s7UfYrPnn62pbidM0tWdkaZTXeFjlA2E7Kzr3iwHIxOyURH/8t4QyJrtWVAbIoyLTJx6EC4H
-        UZctV8fVzxuVYECRDcoc0QFEqW5XKkHcYc/xh6+8qHHkLxxAFHkn7B/5Z+697Q19qn7ji7pr/feH9/ww
-        z2yiA6e7lN2TnRFdMCozIcaE7QAPOJdhpHkovpbOGsFwIovpZ/Z57cD0rwO/dqAHL7xYWxOMOsDAhGl/
-        HDBTzSPaH09pQYOxHTQELdM8HI9iP+XAhZfrUfibwT6cA3UjKBvnpK0Uza8+n+cu43eHE4phGHFUiC1n
-        sJX748kQjlEOXH6zEcrqbIV3Mx3mXny1rkjGLVpBxGdWOFDoKjLX+tRc5tBYyKuC5WSMgCMGPB4BxoCa
-        zgX4ENvPGgsQEznBMGdVw4rpw/IqGrZ4N5ca5zpw5UuNX7ccThbKgppHUS2rG0t8mN0bSYyL4xZYtn28
-        tjuMI7sZPcjns6fBnSl5vJADyPW+rSk+zLb3dDIW8OyA6DcPFofyW/1x+7lndDYvjyPFHED2D415LsLO
-        PYnGXTJwgKEDeKo5lD+cTM7weWxRzQ7K40gpDgSU/UEuwmq7YzOEzCI6kJKV94TSI3weG4KCI48jpTjw
-        /IdmF6uOQHKEkEmRDrz/mRrj89h4ZJ/cAQtCqc3buZS9Ay1jiTFCxnTA9Qggalf5PBZL50bkcRFCqc1K
-        8tDeyUuv11cJGfMRkFsMbRs/cjpbpsYtCKU2Gd1YRh1QFbepcTMIvdIwldHtNHo9owUoGYRUDNwZjNvF
-        KLGnT1EyZhqWUohgBTFMTUqOUnwWUs4wWIxPL1yIvEoxspnOjXIdsCPGJOWErBSNw4on+TSMg1FZJg8v
-        xSDjeRjd7N9Kwuo38qryOyE/DlEpbru4cvi9ceZxNCnKCOQPI/wodBx3fdemRSewYWBidmCKYqphtFsB
-        ZzU0XtezOU0YRpzHMVLoQoI7IT6OYg23vcDK3RcSpNiVDMHA5NlhpqjYMNUw2r0CToC+kiFHuZRiscKK
-        iRXOo8hQeF9KLUq9llsQRrwofi23KOXFxIIwRFH6i4lFsVczC8KYyN+9mon8t5dTmX/zes58vwFd9ib6
-        jgZ26wAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEUAAAAoCAYAAACo5zetAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -409,4 +385,10 @@
         hrSVhob/AV6r5Mr3YolcAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>35</value>
+  </metadata>
 </root>

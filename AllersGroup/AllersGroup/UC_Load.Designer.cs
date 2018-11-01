@@ -36,6 +36,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +44,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(119, 185);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(343, 5);
@@ -51,9 +53,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(189)))), ((int)(((byte)(176)))));
-            this.panel2.Location = new System.Drawing.Point(421, 182);
+            this.panel2.Location = new System.Drawing.Point(302, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(41, 10);
+            this.panel2.Size = new System.Drawing.Size(41, 5);
             this.panel2.TabIndex = 1;
             // 
             // timer1
@@ -99,13 +101,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(45)))), ((int)(((byte)(54)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
             this.Name = "UC_Load";
             this.Size = new System.Drawing.Size(582, 222);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

@@ -16,6 +16,8 @@ namespace AllersGroup
         {
             InitializeComponent();
             panel2.Left = 0;
+            panel2.Top = 0;
+
             timer1.Start();
 
             panel3.Left = 117;
@@ -34,7 +36,7 @@ namespace AllersGroup
         {
             panel2.Left += plus;
 
-            if (panel2.Left > 420)
+            if (panel2.Left > 302)
             {
                 plus = -4;
                 time += 1;
