@@ -3,11 +3,11 @@ using System.Windows.Forms;
 
 namespace AllersGroup
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         int panelWidth;
         bool Hidden;
-        public Form1()
+        public Main()
         {
             InitializeComponent();
             panelWidth = PanelSlide.Width;

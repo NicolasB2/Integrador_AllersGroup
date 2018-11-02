@@ -6,97 +6,156 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Model;
+using System.Windows.Forms;
+using GMap.NET.MapProviders;
+using GMap.NET;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 
 namespace AllersGroup
 {
-    public partial class UC_Groups : UserControl
+    public partial class UC_Menu : UserControl
     {
-
         public Consult model;
-        public UC_Groups()
+        GMapOverlay markers;
+        
+        public UC_Menu()
         {
             InitializeComponent();
-        }
+            markers = new GMapOverlay("markers");
 
+            Controls.Remove(panel_2);
+
+            button1.BackColor = Color.FromArgb(11, 91, 111);
+            button2.BackColor = Color.FromArgb(41, 121, 145);
+            button3.BackColor = Color.FromArgb(41, 121, 145);
+            button4.BackColor = Color.FromArgb(41, 121, 145);
+
+            label_dep.Visible = false;
+        }
         public void LoadModel(Consult model)
         {
             this.model = model;
+
+            loadComboBox1();
+            loadLabels();
         }
 
-        public void Load_UC_Groups()
+        private void loadCharts()
         {
-            timer1.Start();
+           
+            double a = Math.Round((((double)model.ClientsByDepartment().Select(n => n.Key).ToArray().Count() - 1) / 32.0) * 100.0, 2);
+            double b = Math.Round(100 - a, 2);
+
+
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void loadLabels()
+        {
+            label5.Text = model.ClientsByDepartment().Select(n => n.Key).ToArray().Count()-1 + "";
+            double text = Math.Round((((double)model.ClientsByDepartment().Select(n => n.Key).ToArray().Count() - 1) / 32.0) * 100.0,2);
+            label10.Text = text + "%";
+
+        }
+        private void loadComboBox1()
+        {
+            var x = model.ClientsByDepartment().Select(n => n.Key).ToArray();
+            comboBox1.Items.AddRange(x);
+        }
+
+        private void UC_Menu_Load(object sender, EventArgs e)
         {
 
-            pictureBox1.Left -= 8;
-            pictureBox2.Left -= 8;
-            pictureBox3.Left -= 8;
+        }
 
-            if (pictureBox1.Left <= 86)
+        //panel_info
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.FromArgb(11, 91, 111);
+            button2.BackColor = Color.FromArgb(41, 121, 145);
+            button3.BackColor = Color.FromArgb(41, 121, 145);
+            button4.BackColor = Color.FromArgb(41, 121, 145);
+
+            panel_info.Show();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.FromArgb(11, 91, 111);
+            button1.BackColor = Color.FromArgb(41, 121, 145);
+            button3.BackColor = Color.FromArgb(41, 121, 145);
+            button4.BackColor = Color.FromArgb(41, 121, 145);
+
+            panel_info.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.FromArgb(11, 91, 111);
+            button2.BackColor = Color.FromArgb(41, 121, 145);
+            button1.BackColor = Color.FromArgb(41, 121, 145);
+            button4.BackColor = Color.FromArgb(41, 121, 145);
+
+            panel_info.Hide();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            button4.BackColor = Color.FromArgb(11, 91, 111);
+            button2.BackColor = Color.FromArgb(41, 121, 145);
+            button1.BackColor = Color.FromArgb(41, 121, 145);
+            button3.BackColor = Color.FromArgb(41, 121, 145);
+
+            panel_info.Hide();
+
+        }
+
+        private void left_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void right_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label_dep.Text = comboBox1.SelectedItem + "";
+            label_dep.Visible = true;
+        }
+
+        private void gMapControl1_Load(object sender, EventArgs e)
+        {
+            gMapControl1.SetPositionByKeywords("Cali, Colombia.");
+            gMapControl1.MapProvider = GoogleMapProvider.Instance;
+            GMaps.Instance.Mode = AccessMode.ServerOnly;
+            gMapControl1.ShowCenter = false;
+
+            for (int i = 0; i < comboBox1.Items.Count; i++)
             {
-                timer1.Stop();
-                timer2.Start();
+                //MessageBox.Show(model.ClientsByDepartment().Select(n => n.Key).ToArray()[i]+"");
+                if (model.ClientsByDepartment().Select(n => n.Key).ToArray()[i] != "No indica departamento")
+                {
+
+                GMapMarker marker = new GMarkerGoogle(new PointLatLng
+                    (model.context.Locations[model.ClientsByDepartment().Select(n => n.Key).ToArray()[i] + ""]
+                    [1], (model.context.Locations[model.ClientsByDepartment().Select(n => n.Key).ToArray()[i] + ""]
+                    [0])), GMarkerGoogleType.red_pushpin);
+                markers.Markers.Add(marker);
+                }
             }
 
-        }
+            gMapControl1.Overlays.Add(markers);
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        public void UC_Groups_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            panel2.Top -= 3;
-            panel3.Top -= 3;
-            panel4.Top -= 3;
-
-            if (panel2.Top <= 267)
-            {
-                timer2.Stop();
-            }
-        }
-
-        private void panel_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            //AuxForm f = new AuxForm(model);
-            //f.Show();
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
     }
 }

@@ -11,6 +11,13 @@ namespace Model
        
         public String path = @"C:\Users\Sara\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
         public String[] pathNames = { "PrunnedItems.txt", "PrunnedClients.txt", "PrunnedTransactions.txt"  };
+        public String[] Departments = { "Amazonas", "Antioquia","Arauca", "Atlántico", "Bolívar" , "Boyacá" ,
+            "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca",
+            "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Nariño", "Norte de Santander",
+            "Putumayo","Quindío", "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima",
+            "Valle del Cauca", "Vaupés", "Vichada"};
+        public Dictionary<String, double[]> Locations; 
+
 
         public Dictionary<String, Client> Clients { get; set; }
         public Dictionary<int, Item> Items { get; set; }
@@ -22,6 +29,19 @@ namespace Model
          **/
         public Context()
         {
+            Locations = new Dictionary<string, double[]>();
+
+            Locations.Add("VALLE DEL CAUCA", new double[] { -77.7504494, 4.0376296 });
+            Locations.Add("NARIÑO", new double[] { -79.0437364, 1.5289959 });
+            Locations.Add("ANTIOQUIA", new double[] { -77.7484384, 7.1508907 });
+            Locations.Add("QUINDIO", new double[] { -75.9198936, 4.3983318 });
+            Locations.Add("RISARALDA", new double[] { -76.3731545, 5.0981112 });
+            Locations.Add("CAUCA", new double[] { -78.1050057, 2.1471982 });
+            Locations.Add("CUNDINAMARCA", new double[] { -75.0922165, 4.7843227 });
+            Locations.Add("META", new double[] { -74.1167019, 3.2692921 });
+            Locations.Add("BOGOTA", new double[] { -74.2478958, 4.6486259 });
+            Locations.Add("BOLIVAR", new double[] { -77.0181585, 8.9001022 });
+            Locations.Add("CALDAS", new double[] { -75.8344415, 5.2909803 });
 
             FrecuentItemsets = new List<Item[]>();
 

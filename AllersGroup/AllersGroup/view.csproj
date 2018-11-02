@@ -11,6 +11,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +37,39 @@
     <Reference Include="CircularProgressBar, Version=2.6.6823.24527, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CircularProgressBar.2.6.6823.24527\lib\net35-client\CircularProgressBar.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.8.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Windows.1.8.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.8.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Windows.1.8.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=1.8.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Windows.1.8.5\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.1\lib\net46\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.109.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,16 +91,16 @@
     <Compile Include="AuxForm.Designer.cs">
       <DependentUpon>AuxForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="First GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="First GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -77,29 +110,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UC_Groups.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_Groups.Designer.cs">
-      <DependentUpon>UC_Groups.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_G_Department.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_G_Department.Designer.cs">
-      <DependentUpon>UC_G_Department.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_Load.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_Load.Designer.cs">
       <DependentUpon>UC_Load.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Menu.cs">
+    <Compile Include="UC_Groups.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_Menu.Designer.cs">
-      <DependentUpon>UC_Menu.cs</DependentUpon>
+    <Compile Include="UC_Groups.Designer.cs">
+      <DependentUpon>UC_Groups.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_MenuPredictions.cs">
       <SubType>UserControl</SubType>
@@ -113,18 +134,6 @@
     <Compile Include="UC_MenuRecommendations.Designer.cs">
       <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Predictions.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_Predictions.Designer.cs">
-      <DependentUpon>UC_Predictions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_Recommendations.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_Recommendations.Designer.cs">
-      <DependentUpon>UC_Recommendations.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_MenuGroups.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,10 +143,10 @@
     <EmbeddedResource Include="AuxForm.resx">
       <DependentUpon>AuxForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="First GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -145,17 +154,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Groups.resx">
-      <DependentUpon>UC_Groups.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_G_Department.resx">
-      <DependentUpon>UC_G_Department.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_Load.resx">
       <DependentUpon>UC_Load.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Menu.resx">
-      <DependentUpon>UC_Menu.cs</DependentUpon>
+    <EmbeddedResource Include="UC_Groups.resx">
+      <DependentUpon>UC_Groups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_MenuPredictions.resx">
       <DependentUpon>UC_MenuPredictions.cs</DependentUpon>
@@ -163,16 +166,9 @@
     <EmbeddedResource Include="UC_MenuRecommendations.resx">
       <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Predictions.resx">
-      <DependentUpon>UC_Predictions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_Recommendations.resx">
-      <DependentUpon>UC_Recommendations.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_MenuGroups.resx">
       <DependentUpon>UC_MenuGroups.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -249,8 +245,17 @@
     <None Include="Resources\icons8-marker-48.png" />
     <None Include="Resources\icons8-calendar-48.png" />
     <None Include="Resources\icons8-shopping-bag-48.png" />
+    <None Include="Resources\icons8-double-left-filled-50.png" />
+    <None Include="Resources\icons8-double-right-filled-50.png" />
     <Content Include="Resources\minus.png" />
     <None Include="Resources\logo_icesi.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
 </Project>

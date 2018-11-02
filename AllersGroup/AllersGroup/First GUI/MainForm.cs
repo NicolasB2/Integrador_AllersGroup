@@ -9,14 +9,14 @@ namespace AllersGroup
 
         public AuxForm af;
         public Consult model;
-        public Form1 f;
+        public Main f;
 
         int panelWidth;
         bool Hidden;
 
         public MainForm()
         {
-            f = new Form1();
+            f = new Main();
             InitializeComponent();
             //uC_Menu1.BringToFront();
             //uC_Groups1.Hide();

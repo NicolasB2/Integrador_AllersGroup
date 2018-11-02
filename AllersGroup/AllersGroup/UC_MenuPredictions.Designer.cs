@@ -35,6 +35,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +72,7 @@
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.button3.Image = global::AllersGroup.Properties.Resources.icons8_map_pin_48;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(19, 274);
+            this.button3.Location = new System.Drawing.Point(19, 489);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 34);
             this.button3.TabIndex = 15;
@@ -84,7 +87,7 @@
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.button2.Image = global::AllersGroup.Properties.Resources.icons8_shopping_cart_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(19, 182);
+            this.button2.Location = new System.Drawing.Point(19, 489);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(200, 48);
             this.button2.TabIndex = 14;
@@ -99,12 +102,27 @@
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.button1.Image = global::AllersGroup.Properties.Resources.icons8_tags_48;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(19, 104);
+            this.button1.Location = new System.Drawing.Point(19, 489);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 34);
             this.button1.TabIndex = 13;
             this.button1.Text = "         PURCHASE HISTORY";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 10;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 10;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Interval = 10;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // UC_MenuPredictions
             // 
@@ -131,5 +149,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
     }
 }
