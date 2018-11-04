@@ -180,7 +180,7 @@ namespace Model
             else
             {
                 PrunningTransactions(1);
-                PrunningItemsBythreshold(0.03);
+                PrunningItemsBythreshold(threshold*3);
                 apr = FrequentItemsets_Apriori(threshold);
                 SerializableItemSets.SerializeObject(apr, f);
             }
