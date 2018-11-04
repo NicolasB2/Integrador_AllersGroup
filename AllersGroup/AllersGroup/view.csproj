@@ -110,6 +110,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UC_G1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G1.Designer.cs">
+      <DependentUpon>UC_G1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_G2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G2.Designer.cs">
+      <DependentUpon>UC_G2.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Load.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,6 +165,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_G1.resx">
+      <DependentUpon>UC_G1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_G2.resx">
+      <DependentUpon>UC_G2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Load.resx">
       <DependentUpon>UC_Load.cs</DependentUpon>

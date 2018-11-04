@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uC_Menu1 = new AllersGroup.UC_Menu();
+            this.uc_menu1 = new AllersGroup.UC_Menu();
             this.SuspendLayout();
             // 
-            // uC_Menu1
+            // uc_menu1
             // 
-            this.uC_Menu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.uC_Menu1.Location = new System.Drawing.Point(12, 23);
-            this.uC_Menu1.Name = "uC_Menu1";
-            this.uC_Menu1.Size = new System.Drawing.Size(753, 487);
-            this.uC_Menu1.TabIndex = 0;
+            this.uc_menu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.uc_menu1.Location = new System.Drawing.Point(43, 28);
+            this.uc_menu1.Name = "uc_menu1";
+            this.uc_menu1.Size = new System.Drawing.Size(754, 487);
+            this.uc_menu1.TabIndex = 0;
             // 
             // AuxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 580);
-            this.Controls.Add(this.uC_Menu1);
+            this.Controls.Add(this.uc_menu1);
             this.Name = "AuxForm";
             this.Text = "AuxForm";
             this.Load += new System.EventHandler(this.AuxForm_Load);
@@ -54,6 +54,6 @@
 
         #endregion
 
-        private UC_Menu uC_Menu1;
+        private UC_Menu uc_menu1;
     }
 }
