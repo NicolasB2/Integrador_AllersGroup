@@ -9,7 +9,7 @@ namespace Model
     public class Context
     {
        
-        public String path = @"C:\Users\Sara\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
+        public String path = @"C:\Users\Nicolas\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
         public String[] pathNames = { "PrunnedItems.txt", "PrunnedClients.txt", "PrunnedTransactions.txt"  };
         public String[] Departments = { "Amazonas", "Antioquia","Arauca", "Atlántico", "Bolívar" , "Boyacá" ,
             "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca",
@@ -176,6 +176,7 @@ namespace Model
                                 t.AddItem(Int32.Parse(datos[4]));
                                 Transactions.Add(t.Code, t);
                                 Clients[datos[0]].AddTransaction(t);
+                                Items[Int32.Parse(datos[4])].AddTransaction(t);
                             }
                         }
                         else
@@ -184,6 +185,7 @@ namespace Model
                             {
                                 Transactions[int.Parse(datos[1])].AddAsset(datos[4], datos[5], datos[6], datos[7]);
                                 Transactions[int.Parse(datos[1])].AddItem(Int32.Parse(datos[4]));
+                                Items[Int32.Parse(datos[4])].AddTransaction(Transactions[int.Parse(datos[1])]);
                             }
                         }
                     }

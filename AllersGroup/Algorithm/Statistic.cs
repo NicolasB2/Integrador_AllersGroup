@@ -86,7 +86,7 @@ namespace Algorithms
                         String a = "";
                         for (int m = 0; m < itemsets.ElementAt(i).Length; m++)
                         {
-                            a += itemsets.ElementAt(i)[m] + " ";
+                            a += itemsets.ElementAt(i)[m] + ",";
                         }
 
                         Console.WriteLine(a);

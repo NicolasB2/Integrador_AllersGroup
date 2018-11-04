@@ -78,7 +78,11 @@ namespace Model
                 }
             }
         }
-
+        private void PrunningTransactions(int minnimum)
+        {
+            var m = context.Transactions.Where(t => t.Value.Items.Count > minnimum);
+            context.Transactions = m.ToDictionary(k => k.Key, v => v.Value);
+        }
 
         /**
          * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
@@ -90,6 +94,30 @@ namespace Model
             return Statistic.SupportCount(itemset, dataBase);
         }
 
+        private int SupportCount2(int[] itemset)
+        {
+            var x = itemset.Select(i=> context.Items[i]).OrderBy(i => i.Transactions.Count).First().Transactions.Select(t=>t.Items).ToList();
+            int c = 0;
+            foreach (var t in x )
+            {
+                bool containsAll = true;
+
+                for (int j = 0; j < itemset.Count() && containsAll; j++)
+                {
+                    if (!t.Contains(itemset.ElementAt(j)))
+                    {
+                        containsAll = false;
+                    }
+
+                }
+
+                if (containsAll)
+                {
+                    c++;
+                }
+            }
+            return c;
+        }
 
         /**
          * Fraction of the transactions in which an itemset appears.
@@ -102,7 +130,7 @@ namespace Model
             int supportCount = SupportCount(itemset);
             int totalTransactions = context.Transactions.Select(t => t.Value).GroupBy(t => t.Code).ToList().Count();
 
-            return Statistic.Support(itemset, dataBase);
+            return (double)supportCount/totalTransactions;
         }
 
         /**
@@ -211,11 +239,10 @@ namespace Model
             Console.WriteLine("Initial clients {0}", c.context.Clients.Count());
             Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Initial Items {0}", c.context.Items.Count());
-
+            c.PrunningTransactions(1);
             //c.PrunningClientsAndTransactions();
             //c.PrunningItems();
-
-            //Console.WriteLine();
+           
 
             //Console.WriteLine("Clients {0}", c.context.Clients.Count());
             //Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
@@ -225,7 +252,7 @@ namespace Model
             //Console.WriteLine();
 
             //c.Clustering(0.8);
-            //c.FrequentItemsets_Apriori(0.005);
+            c.FrequentItemsets_Apriori(0.05);
 
             Console.WriteLine();
             Console.WriteLine("END");
