@@ -59,14 +59,19 @@ namespace Algorithms
         }
 
 
-        public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(List<T[]> items, List<List<T>> transactions, double threshold)
+        public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(IEnumerable<T[]> itemsets, List<List<T>> transactions, double threshold)
         {
             List<T[]> frecuentItemsSets = new List<T[]>();
-            IEnumerable<T[]> itemsets = Statistic.FrequentItemset(items, transactions, threshold);
+            //IEnumerable<T[]> itemsets = Statistic.FrequentItemset(items, transactions, threshold);
+            //frecuentItemsSets.AddRange(itemsets);
+            //itemsets = GenerateNextCandidates(itemsets);
+
+
             int size = 1;
 
             while (itemsets.Count() != 0)
             {
+                size++;
                 itemsets = GenerateNextCandidates(itemsets);
                 itemsets = Statistic.FrequentItemset(itemsets, transactions, threshold);
                 frecuentItemsSets.AddRange(itemsets);
@@ -79,10 +84,9 @@ namespace Algorithms
                 //        a += pre[i] + " ";
                 //    }
                 //    Console.WriteLine(a);
-                //}
-
-                size++;
+                //}  
             }
+            Console.WriteLine("################"+size);
             return frecuentItemsSets;
         }
     }

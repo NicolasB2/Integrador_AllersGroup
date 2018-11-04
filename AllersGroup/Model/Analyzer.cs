@@ -127,7 +127,7 @@ namespace Model
         public double Support(int[] itemset)
         {
             List<List<int>> dataBase = context.Transactions.Select(t => t.Value.Items).ToList();
-            int supportCount = SupportCount(itemset);
+            int supportCount = SupportCount2(itemset);
             int totalTransactions = context.Transactions.Select(t => t.Value).GroupBy(t => t.Code).ToList().Count();
 
             return (double)supportCount/totalTransactions;
@@ -239,20 +239,23 @@ namespace Model
             Console.WriteLine("Initial clients {0}", c.context.Clients.Count());
             Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Initial Items {0}", c.context.Items.Count());
+
             c.PrunningTransactions(1);
+            c.PrunningItemsBythreshold(0.03);
             //c.PrunningClientsAndTransactions();
             //c.PrunningItems();
-           
 
-            //Console.WriteLine("Clients {0}", c.context.Clients.Count());
-            //Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
-            //Console.WriteLine("Items {0}", c.context.Items.Count());
+            Console.WriteLine();
+
+            Console.WriteLine("Clients {0}", c.context.Clients.Count());
+            Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
+            Console.WriteLine("Items {0}", c.context.Items.Count());
 
             //c.context.SavePrunns();
-            //Console.WriteLine();
+            Console.WriteLine();
 
             //c.Clustering(0.8);
-            c.FrequentItemsets_Apriori(0.05);
+            c.FrequentItemsets_Apriori(0.01);
 
             Console.WriteLine();
             Console.WriteLine("END");
