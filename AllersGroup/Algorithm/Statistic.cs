@@ -84,13 +84,13 @@ namespace Algorithms
                     if (support > threshold)
                     {
 
-                        //String a = "";
-                        //for (int m = 0; m < itemsets.ElementAt(i).Length; m++)
-                        //{
-                        //    a += itemsets.ElementAt(i)[m] + ",";
-                        //}
+                        String a = "";
+                        for (int m = 0; m < itemsets.ElementAt(i).Length; m++)
+                        {
+                            a += itemsets.ElementAt(i)[m] + ",";
+                        }
 
-                        //Console.WriteLine(a);
+                        Console.WriteLine(a);
 
                         frequentItemset.Add(itemsets.ElementAt(i));
                     }

@@ -62,10 +62,6 @@ namespace Algorithms
         public static IEnumerable<T[]> GenerateAllFrecuentItemsets<T>(IEnumerable<T[]> itemsets, List<List<T>> transactions, double threshold)
         {
             List<T[]> frecuentItemsSets = new List<T[]>();
-            //IEnumerable<T[]> itemsets = Statistic.FrequentItemset(items, transactions, threshold);
-            //frecuentItemsSets.AddRange(itemsets);
-            //itemsets = GenerateNextCandidates(itemsets);
-
 
             int size = 1;
 
@@ -75,18 +71,8 @@ namespace Algorithms
                 itemsets = GenerateNextCandidates(itemsets);
                 itemsets = Statistic.FrequentItemset(itemsets, transactions, threshold);
                 frecuentItemsSets.AddRange(itemsets);
-
-                //foreach (T[] pre in itemsets)
-                //{
-                //    String a = "";
-                //    for (int i = 0; i < pre.Length; i++)
-                //    {
-                //        a += pre[i] + " ";
-                //    }
-                //    Console.WriteLine(a);
-                //}  
             }
-            Console.WriteLine("################"+size);
+
             return frecuentItemsSets;
         }
     }

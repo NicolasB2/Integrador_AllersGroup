@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Algorithms;
 using serializables;
@@ -167,6 +168,29 @@ namespace Model
             return Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
         }
 
+        public List<int[]> Final_FrequentItemsets_Apriori(double threshold)
+        {
+            List<int[]> apr = new List<int[]>();
+            String f = context.path + "ItemSets_" + threshold + ".xml";
+            if (File.Exists(f))
+            {
+                SerializableItemSets.Deserialize(apr, f);
+                Console.WriteLine("bueno");
+            }
+            else
+            {
+                PrunningTransactions(1);
+                PrunningItemsBythreshold(0.03);
+                apr = FrequentItemsets_Apriori(threshold);
+                SerializableItemSets.SerializeObject(apr, f);
+            }
+
+            context = new Context();
+
+            return apr;
+        }
+
+
         private Dictionary<String, List<int>> GenerateDictionary_CLient_items()
         {
             Dictionary<String, List<int>> aux = context.Transactions.Select(t => t.Value).GroupBy(t => t.ClientCode).Select(g => new {
@@ -241,29 +265,15 @@ namespace Model
             Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
-            c.PrunningTransactions(1);
-            c.PrunningItemsBythreshold(0.03);
-            //c.PrunningClientsAndTransactions();
-            //c.PrunningItems();
 
-            Console.WriteLine();
-
-            Console.WriteLine("Clients {0}", c.context.Clients.Count());
-            Console.WriteLine("Transactions {0}", c.context.Transactions.Count());
-            Console.WriteLine("Items {0}", c.context.Items.Count());
-
-            //c.context.SavePrunns();
             Console.WriteLine();
 
             //c.Clustering(0.8);
+            //c.FrequentItemsets_Apriori(0.01);
 
-            String path = @"C:\Users\Nicolas\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\prueba.xml";
-            SerializableItemSets.SerializeObject(c.FrequentItemsets_Apriori(0.01), path);
+            var itemsets = c.Final_FrequentItemsets_Apriori(0.01);
 
-            List<int[]> test = new List<int[]>();
-            SerializableItemSets.Deserialize(test, path);
-
-            foreach (int[] pre in test)
+            foreach (int[] pre in itemsets)
             {
                 String a = "";
                 for (int i = 0; i < pre.Length; i++)

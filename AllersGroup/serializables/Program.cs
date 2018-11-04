@@ -17,18 +17,9 @@ namespace serializables
             myList.Add(new int[] {2 });
             myList.Add(new int[] { 6});
             myList.Add(new int[] { 72});
-            String path = @"C:\Users\Nicolas\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\prueba.xml";
-            SerializableItemSets.SerializeObject(myList, path);
+            
+            //SerializableItemSets.SerializeObject(myList, );
 
-
-
-            //List<String> test = new List<string>();
-            //SerializableItemSets.Deserialize(test, path);
-
-            //foreach (String x in test)
-            //{
-            //    Console.WriteLine(x);
-            //}
 
             Console.WriteLine("fin");
             Console.ReadLine();

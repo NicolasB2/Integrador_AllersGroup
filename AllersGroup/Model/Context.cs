@@ -59,7 +59,7 @@ namespace Model
          * Load the items.
          * If the item has it's clasifications as 'NULL' then it's given the '0' clasification. 
          **/
-        private void LoadItems()
+        public void LoadItems()
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Model
          * If the city equals to 'NULL' then is asigned the value of 'No indica ciudad' 
          * If the department equals to 'NULL' then is asigned the value 'No indica departamento'
          **/
-        private void LoadClients()
+        public void LoadClients()
         {
             try
             {
@@ -145,7 +145,7 @@ namespace Model
         /**
          * Load the Transactions 
          **/
-        private void LoadTransactions()
+        public void LoadTransactions()
         {
             try
             {
