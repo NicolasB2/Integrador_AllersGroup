@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithm\Alg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{AB0F4E29-2D77-45BC-8DEE-454EFF2074FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "serializables", "serializables\serializables.csproj", "{8A01F3E3-8BAD-41D9-9311-7F57F9EF58CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AB0F4E29-2D77-45BC-8DEE-454EFF2074FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB0F4E29-2D77-45BC-8DEE-454EFF2074FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB0F4E29-2D77-45BC-8DEE-454EFF2074FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A01F3E3-8BAD-41D9-9311-7F57F9EF58CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A01F3E3-8BAD-41D9-9311-7F57F9EF58CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A01F3E3-8BAD-41D9-9311-7F57F9EF58CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A01F3E3-8BAD-41D9-9311-7F57F9EF58CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

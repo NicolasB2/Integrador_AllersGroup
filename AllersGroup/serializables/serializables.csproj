@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E8E6505-40F9-47BB-94AB-50E86C6556E1}</ProjectGuid>
+    <ProjectGuid>{8A01F3E3-8BAD-41D9-9311-7F57F9EF58CE}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Model</RootNamespace>
-    <AssemblyName>Model</AssemblyName>
+    <RootNamespace>serializables</RootNamespace>
+    <AssemblyName>serializables</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -42,29 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
-    <Compile Include="Analyzer.cs" />
-    <Compile Include="Context.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Asset.cs" />
-    <Compile Include="Transaction.cs" />
+    <Compile Include="SerializableItemSets.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Data\Clients.csv" />
-    <None Include="Data\Items.csv" />
-    <None Include="Data\Transactions.csv" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Algorithm\Algorithms.csproj">
-      <Project>{60da772b-f777-431c-891a-88ca3931d208}</Project>
-      <Name>Algorithms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\serializables\serializables.csproj">
-      <Project>{8a01f3e3-8bad-41d9-9311-7f57f9ef58ce}</Project>
-      <Name>serializables</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

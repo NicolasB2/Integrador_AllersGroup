@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Algorithms;
+using serializables;
 
 
 namespace Model
@@ -255,7 +256,22 @@ namespace Model
             Console.WriteLine();
 
             //c.Clustering(0.8);
-            c.FrequentItemsets_Apriori(0.01);
+
+            String path = @"C:\Users\Nicolas\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\prueba.xml";
+            SerializableItemSets.SerializeObject(c.FrequentItemsets_Apriori(0.01), path);
+
+            List<int[]> test = new List<int[]>();
+            SerializableItemSets.Deserialize(test, path);
+
+            foreach (int[] pre in test)
+            {
+                String a = "";
+                for (int i = 0; i < pre.Length; i++)
+                {
+                    a += pre[i] + " ";
+                }
+                Console.WriteLine(a);
+            }
 
             Console.WriteLine();
             Console.WriteLine("END");
