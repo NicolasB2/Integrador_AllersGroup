@@ -91,12 +91,6 @@
     <Compile Include="AuxForm.Designer.cs">
       <DependentUpon>AuxForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
     <Compile Include="First GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +103,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UC_AnalysisTools.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_AnalysisTools.Designer.cs">
+      <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_G1.cs">
       <SubType>UserControl</SubType>
@@ -155,9 +155,6 @@
     <EmbeddedResource Include="AuxForm.resx">
       <DependentUpon>AuxForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="First GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +162,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_AnalysisTools.resx">
+      <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_G1.resx">
       <DependentUpon>UC_G1.cs</DependentUpon>
@@ -208,6 +208,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\questions.png" />
     <None Include="Resources\price-tag.png" />
     <None Include="Resources\signs.png" />
     <None Include="Resources\route.png" />

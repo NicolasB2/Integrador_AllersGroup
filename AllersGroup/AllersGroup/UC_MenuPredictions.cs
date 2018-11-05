@@ -18,6 +18,14 @@ namespace AllersGroup
             timer1.Start();
         }
 
+        public void loadButtons(bool b1, bool b2, bool b3)
+        {
+            button1.Visible = b1;
+            button2.Visible = b2;
+            button3.Visible = b3;
+
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Left -= 5;

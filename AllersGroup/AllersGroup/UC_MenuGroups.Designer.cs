@@ -136,7 +136,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "UC_MenuGroups";
             this.Size = new System.Drawing.Size(239, 487);
-            this.Load += new System.EventHandler(this.UC_SubMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

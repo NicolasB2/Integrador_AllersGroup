@@ -70,26 +70,26 @@ namespace AllersGroup
         {
             if (this.Controls.Contains(panel_info))
             {
-                if (panel_info.Controls.Contains(panel_1))
-                {
+                //if (panel_info.Controls.Contains(panel_1))
+                //{
 
-                }
+                //}
             }
         }
 
         private void right_Click(object sender, EventArgs e)
         {
-            if (panel_info.Controls.Contains(panel_1))
-            {
-                panel_info.Controls.Remove(panel_1);
-                panel_info.Controls.Add(panel_2);
-            }
+            //if (panel_info.Controls.Contains(panel_1))
+            //{
+            //    panel_info.Controls.Remove(panel_1);
+            //    panel_info.Controls.Add(panel_2);
+            //}
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label_dep.Text = comboBox1.SelectedItem + "";
-            label_dep.Visible = true;
+            //label_dep.Text = comboBox1.SelectedItem + "";
+            //label_dep.Visible = true;
         }
 
 

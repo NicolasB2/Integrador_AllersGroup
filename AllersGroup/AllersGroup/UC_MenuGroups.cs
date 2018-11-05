@@ -3,16 +3,22 @@ using System.Windows.Forms;
 
 namespace AllersGroup
 {
+
     public partial class UC_MenuGroups : UserControl
     {
+        
+
         public UC_MenuGroups()
         {
             InitializeComponent();
             timer1.Start();
         }
 
-        private void UC_SubMenu_Load(object sender, EventArgs e)
+        public void loadButtonsGroups(bool b1, bool b2, bool b3)
         {
+            button1.Visible = b1;
+            button2.Visible = b2;
+            button3.Visible = b3;
 
         }
 

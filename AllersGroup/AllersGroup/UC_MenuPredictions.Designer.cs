@@ -72,7 +72,7 @@
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.button3.Image = global::AllersGroup.Properties.Resources.icons8_map_pin_48;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(19, 489);
+            this.button3.Location = new System.Drawing.Point(18, 489);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 34);
             this.button3.TabIndex = 15;
@@ -87,7 +87,7 @@
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.button2.Image = global::AllersGroup.Properties.Resources.icons8_shopping_cart_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(19, 489);
+            this.button2.Location = new System.Drawing.Point(18, 489);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(200, 48);
             this.button2.TabIndex = 14;
@@ -102,7 +102,7 @@
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.button1.Image = global::AllersGroup.Properties.Resources.icons8_tags_48;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(19, 489);
+            this.button1.Location = new System.Drawing.Point(18, 489);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 34);
             this.button1.TabIndex = 13;
