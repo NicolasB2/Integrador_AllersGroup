@@ -270,7 +270,7 @@ namespace Model
 
             //c.Clustering(0.8);
             //c.FrequentItemsets_Apriori(0.01);
-            c.GenerateRules(0.009);
+            c.GenerateRules(0.005);
 
 
             Console.WriteLine();
