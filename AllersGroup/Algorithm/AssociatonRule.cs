@@ -43,17 +43,17 @@ namespace Algorithms
                 x.Remove(itemset[i]);
                 List<T[]> sub = GenerateSubsets(x);
 
-                foreach (T[] aux in sub)
-                {
+                //foreach (T[] aux in sub)
+                //{
 
-                    String a = "";
-                    for (int j = 0; j < aux.Length; j++)
-                    {
-                        a += aux[j] + " ";
+                //    String a = "";
+                //    for (int j = 0; j < aux.Length; j++)
+                //    {
+                //        a += aux[j] + " ";
 
-                    }
-                    Console.WriteLine(a + " -> " + itemset[i]);
-                }
+                //    }
+                //    Console.WriteLine(a + " -> " + itemset[i]);
+                //}
 
                 if (rules.ContainsKey(itemset[i]))
                 {
@@ -73,7 +73,9 @@ namespace Algorithms
 
         public static void GenerateAllRules<T>(List<T[]> itemset, Dictionary<T, List<T[]>> rules)
         {
-            foreach(T[] iset in itemset)
+            var x = itemset.Where(i=>i.Length==2);
+
+            foreach(T[] iset in x)
             {
                 GenerateRules(iset, rules);
             }

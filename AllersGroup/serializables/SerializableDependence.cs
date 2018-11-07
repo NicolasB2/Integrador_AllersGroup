@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace serializables
 {
-    static class SerializableDependence
+    public static class SerializableDependence
     {
         public static void SerializeObject(this Dictionary<int, List<int[]>> list, string fileName)
         {

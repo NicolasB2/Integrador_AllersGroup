@@ -212,12 +212,50 @@ namespace Model
             cluster.Clustering(Similarity_level);
         }
 
+        public List<String> formatItemSets(IEnumerable<int[]> frequent)
+        {
+            List<String> ret = new List<string>();
+            foreach (var i in frequent)
+            {
+                String a = "(";
+                for (int j = 0; j < i.Length; j++)
+                {
+                    if (j == i.Length - 1)
+                    {
+                        a += i[j] + ")";
+                    }
+                    else
+                    {
+                        a += i[j] + ",";
+                    }
+                }
+
+                ret.Add(a);
+            }
+            return ret;
+        }
 
         public void GenerateRules(double threshold)
         {
-            AssociatonRule.GenerateAllRules<int>(Final_FrequentItemsets_Apriori(threshold),Rules);
-
+            Rules = new Dictionary<int, List<int[]>>();
+            AssociatonRule.GenerateAllRules<int>(Final_FrequentItemsets_Apriori(threshold), Rules);
         }
+
+        public List<String> getDependence(int itemCode , double threshold)
+        {
+            GenerateRules(threshold);
+            List<int[]> x = new List<int[]>();
+            try
+            {
+                x = Rules[itemCode];
+            }
+            catch
+            {
+                return new List<string> { "No se pudo generar ninguna oferta con el item de codigo " + itemCode };
+            }
+            return formatItemSets(x);
+        }
+
 
         public String GenerateReport_Itemset(int[] itemSet) {
             return "";
@@ -267,27 +305,7 @@ namespace Model
             Console.WriteLine("items =" + itemsets.Count());
             Console.WriteLine("transacciones¨: " + transactions.Count());
             var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
-
-            List<String> ret = new List<string>();
-            foreach (var i in frequent)
-            {
-                String a = "(";
-                for (int j = 0; j < i.Length; j++)
-                {
-                    if (j == i.Length - 1)
-                    {
-                        a += i[j] + ")";
-                    }
-                    else
-                    {
-                        a += i[j] + ",";
-                    }
-                }
-
-                ret.Add(a);
-            }
-
-            return ret;
+            return formatItemSets(frequent);
         }
                
         //Returns the codes of all clients.
@@ -301,6 +319,21 @@ namespace Model
             return context.Clients[clientCode].Transactions.Count();
         }
 
+        public List<String> itemsbyClient(String clientCode)
+        {
+            List<String> itemsets = context.Clients[clientCode].Transactions.SelectMany(t => t.Items).Distinct().Select(t=>""+t).ToList();
+            return itemsets;
+        }
+
+        public List<String> itemSetsFrecuentesByClient(String clientCode, double Support)
+        {
+            List<int[]> itemsets = context.Clients[clientCode].Transactions.SelectMany(t=>t.Items).Distinct().Select(s => new int[] { s }).ToList();
+            List<List<int>> transactions = context.Clients[clientCode].Transactions.Select(t => t.Items).ToList();
+            var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, Support).ToList();
+
+            return formatItemSets(frequent);
+        }
+
         static void Main(string[] args)
         {
             Consult c = new Consult();
@@ -309,13 +342,16 @@ namespace Model
             Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
             Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
-
             Console.WriteLine();
 
             //c.Clustering(0.8);
             //c.FrequentItemsets_Apriori(0.01);
-            c.GenerateRules(0.005);
+            //c.GenerateRules(0.1);
 
+            //c.itemSetsFrecuentesByClient("CN0001", 0.5).ForEach(e => Console.WriteLine(e));
+            //c.itemsbyClient("CN0012").ForEach(e => Console.WriteLine(e));
+
+            c.getDependence(23, 0.005).ForEach(e => Console.WriteLine(e));
 
             Console.WriteLine();
             Console.WriteLine("END");
