@@ -22,7 +22,5 @@ namespace AllersGroup
             uC_P11.loadModel(model);
         }
 
-
-
     }
 }
