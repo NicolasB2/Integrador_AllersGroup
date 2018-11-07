@@ -14,6 +14,10 @@ namespace AllersGroup
         public UC_P1()
         {
             InitializeComponent();
+            string[] supports = new string[] {"0.5%", "0.6%", "0.7%", "0.8%", "0.9%", "1%", "2%", "4%", "5%", "10%", "20%"
+            , "30%", "40%", "50%", "60%", "70%", "80%", "90%" , "95%"};
+            comboBox1.Items.Add(supports);
+            comboBox2.Items.Add(supports);
         }
 
         public void loadModel(Consult model)
@@ -40,6 +44,11 @@ namespace AllersGroup
         private void button1_Click(object sender, EventArgs e)
         {          
             
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -50,6 +50,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -163,11 +167,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(298, 244);
+            this.label4.Location = new System.Drawing.Point(298, 242);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 17);
+            this.label4.Size = new System.Drawing.Size(168, 34);
             this.label4.TabIndex = 26;
-            this.label4.Text = "Seleccione un producto de la lista :";
+            this.label4.Text = "Seleccione un producto de \r\nla lista :";
             // 
             // listBox3
             // 
@@ -270,11 +274,58 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(178, 242);
+            this.comboBox1.Location = new System.Drawing.Point(176, 242);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(35, 21);
+            this.comboBox1.Size = new System.Drawing.Size(40, 21);
             this.comboBox1.TabIndex = 34;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(629, 242);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(40, 21);
+            this.comboBox2.TabIndex = 36;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label12.Location = new System.Drawing.Point(478, 242);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(210, 17);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "Soporte mayor o igual a            %";
+            // 
+            // listBox4
+            // 
+            this.listBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 17;
+            this.listBox4.Location = new System.Drawing.Point(481, 280);
+            this.listBox4.MultiColumn = true;
+            this.listBox4.Name = "listBox4";
+            this.listBox4.ScrollAlwaysVisible = true;
+            this.listBox4.Size = new System.Drawing.Size(210, 155);
+            this.listBox4.TabIndex = 37;
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(511, 441);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(158, 27);
+            this.button2.TabIndex = 38;
+            this.button2.Text = "GENERAR PREDICCIÓN";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // UC_P1
             // 
@@ -282,6 +333,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.listBox4);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label10);
@@ -335,5 +390,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.Button button2;
     }
 }
