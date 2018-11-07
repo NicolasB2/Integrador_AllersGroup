@@ -326,6 +326,7 @@
             this.button2.TabIndex = 38;
             this.button2.Text = "GENERAR PREDICCIÓN";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // UC_P1
             // 

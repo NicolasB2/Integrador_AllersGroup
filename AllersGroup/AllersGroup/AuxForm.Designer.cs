@@ -43,12 +43,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.PanelSlide = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.uC_AnalysisTools1 = new AllersGroup.UC_AnalysisTools();
             this.uC_MenuRecommendations1 = new AllersGroup.UC_MenuRecommendations();
             this.uC_MenuPredictions1 = new AllersGroup.UC_MenuPredictions();
             this.uC_MenuGroups1 = new AllersGroup.UC_MenuGroups();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.uC_AnalysisTools1 = new AllersGroup.UC_AnalysisTools();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
@@ -209,32 +209,6 @@
             this.PanelSlide.Size = new System.Drawing.Size(239, 486);
             this.PanelSlide.TabIndex = 2;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.panel4.Controls.Add(this.uC_AnalysisTools1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(309, 42);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(738, 486);
-            this.panel4.TabIndex = 3;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 30;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // uC_AnalysisTools1
-            // 
-            this.uC_AnalysisTools1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_AnalysisTools1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_AnalysisTools1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.uC_AnalysisTools1.Location = new System.Drawing.Point(0, 0);
-            this.uC_AnalysisTools1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uC_AnalysisTools1.Name = "uC_AnalysisTools1";
-            this.uC_AnalysisTools1.Size = new System.Drawing.Size(977, 486);
-            this.uC_AnalysisTools1.TabIndex = 0;
-            // 
             // uC_MenuRecommendations1
             // 
             this.uC_MenuRecommendations1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
@@ -258,6 +232,32 @@
             this.uC_MenuGroups1.Name = "uC_MenuGroups1";
             this.uC_MenuGroups1.Size = new System.Drawing.Size(239, 487);
             this.uC_MenuGroups1.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.panel4.Controls.Add(this.uC_AnalysisTools1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(309, 42);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(738, 486);
+            this.panel4.TabIndex = 3;
+            // 
+            // uC_AnalysisTools1
+            // 
+            this.uC_AnalysisTools1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_AnalysisTools1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_AnalysisTools1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.uC_AnalysisTools1.Location = new System.Drawing.Point(0, 0);
+            this.uC_AnalysisTools1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uC_AnalysisTools1.Name = "uC_AnalysisTools1";
+            this.uC_AnalysisTools1.Size = new System.Drawing.Size(977, 486);
+            this.uC_AnalysisTools1.TabIndex = 0;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 30;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // AuxForm
             // 
