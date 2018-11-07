@@ -192,7 +192,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(406, 274);
+            this.label3.Location = new System.Drawing.Point(406, 270);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 14;
@@ -202,7 +202,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(595, 274);
+            this.label4.Location = new System.Drawing.Point(595, 270);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 20);
             this.label4.TabIndex = 15;
@@ -212,7 +212,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(770, 274);
+            this.label5.Location = new System.Drawing.Point(770, 270);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 20);
             this.label5.TabIndex = 16;
@@ -221,7 +221,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
-            this.panel1.Location = new System.Drawing.Point(389, 297);
+            this.panel1.Location = new System.Drawing.Point(389, 293);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(100, 5);
             this.panel1.TabIndex = 17;
@@ -229,7 +229,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
-            this.panel3.Location = new System.Drawing.Point(578, 297);
+            this.panel3.Location = new System.Drawing.Point(578, 293);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(100, 5);
             this.panel3.TabIndex = 18;
@@ -237,7 +237,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
-            this.panel4.Location = new System.Drawing.Point(767, 297);
+            this.panel4.Location = new System.Drawing.Point(767, 293);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(100, 5);
             this.panel4.TabIndex = 19;

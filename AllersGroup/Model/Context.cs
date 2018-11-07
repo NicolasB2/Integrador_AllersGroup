@@ -9,13 +9,9 @@ namespace Model
     public class Context
     {
        
-        public String path = @"C:\Users\Nicolas\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
+        public String path = @"C:\Users\Sara\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
         public String[] pathNames = { "PrunnedItems.txt", "PrunnedClients.txt", "PrunnedTransactions.txt"  };
-        public String[] Departments = { "Amazonas", "Antioquia","Arauca", "Atlántico", "Bolívar" , "Boyacá" ,
-            "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca",
-            "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Nariño", "Norte de Santander",
-            "Putumayo","Quindío", "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima",
-            "Valle del Cauca", "Vaupés", "Vichada"};
+        
         public Dictionary<String, double[]> Locations; 
 
 
@@ -198,7 +194,7 @@ namespace Model
             }
         }
 
-        public void SavePrunns()
+        public void SavePrunings()
         {
             try
             {

@@ -19,7 +19,7 @@ namespace Model
             context = new Context();
         }
 
-        private void  PrunningClientsAndTransactions()
+        private void PrunningClientsAndTransactions()
         {
             List<String> clientsD = new List<String>();
             List<int> transactiondsD = new List<int>();
@@ -72,9 +72,9 @@ namespace Model
         private void PrunningItemsBythreshold(double threshold)
         {
             List<int[]> itemsets = context.Items.Select(s => new int[] { s.Value.Code }).ToList();
-            foreach(int[] item in itemsets)
+            foreach (int[] item in itemsets)
             {
-                if (Support(item)<threshold)
+                if (Support(item) < threshold)
                 {
                     context.Items.Remove(item[0]);
                 }
@@ -98,9 +98,9 @@ namespace Model
 
         private int SupportCount2(int[] itemset)
         {
-            var x = itemset.Select(i=> context.Items[i]).OrderBy(i => i.Transactions.Count).First().Transactions.Select(t=>t.Items).ToList();
+            var x = itemset.Select(i => context.Items[i]).OrderBy(i => i.Transactions.Count).First().Transactions.Select(t => t.Items).ToList();
             int c = 0;
-            foreach (var t in x )
+            foreach (var t in x)
             {
                 bool containsAll = true;
 
@@ -132,7 +132,7 @@ namespace Model
             int supportCount = SupportCount2(itemset);
             int totalTransactions = context.Transactions.Select(t => t.Value).GroupBy(t => t.Code).ToList().Count();
 
-            return (double)supportCount/totalTransactions;
+            return (double)supportCount / totalTransactions;
         }
 
         /**
@@ -175,12 +175,12 @@ namespace Model
             if (File.Exists(f))
             {
                 SerializableItemSets.Deserialize(apr, f);
-                Console.WriteLine("bueno");
+                //Console.WriteLine("bueno");
             }
             else
             {
                 PrunningTransactions(1);
-                PrunningItemsBythreshold(threshold*3);
+                PrunningItemsBythreshold(threshold * 3);
                 apr = FrequentItemsets_Apriori(threshold);
                 SerializableItemSets.SerializeObject(apr, f);
             }
@@ -215,11 +215,10 @@ namespace Model
 
         public void GenerateRules(double threshold)
         {
-            AssociatonRule.GenerateAllRules<int>(FrequentItemsets_Apriori(threshold),Rules);
-
+            AssociatonRule.GenerateAllRules<int>(FrequentItemsets_Apriori(threshold), Rules);
         }
 
-        public String GenerateReport_Itemset(int[]itemSet) {
+        public String GenerateReport_Itemset(int[] itemSet) {
             return "";
         }
 
@@ -228,23 +227,23 @@ namespace Model
             return "";
         }
 
-        public IEnumerable< IGrouping<String,Client>> ClientsByDepartment()
+        public IEnumerable<IGrouping<String, Client>> ClientsByDepartment()
         {
-            return context.Clients.Select(n => n.Value).GroupBy(n => n.Departament);  
+            return context.Clients.Select(n => n.Value).GroupBy(n => n.Departament);
         }
 
         public IEnumerable<IGrouping<String, Client>> ClientsByType()
         {
-            return context.Clients.Select(n => n.Value).GroupBy(n=>n.Type);
+            return context.Clients.Select(n => n.Value).GroupBy(n => n.Type);
         }
 
-        public IEnumerable<KeyValuePair<int,IEnumerable<String>>> ClientsByMonth()
+        public IEnumerable<KeyValuePair<int, IEnumerable<String>>> ClientsByMonth()
         {
             return context.Transactions.Select(n => n.Value).GroupBy(n => n.Date.Month)
-                .Select(g=> new KeyValuePair<int,IEnumerable<String>>(g.Key,g.Select(t=> t.ClientCode)));
+                .Select(g => new KeyValuePair<int, IEnumerable<String>>(g.Key, g.Select(t => t.ClientCode)));
         }
 
-        public IEnumerable<KeyValuePair<String,IEnumerable<int>>> ItemsByDepartment()
+        public IEnumerable<KeyValuePair<String, IEnumerable<int>>> ItemsByDepartment()
         {
             return ClientsByDepartment().Select(n => new KeyValuePair<String, IEnumerable<int>>
             (n.Key, n.SelectMany(t => t.Transactions.SelectMany(s => s.Items))));
@@ -256,6 +255,50 @@ namespace Model
                 Select(t => new KeyValuePair<int, IEnumerable<int>>(t.Key, t.SelectMany(n => n.Items)));
         }
 
+        public IEnumerable<String> FrequentItems_by_Department(String Department, double threshold)
+        {
+
+            var items = ItemsByDepartment().ToList();
+            var x = items.First(n => n.Key == Department).Value;
+
+            List<int[]> itemsets = x.Select(s => new int[] { s }).ToList();
+            List<List<int>> transactions = context.Clients.Select(n => n.Value).Where(n => n.Departament == Department).SelectMany(c => c.Transactions).Select(t => t.Items).ToList();
+            Console.WriteLine("items =" + itemsets.Count());
+            Console.WriteLine("transacciones¨: " + transactions.Count());
+            var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
+
+            List<String> ret = new List<string>();
+            foreach (var i in frequent)
+            {
+                String a = "(";
+                for (int j = 0; j < i.Length; j++)
+                {
+                    if (j == i.Length - 1)
+                    {
+                        a += i[j] + ")";
+                    }
+                    else
+                    {
+                        a += i[j] + ",";
+                    }
+                }
+
+                ret.Add(a);
+            }
+
+            return ret;
+        }
+               
+        //Returns the codes of all clients.
+        public string[] clientsCodes()
+        {
+            return context.Clients.Select(n => n.Key).ToArray();
+        }
+
+        public int totalTransactionsClient(string clientCode)
+        {
+            return context.Clients[clientCode].Transactions.Count();
+        }
 
         static void Main(string[] args)
         {
@@ -271,6 +314,7 @@ namespace Model
             //c.Clustering(0.8);
             //c.FrequentItemsets_Apriori(0.01);
 
+
             var itemsets = c.Final_FrequentItemsets_Apriori(0.01);
 
             foreach (int[] pre in itemsets)
@@ -285,6 +329,7 @@ namespace Model
 
             Console.WriteLine();
             Console.WriteLine("END");
+            
             Console.ReadLine();
         }
 

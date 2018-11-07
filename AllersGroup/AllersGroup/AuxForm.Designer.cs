@@ -46,9 +46,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.uC_AnalysisTools1 = new AllersGroup.UC_AnalysisTools();
+            this.uC_MenuRecommendations1 = new AllersGroup.UC_MenuRecommendations();
             this.uC_MenuPredictions1 = new AllersGroup.UC_MenuPredictions();
             this.uC_MenuGroups1 = new AllersGroup.UC_MenuGroups();
-            this.uC_MenuRecommendations1 = new AllersGroup.UC_MenuRecommendations();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
@@ -235,6 +235,14 @@
             this.uC_AnalysisTools1.Size = new System.Drawing.Size(977, 486);
             this.uC_AnalysisTools1.TabIndex = 0;
             // 
+            // uC_MenuRecommendations1
+            // 
+            this.uC_MenuRecommendations1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
+            this.uC_MenuRecommendations1.Location = new System.Drawing.Point(0, 0);
+            this.uC_MenuRecommendations1.Name = "uC_MenuRecommendations1";
+            this.uC_MenuRecommendations1.Size = new System.Drawing.Size(239, 487);
+            this.uC_MenuRecommendations1.TabIndex = 2;
+            // 
             // uC_MenuPredictions1
             // 
             this.uC_MenuPredictions1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
@@ -250,14 +258,6 @@
             this.uC_MenuGroups1.Name = "uC_MenuGroups1";
             this.uC_MenuGroups1.Size = new System.Drawing.Size(239, 487);
             this.uC_MenuGroups1.TabIndex = 0;
-            // 
-            // uC_MenuRecommendations1
-            // 
-            this.uC_MenuRecommendations1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
-            this.uC_MenuRecommendations1.Location = new System.Drawing.Point(0, 0);
-            this.uC_MenuRecommendations1.Name = "uC_MenuRecommendations1";
-            this.uC_MenuRecommendations1.Size = new System.Drawing.Size(239, 487);
-            this.uC_MenuRecommendations1.TabIndex = 2;
             // 
             // AuxForm
             // 
