@@ -175,7 +175,7 @@
             this.listBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 17;
-            this.listBox3.Location = new System.Drawing.Point(309, 281);
+            this.listBox3.Location = new System.Drawing.Point(301, 281);
             this.listBox3.MultiColumn = true;
             this.listBox3.Name = "listBox3";
             this.listBox3.ScrollAlwaysVisible = true;
