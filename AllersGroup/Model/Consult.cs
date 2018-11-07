@@ -17,6 +17,7 @@ namespace Model
         public Consult()
         {
             context = new Context();
+            Rules = new Dictionary<int, List<int[]>>();
         }
 
         private void PrunningClientsAndTransactions()
@@ -175,12 +176,11 @@ namespace Model
             if (File.Exists(f))
             {
                 SerializableItemSets.Deserialize(apr, f);
-                //Console.WriteLine("bueno");
             }
             else
             {
                 PrunningTransactions(1);
-                PrunningItemsBythreshold(threshold * 3);
+                PrunningItemsBythreshold(threshold);
                 apr = FrequentItemsets_Apriori(threshold);
                 SerializableItemSets.SerializeObject(apr, f);
             }
@@ -215,7 +215,8 @@ namespace Model
 
         public void GenerateRules(double threshold)
         {
-            AssociatonRule.GenerateAllRules<int>(FrequentItemsets_Apriori(threshold), Rules);
+            AssociatonRule.GenerateAllRules<int>(Final_FrequentItemsets_Apriori(threshold),Rules);
+
         }
 
         public String GenerateReport_Itemset(int[] itemSet) {
@@ -313,19 +314,8 @@ namespace Model
 
             //c.Clustering(0.8);
             //c.FrequentItemsets_Apriori(0.01);
+            c.GenerateRules(0.005);
 
-
-            var itemsets = c.Final_FrequentItemsets_Apriori(0.01);
-
-            foreach (int[] pre in itemsets)
-            {
-                String a = "";
-                for (int i = 0; i < pre.Length; i++)
-                {
-                    a += pre[i] + " ";
-                }
-                Console.WriteLine(a);
-            }
 
             Console.WriteLine();
             Console.WriteLine("END");
