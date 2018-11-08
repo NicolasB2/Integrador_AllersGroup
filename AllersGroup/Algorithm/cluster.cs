@@ -135,16 +135,12 @@ namespace Algorithms
             }  
         }
 
-        public IEnumerable<String> findClients_byItem(T itemCode)
+        public List<List<List<String>>> results()
         {
-            var x = Clients.First(c => c.Value.Contains(itemCode)).Key.Split(',');
+            //list of elements{n} => {0}= list of clients_cluster , {1}= list of items 
+            var x = Clients.Select(n=> new List<List<String>> { n.Key.Split(',').ToList() , n.Value.Select(z=>z+"").ToList() }).ToList();
             return x;
         }
-
-        public IEnumerable<T> findItems_byClient(String clientCode)
-        {
-            var x = Clients.First(c => c.Key.Split(',').Contains(clientCode)).Value;
-            return x;
-        }
+       
     }
 }

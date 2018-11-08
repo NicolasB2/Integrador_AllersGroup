@@ -12,12 +12,15 @@ namespace Model
     {
         public Context context;
         public Cluster<int> cluster;
+        public List<List<List<String>>> clusterResult;
         public Dictionary<int, List<int[]>> Rules;
+        
 
         public Consult()
         {
             context = new Context();
             Rules = new Dictionary<int, List<int[]>>();
+            clusterResult = new List<List<List<string>>>();
         }
 
         private void PrunningClientsAndTransactions()
@@ -207,20 +210,43 @@ namespace Model
 
         public void Clustering(double Similarity_level)
         {
-            Dictionary<String, List<int>> dic = GenerateDictionary_CLient_items();
-            Console.WriteLine();
-            cluster = new Cluster<int>(dic);
-            Console.WriteLine();
-            cluster.Clustering(Similarity_level);
+
+            String f = context.path + "Cluster_" + Similarity_level + ".xml";
+
+            if (File.Exists(f))
+            {
+                serializableCluster.Deserialize(clusterResult, f);
+            }
+            else
+            {
+                Dictionary<String, List<int>> dic = GenerateDictionary_CLient_items();
+                cluster = new Cluster<int>(dic);
+                cluster.Clustering(Similarity_level);
+                clusterResult = cluster.results();
+                serializableCluster.SerializeObject(clusterResult, f);
+            } 
         }
 
-        public IEnumerable<String> Purchase_prediction_from_Clustering(int itemCode, double support)
+        public IEnumerable<String> findClients_byItem(string itemCode)
         {
-            Clustering(support);
-            Console.WriteLine();
-            var x = cluster.findClients_byItem(itemCode);
+            var x = clusterResult.First(c => c.ElementAt(1).Contains(itemCode)).ElementAt(0);
             return x;
         }
+
+        public IEnumerable<String> findItems_byClient(String clientCode)
+        {
+            var x = clusterResult.First(c => c.ElementAt(0).Contains(clientCode)).ElementAt(1);
+            return x;
+        }
+
+        public IEnumerable<String> Purchase_prediction_from_Clustering(String itemCode, double support)
+        {
+            Clustering(support);
+            var x = findClients_byItem(itemCode);
+            return x;
+        }
+
+
         //**********************************************************************************************
         //************ RULES ***************************************************************************
         //**********************************************************************************************
@@ -440,7 +466,8 @@ namespace Model
             //    Console.WriteLine(a[0]+"    "+a[1]);
             //}
 
-            var x = c.Purchase_prediction_from_Clustering(23,0.95);
+
+            var x = c.Purchase_prediction_from_Clustering("23",0.95);
             foreach (String a in x)
             {
                 Console.WriteLine(a);
