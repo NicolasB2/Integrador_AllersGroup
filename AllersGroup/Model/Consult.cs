@@ -14,7 +14,7 @@ namespace Model
         public Cluster<int> cluster;
         public List<List<List<String>>> clusterResult;
         public Dictionary<int, List<int[]>> Rules;
-        
+
 
         public Consult()
         {
@@ -224,7 +224,7 @@ namespace Model
                 cluster.Clustering(Similarity_level);
                 clusterResult = cluster.results();
                 serializableCluster.SerializeObject(clusterResult, f);
-            } 
+            }
         }
 
         public IEnumerable<String> findClients_byItem(string itemCode)
@@ -280,7 +280,7 @@ namespace Model
             AssociatonRule.GenerateAllRules<int>(Final_FrequentItemsets_Apriori(threshold), Rules);
         }
 
-        public List<String> getDependence(int itemCode , double threshold)
+        public List<String> getDependence(int itemCode, double threshold)
         {
             GenerateRules(threshold);
             List<int[]> x = new List<int[]>();
@@ -312,7 +312,7 @@ namespace Model
         //clients dado un tipo de clientes
         public IEnumerable<Client> Clients_ByType(String type)
         {
-            var n = context.Clients.Select(c=>c.Value).Where(c => c.Type.Equals(type));
+            var n = context.Clients.Select(c => c.Value).Where(c => c.Type.Equals(type));
             return n;
         }
 
@@ -340,6 +340,7 @@ namespace Model
         }
 
         //************** DEPARTMENT CROUP ***********************
+
         // Arreglo de clientes dado un departamento
         public IEnumerable<Client> ClientsByDepartment(String department)
         {
@@ -350,7 +351,7 @@ namespace Model
         // Arreglo de Transacciones dado un departamento
         public IEnumerable<Transaction> TransactionsByDepartment(String department)
         {
-            var x = ClientsByDepartment(department).SelectMany(c=>c.Transactions);
+            var x = ClientsByDepartment(department).SelectMany(c => c.Transactions);
             return x;
         }
 
@@ -361,13 +362,14 @@ namespace Model
             return x;
         }
 
-        //retorna un arreglo con [0]=codigo del item y [1]=porsentaje de aparicion del item en las compras de ese departamento
+        //retorna un arreglo con [0]=codigo del item y [1]=porcentaje de aparicion del 
+        // item en las compras de ese departamento
         public IEnumerable<String[]> FrequentItems_by_Department(String department)
         {
 
             var y = TransactionsByDepartment(department);
             var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (n.Count() / (double)y.Count()) + "" });
-            return x;
+            return x.OrderByDescending(i => int.Parse(i[1]));
         }
 
 
@@ -393,23 +395,57 @@ namespace Model
             return x;
         }
 
+        //Arreglo de ItemCodes dado un rango de tiempo (mes-mes)
+        public IEnumerable<int> ItemCodesByTimePeriod(int month1, int month2)
+        {
+            var m1 = ItemsByMonth(month1);
+            var m2 = ItemsByMonth(month2);
+
+            var list = m1.Union(m2).Distinct();
+
+            return list;
+            
+        }
+        
         //retorna un arreglo con [0]=codigo del cliente y [1]=numero de compras de compras de ese cliente en ese mes
-        public IEnumerable<String[]> Frequent_ClLients_ByMonth(int month)
+        public IEnumerable<String[]> Frequent_Clients_ByMonth(int month)
         {
             
-            var x = TransactionsByMonth(month).GroupBy(t => t.ClientCode).OrderBy(g => g.Count()).Select(n => new String[] { n.Key, n.Count() + "" });
-            return x;
+            var x = TransactionsByMonth(month).GroupBy(t => t.ClientCode).
+                OrderBy(g => g.Count()).Select(n => new String[] { n.Key, n.Count() + "" });
+            return x.OrderByDescending(n => int.Parse(n[1]));
         }
 
+        //Arreglo con [0]=codigo del cliente y [1]=numero de compras de compras de ese cliente 
+        //en un rango de tiempo (mes-mes)
+        public IEnumerable<String[]> ClientsByTimePeriod(int month1, int month2)
+        {
+            var c1 = Frequent_Clients_ByMonth(month1);
+            var c2 = Frequent_Clients_ByMonth(month2);
 
-        //retorna un arreglo con [0]=codigo del item y [1]=porsentaje de aparicio del item en las compras de ese mes
+            var list = c1.Union(c2).Distinct().OrderByDescending(n => int.Parse(n[1]));
+
+            return list; 
+        }
+
+        //retorna un arreglo con [0]=codigo del item y [1]=porcentaje de aparición del 
+        //item en las compras de ese mes
         public IEnumerable<String[]> Frequent_Items_ByMonth(int month)
         {
             var y = TransactionsByMonth(month);
-            var x = y.SelectMany(n => n.Items).GroupBy(i=>i).Select(n => new String[] { n.Key+"", (n.Count()/ (double)y.Count()) + "" });
-            return x;
+            var x = y.SelectMany(n => n.Items).GroupBy(i=>i).Select(n => new String[] { n.Key+"", Math.Round((n.Count()/ (double)y.Count())*100,2) + "" });
+            return x.OrderByDescending(i => Double.Parse(i[1]));
         }
 
+        public IEnumerable<String[]> ItemsByTimePeriod(int month1, int month2)
+        {
+            var i1 = Frequent_Items_ByMonth(month1);
+            var i2 = Frequent_Items_ByMonth(month2);
+            
+            var list = i1.Union(i2).Distinct().OrderByDescending(i => Double.Parse(i[1]));
+
+            return list;
+        }
 
         //***********************************************************
         // CARRO DE COMPRAS CREO (Clients Methods) 
@@ -457,21 +493,21 @@ namespace Model
             //c.itemsbyClient("CN0012").ForEach(e => Console.WriteLine(e));
             //c.getDependence(23, 0.005).ForEach(e => Console.WriteLine(e));
 
-            //var x = c.Frequent_Items_ByMonth(1).ToList();
+            var x = c.Frequent_Items_ByMonth(1).ToList();
             //var x = c.FrequentItems_by_Department("NARIÑO").ToList();
             //var x = c.FrequentItems_by_ClientType("CLINICAS PRIVADAS").ToList();
 
-            //foreach (String[] a in x)
-            //{
-            //    Console.WriteLine(a[0]+"    "+a[1]);
-            //}
-
-
-            var x = c.Purchase_prediction_from_Clustering("23",0.95);
-            foreach (String a in x)
+            foreach (String[] a in x)
             {
-                Console.WriteLine(a);
+                Console.WriteLine(a[0] + "    " + a[1]);
             }
+
+
+            //var x = c.Purchase_prediction_from_Clustering("23",0.95);
+            //foreach (String a in x)
+            //{
+            //    Console.WriteLine(a);
+            //}
 
 
             Console.WriteLine();
