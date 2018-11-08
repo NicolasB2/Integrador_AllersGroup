@@ -257,57 +257,111 @@ namespace Model
         }
 
 
-        public String GenerateReport_Itemset(int[] itemSet) {
-            return "";
-        }
+        //**********************************************************************************************
+        //************ METODOS DE AGRUPACION ***********************************************************
+        //**********************************************************************************************
 
-        public String GenerateReport_Client(String clienCode)
+
+        //************** CLIENT TYPE ***********************
+
+        //clients dado un tipo de clientes
+        public IEnumerable<Client> Clients_ByType(String type)
         {
-            return "";
+            var n = context.Clients.Select(c=>c.Value).Where(c => c.Type.Equals(type));
+            return n;
         }
 
-        public IEnumerable<IGrouping<String, Client>> ClientsByDepartment()
+        //Transacciones dado un tipo de cliente
+        public IEnumerable<Transaction> Transactions_ByClientsType(String type)
         {
-            return context.Clients.Select(n => n.Value).GroupBy(n => n.Departament);
+            var n = context.Transactions.Select(t => t.Value).Where(t => context.Clients[t.ClientCode].Type.Equals(type));
+            return n;
         }
 
-        public IEnumerable<IGrouping<String, Client>> ClientsByType()
+        //Itesm dado un tipo de cliente 
+        public IEnumerable<int> Items_ClientsType(String type)
         {
-            return context.Clients.Select(n => n.Value).GroupBy(n => n.Type);
+            var n = Transactions_ByClientsType(type).SelectMany(t => t.Items).Distinct();
+            return n;
         }
 
-        public IEnumerable<KeyValuePair<int, IEnumerable<String>>> ClientsByMonth()
+
+        //************** DEPARTMENT CROUP ***********************
+        // Arreglo de clientes dado un departamento
+        public IEnumerable<Client> ClientsByDepartment(String department)
         {
-            return context.Transactions.Select(n => n.Value).GroupBy(n => n.Date.Month)
-                .Select(g => new KeyValuePair<int, IEnumerable<String>>(g.Key, g.Select(t => t.ClientCode)));
+            var x = context.Clients.Select(n => n.Value).Where(n => n.Departament.Equals(department));
+            return x;
         }
 
-        public IEnumerable<KeyValuePair<String, IEnumerable<int>>> ItemsByDepartment()
+        // Arreglo de Transacciones dado un departamento
+        public IEnumerable<Transaction> TransactionsByDepartment(String department)
         {
-            return ClientsByDepartment().Select(n => new KeyValuePair<String, IEnumerable<int>>
-            (n.Key, n.SelectMany(t => t.Transactions.SelectMany(s => s.Items))));
+            var x = ClientsByDepartment(department).SelectMany(c=>c.Transactions);
+            return x;
         }
 
-        public IEnumerable<KeyValuePair<int, IEnumerable<int>>> ItemsByMonth()
+        // Arreglo de ItemsCodes dado un departamento
+        public IEnumerable<int> ItemsByDepartment(String department)
         {
-            return context.Transactions.Select(n => n.Value).GroupBy(n => n.Date.Month).
-                Select(t => new KeyValuePair<int, IEnumerable<int>>(t.Key, t.SelectMany(n => n.Items)));
+            var x = TransactionsByDepartment(department).SelectMany(t => t.Items).Distinct();
+            return x;
         }
 
-        public IEnumerable<String> FrequentItems_by_Department(String Department, double threshold)
+        //retorna un arreglo con [0]=codigo del item y [1]=porsentaje de aparicion del item en las compras de ese departamento
+        public IEnumerable<String[]> FrequentItems_by_Department(String department)
         {
 
-            var items = ItemsByDepartment().ToList();
-            var x = items.First(n => n.Key == Department).Value;
-
-            List<int[]> itemsets = x.Select(s => new int[] { s }).ToList();
-            List<List<int>> transactions = context.Clients.Select(n => n.Value).Where(n => n.Departament == Department).SelectMany(c => c.Transactions).Select(t => t.Items).ToList();
-            Console.WriteLine("items =" + itemsets.Count());
-            Console.WriteLine("transacciones¨: " + transactions.Count());
-            var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, threshold).ToList();
-            return formatItemSets(frequent);
+            var y = TransactionsByDepartment(department);
+            var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (double)(n.Count() / y.Count()) + "" });
+            return x;
         }
-               
+
+
+        //************** MONTH CROUP ***********************
+        // Arreglo de clientesCode dado un mes
+        public IEnumerable<String> ClientsByMonth(int month)
+        {
+            var x = TransactionsByMonth(month).Select(t=>t.ClientCode).Distinct();
+            return x;
+        }
+
+        // Arreglo de Transacciones dado un mes
+        public IEnumerable<Transaction> TransactionsByMonth(int month)
+        {
+            var x = context.Transactions.Select(n => n.Value).Where(n => n.Date.Month == month);
+            return x;
+        }
+
+        // Arreglo de ItemsCodes dado un mes
+        public IEnumerable<int> ItemsByMonth(int month)
+        {
+            var x = TransactionsByMonth(month).SelectMany(t => t.Items).Distinct();
+            return x;
+        }
+
+        //retorna un arreglo con [0]=codigo del cliente y [1]=numero de compras de compras de ese cliente en ese mes
+        public IEnumerable<String[]> Frequent_ClLients_ByMonth(int month)
+        {
+            
+            var x = TransactionsByMonth(month).GroupBy(t => t.ClientCode).OrderBy(g => g.Count()).Select(n => new String[] { n.Key, n.Count() + "" });
+            return x;
+        }
+
+
+        //retorna un arreglo con [0]=codigo del item y [1]=porsentaje de aparicio del item en las compras de ese mes
+        public IEnumerable<String[]> Frequent_Items_ByMonth(int month)
+        {
+            var y = TransactionsByMonth(month);
+            var x = y.SelectMany(n => n.Items).GroupBy(i=>i).Select(n => new String[] { n.Key+"", (double)(n.Count()/y.Count()) + "" });
+            return x;
+        }
+
+
+        //***********************************************************
+        // CARRO DE COMPRAS CREO (Clients Methods) 
+        //***********************************************************
+
         //Returns the codes of all clients.
         public string[] clientsCodes()
         {
