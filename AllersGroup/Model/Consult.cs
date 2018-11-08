@@ -449,7 +449,8 @@ namespace Model
             //Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
             //Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
-            //c.Clustering(0.8);
+            c.Clustering(0.4);
+            //Console.WriteLine(c.clusterResult.Count());
             //c.FrequentItemsets_Apriori(0.01);
             //c.GenerateRules(0.1);
 
@@ -467,12 +468,11 @@ namespace Model
             //}
 
 
-            var x = c.Purchase_prediction_from_Clustering("23",0.95);
-            foreach (String a in x)
-            {
-                Console.WriteLine(a);
-            }
-
+            //var x = c.Purchase_prediction_from_Clustering("23", 0.90);
+            //foreach (String a in x)
+            //{
+            //    Console.WriteLine(a);
+            //}
 
             Console.WriteLine();
             Console.WriteLine("END");
