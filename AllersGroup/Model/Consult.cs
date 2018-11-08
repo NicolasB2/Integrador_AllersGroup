@@ -190,7 +190,9 @@ namespace Model
             return apr;
         }
 
-
+        //**********************************************************************************************
+        //************ CLUSTERING **********************************************************************
+        //**********************************************************************************************
         private Dictionary<String, List<int>> GenerateDictionary_CLient_items()
         {
             Dictionary<String, List<int>> aux = context.Transactions.Select(t => t.Value).GroupBy(t => t.ClientCode).Select(g => new {
@@ -212,6 +214,16 @@ namespace Model
             cluster.Clustering(Similarity_level);
         }
 
+        public IEnumerable<String> Purchase_prediction_from_Clustering(int itemCode, double support)
+        {
+            Clustering(support);
+            Console.WriteLine();
+            var x = cluster.findClients_byItem(itemCode);
+            return x;
+        }
+        //**********************************************************************************************
+        //************ RULES ***************************************************************************
+        //**********************************************************************************************
         public List<String> formatItemSets(IEnumerable<int[]> frequent)
         {
             List<String> ret = new List<string>();
@@ -234,6 +246,7 @@ namespace Model
             }
             return ret;
         }
+
 
         public void GenerateRules(double threshold)
         {
@@ -418,12 +431,21 @@ namespace Model
             //c.itemsbyClient("CN0012").ForEach(e => Console.WriteLine(e));
             //c.getDependence(23, 0.005).ForEach(e => Console.WriteLine(e));
 
-            var x = c.Frequent_Items_ByMonth(1).ToList();
+            //var x = c.Frequent_Items_ByMonth(1).ToList();
+            //var x = c.FrequentItems_by_Department("NARIÑO").ToList();
+            //var x = c.FrequentItems_by_ClientType("CLINICAS PRIVADAS").ToList();
 
-            foreach (String[] a in x)
+            //foreach (String[] a in x)
+            //{
+            //    Console.WriteLine(a[0]+"    "+a[1]);
+            //}
+
+            var x = c.Purchase_prediction_from_Clustering(23,0.95);
+            foreach (String a in x)
             {
-                Console.WriteLine(a[0]+"    "+a[1]);
+                Console.WriteLine(a);
             }
+
 
             Console.WriteLine();
             Console.WriteLine("END");

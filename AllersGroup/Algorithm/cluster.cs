@@ -134,5 +134,17 @@ namespace Algorithms
                 GenerateMatrix();
             }  
         }
+
+        public IEnumerable<String> findClients_byItem(T itemCode)
+        {
+            var x = Clients.First(c => c.Value.Contains(itemCode)).Key.Split(',');
+            return x;
+        }
+
+        public IEnumerable<T> findItems_byClient(String clientCode)
+        {
+            var x = Clients.First(c => c.Key.Split(',').Contains(clientCode)).Value;
+            return x;
+        }
     }
 }
