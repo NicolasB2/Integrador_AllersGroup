@@ -264,6 +264,12 @@ namespace Model
 
         //************** CLIENT TYPE ***********************
 
+        //lista con los tipos de cliente
+        public IEnumerable<String> ClientTypes()
+        {
+            return context.Clients.Select(c => c.Value.Type).Distinct();
+        }
+
         //clients dado un tipo de clientes
         public IEnumerable<Client> Clients_ByType(String type)
         {
@@ -285,6 +291,14 @@ namespace Model
             return n;
         }
 
+        //retorna un arreglo con [0]=codigo del item y [1]=porsentaje de aparicion del item en las compras de un tipo determinado de cliente
+        public IEnumerable<String[]> FrequentItems_by_ClientType(String clientType)
+        {
+
+            var y = Transactions_ByClientsType(clientType);
+            var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (n.Count() / (double)y.Count()) + "" });
+            return x;
+        }
 
         //************** DEPARTMENT CROUP ***********************
         // Arreglo de clientes dado un departamento
@@ -313,7 +327,7 @@ namespace Model
         {
 
             var y = TransactionsByDepartment(department);
-            var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (double)(n.Count() / y.Count()) + "" });
+            var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (n.Count() / (double)y.Count()) + "" });
             return x;
         }
 
@@ -353,7 +367,7 @@ namespace Model
         public IEnumerable<String[]> Frequent_Items_ByMonth(int month)
         {
             var y = TransactionsByMonth(month);
-            var x = y.SelectMany(n => n.Items).GroupBy(i=>i).Select(n => new String[] { n.Key+"", (double)(n.Count()/y.Count()) + "" });
+            var x = y.SelectMany(n => n.Items).GroupBy(i=>i).Select(n => new String[] { n.Key+"", (n.Count()/ (double)y.Count()) + "" });
             return x;
         }
 
@@ -392,11 +406,9 @@ namespace Model
         {
             Consult c = new Consult();
 
-            Console.WriteLine("Initial clients {0}", c.context.Clients.Count());
-            Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
-            Console.WriteLine("Initial Items {0}", c.context.Items.Count());
-
-            Console.WriteLine();
+            //Console.WriteLine("Initial clients {0}", c.context.Clients.Count());
+            //Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
+            //Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
             //c.Clustering(0.8);
             //c.FrequentItemsets_Apriori(0.01);
@@ -404,8 +416,14 @@ namespace Model
 
             //c.itemSetsFrecuentesByClient("CN0001", 0.5).ForEach(e => Console.WriteLine(e));
             //c.itemsbyClient("CN0012").ForEach(e => Console.WriteLine(e));
+            //c.getDependence(23, 0.005).ForEach(e => Console.WriteLine(e));
 
-            c.getDependence(23, 0.005).ForEach(e => Console.WriteLine(e));
+            var x = c.Frequent_Items_ByMonth(1).ToList();
+
+            foreach (String[] a in x)
+            {
+                Console.WriteLine(a[0]+"    "+a[1]);
+            }
 
             Console.WriteLine();
             Console.WriteLine("END");
