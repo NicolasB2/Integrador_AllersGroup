@@ -283,6 +283,31 @@ namespace Model
             return formatItemSets(x);
         }
 
+        public List<String> getDependence(int[] itemsCode, double threshold)
+        {
+            GenerateRules(threshold);
+            List<int[]> x = new List<int[]>();
+
+            for(int i = 0; i < itemsCode.Length; i++)
+            {
+                try
+                {
+                    x.AddRange(Rules[itemsCode[i]]);
+                }
+                catch
+                {
+                }
+            }
+
+            if (x.Any())
+            {
+                return formatItemSets(x);
+            }
+            else
+            {
+                return new List<string> { "No se pudo generar ninguna oferta con los items seleccionados" };
+            } 
+        }
 
         //**********************************************************************************************
         //************ fORMATS *************************************************************************
@@ -462,9 +487,9 @@ namespace Model
             return list;
         }
 
-        //***********************************************************
-        // CARRO DE COMPRAS CREO (Clients Methods) 
-        //***********************************************************
+        //***********************************************************************************
+        //******************* Clients Methods ***********************************************
+        //***********************************************************************************
 
         //Returns the codes of all clients.
         public string[] clientsCodes()
@@ -492,6 +517,7 @@ namespace Model
             return formatItemSets(frequent);
         }
 
+
         static void Main(string[] args)
         {
             Consult c = new Consult();
@@ -509,15 +535,14 @@ namespace Model
             //c.itemsbyClient("CN0012").ForEach(e => Console.WriteLine(e));
             //c.getDependence(23, 0.005).ForEach(e => Console.WriteLine(e));
 
-            var x = c.Frequent_Items_ByMonth(1).ToList();
+            //var x = c.Frequent_Items_ByMonth(1).ToList();
             //var x = c.FrequentItems_by_Department("NARIÑO").ToList();
             //var x = c.FrequentItems_by_ClientType("CLINICAS PRIVADAS").ToList();
 
-            foreach (String[] a in x)
-            {
-                Console.WriteLine(a[0] + "    " + a[1]);
-            }
-
+            //foreach (String[] a in x)
+            //{
+            //    Console.WriteLine(a[0] + "    " + a[1]);
+            //}
 
             //var x = c.Purchase_prediction_from_Clustering("23",0.95);
             //foreach (String a in x)
@@ -525,16 +550,8 @@ namespace Model
             //    Console.WriteLine(a);
             //}
 
-
-            var x = c.Purchase_prediction_from_Clustering("23", 0.7);
-            foreach (String a in x)
-            {
-                Console.WriteLine(a);
-            }
-
             Console.WriteLine();
             Console.WriteLine("END");
-            
             Console.ReadLine();
         }
 

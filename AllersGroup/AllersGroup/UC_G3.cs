@@ -114,7 +114,7 @@ namespace AllersGroup
                     clients = model.ClientsByTimePeriod(month1, month2);
                 }
 
-
+    
                 label8.Text = clients.ElementAt(0)[0];
                 label9.Text = items.ElementAt(0)[0];
                 label10.Text = items.ElementAt(items.Count()-1)[0];
