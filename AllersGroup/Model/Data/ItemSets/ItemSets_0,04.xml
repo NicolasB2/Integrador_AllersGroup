@@ -7,22 +7,10 @@
     <int>313</int>
   </ArrayOfInt>
   <ArrayOfInt>
-    <int>442</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>449</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
     <int>793</int>
   </ArrayOfInt>
   <ArrayOfInt>
     <int>860</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>10924</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>11022</int>
   </ArrayOfInt>
   <ArrayOfInt>
     <int>11023</int>
@@ -43,9 +31,6 @@
     <int>11388</int>
   </ArrayOfInt>
   <ArrayOfInt>
-    <int>1198</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
     <int>1208</int>
   </ArrayOfInt>
   <ArrayOfInt>
@@ -53,12 +38,6 @@
   </ArrayOfInt>
   <ArrayOfInt>
     <int>1331</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>13809</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>13811</int>
   </ArrayOfInt>
   <ArrayOfInt>
     <int>14377</int>
@@ -73,19 +52,10 @@
     <int>18187</int>
   </ArrayOfInt>
   <ArrayOfInt>
-    <int>18188</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
     <int>18199</int>
   </ArrayOfInt>
   <ArrayOfInt>
     <int>18206</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>18441</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>19175</int>
   </ArrayOfInt>
   <ArrayOfInt>
     <int>23047</int>
@@ -103,12 +73,6 @@
     <int>3324</int>
   </ArrayOfInt>
   <ArrayOfInt>
-    <int>3483</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>3788</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
     <int>3890</int>
   </ArrayOfInt>
   <ArrayOfInt>
@@ -118,19 +82,10 @@
     <int>5182</int>
   </ArrayOfInt>
   <ArrayOfInt>
-    <int>5236</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
     <int>5279</int>
   </ArrayOfInt>
   <ArrayOfInt>
     <int>5334</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>5729</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>7505</int>
   </ArrayOfInt>
   <ArrayOfInt>
     <int>8484</int>
@@ -139,26 +94,7 @@
     <int>8589</int>
   </ArrayOfInt>
   <ArrayOfInt>
-    <int>9145</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>793</int>
-    <int>1109</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>793</int>
-    <int>3324</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
     <int>11023</int>
     <int>11024</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>1109</int>
-    <int>23047</int>
-  </ArrayOfInt>
-  <ArrayOfInt>
-    <int>5279</int>
-    <int>5334</int>
   </ArrayOfInt>
 </ArrayOfArrayOfInt>

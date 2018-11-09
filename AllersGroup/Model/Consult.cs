@@ -23,6 +23,10 @@ namespace Model
             clusterResult = new List<List<List<string>>>();
         }
 
+
+        //**********************************************************************************************
+        //************ PRUNNINGS ***********************************************************************
+        //**********************************************************************************************
         private void PrunningClientsAndTransactions()
         {
             List<String> clientsD = new List<String>();
@@ -90,6 +94,10 @@ namespace Model
             context.Transactions = m.ToDictionary(k => k.Key, v => v.Value);
         }
 
+
+        //**********************************************************************************************
+        //************ SUPPORTS ************************************************************************
+        //**********************************************************************************************
         /**
          * Frecuency of occurrence of an itemset: Counts in how many transactions a given itemset occurs.
         * itemset : Array of codes of a itemset.
@@ -139,6 +147,9 @@ namespace Model
             return (double)supportCount / totalTransactions;
         }
 
+        //**********************************************************************************************
+        //************ FREQUENT ITEMSETS ***************************************************************
+        //**********************************************************************************************
         /**
          * Return a list of all the itemsets of a determinated size.
          * size: the size of the itemset. 
@@ -175,7 +186,7 @@ namespace Model
         public List<int[]> Final_FrequentItemsets_Apriori(double threshold)
         {
             List<int[]> apr = new List<int[]>();
-            String f = context.path + "ItemSets_" + threshold + ".xml";
+            String f = context.path + @"ItemSets\ItemSets_" + threshold + ".xml";
             if (File.Exists(f))
             {
                 SerializableItemSets.Deserialize(apr, f);
@@ -211,7 +222,7 @@ namespace Model
         public void Clustering(double Similarity_level)
         {
 
-            String f = context.path + "Cluster_" + Similarity_level + ".xml";
+            String f = context.path + @"Clusters\Cluster_" + Similarity_level + ".xml";
 
             if (File.Exists(f))
             {
@@ -250,6 +261,32 @@ namespace Model
         //**********************************************************************************************
         //************ RULES ***************************************************************************
         //**********************************************************************************************
+
+        public void GenerateRules(double threshold)
+        {
+            Rules = new Dictionary<int, List<int[]>>();
+            AssociatonRule.GenerateAllRules<int>(Final_FrequentItemsets_Apriori(threshold), Rules);
+        }
+
+        public List<String> getDependence(int itemCode , double threshold)
+        {
+            GenerateRules(threshold);
+            List<int[]> x = new List<int[]>();
+            try
+            {
+                x = Rules[itemCode];
+            }
+            catch
+            {
+                return new List<string> { "No se pudo generar ninguna oferta con el item de codigo " + itemCode };
+            }
+            return formatItemSets(x);
+        }
+
+
+        //**********************************************************************************************
+        //************ fORMATS *************************************************************************
+        //**********************************************************************************************
         public List<String> formatItemSets(IEnumerable<int[]> frequent)
         {
             List<String> ret = new List<string>();
@@ -271,28 +308,6 @@ namespace Model
                 ret.Add(a);
             }
             return ret;
-        }
-
-
-        public void GenerateRules(double threshold)
-        {
-            Rules = new Dictionary<int, List<int[]>>();
-            AssociatonRule.GenerateAllRules<int>(Final_FrequentItemsets_Apriori(threshold), Rules);
-        }
-
-        public List<String> getDependence(int itemCode , double threshold)
-        {
-            GenerateRules(threshold);
-            List<int[]> x = new List<int[]>();
-            try
-            {
-                x = Rules[itemCode];
-            }
-            catch
-            {
-                return new List<string> { "No se pudo generar ninguna oferta con el item de codigo " + itemCode };
-            }
-            return formatItemSets(x);
         }
 
 
@@ -449,10 +464,10 @@ namespace Model
             //Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
             //Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
-            c.Clustering(0.4);
+            //c.Clustering(0.05);
             //Console.WriteLine(c.clusterResult.Count());
             //c.FrequentItemsets_Apriori(0.01);
-            //c.GenerateRules(0.1);
+            //c.GenerateRules(0.05);
 
             //c.itemSetsFrecuentesByClient("CN0001", 0.5).ForEach(e => Console.WriteLine(e));
             //c.itemsbyClient("CN0012").ForEach(e => Console.WriteLine(e));
@@ -468,11 +483,11 @@ namespace Model
             //}
 
 
-            //var x = c.Purchase_prediction_from_Clustering("23", 0.90);
-            //foreach (String a in x)
-            //{
-            //    Console.WriteLine(a);
-            //}
+            var x = c.Purchase_prediction_from_Clustering("23", 0.7);
+            foreach (String a in x)
+            {
+                Console.WriteLine(a);
+            }
 
             Console.WriteLine();
             Console.WriteLine("END");
