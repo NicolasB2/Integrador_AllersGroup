@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label_client = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,9 +53,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -140,16 +140,6 @@
             this.listBox2.ScrollAlwaysVisible = true;
             this.listBox2.Size = new System.Drawing.Size(158, 155);
             this.listBox2.TabIndex = 22;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::AllersGroup.Properties.Resources.questions;
-            this.pictureBox2.Location = new System.Drawing.Point(167, 444);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Genera los itemsets cuyo soporte es \r\nmayor o igual al establecido.");
             // 
             // label_client
             // 
@@ -275,19 +265,21 @@
             // comboBox1
             // 
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(176, 242);
+            this.comboBox1.Location = new System.Drawing.Point(176, 240);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(40, 21);
+            this.comboBox1.Size = new System.Drawing.Size(40, 23);
             this.comboBox1.TabIndex = 34;
             // 
             // comboBox2
             // 
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(629, 242);
+            this.comboBox2.Location = new System.Drawing.Point(629, 240);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(40, 21);
+            this.comboBox2.Size = new System.Drawing.Size(40, 23);
             this.comboBox2.TabIndex = 36;
             // 
             // label12
@@ -328,6 +320,16 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::AllersGroup.Properties.Resources.questions;
+            this.pictureBox2.Location = new System.Drawing.Point(167, 444);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Genera los itemsets cuyo soporte es \r\nmayor o igual al establecido.");
+            // 
             // UC_P1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,9 +362,9 @@
             this.Size = new System.Drawing.Size(738, 486);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

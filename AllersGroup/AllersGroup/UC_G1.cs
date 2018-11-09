@@ -25,10 +25,16 @@ namespace AllersGroup
             this.model = model;
         }
 
-        private void loadComboBox1()
+        private void loadComboBox1(String department)
         {
-            var x = model.ClientsByDepartment().Select(n => n.Key).ToArray();
+            var x = model.ClientsByDepartment(department).Select(n => n).ToArray();
             comboBox1.Items.AddRange(x);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String department = comboBox1.SelectedItem.ToString();
+
         }
     }
 }

@@ -128,6 +128,12 @@
     <Compile Include="UC_G2.Designer.cs">
       <DependentUpon>UC_G2.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_G3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G3.Designer.cs">
+      <DependentUpon>UC_G3.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Load.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_G2.resx">
       <DependentUpon>UC_G2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_G3.resx">
+      <DependentUpon>UC_G3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Load.resx">
       <DependentUpon>UC_Load.cs</DependentUpon>
