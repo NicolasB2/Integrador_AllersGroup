@@ -116,12 +116,6 @@
     <Compile Include="UC_AnalysisTools.Designer.cs">
       <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_G1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_G1.Designer.cs">
-      <DependentUpon>UC_G1.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_G2.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,17 +128,23 @@
     <Compile Include="UC_G3.Designer.cs">
       <DependentUpon>UC_G3.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_G4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G4.Designer.cs">
+      <DependentUpon>UC_G4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_G5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G5.Designer.cs">
+      <DependentUpon>UC_G5.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Load.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_Load.Designer.cs">
       <DependentUpon>UC_Load.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_Groups.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_Groups.Designer.cs">
-      <DependentUpon>UC_Groups.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_MenuPredictions.cs">
       <SubType>UserControl</SubType>
@@ -187,20 +187,20 @@
     <EmbeddedResource Include="UC_AnalysisTools.resx">
       <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_G1.resx">
-      <DependentUpon>UC_G1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_G2.resx">
       <DependentUpon>UC_G2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_G3.resx">
       <DependentUpon>UC_G3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_G4.resx">
+      <DependentUpon>UC_G4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_G5.resx">
+      <DependentUpon>UC_G5.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Load.resx">
       <DependentUpon>UC_Load.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_Groups.resx">
-      <DependentUpon>UC_Groups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_MenuPredictions.resx">
       <DependentUpon>UC_MenuPredictions.cs</DependentUpon>
@@ -247,16 +247,15 @@
     <None Include="Resources\power-button %282%29.png" />
     <None Include="Resources\power-button %281%29.png" />
     <None Include="Resources\power-button.png" />
-    <None Include="Resources\2.png" />
-    <None Include="Resources\12.png" />
-    <None Include="Resources\21.png" />
-    <None Include="Resources\3.png" />
-    <None Include="Resources\4.png" />
     <None Include="Resources\calendar.png" />
     <None Include="Resources\bill.png" />
     <None Include="Resources\box.png" />
     <None Include="Resources\calendar %281%29.png" />
-    <None Include="Resources\and.png" />
+    <None Include="Resources\background1.jpg" />
+    <None Include="Resources\18f62929084ea04cef790d5892923415.jpg" />
+    <None Include="Resources\9a24dc9d88496d3c8b6e8fa187de769f.jpg" />
+    <None Include="Resources\background2.jpg" />
+    <None Include="Resources\background3.jpg" />
     <Content Include="Resources\cancel.png" />
     <None Include="Resources\Webp.net-resizeimage.png" />
     <None Include="Resources\logo-allers-resizeimage.png" />

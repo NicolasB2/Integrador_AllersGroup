@@ -257,6 +257,135 @@ namespace Model
             return x;
         }
 
+        //[0] indice del cluster con mayor cantidad de clientes, [1] cuántos clientes tiene.
+        public int[] ClusterWithMostClients()
+        {
+            int[] pos = new int[2];
+            int mayor = 0;
+            int posM = 0;
+            for (int i = 0;  i< clusterResult.Count(); i++)
+            {
+                if (clusterResult.ElementAt(i).ElementAt(0).Count() > mayor)
+                {
+                    mayor = clusterResult.ElementAt(i).ElementAt(0).Count();
+                    posM = i;                    
+                }
+            }
+            pos[0] = posM;
+            pos[1] = mayor;
+            return pos;
+        }
+
+        //[0] indice del cluster con menor cantidad de clientes, [1] cuántos clientes tiene.
+        public int[] ClusterWithLeastClients()
+        {
+            int[] pos = new int[2];
+            int menor = int.MaxValue;
+            int posM = 0;
+            for (int i = 0; i < clusterResult.Count(); i++)
+            {
+                if (clusterResult.ElementAt(i).ElementAt(0).Count() < menor)
+                {
+                    menor = clusterResult.ElementAt(i).ElementAt(0).Count();
+                    posM = i;
+                }
+            }
+            pos[0] = posM;
+            pos[1] = menor;
+            return pos;
+        }
+
+        //Retorna el cliente con mayor cantidad de transacciones de un clúster  y [1] cuántas son.
+        public string[] Clustering_ClientWithMostTransactions(List<List<String>> clients)
+        {
+            string[] pos = new string[2];
+            int mayor = 0;
+            string client = "";
+            for (int i = 0; i < clients.Count(); i++)
+            {
+                if (totalTransactionsClient(clients.ElementAt(0).ElementAt(i)) > mayor)
+                {
+                    mayor = totalTransactionsClient(clients.ElementAt(0).ElementAt(i));
+                    client = clients.ElementAt(0).ElementAt(i);
+                }
+            }
+            pos[0] = client + "";
+            pos[1] = mayor + "";
+
+            return pos;
+        }
+
+        //Retorna [0] el cliente con menor cantidad de transacciones de un clúster y [1] cuántas son.
+        public string[] Clustering_ClientWithLeastTransactions(List<List<String>> clients)
+        {
+            string[] pos = new string[2];
+            int menor = int.MaxValue;
+            string client = "";
+            for (int i = 0; i < clusterResult.Count(); i++)
+            {
+                if (totalTransactionsClient(clients.ElementAt(0).ElementAt(i)) < menor)
+                {
+                    menor = totalTransactionsClient(clients.ElementAt(0).ElementAt(i));
+                    client = clients.ElementAt(0).ElementAt(i);
+                }
+            }
+            pos[0] = client + "";
+            pos[1] = menor + "";
+
+            return pos;
+        }
+
+        public string[] Clustering_ClientWithMostSells(List<List<String>> clients)
+        {
+            string[] pos = new string[2];
+            double mayor = 0;
+            string client = "";
+            for (int i = 0; i < clusterResult.Count(); i++)
+            {
+                if (TotalSellsClient(clients.ElementAt(0).ElementAt(i)) > mayor)
+                {
+                    mayor = TotalSellsClient(clients.ElementAt(0).ElementAt(i));
+                    client = clients.ElementAt(0).ElementAt(i);
+                }
+            }
+            pos[0] = client + "";
+            pos[1] = mayor + "";
+
+            return pos;
+        }
+
+        public string[] Clustering_ClientWithLeastSells(List<List<String>> clients)
+        {
+            string[] pos = new string[2];
+            double menor = Double.MaxValue;
+            string client = "";
+            for (int i = 0; i < clusterResult.Count(); i++)
+            {
+                if (TotalSellsClient(clients.ElementAt(0).ElementAt(i)) < menor)
+                {
+                    menor = TotalSellsClient(clients.ElementAt(0).ElementAt(i));
+                    client = clients.ElementAt(0).ElementAt(i);
+                }
+            }
+            pos[0] = client + "";
+            pos[1] = menor + "";
+
+            return pos;
+        }
+
+        //[0] = codigo del producto con mayor cantidad de transacciones, [1] en cuantas transacciones aparece.
+        public string[] Clustering_ProductWithMostTransactions(List<List<String>> products)
+        {
+            string[] pos = new string[2];
+            return pos;
+        }
+
+        //[0] = codigo del producto con menor cantidad de transacciones, [1] en cuantas transacciones aparece.
+        public string[] Clustering_ProductoWithLeastTransactions(List<List<String>> products)
+        {
+            string[] pos = new string[2];
+            return pos;
+        }
 
         //**********************************************************************************************
         //************ RULES ***************************************************************************
@@ -285,7 +414,7 @@ namespace Model
 
 
         //**********************************************************************************************
-        //************ fORMATS *************************************************************************
+        //************ FORMATS *************************************************************************
         //**********************************************************************************************
         public List<String> formatItemSets(IEnumerable<int[]> frequent)
         {
@@ -428,6 +557,7 @@ namespace Model
             
             var x = TransactionsByMonth(month).GroupBy(t => t.ClientCode).
                 OrderBy(g => g.Count()).Select(n => new String[] { n.Key, n.Count() + "" });
+
             return x.OrderByDescending(n => int.Parse(n[1]));
         }
 
@@ -472,9 +602,52 @@ namespace Model
             return context.Clients.Select(n => n.Key).ToArray();
         }
 
+        //Returns the total of transactions of a client.
         public int totalTransactionsClient(string clientCode)
         {
             return context.Clients[clientCode].Transactions.Count();
+        }
+
+        public int totalTransactionsListClients(List<string[]> clients)
+        {
+            int total = 0;
+            for (int i = 0; i < clients.Count; i++)
+            {
+                total += int.Parse(clients.ElementAt(i)[1]);
+            }
+
+            return total;
+        }
+
+        //Devuelve el total en ventas ($) de un cliente.
+        public double TotalSellsClient(string clientCode)
+        {
+            return context.Clients[clientCode].Transactions.Select(t => t.Total).Sum(); 
+        }
+        //Devuelve el total en ventas ($) de una lista de clientes.
+        public double totalSellsListClients(List<string[]> clients)
+        {
+            double total = 0;
+            for (int i = 0; i < clients.Count; i++)
+            {
+                total += TotalSellsClient(clients.ElementAt(i)[0]);
+            }
+
+            return total;
+        }
+       
+        //Lista con arreglo: en [0] = codigo cliente, [1] = total de sus ventas. 
+        public List<string[]> totalSells(List<string[]> clients)
+        {
+            List<string[]> list = new List<string[]>();
+            for (int i = 0; i < clients.Count; i++)
+            {
+                string[] aux = new string[2];
+                aux[0] = clients.ElementAt(0)[0];
+                aux[1] = TotalSellsClient(clients.ElementAt(i)[0])+"";
+            }
+
+            return list;
         }
 
         public List<String> itemsbyClient(String clientCode)
@@ -526,11 +699,11 @@ namespace Model
             //}
 
 
-            var x = c.Purchase_prediction_from_Clustering("23", 0.7);
-            foreach (String a in x)
-            {
-                Console.WriteLine(a);
-            }
+            //var x = c.Purchase_prediction_from_Clustering("23", 0.7);
+            //foreach (String a in x)
+            //{
+            //    Console.WriteLine(a);
+            //}
 
             Console.WriteLine();
             Console.WriteLine("END");

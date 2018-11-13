@@ -37,6 +37,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label_client = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox3 = new System.Windows.Forms.ListBox();
@@ -53,10 +54,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -141,6 +141,16 @@
             this.listBox2.Size = new System.Drawing.Size(158, 155);
             this.listBox2.TabIndex = 22;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::AllersGroup.Properties.Resources.questions;
+            this.pictureBox2.Location = new System.Drawing.Point(167, 444);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Genera los itemsets cuyo soporte es \r\nmayor o igual al establecido.");
+            // 
             // label_client
             // 
             this.label_client.AutoSize = true;
@@ -212,33 +222,33 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(462, 80);
+            this.label8.Location = new System.Drawing.Point(454, 80);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 17);
+            this.label8.Size = new System.Drawing.Size(46, 17);
             this.label8.TabIndex = 31;
             this.label8.Text = "label8";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(462, 108);
+            this.label9.Location = new System.Drawing.Point(454, 108);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 17);
+            this.label9.Size = new System.Drawing.Size(46, 17);
             this.label9.TabIndex = 32;
             this.label9.Text = "label9";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(462, 136);
+            this.label10.Location = new System.Drawing.Point(454, 136);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 17);
+            this.label10.Size = new System.Drawing.Size(52, 17);
             this.label10.TabIndex = 33;
             this.label10.Text = "label10";
             // 
@@ -320,16 +330,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::AllersGroup.Properties.Resources.questions;
-            this.pictureBox2.Location = new System.Drawing.Point(167, 444);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Genera los itemsets cuyo soporte es \r\nmayor o igual al establecido.");
-            // 
             // UC_P1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,9 +362,9 @@
             this.Size = new System.Drawing.Size(738, 486);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

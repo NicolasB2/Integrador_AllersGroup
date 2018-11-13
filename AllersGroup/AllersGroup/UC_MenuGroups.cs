@@ -6,13 +6,16 @@ namespace AllersGroup
 
     public partial class UC_MenuGroups : UserControl
     {
-        
+        public UC_G3 ucg3; 
 
-        public UC_MenuGroups()
+        public UC_MenuGroups(UC_G3 ucg3)
         {
             InitializeComponent();
             timer1.Start();
+
+            this.ucg3 = ucg3;
         }
+
 
         public void loadButtonsGroups(bool b1, bool b2, bool b3)
         {
@@ -69,6 +72,24 @@ namespace AllersGroup
             {
                 timer4.Stop();
             }
+        }
+
+        //Departamento
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ucg3.Hide();
+        }
+
+        //Periodo de tiempo
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ucg3.Show();
+        }
+
+        //Similitud en compras
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ucg3.Hide();
         }
     }
 }

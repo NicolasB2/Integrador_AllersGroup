@@ -22,8 +22,14 @@ namespace AllersGroup
             uC_MenuGroups1.Hide();
             uC_MenuPredictions1.Hide();
             uC_MenuRecommendations1.Hide();
+            uC_G31.Hide();
 
+            load_UserControls();
 
+        }
+        public void load_UserControls()
+        {
+            uC_G31.loadModel(model);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,6 +37,7 @@ namespace AllersGroup
             uC_MenuPredictions1.Hide();
             uC_MenuRecommendations1.Hide();
             uC_MenuGroups1.Hide();
+            uC_G31.Hide();
 
             if (!Hidden)
             {
@@ -75,6 +82,7 @@ namespace AllersGroup
             uC_MenuPredictions1.Hide();
             uC_MenuRecommendations1.Hide();
             uC_AnalysisTools1.Hide();
+            uC_G31.Hide();
 
             if (!Hidden)
             {
@@ -82,7 +90,7 @@ namespace AllersGroup
             }
             else
             {
-                uC_MenuGroups1 = new UC_MenuGroups();
+                uC_MenuGroups1 = new UC_MenuGroups(uC_G31);
                 PanelSlide.Controls.Add(uC_MenuGroups1);
                 uC_MenuGroups1.Show();
                 uC_MenuGroups1.loadButtonsGroups(uC_AnalysisTools1.b1, uC_AnalysisTools1.b2, uC_AnalysisTools1.b3);
@@ -98,6 +106,7 @@ namespace AllersGroup
             uC_MenuGroups1.Hide();
             uC_MenuRecommendations1.Hide();
             uC_AnalysisTools1.Hide();
+            uC_G31.Hide();
 
             if (!Hidden)
             {
@@ -122,6 +131,7 @@ namespace AllersGroup
             uC_MenuGroups1.Hide();
             uC_MenuPredictions1.Hide();
             uC_AnalysisTools1.Hide();
+            uC_G31.Hide();
 
             if (!Hidden)
             {
@@ -146,6 +156,7 @@ namespace AllersGroup
             uC_MenuPredictions1.Hide();
             uC_MenuRecommendations1.Hide();
             uC_AnalysisTools1.Hide();
+            uC_G31.Hide();
 
             mini_slide.Height = button5.Height;
             mini_slide.Top = button5.Top;
@@ -158,6 +169,7 @@ namespace AllersGroup
             uC_MenuPredictions1.Hide();
             uC_MenuRecommendations1.Hide();
             uC_AnalysisTools1.Hide();
+            uC_G31.Hide();
 
             mini_slide.Height = button6.Height;
             mini_slide.Top = button6.Top;

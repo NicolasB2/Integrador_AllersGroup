@@ -135,7 +135,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "UC_MenuRecommendations";
-            this.Size = new System.Drawing.Size(239, 487);
+            this.Size = new System.Drawing.Size(240, 487);
             this.ResumeLayout(false);
             this.PerformLayout();
 

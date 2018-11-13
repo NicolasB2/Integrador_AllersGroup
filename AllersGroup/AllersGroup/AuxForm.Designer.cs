@@ -43,12 +43,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.PanelSlide = new System.Windows.Forms.Panel();
+            this.uC_MenuGroups1 = new AllersGroup.UC_MenuGroups(this.uC_G31);
             this.uC_MenuRecommendations1 = new AllersGroup.UC_MenuRecommendations();
             this.uC_MenuPredictions1 = new AllersGroup.UC_MenuPredictions();
-            this.uC_MenuGroups1 = new AllersGroup.UC_MenuGroups();
             this.panel4 = new System.Windows.Forms.Panel();
             this.uC_AnalysisTools1 = new AllersGroup.UC_AnalysisTools();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.uC_G31 = new AllersGroup.UC_G3();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
@@ -235,7 +236,9 @@
             // 
             // panel4
             // 
+            this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.panel4.Controls.Add(this.uC_G31);
             this.panel4.Controls.Add(this.uC_AnalysisTools1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(309, 42);
@@ -258,6 +261,14 @@
             // 
             this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // uC_G31
+            // 
+            this.uC_G31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G31.Location = new System.Drawing.Point(0, 0);
+            this.uC_G31.Name = "uC_G31";
+            this.uC_G31.Size = new System.Drawing.Size(720, 1904);
+            this.uC_G31.TabIndex = 1;
             // 
             // AuxForm
             // 
@@ -302,5 +313,6 @@
         private UC_MenuGroups uC_MenuGroups1;
         private UC_MenuPredictions uC_MenuPredictions1;
         private UC_MenuRecommendations uC_MenuRecommendations1;
+        private UC_G3 uC_G31;
     }
 }
