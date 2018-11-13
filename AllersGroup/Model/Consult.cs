@@ -23,6 +23,17 @@ namespace Model
             clusterResult = new List<List<List<string>>>();
         }
 
+        public IEnumerable<IGrouping<String, Client>> ClientsByDepartment()
+        {
+            return context.Clients.Select(n => n.Value).GroupBy(n => n.Departament);
+        }
+
+        public IEnumerable<KeyValuePair<String, IEnumerable<int>>> ItemsByDepartment()
+        {
+            return ClientsByDepartment().Select(n => new KeyValuePair<String, IEnumerable<int>>
+            (n.Key, n.SelectMany(t => t.Transactions.SelectMany(s => s.Items))));
+        }
+
 
         //**********************************************************************************************
         //************ PRUNNINGS ***********************************************************************
