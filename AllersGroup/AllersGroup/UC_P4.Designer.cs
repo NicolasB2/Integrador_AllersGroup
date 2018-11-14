@@ -356,7 +356,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Label label5;

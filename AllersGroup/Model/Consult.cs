@@ -570,7 +570,7 @@ namespace Model
 
             var y = TransactionsByDepartment(department);
             var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (n.Count() / (double)y.Count()) + "" });
-            return x.OrderByDescending(i => int.Parse(i[1]));
+            return x.OrderByDescending(i => Double.Parse(i[1]));
         }
 
 

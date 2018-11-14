@@ -55,6 +55,10 @@ namespace AllersGroup
         private void comboBox_month_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             loadItems();
+            label8.Text = model.TransactionsByMonth(int.Parse( comboBox_month.SelectedItem.ToString())).Count() + "";
+            label9.Text = model.ClientsByMonth(int.Parse(comboBox_month.SelectedItem.ToString())).Count() + "";
+            label10.Text = model.ItemsByMonth(int.Parse(comboBox_month.SelectedItem.ToString())).Count() + "";
+            label8.Visible = label9.Visible = label10.Visible = false;
         }
     }
 }

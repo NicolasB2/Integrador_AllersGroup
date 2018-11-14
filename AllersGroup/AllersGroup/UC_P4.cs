@@ -53,6 +53,10 @@ namespace AllersGroup
         private void comboBox_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadItems();
+            label8.Text = model.Transactions_ByClientsType(comboBox_type.SelectedItem.ToString()).Count() + "";
+            label9.Text = model.Clients_ByType(comboBox_type.SelectedItem.ToString()).Count() + "";
+            label10.Text = model.Items_ClientsType(comboBox_type.SelectedItem.ToString()).Count() + "";
+            label8.Visible = label9.Visible = label10.Visible = false;
         }
     }
 }

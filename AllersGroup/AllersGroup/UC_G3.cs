@@ -128,6 +128,11 @@ namespace AllersGroup
             }
         }
 
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void ClearCharts()
         {
             chart1.Titles.Clear();
