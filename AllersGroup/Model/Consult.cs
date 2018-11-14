@@ -638,6 +638,22 @@ namespace Model
             return context.Clients.Select(n => n.Key).ToArray();
         }
 
+        //returns most frequent item of a client
+        public int mostFrequentItem(string clientCode)
+        {
+            var x = context.Clients[clientCode].Transactions.SelectMany(t => t.Items)
+                .GroupBy(g => g).OrderByDescending(g => g.Count()).First().Key;
+            return x;
+        }
+
+        public int mostFrequentItemListCLient(List<string> clients)
+        {
+            var x = clients.Select(c => context.Clients[c]).SelectMany(c => c.Transactions)
+             .SelectMany(t => t.Items).GroupBy(g => g).OrderByDescending(g => g.Count()).First().Key;
+            return x;
+        }
+
+
         //Returns the total of transactions of a client.
         public int totalTransactionsClient(string clientCode)
         {

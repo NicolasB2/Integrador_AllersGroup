@@ -37,6 +37,10 @@ namespace AllersGroup
         {
             label_client.Text = listBox1.SelectedItem.ToString();
             label8.Text = model.totalTransactionsClient(listBox1.SelectedItem.ToString()) + "";
+            label9.Text =;
+            label10.Text =;
+
+
             label_client.Visible = label8.Visible = label9.Visible = label10.Visible = true;
             listBox2.Items.AddRange(model.itemsbyClient(listBox1.SelectedItem.ToString()).ToArray());
             listBox3.Items.AddRange(model.itemsbyClient(listBox1.SelectedItem.ToString()).ToArray());
