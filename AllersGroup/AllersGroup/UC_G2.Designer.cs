@@ -146,7 +146,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::AllersGroup.Properties.Resources._18f62929084ea04cef790d5892923415;
+            //this.pictureBox1.Image = global::AllersGroup.Properties.Resources._18f62929084ea04cef790d5892923415;
             this.pictureBox1.Location = new System.Drawing.Point(338, 79);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(400, 80);
@@ -473,7 +473,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::AllersGroup.Properties.Resources.questions;
+            //this.pictureBox2.Image = global::AllersGroup.Properties.Resources.questions;
             this.pictureBox2.Location = new System.Drawing.Point(281, 1243);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);

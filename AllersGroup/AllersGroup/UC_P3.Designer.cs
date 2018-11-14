@@ -1,6 +1,6 @@
 ﻿namespace AllersGroup
 {
-    partial class UC_P1
+    partial class UC_P3
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label_month = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox_month = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label_client = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,49 +45,59 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // label_month
             // 
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(166, 30);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(100, 121);
-            this.listBox1.TabIndex = 0;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.label_month.AutoSize = true;
+            this.label_month.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_month.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_month.Location = new System.Drawing.Point(294, 20);
+            this.label_month.Name = "label_month";
+            this.label_month.Size = new System.Drawing.Size(279, 40);
+            this.label_month.TabIndex = 18;
+            this.label_month.Text = "Periodo de compra";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(28, 30);
+            this.label1.Location = new System.Drawing.Point(61, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 34);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Seleccione el código \r\ndel cliente :";
+            this.label1.Size = new System.Drawing.Size(181, 17);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Seleccione el mes : ";
             // 
-            // panel1
+            // comboBox_month
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(27, 196);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(192, 30);
-            this.panel1.TabIndex = 18;
+            this.comboBox_month.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_month.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_month.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_month.FormattingEnabled = true;
+            this.comboBox_month.Location = new System.Drawing.Point(74, 80);
+            this.comboBox_month.Name = "comboBox_month";
+            this.comboBox_month.Size = new System.Drawing.Size(142, 25);
+            this.comboBox_month.TabIndex = 16;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(176, 240);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(40, 23);
+            this.comboBox1.TabIndex = 34;
             // 
             // label2
             // 
@@ -126,7 +133,6 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "GENERAR";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listBox2
             // 
@@ -139,26 +145,6 @@
             this.listBox2.ScrollAlwaysVisible = true;
             this.listBox2.Size = new System.Drawing.Size(158, 155);
             this.listBox2.TabIndex = 22;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(167, 444);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Genera los itemsets cuyo soporte es \r\nmayor o igual al establecido.");
-            // 
-            // label_client
-            // 
-            this.label_client.AutoSize = true;
-            this.label_client.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_client.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_client.Location = new System.Drawing.Point(294, 20);
-            this.label_client.Name = "label_client";
-            this.label_client.Size = new System.Drawing.Size(112, 40);
-            this.label_client.TabIndex = 25;
-            this.label_client.Text = "Cliente";
             // 
             // label4
             // 
@@ -201,9 +187,9 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(298, 136);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 17);
+            this.label6.Size = new System.Drawing.Size(140, 17);
             this.label6.TabIndex = 29;
-            this.label6.Text = "Itemset menos frecuente :";
+            this.label6.Text = "Cliente más frecuente :";
             // 
             // label7
             // 
@@ -260,6 +246,15 @@
             this.label11.TabIndex = 17;
             this.label11.Text = "Predicción";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(27, 196);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(192, 30);
+            this.panel1.TabIndex = 18;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
@@ -268,17 +263,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(399, 30);
             this.panel2.TabIndex = 19;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(176, 240);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(40, 23);
-            this.comboBox1.TabIndex = 34;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -325,19 +309,21 @@
             this.button2.TabIndex = 38;
             this.button2.Text = "GENERAR PREDICCIÓN";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // UC_P1
+            // UC_P3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Controls.Add(this.label_month);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBox_month);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox4);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -347,21 +333,13 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listBox3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label_client);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.panel1);
-            this.ForeColor = System.Drawing.Color.BurlyWood;
-            this.Name = "UC_P1";
+            this.Name = "UC_P3";
             this.Size = new System.Drawing.Size(738, 486);
-            this.Load += new System.EventHandler(this.UC_P1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -370,17 +348,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label_month;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox comboBox_month;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Label label_client;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Label label5;
@@ -390,6 +365,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;

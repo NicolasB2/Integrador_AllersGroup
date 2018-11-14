@@ -9,7 +9,7 @@ namespace Algorithms
     public class AssociatonRule
     {
 
-        private static List<T[]> GenerateSubsets<T>(List<T> itemset)
+        public static List<T[]> GenerateSubsets<T>(List<T> itemset)
         {
             List<T[]> subsets = new List<T[]>();
             bool flag = true;

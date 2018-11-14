@@ -38,7 +38,8 @@ namespace AllersGroup
             label_client.Text = listBox1.SelectedItem.ToString();
             label8.Text = model.totalTransactionsClient(listBox1.SelectedItem.ToString()) + "";
             label_client.Visible = label8.Visible = label9.Visible = label10.Visible = true;
-
+            listBox2.Items.AddRange(model.itemsbyClient(listBox1.SelectedItem.ToString()).ToArray());
+            listBox3.Items.AddRange(model.itemsbyClient(listBox1.SelectedItem.ToString()).ToArray());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace AllersGroup
             {
                 MessageBox.Show("Se debe seleccionar un porcentaje.");
             }
-            if (listBox3.SelectedItem == null)
+            if (listBox2.SelectedItem == null)
             {
                 MessageBox.Show("Se debe seleccionar un producto.");
 
@@ -66,6 +67,22 @@ namespace AllersGroup
             {
                 MessageBox.Show("Se debe seleccionar un porcentaje.");
             }
+            if (listBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Se debe seleccionar un producto.");
+
+            }
+
+        }
+
+        private void UC_P1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
