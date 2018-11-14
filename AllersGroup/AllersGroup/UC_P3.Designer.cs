@@ -73,7 +73,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(61, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 17);
+            this.label1.Size = new System.Drawing.Size(122, 17);
             this.label1.TabIndex = 17;
             this.label1.Text = "Seleccione el mes : ";
             // 
@@ -87,6 +87,7 @@
             this.comboBox_month.Name = "comboBox_month";
             this.comboBox_month.Size = new System.Drawing.Size(142, 25);
             this.comboBox_month.TabIndex = 16;
+            this.comboBox_month.SelectedIndexChanged += new System.EventHandler(this.comboBox_month_SelectedIndexChanged_1);
             // 
             // comboBox1
             // 

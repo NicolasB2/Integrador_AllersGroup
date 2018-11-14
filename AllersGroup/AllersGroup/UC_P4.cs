@@ -17,6 +17,7 @@ namespace AllersGroup
         public UC_P4()
         {
             InitializeComponent();
+            loadpercentage();
         }
 
 
@@ -37,11 +38,6 @@ namespace AllersGroup
             listBox3.Items.AddRange(model.Items_ClientsType(comboBox_type.SelectedItem.ToString()).Select(c => c + "").ToArray());
         }
 
-        private void comboBox_Typee_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loadItems();
-        }
-
         public void loadpercentage()
         {
             comboBox1.Items.Clear();
@@ -52,6 +48,11 @@ namespace AllersGroup
 
             comboBox1.Items.AddRange(supports);
             comboBox2.Items.AddRange(supports);
+        }
+
+        private void comboBox_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadItems();
         }
     }
 }

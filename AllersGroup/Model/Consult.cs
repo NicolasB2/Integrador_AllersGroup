@@ -404,6 +404,7 @@ namespace Model
 
         public void GenerateRules(double threshold)
         {
+            
             Rules = new Dictionary<int, List<int[]>>();
             AssociatonRule.GenerateAllRules<int>(Final_FrequentItemsets_Apriori(threshold), Rules);
         }
@@ -418,7 +419,7 @@ namespace Model
             }
             catch
             {
-                return new List<string> { "No se pudo generar ninguna oferta con el item de codigo " + itemCode };
+                return null;
             }
             return formatItemSets(x);
         }
@@ -445,7 +446,7 @@ namespace Model
             }
             else
             {
-                return new List<string> { "No se pudo generar ninguna oferta con los items seleccionados" };
+                return null;
             } 
         }
 
@@ -659,20 +660,21 @@ namespace Model
         }
 
         //returns Igrupings with items and number of purchaces, this group iis order by descending
-        public IEnumerable< IGrouping<int,int>> FrequentItemsbyCLient(string clientCode)
+        public IEnumerable< IGrouping<int,int>> OrderItemsbyCLient(string clientCode)
         {
             var x = context.Clients[clientCode].Transactions.SelectMany(t => t.Items)
                 .GroupBy(g => g).OrderByDescending(g => g.Count());
             return x;
         }
 
-        public IEnumerable<IGrouping<int, int>> FrequentItemsbyListCLient(List<string> clients)
+        public IEnumerable<IGrouping<int, int>> OrderItemsbyListCLient(List<string> clients)
         {
             var x = clients.Select(c => context.Clients[c]).SelectMany(c => c.Transactions)
              .SelectMany(t => t.Items).GroupBy(g => g).OrderByDescending(g => g.Count());
             return x;
         }
 
+      
 
         //Returns the total of transactions of a client.
         public int totalTransactionsClient(string clientCode)
@@ -737,6 +739,24 @@ namespace Model
             return formatItemSets(frequent);
         }
 
+        public IEnumerable<String> dependencesbyCLientAndItem(String clientCode, int itemCode, double support)
+        {
+            try
+            {
+                List<int[]> itemsets = context.Clients[clientCode].Transactions.SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
+                List<List<int>> transactions = context.Clients[clientCode].Transactions.Select(t => t.Items).ToList();
+                var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, support).ToList();
+                Rules = new Dictionary<int, List<int[]>>();
+                AssociatonRule.GenerateAllRules<int>(frequent, Rules);
+                var y = Rules[itemCode];
+                return formatItemSets(y);
+            }
+            catch
+            {
+                return null;
+            }
+            
+        }
 
         static void Main(string[] args)
         {

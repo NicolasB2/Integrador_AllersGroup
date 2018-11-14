@@ -61,8 +61,8 @@
             this.label_type.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_type.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label_type.Location = new System.Drawing.Point(294, 20);
-            this.label_type.Name = "label_month";
-            this.label_type.Size = new System.Drawing.Size(279, 40);
+            this.label_type.Name = "label_type";
+            this.label_type.Size = new System.Drawing.Size(219, 40);
             this.label_type.TabIndex = 18;
             this.label_type.Text = "Tipo de cliente";
             // 
@@ -73,7 +73,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(61, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 17);
+            this.label1.Size = new System.Drawing.Size(185, 17);
             this.label1.TabIndex = 17;
             this.label1.Text = "Seleccione un tipo de cliente : ";
             // 
@@ -84,9 +84,10 @@
             this.comboBox_type.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_type.FormattingEnabled = true;
             this.comboBox_type.Location = new System.Drawing.Point(74, 80);
-            this.comboBox_type.Name = "comboBox_month";
+            this.comboBox_type.Name = "comboBox_type";
             this.comboBox_type.Size = new System.Drawing.Size(142, 25);
             this.comboBox_type.TabIndex = 16;
+            this.comboBox_type.SelectedIndexChanged += new System.EventHandler(this.comboBox_type_SelectedIndexChanged);
             // 
             // comboBox1
             // 

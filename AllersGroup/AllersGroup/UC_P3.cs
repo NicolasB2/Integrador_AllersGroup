@@ -17,13 +17,14 @@ namespace AllersGroup
         public UC_P3()
         {
             InitializeComponent();
+            loadpercentage();
         }
 
         public void loadMonth()
         {
             string[] Months = new string[]
             { "1", "2", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
-            comboBox_month.Items.AddRange(model.list_departments().ToArray());
+            comboBox_month.Items.AddRange(Months);
         }
 
         public void loadModel(Consult model)
@@ -38,10 +39,6 @@ namespace AllersGroup
             listBox3.Items.AddRange(model.ItemsByMonth(int.Parse(comboBox_month.SelectedItem.ToString())).Select(c => c + "").ToArray());
         }
 
-        private void comboBox_month_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loadItems();
-        }
 
         public void loadpercentage()
         {
@@ -53,6 +50,11 @@ namespace AllersGroup
 
             comboBox1.Items.AddRange(supports);
             comboBox2.Items.AddRange(supports);
+        }
+
+        private void comboBox_month_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            loadItems();
         }
     }
 }
