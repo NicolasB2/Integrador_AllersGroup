@@ -18,7 +18,8 @@ namespace AllersGroup
         {
             InitializeComponent();
             model = new Consult();
-            uC_P11.loadModel(model);
+            uC_P21.loadModel(model);
+            uC_P21.loadDepartments();
         }
 
     }

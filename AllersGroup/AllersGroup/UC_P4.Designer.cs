@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label_month = new System.Windows.Forms.Label();
+            this.label_type = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox_month = new System.Windows.Forms.ComboBox();
+            this.comboBox_type = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,16 +55,16 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label_month
+            // label_type
             // 
-            this.label_month.AutoSize = true;
-            this.label_month.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_month.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_month.Location = new System.Drawing.Point(294, 20);
-            this.label_month.Name = "label_month";
-            this.label_month.Size = new System.Drawing.Size(279, 40);
-            this.label_month.TabIndex = 18;
-            this.label_month.Text = "Tipo de cliente";
+            this.label_type.AutoSize = true;
+            this.label_type.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_type.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_type.Location = new System.Drawing.Point(294, 20);
+            this.label_type.Name = "label_month";
+            this.label_type.Size = new System.Drawing.Size(279, 40);
+            this.label_type.TabIndex = 18;
+            this.label_type.Text = "Tipo de cliente";
             // 
             // label1
             // 
@@ -77,16 +77,16 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Seleccione un tipo de cliente : ";
             // 
-            // comboBox_month
+            // comboBox_type
             // 
-            this.comboBox_month.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_month.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_month.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_month.FormattingEnabled = true;
-            this.comboBox_month.Location = new System.Drawing.Point(74, 80);
-            this.comboBox_month.Name = "comboBox_month";
-            this.comboBox_month.Size = new System.Drawing.Size(142, 25);
-            this.comboBox_month.TabIndex = 16;
+            this.comboBox_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_type.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_type.FormattingEnabled = true;
+            this.comboBox_type.Location = new System.Drawing.Point(74, 80);
+            this.comboBox_type.Name = "comboBox_month";
+            this.comboBox_type.Size = new System.Drawing.Size(142, 25);
+            this.comboBox_type.TabIndex = 16;
             // 
             // comboBox1
             // 
@@ -315,9 +315,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.Controls.Add(this.label_month);
+            this.Controls.Add(this.label_type);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox_month);
+            this.Controls.Add(this.comboBox_type);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox4);
             this.Controls.Add(this.comboBox2);
@@ -348,9 +348,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label_month;
+        private System.Windows.Forms.Label label_type;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox_month;
+        private System.Windows.Forms.ComboBox comboBox_type;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;

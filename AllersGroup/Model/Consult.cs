@@ -521,6 +521,26 @@ namespace Model
 
         //************** DEPARTMENT CROUP ***********************
 
+        public IEnumerable<String> list_departments()
+        {
+            return context.Clients.Select(c => c.Value.Departament).Distinct();
+        }
+
+        public String CantItemDepartament(String Department)
+        {
+            var items = ItemsByDepartment().ToList();
+            var ret = items.First(n => n.Key == Department);
+            return ret.Value.Count() + "";
+        }
+
+        public String PersentageItemDepartament(String Department)
+        {
+            var items = ItemsByDepartment().ToList();
+            var ret = items.First(n => n.Key == Department);
+            double x = ret.Value.Count() / context.Items.Count() * 100;
+            return Math.Round(x, 2) + "";
+        }
+
         // Arreglo de clientes dado un departamento
         public IEnumerable<Client> ClientsByDepartment(String department)
         {
@@ -638,18 +658,18 @@ namespace Model
             return context.Clients.Select(n => n.Key).ToArray();
         }
 
-        //returns most frequent item of a client
-        public int mostFrequentItem(string clientCode)
+        //returns Igrupings with items and number of purchaces, this group iis order by descending
+        public IEnumerable< IGrouping<int,int>> FrequentItemsbyCLient(string clientCode)
         {
             var x = context.Clients[clientCode].Transactions.SelectMany(t => t.Items)
-                .GroupBy(g => g).OrderByDescending(g => g.Count()).First().Key;
+                .GroupBy(g => g).OrderByDescending(g => g.Count());
             return x;
         }
 
-        public int mostFrequentItemListCLient(List<string> clients)
+        public IEnumerable<IGrouping<int, int>> FrequentItemsbyListCLient(List<string> clients)
         {
             var x = clients.Select(c => context.Clients[c]).SelectMany(c => c.Transactions)
-             .SelectMany(t => t.Items).GroupBy(g => g).OrderByDescending(g => g.Count()).First().Key;
+             .SelectMany(t => t.Items).GroupBy(g => g).OrderByDescending(g => g.Count());
             return x;
         }
 
