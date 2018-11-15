@@ -14,7 +14,7 @@ namespace AllersGroup
         public UC_P1()
         {
             InitializeComponent();
-            string[] supports = new string[] {"0.5", "0.6", "0.7", "0.8", "0.9", "1", "2", "4", "5", "10", "20"
+            string[] supports = new string[] {"10", "20"
             , "30", "40", "50", "60", "70", "80", "90" , "95"};
             comboBox1.Items.AddRange(supports);
             comboBox2.Items.AddRange(supports);
@@ -37,8 +37,11 @@ namespace AllersGroup
         {
             label_client.Text = listBox1.SelectedItem.ToString();
             label8.Text = model.totalTransactionsClient(listBox1.SelectedItem.ToString()) + "";
-            label_client.Visible = label8.Visible = label9.Visible = label10.Visible = true;
+            label9.Text = model.itemsbyClient(listBox1.SelectedItem.ToString()).Last() +"";
+            label10.Text = model.itemsbyClient(listBox1.SelectedItem.ToString()).First() + "";
 
+            label_client.Visible = label8.Visible = label9.Visible = label10.Visible = true;
+            listBox3.Items.AddRange(model.itemsbyClient(listBox1.SelectedItem.ToString()).ToArray());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,10 +50,11 @@ namespace AllersGroup
             {
                 MessageBox.Show("Se debe seleccionar un porcentaje.");
             }
-            if (listBox3.SelectedItem == null)
-            {
-                MessageBox.Show("Se debe seleccionar un producto.");
 
+            else
+            {
+                listBox2.Items.Clear();
+                listBox2.Items.AddRange(model.FrequentItemSetsByClient(listBox1.SelectedItem.ToString(), Double.Parse(comboBox1.SelectedItem.ToString()) / 100).ToArray());
             }
         }
 
@@ -66,6 +70,28 @@ namespace AllersGroup
             {
                 MessageBox.Show("Se debe seleccionar un porcentaje.");
             }
+            if (listBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Se debe seleccionar un producto.");
+
+            }
+            else
+            {
+                listBox4.Items.Clear();
+                var x = model.dependencesbyCLientAndItem(listBox1.SelectedItem.ToString(),
+                    int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
+                if (x == null)
+                {
+                    MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados");
+                }
+                else
+                {
+                    listBox4.Items.AddRange(x.ToArray());
+                }
+                
+            }
+
         }
+
     }
 }
