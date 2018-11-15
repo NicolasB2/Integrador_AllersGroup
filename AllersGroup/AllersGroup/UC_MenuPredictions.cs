@@ -12,10 +12,21 @@ namespace AllersGroup
 {
     public partial class UC_MenuPredictions : UserControl
     {
-        public UC_MenuPredictions()
+        public UC_P1 ucp1;
+        public UC_P2 ucp2;
+        public UC_P3 ucp3;
+        public UC_P4 ucp4;
+
+
+        public UC_MenuPredictions(UC_P1 ucp1, UC_P2 ucp2, UC_P3 ucp3, UC_P4 ucp4)
         {
             InitializeComponent();
             timer1.Start();
+
+            this.ucp1 = ucp1;
+            this.ucp2 = ucp2;
+            this.ucp3 = ucp3;
+            this.ucp4 = ucp4;
         }
 
         public void loadButtons(bool b1, bool b2, bool b3)
@@ -73,6 +84,36 @@ namespace AllersGroup
             {
                 timer4.Stop();
             }
+        }
+        // 1 CLIENTE 2 depto 3 periodo tiempo 
+        //tipo cliente
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            ucp1.Show();
+            ucp2.Hide();
+            ucp3.Hide();
+            ucp4.Hide();
+        }
+
+        //periodo
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ucp2.Hide();
+            ucp1.Hide();
+            ucp4.Hide();
+            ucp3.Show();
+
+        }
+
+        //departamento
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ucp1.Hide();
+            ucp2.Show();
+            ucp4.Hide();
+            ucp3.Hide();
+
         }
     }
 }
