@@ -44,9 +44,13 @@ namespace AllersGroup
             comboBox2.Items.Clear();
 
             string[] supports = new string[]
-            {  "10", "20", "30","40" ,"50", "60", "70", "80", "90", "95"};
+                        {  "10", "20", "30","40" ,"50", "60", "70", "80", "90", "95"};
 
             comboBox1.Items.AddRange(supports);
+
+            supports = new string[]
+            {  "0,6", "0,7","0,8" ,"0,9","1", "2", "3","4" ,"5", "6", "7", "8", "9", "10"};
+
             comboBox2.Items.AddRange(supports);
         }
 

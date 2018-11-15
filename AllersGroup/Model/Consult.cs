@@ -476,7 +476,22 @@ namespace Model
             return ret;
         }
 
+        public IEnumerable<String> onlyItems_toKeep_support(IEnumerable<int> original, double support)
+        {
+            GenerateRules(support);
+            List<String> items = new List<string>();
 
+            foreach (int x in original)
+            {
+                if (Rules.ContainsKey(x))
+                {
+                    items.Add(x+"");
+                }
+            }
+
+            return items;
+
+        }
         //**********************************************************************************************
         //************ METODOS DE AGRUPACION ***********************************************************
         //**********************************************************************************************
