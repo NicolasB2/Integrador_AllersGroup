@@ -203,6 +203,10 @@ namespace Model
 
             return apr;
         }
+        public IEnumerable<String> list_departments()
+        {
+            return context.Clients.Select(c => c.Value.Departament).Distinct();
+        }
 
         //**********************************************************************************************
         //************ CLUSTERING **********************************************************************
@@ -510,6 +514,10 @@ namespace Model
 
         //************** DEPARTMENT CROUP ***********************
 
+        public IEnumerable<IGrouping<String, Client>> ClientsByDepartment1()
+        {
+            return context.Clients.Select(n => n.Value).GroupBy(n => n.Departament);
+        }
         // Arreglo de clientes dado un departamento
         public IEnumerable<Client> ClientsByDepartment(String department)
         {
@@ -644,11 +652,56 @@ namespace Model
             return total;
         }
 
+        //Arreglar metodo.
         //Devuelve el total en ventas ($) de un cliente.
         public double TotalSellsClient(string clientCode)
         {
-            return context.Clients[clientCode].Transactions.Select(t => t.Total).Sum(); 
+            double total = 0;
+
+            
+            if (context.Clients.ContainsKey(clientCode))
+            {
+                total = context.Clients[clientCode].Transactions.Select(t => t.Total).Sum();
+            }
+            return total; 
         }
+
+        //Devuelve el [0] cliente con mayor cantidad de dinero en ventas en ($) y [1] cuanto
+        public string[] clientWithMostSells(List<string[]> clients)
+        {
+            string[] cliente = new string[2];
+            double mayor = 0;
+            for (int i = 0; i < clients.Count(); i++)
+            {
+                if (TotalSellsClient(clients.ElementAt(0)[1]) > mayor)
+                {
+                    mayor = TotalSellsClient(clients.ElementAt(0)[1]);
+                    cliente[0] = clients.ElementAt(0)[0];
+                }
+            }
+
+            cliente[1] = mayor + "";
+            return cliente;
+        }
+
+        //Devuelve el [0] cliente con mayor cantidad de dinero en ventas en ($) y [1] cuanto
+        public string[] clientWithLeastSells(List<string[]> clients)
+        {
+            string[] cliente = new string[2];
+            double menor = double.MaxValue;
+            for (int i = 0; i < clients.Count(); i++)
+            {
+                if (TotalSellsClient(clients.ElementAt(0)[1]) < menor)
+                {
+                    menor = TotalSellsClient(clients.ElementAt(0)[1]);
+                    cliente[0] = clients.ElementAt(0)[0];
+                }
+            }
+
+            cliente[1] = menor + "";
+            return cliente;
+        }
+
         //Devuelve el total en ventas ($) de una lista de clientes.
         public double totalSellsListClients(List<string[]> clients)
         {

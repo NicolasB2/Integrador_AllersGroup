@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uC_G41 = new AllersGroup.UC_G4();
+            this.uC_G51 = new AllersGroup.UC_G5();
             this.SuspendLayout();
             // 
-            // uC_G41
+            // uC_G51
             // 
-            this.uC_G41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G41.Location = new System.Drawing.Point(12, 12);
-            this.uC_G41.Name = "uC_G41";
-            this.uC_G41.Size = new System.Drawing.Size(720, 1320);
-            this.uC_G41.TabIndex = 0;
+            this.uC_G51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G51.Location = new System.Drawing.Point(25, 12);
+            this.uC_G51.Name = "uC_G51";
+            this.uC_G51.Size = new System.Drawing.Size(720, 1000);
+            this.uC_G51.TabIndex = 0;
             // 
             // Form1
             // 
@@ -45,7 +45,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(779, 441);
-            this.Controls.Add(this.uC_G41);
+            this.Controls.Add(this.uC_G51);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -54,6 +54,6 @@
 
         #endregion
 
-        private UC_G4 uC_G41;
+        private UC_G5 uC_G51;
     }
 }
