@@ -39,6 +39,11 @@ namespace AllersGroup
             uC_G21.LoadModel(model);
             uC_G31.LoadModel(model);
             uC_G41.LoadModel(model);
+            uC_P11.loadModel(model);
+            uC_P21.loadModel(model);
+            uC_P31.loadModel(model);
+            uC_P41.loadModel(model);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
