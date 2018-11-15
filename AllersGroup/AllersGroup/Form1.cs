@@ -9,12 +9,11 @@ namespace AllersGroup
         public Consult model;
         public Form1()
         {
-            model = new Consult();
 
             InitializeComponent();
+
+            model = new Consult();
             uC_G51.LoadModel(model);
-
-
         }
 
     }

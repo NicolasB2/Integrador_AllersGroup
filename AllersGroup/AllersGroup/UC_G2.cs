@@ -20,18 +20,15 @@ namespace AllersGroup
             InitializeComponent();
             markers = new GMapOverlay("markers");
 
-            if (model != null)
-            {
-                loadComboBox1();
-            }
             label_dep.Visible = label5.Visible = label10.Visible = false;
             label27.Visible = label28.Visible = label29.Visible = false;
             label8.Visible = label18.Visible = label19.Visible = label20.Visible = false;
         }
-
+        
         public void LoadModel(Consult model)
         {
             this.model = model;
+            loadComboBox1();
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)

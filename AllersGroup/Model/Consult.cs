@@ -22,7 +22,112 @@ namespace Model
             Rules = new Dictionary<int, List<int[]>>();
             clusterResult = new List<List<List<string>>>();
         }
+        public List<String> FrequentItemSetsByClienttType(String clientType, double support)
+        {
+            List<int[]> itemsets = Transactions_ByClientsType(clientType).SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
+            List<List<int>> transactions = Transactions_ByClientsType(clientType).Select(t => t.Items).ToList();
+            var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, support).ToList();
 
+            return formatItemSets(frequent);
+        }
+        public IEnumerable<String> dependencesbyClientType(String clientType, int itemCode, double support)
+        {
+            try
+            {
+                List<int[]> itemsets = Transactions_ByClientsType(clientType).SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
+                List<List<int>> transactions = Transactions_ByClientsType(clientType).Select(t => t.Items).ToList();
+                var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, support).ToList();
+                Rules = new Dictionary<int, List<int[]>>();
+                AssociatonRule.GenerateAllRules<int>(frequent, Rules);
+                var y = Rules[itemCode];
+                return formatItemSets(y);
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+        public List<String> FrequentItemSetsByClient(String clientCode, double Support)
+        {
+            List<int[]> itemsets = context.Clients[clientCode].Transactions.SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
+            List<List<int>> transactions = context.Clients[clientCode].Transactions.Select(t => t.Items).ToList();
+            var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, Support).ToList();
+
+            return formatItemSets(frequent);
+        }
+
+        public IEnumerable<String> dependencesbyCLientAndItem(String clientCode, int itemCode, double support)
+        {
+            try
+            {
+                List<int[]> itemsets = context.Clients[clientCode].Transactions.SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
+                List<List<int>> transactions = context.Clients[clientCode].Transactions.Select(t => t.Items).ToList();
+                var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, support).ToList();
+                Rules = new Dictionary<int, List<int[]>>();
+                AssociatonRule.GenerateAllRules<int>(frequent, Rules);
+                var y = Rules[itemCode];
+                return formatItemSets(y);
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+        public List<String> FrequentItemSetsByDepartment(String department, double support)
+        {
+            List<int[]> itemsets = TransactionsByDepartment(department).SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
+            List<List<int>> transactions = TransactionsByDepartment(department).Select(t => t.Items).ToList();
+            var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, support).ToList();
+
+            return formatItemSets(frequent);
+        }
+        public IEnumerable<String> dependencesbyDepartment(String department, int itemCode, double support)
+        {
+            try
+            {
+                List<int[]> itemsets = TransactionsByDepartment(department).SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
+                List<List<int>> transactions = TransactionsByDepartment(department).Select(t => t.Items).ToList();
+                var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, support).ToList();
+                Rules = new Dictionary<int, List<int[]>>();
+                AssociatonRule.GenerateAllRules<int>(frequent, Rules);
+                var y = Rules[itemCode];
+                return formatItemSets(y);
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+        public List<String> FrequentItemSetsByMonth(int month, double support)
+        {
+            List<int[]> itemsets = TransactionsByMonth(month).SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
+            List<List<int>> transactions = TransactionsByMonth(month).Select(t => t.Items).ToList();
+            var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, support).ToList();
+
+            return formatItemSets(frequent);
+        }
+
+        public IEnumerable<String> dependencesbyMonth(int month, int itemCode, double support)
+        {
+            try
+            {
+                List<int[]> itemsets = TransactionsByMonth(month).SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
+                List<List<int>> transactions = TransactionsByMonth(month).Select(t => t.Items).ToList();
+                var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, support).ToList();
+                Rules = new Dictionary<int, List<int[]>>();
+                AssociatonRule.GenerateAllRules<int>(frequent, Rules);
+                var y = Rules[itemCode];
+                return formatItemSets(y);
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
 
         //**********************************************************************************************
         //************ PRUNNINGS ***********************************************************************
