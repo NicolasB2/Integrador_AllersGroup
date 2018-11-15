@@ -41,8 +41,7 @@ namespace AllersGroup
             label11.Visible = label19.Visible = label20.Visible = label21.Visible = label22.Visible = false;
             label23.Visible = label25.Visible = label26.Visible = label27.Visible = label28.Visible = false;
             label35.Visible = label36.Visible = label37.Visible = label38.Visible = label39.Visible = false;
-            label40.Visible = label41.Visible = label42.Visible = label43.Visible = label44.Visible = false;
-            label45.Visible = label46.Visible = label47.Visible = label48.Visible = false;
+
 
 
 
@@ -162,8 +161,7 @@ namespace AllersGroup
             label28.Visible = label23.Visible = label27.Visible = label22.Visible = true;
             label20.Visible = label21.Visible = label25.Visible = label26.Visible = true;           
             label35.Visible = label36.Visible = label37.Visible = label38.Visible = label39.Visible = true;
-            label40.Visible = label41.Visible = label42.Visible = label43.Visible = label44.Visible = true;
-            label45.Visible = label46.Visible = label47.Visible = label48.Visible = true;
+
 
             Load_ClientsProducts(pos);
         }

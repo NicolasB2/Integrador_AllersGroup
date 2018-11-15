@@ -68,17 +68,6 @@
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listView2 = new System.Windows.Forms.ListView();
@@ -103,7 +92,6 @@
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -536,134 +524,6 @@
             this.panel5.Size = new System.Drawing.Size(384, 46);
             this.panel5.TabIndex = 123;
             // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label31.Location = new System.Drawing.Point(12, 16);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(139, 34);
-            this.label31.TabIndex = 123;
-            this.label31.Text = "Producto con mayor\r\ncantidad de compras :";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label33.Location = new System.Drawing.Point(11, 67);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(139, 34);
-            this.label33.TabIndex = 124;
-            this.label33.Text = "Producto con menor\r\ncantidad de compras :";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label41.Location = new System.Drawing.Point(156, 22);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(52, 17);
-            this.label41.TabIndex = 125;
-            this.label41.Text = "label41";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label42.Location = new System.Drawing.Point(253, 75);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(54, 17);
-            this.label42.TabIndex = 130;
-            this.label42.Text = "label42";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label43.Location = new System.Drawing.Point(156, 75);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(54, 17);
-            this.label43.TabIndex = 126;
-            this.label43.Text = "label43";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.label44.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label44.Location = new System.Drawing.Point(222, 22);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(29, 17);
-            this.label44.TabIndex = 127;
-            this.label44.Text = "con";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label45.Location = new System.Drawing.Point(253, 22);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(54, 17);
-            this.label45.TabIndex = 129;
-            this.label45.Text = "label45";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.label46.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label46.Location = new System.Drawing.Point(222, 75);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(29, 17);
-            this.label46.TabIndex = 128;
-            this.label46.Text = "con";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.DarkCyan;
-            this.panel6.Controls.Add(this.label48);
-            this.panel6.Controls.Add(this.label47);
-            this.panel6.Controls.Add(this.label31);
-            this.panel6.Controls.Add(this.label46);
-            this.panel6.Controls.Add(this.label33);
-            this.panel6.Controls.Add(this.label45);
-            this.panel6.Controls.Add(this.label41);
-            this.panel6.Controls.Add(this.label44);
-            this.panel6.Controls.Add(this.label43);
-            this.panel6.Controls.Add(this.label42);
-            this.panel6.Location = new System.Drawing.Point(0, 1173);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(448, 113);
-            this.panel6.TabIndex = 134;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.label48.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label48.Location = new System.Drawing.Point(317, 75);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(62, 17);
-            this.label48.TabIndex = 132;
-            this.label48.Text = "compras.";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.label47.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label47.Location = new System.Drawing.Point(317, 22);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(62, 17);
-            this.label47.TabIndex = 131;
-            this.label47.Text = "compras.";
-            // 
             // listView1
             // 
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -853,7 +713,6 @@
             this.Controls.Add(this.listView3);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label18);
@@ -874,7 +733,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel5);
             this.Name = "UC_G4";
-            this.Size = new System.Drawing.Size(720, 1320);
+            this.Size = new System.Drawing.Size(720, 1178);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -886,8 +745,6 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -936,17 +793,6 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label47;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ListView listView3;
