@@ -30,6 +30,7 @@ namespace AllersGroup
         {
             this.model = model;
             label8.Visible = label9.Visible = label10.Visible = false;
+            loadItems();
         }
 
         private void loadItems()
@@ -44,9 +45,13 @@ namespace AllersGroup
             comboBox2.Items.Clear();
 
             string[] supports = new string[]
-            {  "10", "20", "30","40" ,"50", "60", "70", "80", "90", "95"};
+                        {  "10", "20", "30","40" ,"50", "60", "70", "80", "90", "95"};
 
             comboBox1.Items.AddRange(supports);
+
+            supports = new string[]
+            {  "0,6", "0,7","0,8" ,"0,9","1", "2", "3","4" ,"5", "6", "7", "8", "9", "10"};
+
             comboBox2.Items.AddRange(supports);
         }
 
@@ -61,16 +66,24 @@ namespace AllersGroup
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem == null)
+            try
             {
-                MessageBox.Show("Se debe seleccionar un porcentaje.");
-            }
+                if (comboBox1.SelectedItem == null)
+                {
+                    MessageBox.Show("Se debe seleccionar un porcentaje.");
+                }
 
-            else
-            {
-                listBox2.Items.Clear();
-                listBox2.Items.AddRange(model.FrequentItemSetsByClienttType(comboBox_type.SelectedItem.ToString(), Double.Parse(comboBox1.SelectedItem.ToString()) / 100).ToArray());
+                else
+                {
+                    listBox2.Items.Clear();
+                    listBox2.Items.AddRange(model.FrequentItemSetsByClienttType(comboBox_type.SelectedItem.ToString(), Double.Parse(comboBox1.SelectedItem.ToString()) / 100).ToArray());
+                }
             }
+            catch
+            {
+
+            }
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -86,17 +99,25 @@ namespace AllersGroup
             }
             else
             {
-                listBox4.Items.Clear();
-                var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
-                if (x == null)
+                try
                 {
-                    MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
-                }
-                else
-                {
-                    listBox4.Items.AddRange(x.ToArray());
-                }
+                    listBox4.Items.Clear();
+                    var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
+                    if (x == null)
+                    {
+                        MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
+                    }
+                    else
+                    {
+                        listBox4.Items.AddRange(x.ToArray());
+                    }
 
+                }
+                catch
+                {
+
+                }
+              
             }
         }
     }

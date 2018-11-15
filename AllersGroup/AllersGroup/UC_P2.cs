@@ -29,6 +29,7 @@ namespace AllersGroup
         {
             this.model = model;
             label8.Visible = label9.Visible = label10.Visible = false;
+            loadItems();
         }
 
         
@@ -65,16 +66,24 @@ namespace AllersGroup
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem == null)
+            try
             {
-                MessageBox.Show("Se debe seleccionar un porcentaje.");
-            }
+                if (comboBox1.SelectedItem == null)
+                {
+                    MessageBox.Show("Se debe seleccionar un porcentaje.");
+                }
 
-            else
-            {
-                listBox2.Items.Clear();
-                listBox2.Items.AddRange(model.FrequentItemSetsByDepartment(comboBox_dep.SelectedItem.ToString(), Double.Parse(comboBox1.SelectedItem.ToString()) / 100).ToArray());
+                else
+                {
+                    listBox2.Items.Clear();
+                    listBox2.Items.AddRange(model.FrequentItemSetsByDepartment(comboBox_dep.SelectedItem.ToString(), Double.Parse(comboBox1.SelectedItem.ToString()) / 100).ToArray());
+                }
             }
+            catch
+            {
+
+            }
+            
         }
 
 
@@ -92,24 +101,32 @@ namespace AllersGroup
             }
             else
             {
-                listBox4.Items.Clear();
-                var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) /100);
-                if (x == null)
+                try
                 {
-                    MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
-                }
-                else
-                {
-                    listBox4.Items.AddRange(x.ToArray());
-                }
 
+                    listBox4.Items.Clear();
+                    var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
+                    if (x == null)
+                    {
+                        MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
+                    }
+                    else
+                    {
+                        listBox4.Items.AddRange(x.ToArray());
+                    }
+
+                }
+                catch
+                {
+
+                }
+                
             }
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }
