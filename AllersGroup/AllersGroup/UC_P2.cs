@@ -29,6 +29,7 @@ namespace AllersGroup
         {
             this.model = model;
             label8.Visible = label9.Visible = label10.Visible = false;
+            loadItems();
         }
 
         

@@ -26,11 +26,14 @@ namespace AllersGroup
             loadClients();
 
             label_client.Visible = label8.Visible = label9.Visible = label10.Visible = false;
+
+            loadClients();
         }
 
         private void loadClients()
         {
-            listBox1.Items.AddRange(model.clientsCodes());      
+            listBox1.Items.AddRange(model.clientsCodes());  
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
