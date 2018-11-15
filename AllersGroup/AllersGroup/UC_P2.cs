@@ -53,9 +53,13 @@ namespace AllersGroup
             comboBox2.Items.Clear();
 
             string[] supports = new string[] 
-            { "0.6", "0.7", "0.8", "0.9", "1", "2", "4", "5", "6", "7", "8", "9", "10"};
+            {  "10", "20", "30","40" ,"50", "60", "70", "80", "90", "95"};
 
             comboBox1.Items.AddRange(supports);
+
+            supports = new string[]
+            {  "0,6", "0,7","0,8" ,"0,9","1", "2", "3","4" ,"5", "6", "7", "8", "9", "10"};
+
             comboBox2.Items.AddRange(supports);
         }
 
@@ -68,7 +72,8 @@ namespace AllersGroup
 
             else
             {
-                
+                listBox2.Items.Clear();
+                listBox2.Items.AddRange(model.FrequentItemSetsByDepartment(comboBox_dep.SelectedItem.ToString(), Double.Parse(comboBox1.SelectedItem.ToString()) / 100).ToArray());
             }
         }
 
@@ -87,14 +92,11 @@ namespace AllersGroup
             }
             else
             {
-                MessageBox.Show("bbb");
                 listBox4.Items.Clear();
-                var x = model.dependencesbyDepartment(comboBox_dep.SelectedItem.ToString(),
-                    int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
-                MessageBox.Show("bbb");
+                var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) /100);
                 if (x == null)
                 {
-                    MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados");
+                    MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
                 }
                 else
                 {

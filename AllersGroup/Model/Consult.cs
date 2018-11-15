@@ -832,9 +832,10 @@ namespace Model
             //c.FrequentItemsets_Apriori(0.01);
             //c.GenerateRules(0.05);
 
+
             //c.itemSetsFrecuentesByClient("CN0001", 0.5).ForEach(e => Console.WriteLine(e));
             //c.itemsbyClient("CN0012").ForEach(e => Console.WriteLine(e));
-            //c.getDependence(23, 0.005).ForEach(e => Console.WriteLine(e));
+            c.getDependence(8440, 0.05).ForEach(e => Console.WriteLine(e));
 
             //var x = c.Frequent_Items_ByMonth(1).ToList();
             //var x = c.FrequentItems_by_Department("NARIÑO").ToList();

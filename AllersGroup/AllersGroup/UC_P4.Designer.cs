@@ -134,6 +134,7 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "GENERAR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listBox2
             // 
@@ -310,6 +311,7 @@
             this.button2.TabIndex = 38;
             this.button2.Text = "GENERAR PREDICCIÓN";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // UC_P4
             // 
