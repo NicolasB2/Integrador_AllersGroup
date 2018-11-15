@@ -13,7 +13,7 @@ namespace AllersGroup
             InitializeComponent();
 
             model = new Consult();
-            uC_G51.LoadModel(model);
+            uC_P21.loadModel(model);
         }
 
     }
