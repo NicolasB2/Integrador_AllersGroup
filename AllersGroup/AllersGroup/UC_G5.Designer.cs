@@ -225,9 +225,9 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(10, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(230, 17);
+            this.label6.Size = new System.Drawing.Size(229, 17);
             this.label6.TabIndex = 100;
-            this.label6.Text = "Tipo con mayor número de compras :";
+            this.label6.Text = "Item con mayor número de compras :";
             // 
             // label8
             // 
@@ -248,9 +248,9 @@
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label15.Location = new System.Drawing.Point(11, 49);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(231, 17);
+            this.label15.Size = new System.Drawing.Size(230, 17);
             this.label15.TabIndex = 102;
-            this.label15.Text = "Tipo con menor número de compras :";
+            this.label15.Text = "Item con menor número de compras :";
             // 
             // label18
             // 
@@ -322,6 +322,7 @@
             this.label9.Size = new System.Drawing.Size(30, 17);
             this.label9.TabIndex = 105;
             this.label9.Text = "Lab";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // UC_G5
             // 

@@ -615,11 +615,15 @@ namespace Model
             var n = context.Transactions.Select(t => t.Value).Where(t => context.Clients[t.ClientCode].Type.Equals(type));
             return n;
         }
-
+        public List<String> ClientsOrderListByType(String type)
+        {
+            var x = Transactions_ByClientsType(type).GroupBy(t=>t.ClientCode).OrderBy(t => t.Count()).Select(t => t.Key).ToList();
+            return x;
+        }
         //Itesm dado un tipo de cliente 
         public IEnumerable<int> Items_ClientsType(String type)
         {
-            var n = Transactions_ByClientsType(type).SelectMany(t => t.Items).Distinct();
+            var n = Transactions_ByClientsType(type).SelectMany(t => t.Items).GroupBy(t=>t).OrderBy(t=>t.Count()).Select(t=>t.Key);
             return n;
         }
 
@@ -833,7 +837,18 @@ namespace Model
 
             return total;
         }
-       
+
+        public double totalSellsListClients(List<string> clients)
+        {
+            double total = 0;
+            for (int i = 0; i < clients.Count; i++)
+            {
+                total += TotalSellsClient(clients.ElementAt(i));
+            }
+
+            return total;
+        }
+
         //Lista con arreglo: en [0] = codigo cliente, [1] = total de sus ventas. 
         public List<string[]> totalSells(List<string[]> clients)
         {

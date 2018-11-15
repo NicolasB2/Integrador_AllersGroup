@@ -16,9 +16,6 @@ namespace AllersGroup
         public UC_G5()
         {
             InitializeComponent();
-
-
-            
             label8.Visible = label18.Visible = label9.Visible = label5.Visible  = false;
             label27.Visible = label28.Visible = label29.Visible = false;
 
@@ -27,7 +24,6 @@ namespace AllersGroup
         public void LoadModel(Consult model)
         {
             this.model = model;
-
             LoadComboBox();
         }
 
@@ -39,9 +35,25 @@ namespace AllersGroup
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            String x = comboBox1.SelectedItem.ToString();
+            label27.Visible = label28.Visible = label29.Visible = true;
+            label29.Text = model.Transactions_ByClientsType(x).Count()+"";
+            label27.Text = model.Clients_ByType(x).Count()+"";
+            label28.Text = "$ "+model.totalSellsListClients(model.Clients_ByType(x).Select(c=>c.Code).ToList());
 
             label27.Visible = label28.Visible = label29.Visible = true;
+            label8.Visible = label18.Visible = label9.Visible = label5.Visible = true;
+
+            label8.Text = model.Items_ClientsType(x).Last()+"";
+            label18.Text = model.Items_ClientsType(x).First() + "";
+            label5.Text = model.ClientsOrderListByType(x).Last() + "";
+            label9.Text = model.ClientsOrderListByType(x).First() + "";
+
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
 
         }
     }
