@@ -278,7 +278,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(40, 23);
             this.comboBox1.TabIndex = 34;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -358,7 +357,6 @@
             this.ForeColor = System.Drawing.Color.BurlyWood;
             this.Name = "UC_P1";
             this.Size = new System.Drawing.Size(738, 486);
-            this.Load += new System.EventHandler(this.UC_P1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

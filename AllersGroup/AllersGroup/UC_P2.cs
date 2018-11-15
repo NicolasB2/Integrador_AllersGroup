@@ -59,22 +59,6 @@ namespace AllersGroup
             comboBox2.Items.AddRange(supports);
         }
 
-        private void loadListView1()
-        {
-            var items = model.FrequentItems_by_Department(comboBox_dep.SelectedItem.ToString());
-            for (int i = 0; i < items.Count(); i++)
-            {
-                ListViewItem list = new ListViewItem(items.ElementAt(i)[0]);
-
-                string lab = items.ElementAt(i)[1];
-                lab = string.Format("{0:###,###,###,##0.00##}", 
-                Decimal.Parse(lab));
-                list.SubItems.Add(lab);
-                listView1.Items.Add(list);
-            }
-            MessageBox.Show("bbb");
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem == null)
@@ -84,13 +68,40 @@ namespace AllersGroup
 
             else
             {
-                loadListView1();
+                
             }
         }
 
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            if (comboBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Se debe seleccionar un porcentaje.");
+            }
+            if (listBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Se debe seleccionar un producto.");
+
+            }
+            else
+            {
+                MessageBox.Show("bbb");
+                listBox4.Items.Clear();
+                var x = model.dependencesbyDepartment(comboBox_dep.SelectedItem.ToString(),
+                    int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
+                MessageBox.Show("bbb");
+                if (x == null)
+                {
+                    MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados");
+                }
+                else
+                {
+                    listBox4.Items.AddRange(x.ToArray());
+                }
+
+            }
 
         }
 

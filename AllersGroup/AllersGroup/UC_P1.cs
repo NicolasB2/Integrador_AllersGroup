@@ -37,8 +37,8 @@ namespace AllersGroup
         {
             label_client.Text = listBox1.SelectedItem.ToString();
             label8.Text = model.totalTransactionsClient(listBox1.SelectedItem.ToString()) + "";
-            label9.Text = model.OrderItemsbyCLient(listBox1.SelectedItem.ToString()).First().Key+"";
-            label10.Text = model.OrderItemsbyCLient(listBox1.SelectedItem.ToString()).Last().Key + "";
+            label9.Text = model.itemsbyClient(listBox1.SelectedItem.ToString()).Last() +"";
+            label10.Text = model.itemsbyClient(listBox1.SelectedItem.ToString()).First() + "";
 
             label_client.Visible = label8.Visible = label9.Visible = label10.Visible = true;
             listBox3.Items.AddRange(model.itemsbyClient(listBox1.SelectedItem.ToString()).ToArray());
@@ -54,7 +54,7 @@ namespace AllersGroup
             else
             {
                 listBox2.Items.Clear();
-                listBox2.Items.AddRange(model.itemSetsFrecuentesByClient(listBox1.SelectedItem.ToString(), Double.Parse(comboBox1.SelectedItem.ToString()) / 100).ToArray());
+                listBox2.Items.AddRange(model.FrequentItemSetsByClient(listBox1.SelectedItem.ToString(), Double.Parse(comboBox1.SelectedItem.ToString()) / 100).ToArray());
             }
         }
 
@@ -93,14 +93,5 @@ namespace AllersGroup
 
         }
 
-        private void UC_P1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -34,7 +34,7 @@
             // uC_P21
             // 
             this.uC_P21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_P21.Location = new System.Drawing.Point(12, 12);
+            this.uC_P21.Location = new System.Drawing.Point(2, 2);
             this.uC_P21.Name = "uC_P21";
             this.uC_P21.Size = new System.Drawing.Size(738, 486);
             this.uC_P21.TabIndex = 0;
