@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{38F5EFEA-9F32-41CE-9BAF-24B3C25E6BC9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AllersGroup</RootNamespace>
+    <AssemblyName>AllersGroup</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.9.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Windows.1.9.1.2\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.9.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Windows.1.9.1.2\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=1.9.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Windows.1.9.1.2\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.2\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.109.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WinFormAnimation, Version=1.5.6298.3372, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.5.6298.3372\lib\net35-client\WinFormAnimation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuxForm.Designer.cs">
+      <DependentUpon>AuxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="First GUI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="First GUI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UC_AnalysisTools.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_AnalysisTools.Designer.cs">
+      <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_G2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G2.Designer.cs">
+      <DependentUpon>UC_G2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_G3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G3.Designer.cs">
+      <DependentUpon>UC_G3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_G4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G4.Designer.cs">
+      <DependentUpon>UC_G4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_G5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_G5.Designer.cs">
+      <DependentUpon>UC_G5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Load.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Load.Designer.cs">
+      <DependentUpon>UC_Load.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_MenuPredictions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MenuPredictions.Designer.cs">
+      <DependentUpon>UC_MenuPredictions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_MenuRecommendations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MenuRecommendations.Designer.cs">
+      <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_MenuGroups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MenuGroups.Designer.cs">
+      <DependentUpon>UC_MenuGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_P1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_P1.Designer.cs">
+      <DependentUpon>UC_P1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_P2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_P2.Designer.cs">
+      <DependentUpon>UC_P2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_P3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_P3.Designer.cs">
+      <DependentUpon>UC_P3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_P4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_P4.Designer.cs">
+      <DependentUpon>UC_P4.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AuxForm.resx">
+      <DependentUpon>AuxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="First GUI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_AnalysisTools.resx">
+      <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_G2.resx">
+      <DependentUpon>UC_G2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_G3.resx">
+      <DependentUpon>UC_G3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_G4.resx">
+      <DependentUpon>UC_G4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_G5.resx">
+      <DependentUpon>UC_G5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Load.resx">
+      <DependentUpon>UC_Load.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_MenuPredictions.resx">
+      <DependentUpon>UC_MenuPredictions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_MenuRecommendations.resx">
+      <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_MenuGroups.resx">
+      <DependentUpon>UC_MenuGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_P1.resx">
+      <DependentUpon>UC_P1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_P2.resx">
+      <DependentUpon>UC_P2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_P3.resx">
+      <DependentUpon>UC_P3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_P4.resx">
+      <DependentUpon>UC_P4.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{8e8e6505-40f9-47bb-94ab-50e86c6556e1}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\questions.png" />
+    <None Include="Resources\price-tag.png" />
+    <None Include="Resources\signs.png" />
+    <None Include="Resources\route.png" />
+    <None Include="Resources\placeholder.png" />
+    <None Include="Resources\wallet.png" />
+    <None Include="Resources\shopping.png" />
+    <None Include="Resources\statistics.png" />
+    <None Include="Resources\thumbs-up.png" />
+    <None Include="Resources\power-button %282%29.png" />
+    <None Include="Resources\power-button %281%29.png" />
+    <None Include="Resources\power-button.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\bill.png" />
+    <None Include="Resources\box.png" />
+    <None Include="Resources\calendar %281%29.png" />
+    <None Include="Resources\background1.jpg" />
+    <None Include="Resources\18f62929084ea04cef790d5892923415.jpg" />
+    <None Include="Resources\9a24dc9d88496d3c8b6e8fa187de769f.jpg" />
+    <None Include="Resources\background2.jpg" />
+    <None Include="Resources\background3.jpg" />
+    <Content Include="Resources\cancel.png" />
+    <None Include="Resources\Webp.net-resizeimage.png" />
+    <None Include="Resources\logo-allers-resizeimage.png" />
+    <None Include="Resources\ezgif.com-resize.gif" />
+    <None Include="Resources\ezgif.com-resize1.gif" />
+    <None Include="Resources\logo-allers-resizeimage1.png" />
+    <None Include="Resources\cancel1.png" />
+    <None Include="Resources\ezgif.com-gif-maker.gif" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\group.png" />
+    <None Include="Resources\good.png" />
+    <None Include="Resources\customer.png" />
+    <None Include="Resources\location-pin.png" />
+    <None Include="Resources\deadline.png" />
+    <None Include="Resources\Justificación %281%29.png" />
+    <None Include="Resources\Justificación %281%291.png" />
+    <None Include="Resources\icons8-delete-48.png" />
+    <None Include="Resources\icons8-subtract-48.png" />
+    <None Include="Resources\icons8-circled-menu-48.png" />
+    <None Include="Resources\icons8-staff-48.png" />
+    <None Include="Resources\icons8-ok-hand-filled-50.png" />
+    <None Include="Resources\icons8-increase-48.png" />
+    <None Include="Resources\icons8-database-administrator-filled-50.png" />
+    <None Include="Resources\icons8-database-administrator-filled-501.png" />
+    <None Include="Resources\icons8-info-64.png" />
+    <None Include="Resources\icons8-place-marker-48.png" />
+    <None Include="Resources\icons8-calendar-12-48.png" />
+    <None Include="Resources\icons8-cash-in-hand-48.png" />
+    <None Include="Resources\icons8-tags-48.png" />
+    <None Include="Resources\icons8-shopping-cart-48.png" />
+    <None Include="Resources\icons8-map-pin-48.png" />
+    <None Include="Resources\icons8-marker-48.png" />
+    <None Include="Resources\icons8-calendar-48.png" />
+    <None Include="Resources\icons8-shopping-bag-48.png" />
+    <None Include="Resources\icons8-double-left-filled-50.png" />
+    <None Include="Resources\icons8-double-right-filled-50.png" />
+    <Content Include="Resources\minus.png" />
+    <None Include="Resources\logo_icesi.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+</Project>
