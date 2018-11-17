@@ -216,7 +216,6 @@
             // 
             // uC_MenuRecommendations1
             // 
-            this.uC_MenuRecommendations1 = new UC_MenuRecommendations();
             this.uC_MenuRecommendations1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
             this.uC_MenuRecommendations1.Location = new System.Drawing.Point(0, 0);
             this.uC_MenuRecommendations1.Name = "uC_MenuRecommendations1";

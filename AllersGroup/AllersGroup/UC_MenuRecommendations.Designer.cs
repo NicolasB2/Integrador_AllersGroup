@@ -45,18 +45,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.label1.Location = new System.Drawing.Point(280, 13);
+            this.label1.Location = new System.Drawing.Point(242, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 30);
+            this.label1.Size = new System.Drawing.Size(220, 30);
             this.label1.TabIndex = 11;
-            this.label1.Text = "PREDICTIONS";
+            this.label1.Text = "RECOMMENDATIONS";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.panel1.Location = new System.Drawing.Point(243, 46);
+            this.panel1.Location = new System.Drawing.Point(242, 46);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(219, 3);
+            this.panel1.Size = new System.Drawing.Size(220, 3);
             this.panel1.TabIndex = 10;
             // 
             // button3

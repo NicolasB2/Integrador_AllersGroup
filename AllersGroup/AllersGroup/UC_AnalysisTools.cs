@@ -17,7 +17,7 @@ namespace AllersGroup
             b1 = b2 = b3 = b4 = b5 = b6 = b7 = b8 = b9 = false;
 
             label6.Visible = label7.Visible = label8.Visible = label9.Visible = false;
-            label10.Visible = label11.Visible = label12.Visible = false;
+            label10.Visible = label11.Visible = label12.Visible = label13.Visible = label14.Visible = false;
 
         }
 
@@ -49,6 +49,7 @@ namespace AllersGroup
                 label8.Visible = true;
                 label11.Visible = true;
                 label12.Visible = true;
+                label13.Visible = true;
             }
             else
             {
@@ -56,6 +57,7 @@ namespace AllersGroup
                 label8.Visible = false;
                 label11.Visible = false;
                 label12.Visible = false;
+                label13.Visible = false;
             }
         }
 
@@ -67,6 +69,7 @@ namespace AllersGroup
                 b3 = b5 = b9 = true;
                 label8.Visible = true;
                 label9.Visible = true;
+                label14.Visible = true;
 
 
             }
@@ -75,6 +78,7 @@ namespace AllersGroup
                 b3 = b5 = b9 = false;
                 label8.Visible = false;
                 label9.Visible = false;
+                label14.Visible = false;
             }
         }
     }
