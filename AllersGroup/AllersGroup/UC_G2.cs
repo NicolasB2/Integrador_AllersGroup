@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 using Model;
 
 namespace AllersGroup
@@ -10,12 +14,14 @@ namespace AllersGroup
     public partial class UC_G2 : UserControl
     {
         List<Model.Client> clients;
+        GMapOverlay markers;
         public Consult model;
 
         public UC_G2()
         {
             clients = new List<Client>();
             InitializeComponent();
+            markers = new GMapOverlay("markers");
 
             label_dep.Visible = label5.Visible = label10.Visible = false;
             label27.Visible = label28.Visible = label29.Visible = false;

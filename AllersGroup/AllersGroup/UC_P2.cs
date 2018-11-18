@@ -22,14 +22,14 @@ namespace AllersGroup
 
         public void loadDepartments()
         {
-            
+            comboBox_dep.Items.AddRange(model.list_departments().ToArray());
         }
 
         public void loadModel(Consult model)
         {
             this.model = model;
             label8.Visible = label9.Visible = label10.Visible = false;
-            comboBox_dep.Items.AddRange(model.list_departments().ToArray());
+            loadDepartments();
         }
 
         
