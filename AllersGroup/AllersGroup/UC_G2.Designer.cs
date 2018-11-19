@@ -878,7 +878,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.comboBox1);
             this.Name = "UC_G2";
-            this.Size = new System.Drawing.Size(720, 1733);
+            this.Size = new System.Drawing.Size(720, 1621);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

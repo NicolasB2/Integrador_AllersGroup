@@ -49,7 +49,6 @@ namespace AllersGroup
             label5.Text = model.ClientsOrderListByType(x).Last() + "";
             label9.Text = model.ClientsOrderListByType(x).First() + "";
 
-
         }
 
         private void label9_Click(object sender, EventArgs e)
