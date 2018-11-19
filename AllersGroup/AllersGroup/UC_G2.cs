@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 using Model;
 
 namespace AllersGroup
@@ -10,6 +14,7 @@ namespace AllersGroup
     public partial class UC_G2 : UserControl
     {
         List<Model.Client> clients;
+        GMapOverlay markers;
 
         public Consult model;
         public string department;
@@ -19,6 +24,7 @@ namespace AllersGroup
             clients = new List<Client>();
             InitializeComponent();
             department = "";
+            markers = new GMapOverlay("markers");
 
             label_dep.Visible = false;
             label27.Visible = label28.Visible = label29.Visible = false;
@@ -159,6 +165,27 @@ namespace AllersGroup
             }
         }
 
+        private void gMapControl1_Load(object sender, EventArgs e)
+        {
+            gMapControl1.SetPositionByKeywords("Cali, Colombia.");
+            gMapControl1.MapProvider = GoogleMapProvider.Instance;
+            GMaps.Instance.Mode = AccessMode.ServerOnly;
+            gMapControl1.ShowCenter = false;
+
+            for (int i = 0; i < model.list_departments().Count(); i++)
+            {
+                if (model.list_departments().ToList().ElementAt(i) != "No indica departamento")
+                {
+                    GMapMarker marker = new GMarkerGoogle(new PointLatLng
+                        (model.context.Locations[model.list_departments().ToList().ElementAt(i)]
+                        [1], (model.context.Locations[model.list_departments().ToList().ElementAt(i)]
+                        [0])), GMarkerGoogleType.red_pushpin);
+                    markers.Markers.Add(marker);
+                }
+            }
+
+            gMapControl1.Overlays.Add(markers);
+        }
     }
 }
 

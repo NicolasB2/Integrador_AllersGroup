@@ -73,6 +73,9 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.mini_1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -453,7 +456,7 @@
             this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label23.Location = new System.Drawing.Point(43, 396);
+            this.label23.Location = new System.Drawing.Point(43, 398);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(67, 17);
             this.label23.TabIndex = 66;
@@ -485,7 +488,7 @@
             this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label25.Location = new System.Drawing.Point(352, 285);
+            this.label25.Location = new System.Drawing.Point(352, 288);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(91, 17);
             this.label25.TabIndex = 67;
@@ -497,7 +500,7 @@
             this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label26.Location = new System.Drawing.Point(41, 286);
+            this.label26.Location = new System.Drawing.Point(43, 288);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(55, 17);
             this.label26.TabIndex = 68;
@@ -507,11 +510,11 @@
             // 
             this.label27.AutoSize = true;
             this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.label27.Font = new System.Drawing.Font("Elephant", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Font = new System.Drawing.Font("Elephant", 36F);
             this.label27.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label27.Location = new System.Drawing.Point(36, 241);
+            this.label27.Location = new System.Drawing.Point(35, 230);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(94, 47);
+            this.label27.Size = new System.Drawing.Size(124, 62);
             this.label27.TabIndex = 69;
             this.label27.Text = "Lab";
             // 
@@ -519,11 +522,11 @@
             // 
             this.label28.AutoSize = true;
             this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.label28.Font = new System.Drawing.Font("Elephant", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Font = new System.Drawing.Font("Elephant", 36F);
             this.label28.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label28.Location = new System.Drawing.Point(38, 351);
+            this.label28.Location = new System.Drawing.Point(35, 336);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(94, 47);
+            this.label28.Size = new System.Drawing.Size(124, 62);
             this.label28.TabIndex = 70;
             this.label28.Text = "Lab";
             // 
@@ -531,11 +534,11 @@
             // 
             this.label29.AutoSize = true;
             this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.label29.Font = new System.Drawing.Font("Elephant", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Font = new System.Drawing.Font("Elephant", 36F);
             this.label29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label29.Location = new System.Drawing.Point(347, 241);
+            this.label29.Location = new System.Drawing.Point(344, 230);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(94, 47);
+            this.label29.Size = new System.Drawing.Size(124, 62);
             this.label29.TabIndex = 71;
             this.label29.Text = "Lab";
             // 
@@ -548,11 +551,38 @@
             this.pictureBox3.TabIndex = 60;
             this.pictureBox3.TabStop = false;
             // 
+            // mini_1
+            // 
+            this.mini_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(114)))));
+            this.mini_1.Location = new System.Drawing.Point(29, 237);
+            this.mini_1.Name = "mini_1";
+            this.mini_1.Size = new System.Drawing.Size(10, 68);
+            this.mini_1.TabIndex = 111;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(114)))));
+            this.panel4.Location = new System.Drawing.Point(338, 237);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 68);
+            this.panel4.TabIndex = 112;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(114)))));
+            this.panel5.Location = new System.Drawing.Point(29, 345);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 68);
+            this.panel5.TabIndex = 113;
+            // 
             // UC_G3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.mini_1);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
@@ -651,5 +681,8 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Panel mini_1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
     }
 }

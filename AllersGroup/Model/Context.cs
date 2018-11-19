@@ -28,7 +28,7 @@ namespace Model
             Locations = new Dictionary<string, double[]>();
 
             Locations.Add("VALLE DEL CAUCA", new double[] { -77.7504494, 4.0376296 });
-            Locations.Add("NARIÑO", new double[] { -79.0437364, 1.5289959 });
+            Locations.Add("NARINO", new double[] { -79.0437364, 1.5289959 });
             Locations.Add("ANTIOQUIA", new double[] { -77.7484384, 7.1508907 });
             Locations.Add("QUINDIO", new double[] { -75.9198936, 4.3983318 });
             Locations.Add("RISARALDA", new double[] { -76.3731545, 5.0981112 });
@@ -38,6 +38,7 @@ namespace Model
             Locations.Add("BOGOTA", new double[] { -74.2478958, 4.6486259 });
             Locations.Add("BOLIVAR", new double[] { -77.0181585, 8.9001022 });
             Locations.Add("CALDAS", new double[] { -75.8344415, 5.2909803 });
+            Locations.Add("VALLE DEL RIO CAUCA", new double[] { -76.9504494, 4.0374196 });
 
             FrecuentItemsets = new List<Item[]>();
 
