@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Model;
 
+
 namespace AllersGroup
 {
     public partial class Form1 : Form
@@ -9,12 +10,16 @@ namespace AllersGroup
         public Consult model;
         public Form1()
         {
-
             InitializeComponent();
 
             model = new Consult();
-            uC_G21.LoadModel(model);
+
+            LoadModels();
         }
 
+        private void LoadModels()
+        {
+            uC_G21.LoadModel(model);
+        }
     }
 }

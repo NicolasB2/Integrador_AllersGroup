@@ -15,7 +15,7 @@ namespace AllersGroup
 
             //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AuxForm());
+            Application.Run(new Form2());
 
 
         }

@@ -4,14 +4,17 @@ using Model;
 
 namespace AllersGroup
 {
-    public partial class AuxForm : Form
+    public partial class MainForm : Form
     {
         public Consult model;
         int panelWidth;
         bool Hidden;
 
-        public AuxForm()
+        public MainForm()
         {
+
+            this.uC_MenuGroups1 = new AllersGroup.UC_MenuGroups(this.uC_G31, this.uC_G21, this.uC_G41);
+            this.uC_MenuPredictions1 = new AllersGroup.UC_MenuPredictions(this.uC_P11, this.uC_P21, this.uC_P31, this.uC_P41);
             InitializeComponent();
             model = new Consult();
 
@@ -30,7 +33,6 @@ namespace AllersGroup
             uC_P31.Hide();
             uC_P41.Hide();
             
-
             load_UserControls();
 
         }

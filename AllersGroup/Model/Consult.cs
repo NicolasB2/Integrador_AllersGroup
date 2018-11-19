@@ -372,12 +372,12 @@ namespace Model
             int[] pos = new int[2];
             int mayor = 0;
             int posM = 0;
-            for (int i = 0;  i< clusterResult.Count(); i++)
+            for (int i = 0; i < clusterResult.Count(); i++)
             {
                 if (clusterResult.ElementAt(i).ElementAt(0).Count() > mayor)
                 {
                     mayor = clusterResult.ElementAt(i).ElementAt(0).Count();
-                    posM = i;                    
+                    posM = i;
                 }
             }
             pos[0] = posM;
@@ -506,7 +506,7 @@ namespace Model
             AssociatonRule.GenerateAllRules<int>(Final_FrequentItemsets_Apriori(threshold), Rules);
         }
 
-        public List<String> getDependence(int itemCode , double threshold)
+        public List<String> getDependence(int itemCode, double threshold)
         {
             GenerateRules(threshold);
             List<int[]> x = new List<int[]>();
@@ -526,7 +526,7 @@ namespace Model
             GenerateRules(threshold);
             List<int[]> x = new List<int[]>();
 
-            for(int i = 0; i < itemsCode.Length; i++)
+            for (int i = 0; i < itemsCode.Length; i++)
             {
                 try
                 {
@@ -544,7 +544,7 @@ namespace Model
             else
             {
                 return new List<string> { "No se pudo generar ninguna oferta con los items seleccionados" };
-            } 
+            }
         }
 
         //**********************************************************************************************
@@ -582,7 +582,7 @@ namespace Model
             {
                 if (Rules.ContainsKey(x))
                 {
-                    items.Add(x+"");
+                    items.Add(x + "");
                 }
             }
 
@@ -617,13 +617,13 @@ namespace Model
         }
         public List<String> ClientsOrderListByType(String type)
         {
-            var x = Transactions_ByClientsType(type).GroupBy(t=>t.ClientCode).OrderBy(t => t.Count()).Select(t => t.Key).ToList();
+            var x = Transactions_ByClientsType(type).GroupBy(t => t.ClientCode).OrderBy(t => t.Count()).Select(t => t.Key).ToList();
             return x;
         }
         //Itesm dado un tipo de cliente 
         public IEnumerable<int> Items_ClientsType(String type)
         {
-            var n = Transactions_ByClientsType(type).SelectMany(t => t.Items).GroupBy(t=>t).OrderBy(t=>t.Count()).Select(t=>t.Key);
+            var n = Transactions_ByClientsType(type).SelectMany(t => t.Items).GroupBy(t => t).OrderBy(t => t.Count()).Select(t => t.Key);
             return n;
         }
 
@@ -642,11 +642,50 @@ namespace Model
         {
             return context.Clients.Select(n => n.Value).GroupBy(n => n.Departament);
         }
+
         // Arreglo de clientes dado un departamento
         public IEnumerable<Client> ClientsByDepartment(String department)
         {
-            var x = context.Clients.Select(n => n.Value).Where(n => n.Departament.Equals(department));
+            var x = context.Clients.Select(n => n.Value).Where(n => n.Departament.Equals(department)).OrderByDescending(i => i.Transactions.Count());
             return x;
+        }
+
+        //[0] departamento con más clientes [1] cuántos clientes.
+        public string[] Groups_DepartmentWithMostClients()
+        {
+            string[] info = new string[2];
+            int mayor = 0;
+
+            for (int i = 0; i < list_departments().ToList().Count; i++)
+            {
+                if (ClientsByDepartment(list_departments().ToList().ElementAt(i)).Count() > mayor)
+                {
+                    mayor = ClientsByDepartment(list_departments().ToList().ElementAt(i)).Count();
+                    info[0] = list_departments().ToList().ElementAt(i);
+                }
+            }
+
+            info[1] = mayor + "";
+            return info;
+        }
+
+        //[0] departamento con menos clientes [1] cuántos clientes.
+        public string[] Groups_DepartmentWithLeastClients()
+        {
+            string[] info = new string[2];
+            int menor = int.MaxValue;
+
+            for (int i = 0; i < list_departments().ToList().Count; i++)
+            {
+                if (ClientsByDepartment(list_departments().ToList().ElementAt(i)).Count() < menor)
+                {
+                    menor = ClientsByDepartment(list_departments().ToList().ElementAt(i)).Count();
+                    info[0] = list_departments().ToList().ElementAt(i);
+                }
+            }
+
+            info[1] = menor + "";
+            return info;
         }
 
         // Arreglo de Transacciones dado un departamento
@@ -656,11 +695,86 @@ namespace Model
             return x;
         }
 
+        //[0] departamento con más transacciones [1] cuántas transacciones
+        public string[] Groups_DepartmentWithMostTransactions()
+        {
+            string[] info = new string[2];
+            int mayor = 0;
+
+            for (int i = 0; i < list_departments().ToList().Count; i++)
+            {
+                if (TransactionsByDepartment(list_departments().ToList().ElementAt(i)).Count() > mayor)
+                {
+                    mayor = TransactionsByDepartment(list_departments().ToList().ElementAt(i)).Count();
+                    info[0] = list_departments().ToList().ElementAt(i);
+                }
+            }
+
+            info[1] = mayor + "";
+            return info;
+        }
+
+        //[0] departamento con menos transacciones [1] cuántas transacciones
+        public string[] Groups_DepartmentWithLeastTransactions()
+        {
+            string[] info = new string[2];
+            int menor = int.MaxValue;
+
+            for (int i = 0; i < list_departments().ToList().Count; i++)
+            {
+                if (TransactionsByDepartment(list_departments().ToList().ElementAt(i)).Count() < menor)
+                {
+                    menor = TransactionsByDepartment(list_departments().ToList().ElementAt(i)).Count();
+                    info[0] = list_departments().ToList().ElementAt(i);
+                }
+            }
+
+            info[1] = menor + "";
+            return info;
+        }
+
         // Arreglo de ItemsCodes dado un departamento
         public IEnumerable<int> ItemsByDepartment(String department)
         {
             var x = TransactionsByDepartment(department).SelectMany(t => t.Items).Distinct();
             return x;
+        }
+        //[0] departamento con mayor cantidad de items [1] cuántos items
+        public string[] Groups_DepartmentWithMostItems()
+        {
+            string[] info = new string[2];
+            int mayor = 0;
+
+            for (int i = 0; i < list_departments().ToList().Count; i++)
+            {
+                if (ItemsByDepartment(list_departments().ToList().ElementAt(i)).Count() > mayor)
+                {
+                    mayor = ItemsByDepartment(list_departments().ToList().ElementAt(i)).Count();
+                    info[0] = list_departments().ToList().ElementAt(i);
+                }
+            }
+
+            info[1] = mayor + "";
+            return info;
+        }
+
+        //[0] departamento con menor cantidad de items [1] cuántos items
+        public string[] Groups_DepartmentWithLeastItems()
+        {
+            string[] info = new string[2];
+            int menor = int.MaxValue;
+
+            for (int i = 0; i < list_departments().ToList().Count; i++)
+            {
+                if (ItemsByDepartment(list_departments().ToList().ElementAt(i)).Count() < menor)
+                {
+                    menor = ItemsByDepartment(list_departments().ToList().ElementAt(i)).Count();
+                    info[0] = list_departments().ToList().ElementAt(i);
+                }
+            }
+
+            info[1] = menor + "";
+            return info;
         }
 
         //retorna un arreglo con [0]=codigo del item y [1]=porcentaje de aparicion del 
@@ -671,6 +785,82 @@ namespace Model
             var y = TransactionsByDepartment(department);
             var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (n.Count() / (double)y.Count()) + "" });
             return x.OrderByDescending(i => int.Parse(i[1]));
+        }
+
+        //[0] cliente con más transacciones de un departamento dado [1] cuántas transacciones.
+        public string[] Groups_Department_ClientWithMostTransactions(string department)
+        {
+            string[] info = new string[2];
+            int mayor = 0;
+
+            List<Client> clients = ClientsByDepartment(department).ToList();
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (totalTransactionsClient(clients.ElementAt(i).Code) > mayor)
+                {
+                    mayor = totalTransactionsClient(clients.ElementAt(i).Code);
+                    info[0] = clients.ElementAt(i).Code;
+                }
+            }
+
+            return info;
+        }
+
+        //[0] cliente con menos transacciones de un departamento dado [1] cuántas transacciones.
+        public string[] Groups_Department_ClientWithLeastTransactions(string department)
+        {
+            string[] info = new string[2];
+            int menor = int.MaxValue;
+
+            List<Client> clients = ClientsByDepartment(department).ToList();
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (totalTransactionsClient(clients.ElementAt(i).Code) < menor)
+                {
+                    menor = totalTransactionsClient(clients.ElementAt(i).Code);
+                    info[0] = clients.ElementAt(i).Code;
+                }
+            }
+
+            return info;
+        }
+
+        //[0] cliente con más dinero en compras de un departamento dado [1] cuánto.
+        public string[] Groups_Department_ClientWithMostSells(string department)
+        {
+            string[] info = new string[2];
+            double mayor = 0;
+
+            List<Client> clients = ClientsByDepartment(department).ToList();
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (TotalSellsClient(clients.ElementAt(i).Code) > mayor)
+                {
+                    mayor = TotalSellsClient(clients.ElementAt(i).Code);
+                    info[0] = clients.ElementAt(i).Code;
+                }
+            }
+
+            return info;
+        }
+
+        //[0] cliente con menos dinero en compras de un departamento dado [1] cuánto.
+        public string[] Groups_Department_ClientLeastSells(string department)
+        {
+            string[] info = new string[2];
+            double menor = double.MaxValue;
+
+            List<Client> clients = ClientsByDepartment(department).ToList();
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (TotalSellsClient(clients.ElementAt(i).Code) < menor)
+                {
+                    menor = TotalSellsClient(clients.ElementAt(i).Code);
+                    info[0] = clients.ElementAt(i).Code;
+                }
+            }
+
+            return info;
         }
 
 

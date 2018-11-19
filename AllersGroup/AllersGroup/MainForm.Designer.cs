@@ -1,6 +1,6 @@
 ﻿namespace AllersGroup
 {
-    partial class AuxForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuxForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.minimize = new System.Windows.Forms.PictureBox();
@@ -44,6 +44,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.PanelSlide = new System.Windows.Forms.Panel();
             this.uC_MenuRecommendations1 = new AllersGroup.UC_MenuRecommendations();
+            this.uC_MenuGroups1 = new AllersGroup.UC_MenuGroups(this.uC_G31, this.uC_G21, this.uC_G41);
+            this.uC_MenuPredictions1 = new AllersGroup.UC_MenuPredictions(this.uC_P11, this.uC_P21, this.uC_P31, this.uC_P41);
             this.uC_P11 = new AllersGroup.UC_P1();
             this.uC_P21 = new AllersGroup.UC_P2();
             this.uC_P31 = new AllersGroup.UC_P3();
@@ -124,7 +126,7 @@
             // 
             // mini_slide
             // 
-            this.mini_slide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(177)))), ((int)(((byte)(140)))));
+            this.mini_slide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(114)))));
             this.mini_slide.Location = new System.Drawing.Point(0, 33);
             this.mini_slide.Name = "mini_slide";
             this.mini_slide.Size = new System.Drawing.Size(10, 36);
@@ -204,7 +206,7 @@
             // 
             // PanelSlide
             // 
-            this.PanelSlide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(177)))), ((int)(((byte)(140)))));
+            this.PanelSlide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(83)))), ((int)(((byte)(105)))));
             this.PanelSlide.Controls.Add(this.uC_MenuRecommendations1);
             this.PanelSlide.Controls.Add(this.uC_MenuPredictions1);
             this.PanelSlide.Controls.Add(this.uC_MenuGroups1);
@@ -217,7 +219,7 @@
             // uC_MenuRecommendations1
             // 
             this.uC_MenuRecommendations1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
-            this.uC_MenuRecommendations1.Location = new System.Drawing.Point(0, 0);
+            this.uC_MenuRecommendations1.Location = new System.Drawing.Point(-6, 133);
             this.uC_MenuRecommendations1.Name = "uC_MenuRecommendations1";
             this.uC_MenuRecommendations1.Size = new System.Drawing.Size(239, 487);
             this.uC_MenuRecommendations1.TabIndex = 2;
@@ -243,7 +245,7 @@
             // uC_P31
             // 
             this.uC_P31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_P31.Location = new System.Drawing.Point(-12, 22);
+            this.uC_P31.Location = new System.Drawing.Point(105, 33);
             this.uC_P31.Name = "uC_P31";
             this.uC_P31.Size = new System.Drawing.Size(738, 486);
             this.uC_P31.TabIndex = 6;
@@ -251,16 +253,15 @@
             // uC_P41
             // 
             this.uC_P41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_P41.Location = new System.Drawing.Point(103, 62);
+            this.uC_P41.Location = new System.Drawing.Point(118, 6);
             this.uC_P41.Name = "uC_P41";
             this.uC_P41.Size = new System.Drawing.Size(738, 486);
             this.uC_P41.TabIndex = 7;
             // 
             // uC_MenuPredictions1
             // 
-            this.uC_MenuPredictions1 = new UC_MenuPredictions(this.uC_P11, this.uC_P21, this.uC_P31, this.uC_P41);
             this.uC_MenuPredictions1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
-            this.uC_MenuPredictions1.Location = new System.Drawing.Point(0, 0);
+            this.uC_MenuPredictions1.Location = new System.Drawing.Point(-3, 168);
             this.uC_MenuPredictions1.Name = "uC_MenuPredictions1";
             this.uC_MenuPredictions1.Size = new System.Drawing.Size(239, 487);
             this.uC_MenuPredictions1.TabIndex = 1;
@@ -291,9 +292,8 @@
             // 
             // uC_MenuGroups1
             // 
-            this.uC_MenuGroups1 = new UC_MenuGroups(this.uC_G31, this.uC_G21, this.uC_G41);
             this.uC_MenuGroups1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
-            this.uC_MenuGroups1.Location = new System.Drawing.Point(0, 0);
+            this.uC_MenuGroups1.Location = new System.Drawing.Point(0, 193);
             this.uC_MenuGroups1.Name = "uC_MenuGroups1";
             this.uC_MenuGroups1.Size = new System.Drawing.Size(239, 487);
             this.uC_MenuGroups1.TabIndex = 0;
@@ -332,7 +332,7 @@
             this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // AuxForm
+            // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1047, 528);
@@ -341,7 +341,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AuxForm";
+            this.Name = "MainForm";
             this.Text = "AuxForm";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
