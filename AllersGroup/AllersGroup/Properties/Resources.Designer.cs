@@ -73,6 +73,16 @@ namespace AllersGroup.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1ca4c21e22a2a15cf4ac727015406350 {
+            get {
+                object obj = ResourceManager.GetObject("1ca4c21e22a2a15cf4ac727015406350", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _9a24dc9d88496d3c8b6e8fa187de769f {
             get {
                 object obj = ResourceManager.GetObject("9a24dc9d88496d3c8b6e8fa187de769f", resourceCulture);

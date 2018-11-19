@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uC_G31 = new AllersGroup.UC_G3();
+            this.uC_P11 = new AllersGroup.UC_P1();
             this.SuspendLayout();
             // 
-            // uC_G31
+            // uC_P11
             // 
-            this.uC_G31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G31.Location = new System.Drawing.Point(12, 12);
-            this.uC_G31.Name = "uC_G31";
-            this.uC_G31.Size = new System.Drawing.Size(720, 1486);
-            this.uC_G31.TabIndex = 0;
+            this.uC_P11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_P11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.uC_P11.ForeColor = System.Drawing.Color.BurlyWood;
+            this.uC_P11.Location = new System.Drawing.Point(33, 12);
+            this.uC_P11.Name = "uC_P11";
+            this.uC_P11.Size = new System.Drawing.Size(720, 1000);
+            this.uC_P11.TabIndex = 0;
             // 
             // Form2
             // 
@@ -45,7 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.uC_G31);
+            this.Controls.Add(this.uC_P11);
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -54,6 +56,6 @@
 
         #endregion
 
-        private UC_G3 uC_G31;
+        private UC_P1 uC_P11;
     }
 }
