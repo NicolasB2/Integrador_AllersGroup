@@ -19,7 +19,7 @@ namespace AllersGroup
 
         private void LoadModels()
         {
-            uC_G21.LoadModel(model);
+            uC_G51.LoadModel(model);
         }
     }
 }
