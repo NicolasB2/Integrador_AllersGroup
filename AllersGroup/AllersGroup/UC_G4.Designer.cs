@@ -111,9 +111,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(330, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 40);
+            this.label1.Size = new System.Drawing.Size(290, 40);
             this.label1.TabIndex = 62;
-            this.label1.Text = "Diciembre - Diciembre";
+            this.label1.Text = "Porcentaje similitud";
             // 
             // panel1
             // 

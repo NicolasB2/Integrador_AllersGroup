@@ -11,21 +11,22 @@ namespace AllersGroup
     public partial class UC_P1 : UserControl
     {
         Consult model;
+        string client;
         public UC_P1()
         {
             InitializeComponent();
+            client = "";
             string[] supports = new string[] {"10", "20"
             , "30", "40", "50", "60", "70", "80", "90" , "95"};
             comboBox1.Items.AddRange(supports);
             comboBox2.Items.AddRange(supports);
+            label18.Visible = label19.Visible = label20.Visible = label21.Visible = label8.Visible = label9.Visible = label10.Visible = false;
         }
 
         public void loadModel(Consult model)
         {
             this.model = model;
-            loadClients();
-
-            label_client.Visible = label8.Visible = label9.Visible = label10.Visible = false;
+                                  
             loadClients();
         }
 
@@ -37,13 +38,26 @@ namespace AllersGroup
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label_client.Text = listBox1.SelectedItem.ToString();
+            client = listBox1.SelectedItem.ToString();
+            label_client.Text = client;
+
             label8.Text = model.totalTransactionsClient(listBox1.SelectedItem.ToString()) + "";
             label9.Text = model.itemsbyClient(listBox1.SelectedItem.ToString()).Last() +"";
             label10.Text = model.itemsbyClient(listBox1.SelectedItem.ToString()).First() + "";
 
-            label_client.Visible = label8.Visible = label9.Visible = label10.Visible = true;
             listBox3.Items.AddRange(model.itemsbyClient(listBox1.SelectedItem.ToString()).ToArray());
+
+            string sells = model.TotalSellsClient(client)+"";
+            sells = string.Format("{0:###,###,###,##0.00##}", Decimal.Parse(sells));
+         
+
+            label18.Text = "$ " + sells ;
+            label19.Text = model.context.Clients[client].Departament;
+            label20.Text = model.context.Clients[client].Type;
+            label21.Text = model.context.Clients[client].Payment;
+
+            label18.Visible = label19.Visible = label20.Visible = label21.Visible = label8.Visible = label9.Visible = label10.Visible = true;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -104,5 +118,9 @@ namespace AllersGroup
 
         }
 
+        private void UC_P1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,9 +15,8 @@ namespace AllersGroup
     {
         public Form2()
         {
-
             InitializeComponent();
-            uC_G21.LoadModel(new Consult());
+            uC_P11.loadModel(new Consult());
         }
     }
 }

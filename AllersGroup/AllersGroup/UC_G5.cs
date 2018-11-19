@@ -6,19 +6,22 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Model;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace AllersGroup
 {
     public partial class UC_G5 : UserControl
     {
         public Consult model;
+        public List<Client> clients;
 
         public UC_G5()
         {
             InitializeComponent();
+            clients = new List<Client>();
+
             label8.Visible = label18.Visible = label9.Visible = label5.Visible  = false;
-            label27.Visible = label28.Visible = label29.Visible = false;
+            label27.Visible = label28.Visible = label29.Visible = label1.Visible = false;           
+            mini_1.Visible = mini_2.Visible = mini_3.Visible = false;
 
         }
 
@@ -26,30 +29,6 @@ namespace AllersGroup
         {
             this.model = model;
             LoadComboBox();
-            String[]a = new String[]{ "a", "b", "c" };
-            int[] b = new int[] { 50, 20, 20 };
-
-            chart1.Series.Clear();
-
-            for(int i =0;i<a.Length;i++)
-            {
-                Series serie = chart1.Series.Add(a[i]);
-                serie.Label = b[i].ToString();
-                serie.Points.Add(b[i]);
-
-            }
-            //chart1.Series.Add("a");
-            //chart1.Series["a"].Points.AddXY("nico",10);
-            //chart1.Series["a"].Points.AddXY("ale", 20);
-            //chart1.Series["a"].Points.AddXY("sara", 20);
-            //chart1.Series["a"].Points.AddXY("diana", 50);
-            //chart1.Series.Add("b");
-            //chart1.Series.Add("c");
-            //chart1.Series.Add("d");
-            //chart1.Series.Add("e");
-
-
-
         }
 
         private void LoadComboBox()
@@ -60,27 +39,47 @@ namespace AllersGroup
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //String x = comboBox1.SelectedItem.ToString();
-            //label27.Visible = label28.Visible = label29.Visible = true;
-            //label29.Text = model.Transactions_ByClientsType(x).Count()+"";
-            //label27.Text = model.Clients_ByType(x).Count()+"";
-            //label28.Text = "$ "+model.totalSellsListClients(model.Clients_ByType(x).Select(c=>c.Code).ToList());
+            String x = comboBox1.SelectedItem.ToString();
+            label27.Visible = label28.Visible = label29.Visible = true;
+            label29.Text = model.Transactions_ByClientsType(x).Count()+"";
+            label27.Text = model.Clients_ByType(x).Count()+"";
+            label28.Text = "$ "+model.totalSellsListClients(model.Clients_ByType(x).Select(c=>c.Code).ToList());
 
-            //label27.Visible = label28.Visible = label29.Visible = true;
-            //label8.Visible = label18.Visible = label9.Visible = label5.Visible = true;
+            label27.Visible = label28.Visible = label29.Visible = true;
+            label8.Visible = label18.Visible = label9.Visible = label5.Visible = true;
 
-            //label8.Text = model.Items_ClientsType(x).Last()+"";
-            //label18.Text = model.Items_ClientsType(x).First() + "";
-            //label5.Text = model.ClientsOrderListByType(x).Last() + "";
-            //label9.Text = model.ClientsOrderListByType(x).First() + "";
+            label8.Text = model.Items_ClientsType(x).Last()+"";
+            label18.Text = model.Items_ClientsType(x).First() + "";
+            label5.Text = model.ClientsOrderListByType(x).Last() + "";
+            label9.Text = model.ClientsOrderListByType(x).First() + "";
 
-            chart1.Series.Clear();
-            chart1.Series.Add("a");
-            chart1.Series["a"].Points.AddXY("nico", 10);
-            chart1.Series["a"].Points.AddXY("ale", 20);
-            chart1.Series["a"].Points.AddXY("sara", 20);
-            chart1.Series["a"].Points.AddXY("diana", 50);
+            mini_1.Visible = mini_2.Visible = mini_3.Visible = true;
+
+            clients = model.Clients_ByType(x).ToList();
+            LoadListView_1();
+                
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label1.Text = comboBox1.SelectedItem.ToString();
+            label1.Visible = true;
+        }
+
+        private void LoadListView_1()
+        {
+            for (int i = 0; i < clients.Count(); i++)
+            {
+                ListViewItem list = new ListViewItem(clients.ElementAt(i).Code);
+                list.SubItems.Add(model.totalTransactionsClient(clients.ElementAt(i).Code) + "");
+
+                string sells = model.TotalSellsClient(clients.ElementAt(i).Code) + "";
+                sells = string.Format("{0:###,###,###,##0.00##}", Decimal.Parse(sells));
+
+                list.SubItems.Add("$ " + sells);
+
+                listView1.Items.Add(list);
+            }
+        }
     }
 }

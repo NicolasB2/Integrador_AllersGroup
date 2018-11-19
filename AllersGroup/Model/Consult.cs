@@ -48,6 +48,7 @@ namespace Model
             }
 
         }
+
         public List<String> FrequentItemSetsByClient(String clientCode, double Support)
         {
             List<int[]> itemsets = context.Clients[clientCode].Transactions.SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
@@ -779,12 +780,11 @@ namespace Model
 
         //retorna un arreglo con [0]=codigo del item y [1]=porcentaje de aparicion del 
         // item en las compras de ese departamento
-        public IEnumerable<String[]> FrequentItems_by_Department(String department)
-        {
+        public IEnumerable<String[]> FrequentItems_by_Department(String department)        {
 
             var y = TransactionsByDepartment(department);
             var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (n.Count() / (double)y.Count()) + "" });
-            return x.OrderByDescending(i => int.Parse(i[1]));
+            return x;
         }
 
         //[0] cliente con más transacciones de un departamento dado [1] cuántas transacciones.
@@ -872,13 +872,162 @@ namespace Model
             return x;
         }
 
+        //[0] cliente con más transacciones [1] cuantas transacciones.
+        public string[] Groups_ClientWithMostTransactions(List<string[]> clients)
+        {
+            string[] info = new string[2];
+            int mayor = 0;
+
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (totalTransactionsClient(clients.ElementAt(i)[0]) > mayor)
+                {
+                    mayor = totalTransactionsClient(clients.ElementAt(i)[0]);
+                    info[0] = clients.ElementAt(i)[0];
+                }
+            }
+            info[1] = mayor+"";
+            return info;
+        }
+
+        //[0] cliente con más transacciones [1] cuantas transacciones.
+        public string[] Groups_ClientWithLeastTransactions(List<string[]> clients)
+        {
+            string[] info = new string[2];
+            int menor = int.MaxValue;
+
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (totalTransactionsClient(clients.ElementAt(i)[0]) < menor)
+                {
+                    menor = totalTransactionsClient(clients.ElementAt(i)[0]);
+                    info[0] = clients.ElementAt(i)[0];
+                }
+            }
+            info[1] = menor + "";
+            return info;
+        }
+
+
+        //[0] mes con más clientes [1] cuantos
+        public int[] Groups_MonthWithMostClients()
+        {
+            int[] info = new int[2];
+            int mayor = 0;
+
+            for (int i = 1; i < 7; i++)
+            {
+                if (ClientsByMonth(i).Count() > mayor)
+                {
+                    mayor = ClientsByMonth(i).Count();
+                    info[0] = i;
+                }
+            }
+            info[1] = mayor;
+            return info;
+        }
+
+        //[0] mes con menos clientes [1] cuantos
+        public int[] Groups_MonthWithLeastClients()
+        {
+            int[] info = new int[2];
+            int menor = int.MaxValue;
+
+            for (int i = 1; i < 7; i++)
+            {
+                if (ClientsByMonth(i).Count() < menor)
+                {
+                    menor = ClientsByMonth(i).Count();
+                    info[0] = i;
+                }
+            }
+            info[1] = menor;
+            return info;
+        }
+
+        //[0] mes con mas ventas y [1] cuanto($)
+        public string[] Groups_MonthWithMostSells()
+        {
+            string[] info = new string[2];
+            double mayor = 0;
+
+            for (int i = 1; i < 7; i++)
+            {
+                if (totalSellsListClients2(ClientsByMonth(i).ToList()) > mayor)
+                {
+                    mayor = totalSellsListClients2(ClientsByMonth(i).ToList());
+                    info[0] = i+"";
+                }
+            }
+
+            info[1] = mayor + "";
+            return info;
+        }
+
+        //[0] mes con menos ventas y [1] cuanto($)
+        public string[] Groups_MonthWithLeastSells()
+        {
+            string[] info = new string[2];
+            double menor = double.MaxValue;
+
+            for (int i = 1; i < 7; i++)
+            {
+                if (totalSellsListClients2(ClientsByMonth(i).ToList()) < menor)
+                {
+                    menor = totalSellsListClients2(ClientsByMonth(i).ToList());
+                    info[0] = i + "";
+                }
+            }
+
+            info[1] = menor + "";
+            return info;
+        }
+
         // Arreglo de Transacciones dado un mes
         public IEnumerable<Transaction> TransactionsByMonth(int month)
         {
             var x = context.Transactions.Select(n => n.Value).Where(n => n.Date.Month == month);
             return x;
         }
+        
+        // [0] mes con más transacciones [1] cuantas transacciones
+        public int[] Groups_MonthWithMostTransactions()
+        {
+            int[] info = new int[2];
+            int mayor = 0;
 
+            for (int i = 1; i < 7; i++)
+            {
+
+                if (TransactionsByMonth(i).Count() > mayor)
+                {
+                    mayor = TransactionsByMonth(i).Count();
+                    info[0] = i;
+                }
+            }
+            info[1] = mayor;
+            return info;
+        }
+
+        // [0] mes con menos transacciones [1] cuantas transacciones
+        public int[] Groups_MonthWithLeastTransactions()
+        {
+            int[] info = new int[2];
+            int menor = int.MaxValue;
+
+            for (int i = 1; i < 7; i++)
+            {
+
+                if (TransactionsByMonth(i).Count() < menor)
+                {
+                    menor = TransactionsByMonth(i).Count();
+                    info[0] = i;
+                }
+            }
+            info[1] = menor;
+
+            return info;
+        }
         // Arreglo de ItemsCodes dado un mes
         public IEnumerable<int> ItemsByMonth(int month)
         {
@@ -971,7 +1120,6 @@ namespace Model
         public double TotalSellsClient(string clientCode)
         {
             double total = 0;
-
             
             if (context.Clients.ContainsKey(clientCode))
             {
@@ -987,10 +1135,10 @@ namespace Model
             double mayor = 0;
             for (int i = 0; i < clients.Count(); i++)
             {
-                if (TotalSellsClient(clients.ElementAt(0)[1]) > mayor)
+                if (TotalSellsClient(clients.ElementAt(i)[1]) > mayor)
                 {
-                    mayor = TotalSellsClient(clients.ElementAt(0)[1]);
-                    cliente[0] = clients.ElementAt(0)[0];
+                    mayor = TotalSellsClient(clients.ElementAt(i)[1]);
+                    cliente[0] = clients.ElementAt(i)[0];
                 }
             }
 
@@ -1005,10 +1153,10 @@ namespace Model
             double menor = double.MaxValue;
             for (int i = 0; i < clients.Count(); i++)
             {
-                if (TotalSellsClient(clients.ElementAt(0)[1]) < menor)
+                if (TotalSellsClient(clients.ElementAt(i)[1]) < menor)
                 {
-                    menor = TotalSellsClient(clients.ElementAt(0)[1]);
-                    cliente[0] = clients.ElementAt(0)[0];
+                    menor = TotalSellsClient(clients.ElementAt(i)[1]);
+                    cliente[0] = clients.ElementAt(i)[0];
                 }
             }
 
@@ -1027,6 +1175,18 @@ namespace Model
 
             return total;
         }
+
+        public double totalSellsListClients2(List<string> clients)
+        {
+            double total = 0;
+            for (int i = 0; i < clients.Count; i++)
+            {
+                total += TotalSellsClient(clients.ElementAt(i));
+            }
+
+            return total;
+        }
+
 
         public double totalSellsListClients(List<string> clients)
         {

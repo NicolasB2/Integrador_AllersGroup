@@ -13,6 +13,7 @@ namespace AllersGroup
         public Consult model;
         public int month1, month2;
         public Dictionary<String, int> months;
+        public Dictionary<int, String> months2;
 
         private List<string[]> clients, items;
 
@@ -30,6 +31,15 @@ namespace AllersGroup
             months.Add("Mayo", 5);
             months.Add("Junio", 6);
 
+            months2 = new Dictionary<int, string>();
+            months2.Add(1,"Enero");
+            months2.Add(2,"Febrero");
+            months2.Add(3,"Marzo");
+            months2.Add(4,"Abril");
+            months2.Add(5,"Mayo");
+            months2.Add(6,"Junio");
+
+
             comboBox1.Items.AddRange(months.Keys.ToArray());
             comboBox2.Items.AddRange(months.Keys.ToArray());
 
@@ -37,15 +47,30 @@ namespace AllersGroup
 
 
             label8.Visible = label9.Visible = label10.Visible = label_meses.Visible = false;
-            label18.Visible = label19.Visible = label20.Visible = false;
-            label27.Visible = label28.Visible = label29.Visible = false;
-            
+            label18.Visible = label19.Visible = label20.Visible = label46.Visible =  false;
+            label27.Visible = label28.Visible = label29.Visible = label42.Visible = label40.Visible = false;
+
+            mini_1.Visible = mini_2.Visible = mini_3.Visible = false;
+
         }
 
-
+       
         public void LoadModel(Consult model)
         {
             this.model = model;
+            GeneralInfo();
+        }
+
+        private void GeneralInfo()        {
+         
+            label38.Text = months2[model.Groups_MonthWithMostTransactions()[0]];
+            label39.Text = months2[model.Groups_MonthWithLeastTransactions()[0]];
+
+            label34.Text = months2[model.Groups_MonthWithMostClients()[0]];
+            label35.Text = months2[model.Groups_MonthWithLeastClients()[0]];
+
+            label22.Text = months2[int.Parse(model.Groups_MonthWithMostSells()[0])];
+            label31.Text = months2[int.Parse(model.Groups_MonthWithLeastSells()[0])];
         }
 
         private void LoadListView1()
@@ -84,6 +109,11 @@ namespace AllersGroup
             }
         }
 
+        //Cargar itemsets frecuentes
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -97,12 +127,6 @@ namespace AllersGroup
             }
 
         }
-        //Chart clients vs. número de compras.
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
      
         //Cargar
         private void button1_Click(object sender, EventArgs e)
@@ -121,6 +145,7 @@ namespace AllersGroup
                     items = model.Frequent_Items_ByMonth(month1).ToList();
                     clients = model.Frequent_Clients_ByMonth(month1).ToList();
 
+                    label46.Text = model.ItemsByMonth(month1).Distinct().Count() + "";
                 }
                 else
                 {
@@ -129,6 +154,14 @@ namespace AllersGroup
 
                     items = model.ItemsByTimePeriod(month1, month2).ToList();
                     clients = model.ClientsByTimePeriod(month1, month2).ToList();
+
+                    var y = model.ItemsByMonth(month1).Distinct(); 
+                    for (int i = month1+1; i < month1+month2; i++)
+                    {
+                        y.Union(model.ItemsByMonth(i)).Distinct();
+                    }
+
+                    label46.Text = y.Distinct().Count() + "";
                 }
 
                 label27.Text = clients.Count + "";
@@ -148,11 +181,18 @@ namespace AllersGroup
                 label10.Text = items.ElementAt(items.Count() - 1)[0];
                 
                 label8.Visible = label9.Visible = label10.Visible = label27.Visible = label28.Visible = label29.Visible = true;
-                label18.Visible = label19.Visible = label20.Visible = true;
+                label18.Visible = label19.Visible = label20.Visible = label46.Visible = true;
 
                 LoadListView2();
                 LoadListView1();
 
+
+
+                
+                label42.Text = model.Groups_ClientWithMostTransactions(clients)[0];
+                label40.Text = model.Groups_ClientWithLeastTransactions(clients)[0];
+
+                mini_1.Visible = mini_2.Visible = mini_3.Visible = label42.Visible = label40.Visible = true;
             }
         }
     }
