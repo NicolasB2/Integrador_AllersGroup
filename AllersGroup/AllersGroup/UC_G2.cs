@@ -122,7 +122,6 @@ namespace AllersGroup
 
             LoadListView_1(department);
             LoadListView_2(department);
-            LoadListView_3(department);
 
         }
 
@@ -148,14 +147,18 @@ namespace AllersGroup
         //itemsets
         private void LoadListView_2(string department)
         {
+            List<string[]> items = model.FrequentItems_by_Department(department).ToList();
 
+            for (int i = 0; i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i)[0] + "");
+                double p = Math.Round((double.Parse(items.ElementAt(i)[1])), 3);
+                list.SubItems.Add(p + " %");
+
+                listView2.Items.Add(list);
+            }
         }
 
-        //itemsets frecuentes
-        private void LoadListView_3(string department)
-        {
-
-        }
     }
 }
 

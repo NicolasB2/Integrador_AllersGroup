@@ -55,6 +55,7 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -84,23 +85,15 @@
             this.label36 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label38 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel5 = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label42 = new System.Windows.Forms.Label();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label37 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel_lab2.SuspendLayout();
@@ -110,10 +103,8 @@
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_dep
@@ -397,6 +388,10 @@
             // 
             this.columnHeader2.Text = "Compras";
             this.columnHeader2.Width = 70;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Width = 115;
             // 
             // label20
             // 
@@ -717,16 +712,26 @@
             this.pictureBox3.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox3, "Variedad de productos\r\nque se vende.");
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::AllersGroup.Properties.Resources.questions;
+            this.pictureBox4.Location = new System.Drawing.Point(281, 1050);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox4.TabIndex = 130;
+            this.pictureBox4.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox4, "Itemsets y su frecuencia según \r\nel departamento seleccionado.");
+            // 
             // label38
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label38.Location = new System.Drawing.Point(18, 1099);
+            this.label38.Location = new System.Drawing.Point(27, 1099);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(54, 17);
+            this.label38.Size = new System.Drawing.Size(42, 17);
             this.label38.TabIndex = 128;
-            this.label38.Text = "Itemset";
+            this.label38.Text = "Items";
             // 
             // listView2
             // 
@@ -769,100 +774,9 @@
             this.label39.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label39.Location = new System.Drawing.Point(29, 6);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(65, 17);
+            this.label39.Size = new System.Drawing.Size(44, 17);
             this.label39.TabIndex = 17;
-            this.label39.Text = "ITEMSETS";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::AllersGroup.Properties.Resources.questions;
-            this.pictureBox4.Location = new System.Drawing.Point(281, 1050);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox4.TabIndex = 130;
-            this.pictureBox4.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox4, "Itemsets del departamento\r\nseleccionado.");
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::AllersGroup.Properties.Resources.questions;
-            this.pictureBox5.Location = new System.Drawing.Point(655, 1050);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.TabIndex = 135;
-            this.pictureBox5.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox5, "Itemset frecuentes y su porcentaje de\r\nfrecuencia del departamento seleccionado.");
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label40.Location = new System.Drawing.Point(473, 1099);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(208, 17);
-            this.label40.TabIndex = 134;
-            this.label40.Text = "|            Porcentaje de frecuencia";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label41.Location = new System.Drawing.Point(390, 1099);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(54, 17);
-            this.label41.TabIndex = 133;
-            this.label41.Text = "Itemset";
-            // 
-            // listView3
-            // 
-            this.listView3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6});
-            this.listView3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView3.Location = new System.Drawing.Point(393, 1119);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(285, 193);
-            this.listView3.TabIndex = 132;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Código del cliente";
-            this.columnHeader5.Width = 130;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Compras";
-            this.columnHeader6.Width = 70;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
-            this.panel6.Controls.Add(this.label42);
-            this.panel6.Location = new System.Drawing.Point(374, 1046);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(275, 30);
-            this.panel6.TabIndex = 131;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label42.Location = new System.Drawing.Point(29, 6);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(145, 17);
-            this.label42.TabIndex = 17;
-            this.label42.Text = "ITEMSETS FRECUENTES";
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Width = 115;
+            this.label39.Text = "ITEMS";
             // 
             // label37
             // 
@@ -875,17 +789,24 @@
             this.label37.TabIndex = 136;
             this.label37.Text = "Total ventas";
             // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label41.Location = new System.Drawing.Point(81, 1099);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(184, 17);
+            this.label41.TabIndex = 137;
+            this.label41.Text = "|      Porcentaje de frecuencia";
+            // 
             // UC_G2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.Controls.Add(this.label37);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.label40);
             this.Controls.Add(this.label41);
-            this.Controls.Add(this.listView3);
-            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.label37);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.listView2);
@@ -944,12 +865,9 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1018,15 +936,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label42;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label41;
     }
 }

@@ -779,12 +779,11 @@ namespace Model
 
         //retorna un arreglo con [0]=codigo del item y [1]=porcentaje de aparicion del 
         // item en las compras de ese departamento
-        public IEnumerable<String[]> FrequentItems_by_Department(String department)
-        {
+        public IEnumerable<String[]> FrequentItems_by_Department(String department)        {
 
             var y = TransactionsByDepartment(department);
             var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (n.Count() / (double)y.Count()) + "" });
-            return x.OrderByDescending(i => int.Parse(i[1]));
+            return x;
         }
 
         //[0] cliente con más transacciones de un departamento dado [1] cuántas transacciones.
