@@ -53,6 +53,8 @@ namespace AllersGroup
 
             label33.Text = model.Groups_DepartmentWithMostItems()[0];
             label36.Text = model.Groups_DepartmentWithLeastItems()[0];
+
+            
         }
 
         private void LoadListView1()
@@ -75,6 +77,7 @@ namespace AllersGroup
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             String department = comboBox1.SelectedItem.ToString();
+
 
         }
 
@@ -105,6 +108,17 @@ namespace AllersGroup
                 label_dep.Text = "BOLÍVAR";
 
             }
+
+            chart_Clients.Series.Clear();
+
+            var x = model.ClientsByDepartment(comboBox1.SelectedItem.ToString()).ToArray();
+            chart_Clients.Series.Add("clients");
+            MessageBox.Show(x.Length+"");
+            for (int i = 0; i < x.Length && i<10; i++)
+            {
+                
+                chart_Clients.Series["clients"].Points.AddXY(x[i].Code, x[i].Transactions.Count());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -128,6 +142,7 @@ namespace AllersGroup
 
             LoadListView_1(department);
             LoadListView_2(department);
+
 
         }
 
@@ -185,6 +200,11 @@ namespace AllersGroup
             }
 
             gMapControl1.Overlays.Add(markers);
+        }
+
+        private void UC_G2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

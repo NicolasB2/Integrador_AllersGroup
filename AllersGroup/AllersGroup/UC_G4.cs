@@ -77,6 +77,7 @@ namespace AllersGroup
             label15.Visible = label6.Visible = label10.Visible = label7.Visible = label11.Visible = true;
 
             LoadListViewGroups();
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,6 +165,15 @@ namespace AllersGroup
 
 
             Load_ClientsProducts(pos);
+
+            chart_Clients.Series.Clear();
+            chart_Clients.Series.Add("clients");
+            var x = clusters.ElementAt(pos);
+
+            for (int i = 0; i < x.ElementAt(pos).Count() && i < 10; i++)
+            {
+                chart_Clients.Series["clients"].Points.AddXY(x.ElementAt(pos).ElementAt(i), int.Parse(x.ElementAt(pos).ElementAt(i)));
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

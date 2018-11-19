@@ -44,8 +44,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.PanelSlide = new System.Windows.Forms.Panel();
             this.uC_MenuRecommendations1 = new AllersGroup.UC_MenuRecommendations();
-            this.uC_MenuGroups1 = new AllersGroup.UC_MenuGroups(this.uC_G31, this.uC_G21, this.uC_G41);
-            this.uC_MenuPredictions1 = new AllersGroup.UC_MenuPredictions(this.uC_P11, this.uC_P21, this.uC_P31, this.uC_P41);
             this.uC_P11 = new AllersGroup.UC_P1();
             this.uC_P21 = new AllersGroup.UC_P2();
             this.uC_P31 = new AllersGroup.UC_P3();

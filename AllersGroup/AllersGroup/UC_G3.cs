@@ -193,6 +193,18 @@ namespace AllersGroup
                 label40.Text = model.Groups_ClientWithLeastTransactions(clients)[0];
 
                 mini_1.Visible = mini_2.Visible = mini_3.Visible = label42.Visible = label40.Visible = true;
+
+                
+
+                var x = model.ClientsByTimePeriod(month1, month2).ToArray();
+                chart_Clients.Series.Clear();
+                chart_Clients.Series.Add("clients");
+
+                for (int i = 0; i < x.Length && i < 10; i++)
+                {
+                    chart_Clients.Series["clients"].Points.AddXY(x[i][0], x[i][1]);
+                }
+
             }
         }
     }

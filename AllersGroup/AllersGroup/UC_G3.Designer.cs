@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -102,9 +106,12 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label48 = new System.Windows.Forms.Label();
+            this.chart_Clients = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -112,7 +119,8 @@
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Clients)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -156,6 +164,17 @@
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox1, "Productos en orden ascendente según\r\nsu cantidad de compra.");
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::AllersGroup.Properties.Resources.questions;
+            this.pictureBox4.Location = new System.Drawing.Point(467, 1256);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox4.TabIndex = 137;
+            this.pictureBox4.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox4, "Total de productos diferentes\r\nque se venden durante el periodo\r\nde tiempo selecc" +
+        "ionado.");
             // 
             // comboBox2
             // 
@@ -914,22 +933,49 @@
             this.label47.TabIndex = 135;
             this.label47.Text = "Items totales :";
             // 
-            // pictureBox4
+            // panel4
             // 
-            this.pictureBox4.Image = global::AllersGroup.Properties.Resources.questions;
-            this.pictureBox4.Location = new System.Drawing.Point(467, 1256);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox4.TabIndex = 137;
-            this.pictureBox4.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox4, "Total de productos diferentes\r\nque se venden durante el periodo\r\nde tiempo selecc" +
-        "ionado.");
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
+            this.panel4.Controls.Add(this.label48);
+            this.panel4.Location = new System.Drawing.Point(0, 1515);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(275, 30);
+            this.panel4.TabIndex = 48;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label48.Location = new System.Drawing.Point(29, 6);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(184, 17);
+            this.label48.TabIndex = 17;
+            this.label48.Text = "CLIENTES vs TRANSACCIONES";
+            // 
+            // chart_Clients
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart_Clients.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_Clients.Legends.Add(legend1);
+            this.chart_Clients.Location = new System.Drawing.Point(46, 1581);
+            this.chart_Clients.Name = "chart_Clients";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_Clients.Series.Add(series1);
+            this.chart_Clients.Size = new System.Drawing.Size(300, 300);
+            this.chart_Clients.TabIndex = 138;
+            this.chart_Clients.Text = "chart1";
             // 
             // UC_G3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.Controls.Add(this.chart_Clients);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label46);
             this.Controls.Add(this.label47);
@@ -985,11 +1031,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UC_G3";
-            this.Size = new System.Drawing.Size(720, 1486);
+            this.Size = new System.Drawing.Size(720, 1919);
             this.toolTip1.SetToolTip(this, "Total de items diferentes que se\r\nvenden durante el periodo de \r\ntiempo seleccion" +
         "ado.\r\n\r\n");
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1003,7 +1050,9 @@
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Clients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1084,5 +1133,8 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_Clients;
     }
 }

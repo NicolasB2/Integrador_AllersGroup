@@ -733,7 +733,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel5);
             this.Name = "UC_G4";
-            this.Size = new System.Drawing.Size(720, 1178);
+            this.Size = new System.Drawing.Size(720, 1183);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

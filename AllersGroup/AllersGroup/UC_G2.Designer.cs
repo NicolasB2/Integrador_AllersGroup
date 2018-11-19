@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label_dep = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -95,6 +98,9 @@
             this.label37 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
+            this.chart_Clients = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label40 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel_lab2.SuspendLayout();
@@ -106,6 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Clients)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_dep
@@ -157,7 +165,7 @@
             this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.label29.Font = new System.Drawing.Font("Elephant", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label29.Location = new System.Drawing.Point(62, 882);
+            this.label29.Location = new System.Drawing.Point(62, 898);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(124, 62);
             this.label29.TabIndex = 83;
@@ -169,7 +177,7 @@
             this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.label27.Font = new System.Drawing.Font("Elephant", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label27.Location = new System.Drawing.Point(277, 882);
+            this.label27.Location = new System.Drawing.Point(277, 898);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(124, 62);
             this.label27.TabIndex = 81;
@@ -181,7 +189,7 @@
             this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label26.Location = new System.Drawing.Point(285, 944);
+            this.label26.Location = new System.Drawing.Point(285, 960);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(55, 17);
             this.label26.TabIndex = 80;
@@ -193,7 +201,7 @@
             this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label25.Location = new System.Drawing.Point(70, 944);
+            this.label25.Location = new System.Drawing.Point(70, 960);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(91, 17);
             this.label25.TabIndex = 79;
@@ -517,7 +525,7 @@
             this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label23.Location = new System.Drawing.Point(500, 944);
+            this.label23.Location = new System.Drawing.Point(500, 960);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(70, 17);
             this.label23.TabIndex = 78;
@@ -529,7 +537,7 @@
             this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.label28.Font = new System.Drawing.Font("Elephant", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label28.Location = new System.Drawing.Point(492, 882);
+            this.label28.Location = new System.Drawing.Point(492, 898);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(124, 62);
             this.label28.TabIndex = 82;
@@ -538,7 +546,7 @@
             // mini_1
             // 
             this.mini_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(114)))));
-            this.mini_1.Location = new System.Drawing.Point(46, 891);
+            this.mini_1.Location = new System.Drawing.Point(46, 907);
             this.mini_1.Name = "mini_1";
             this.mini_1.Size = new System.Drawing.Size(10, 68);
             this.mini_1.TabIndex = 110;
@@ -546,7 +554,7 @@
             // mini_2
             // 
             this.mini_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(114)))));
-            this.mini_2.Location = new System.Drawing.Point(261, 891);
+            this.mini_2.Location = new System.Drawing.Point(261, 907);
             this.mini_2.Name = "mini_2";
             this.mini_2.Size = new System.Drawing.Size(10, 68);
             this.mini_2.TabIndex = 111;
@@ -554,7 +562,7 @@
             // mini_3
             // 
             this.mini_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(114)))));
-            this.mini_3.Location = new System.Drawing.Point(476, 891);
+            this.mini_3.Location = new System.Drawing.Point(476, 907);
             this.mini_3.Name = "mini_3";
             this.mini_3.Size = new System.Drawing.Size(10, 68);
             this.mini_3.TabIndex = 112;
@@ -825,14 +833,52 @@
             this.gMapControl1.ShowTileGridLines = false;
             this.gMapControl1.Size = new System.Drawing.Size(630, 298);
             this.gMapControl1.TabIndex = 138;
-            this.gMapControl1.Zoom = 2D;
+            this.gMapControl1.Zoom = 4D;
             this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
+            // 
+            // chart_Clients
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart_Clients.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_Clients.Legends.Add(legend2);
+            this.chart_Clients.Location = new System.Drawing.Point(22, 1727);
+            this.chart_Clients.Name = "chart_Clients";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart_Clients.Series.Add(series2);
+            this.chart_Clients.Size = new System.Drawing.Size(300, 193);
+            this.chart_Clients.TabIndex = 139;
+            this.chart_Clients.Text = "chart1";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
+            this.panel6.Controls.Add(this.label40);
+            this.panel6.Location = new System.Drawing.Point(1, 1669);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(275, 30);
+            this.panel6.TabIndex = 140;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label40.Location = new System.Drawing.Point(29, 6);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(184, 17);
+            this.label40.TabIndex = 17;
+            this.label40.Text = "CLIENTES vs TRANSACCIONES";
             // 
             // UC_G2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.chart_Clients);
             this.Controls.Add(this.gMapControl1);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.label37);
@@ -878,7 +924,8 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.comboBox1);
             this.Name = "UC_G2";
-            this.Size = new System.Drawing.Size(720, 1621);
+            this.Size = new System.Drawing.Size(720, 2040);
+            this.Load += new System.EventHandler(this.UC_G2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -897,6 +944,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Clients)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -969,5 +1019,8 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label41;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_Clients;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label40;
     }
 }
