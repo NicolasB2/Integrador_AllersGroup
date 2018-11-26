@@ -34,20 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AllersGroup">
+      <HintPath>obj\Debug\AllersGroup.exe</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="GMap.NET.Core, Version=1.9.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
-      <HintPath>..\packages\GMap.NET.Windows.1.9.1.2\lib\net40\GMap.NET.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="GMap.NET.WindowsForms, Version=1.9.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
-      <HintPath>..\packages\GMap.NET.Windows.1.9.1.2\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
-    </Reference>
-    <Reference Include="GMap.NET.WindowsPresentation, Version=1.9.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
-      <HintPath>..\packages\GMap.NET.Windows.1.9.1.2\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -93,12 +87,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -112,11 +100,11 @@
     <Compile Include="UC_AnalysisTools.Designer.cs">
       <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_G2.cs">
+    <Compile Include="UC_G22.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_G2.Designer.cs">
-      <DependentUpon>UC_G2.cs</DependentUpon>
+    <Compile Include="UC_G22.Designer.cs">
+      <DependentUpon>UC_G22.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_G3.cs">
       <SubType>UserControl</SubType>
@@ -136,17 +124,17 @@
     <Compile Include="UC_G5.Designer.cs">
       <DependentUpon>UC_G5.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Load.cs">
+    <Compile Include="UC_MenuG.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_Load.Designer.cs">
-      <DependentUpon>UC_Load.cs</DependentUpon>
+    <Compile Include="UC_MenuG.Designer.cs">
+      <DependentUpon>UC_MenuG.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_MenuPredictions.cs">
+    <Compile Include="UC_MenuP.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_MenuPredictions.Designer.cs">
-      <DependentUpon>UC_MenuPredictions.cs</DependentUpon>
+    <Compile Include="UC_MenuP.Designer.cs">
+      <DependentUpon>UC_MenuP.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_MenuRecommendations.cs">
       <SubType>UserControl</SubType>
@@ -154,44 +142,35 @@
     <Compile Include="UC_MenuRecommendations.Designer.cs">
       <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_MenuGroups.cs">
+    <Compile Include="UC_P11.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_MenuGroups.Designer.cs">
-      <DependentUpon>UC_MenuGroups.cs</DependentUpon>
+    <Compile Include="UC_P11.Designer.cs">
+      <DependentUpon>UC_P11.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_P1.cs">
+    <Compile Include="UC_P22.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_P1.Designer.cs">
-      <DependentUpon>UC_P1.cs</DependentUpon>
+    <Compile Include="UC_P22.Designer.cs">
+      <DependentUpon>UC_P22.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_P2.cs">
+    <Compile Include="UC_P33.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_P2.Designer.cs">
-      <DependentUpon>UC_P2.cs</DependentUpon>
+    <Compile Include="UC_P33.Designer.cs">
+      <DependentUpon>UC_P33.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_P3.cs">
+    <Compile Include="UC_P44.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_P3.Designer.cs">
-      <DependentUpon>UC_P3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_P4.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_P4.Designer.cs">
-      <DependentUpon>UC_P4.cs</DependentUpon>
+    <Compile Include="UC_P44.Designer.cs">
+      <DependentUpon>UC_P44.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -201,8 +180,8 @@
     <EmbeddedResource Include="UC_AnalysisTools.resx">
       <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_G2.resx">
-      <DependentUpon>UC_G2.cs</DependentUpon>
+    <EmbeddedResource Include="UC_G22.resx">
+      <DependentUpon>UC_G22.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_G3.resx">
       <DependentUpon>UC_G3.cs</DependentUpon>
@@ -213,29 +192,20 @@
     <EmbeddedResource Include="UC_G5.resx">
       <DependentUpon>UC_G5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Load.resx">
-      <DependentUpon>UC_Load.cs</DependentUpon>
+    <EmbeddedResource Include="UC_MenuG.resx">
+      <DependentUpon>UC_MenuG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_MenuPredictions.resx">
-      <DependentUpon>UC_MenuPredictions.cs</DependentUpon>
+    <EmbeddedResource Include="UC_MenuP.resx">
+      <DependentUpon>UC_MenuP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_MenuRecommendations.resx">
       <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_MenuGroups.resx">
-      <DependentUpon>UC_MenuGroups.cs</DependentUpon>
+    <EmbeddedResource Include="UC_P11.resx">
+      <DependentUpon>UC_P11.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_P1.resx">
-      <DependentUpon>UC_P1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_P2.resx">
-      <DependentUpon>UC_P2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_P3.resx">
-      <DependentUpon>UC_P3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_P4.resx">
-      <DependentUpon>UC_P4.cs</DependentUpon>
+    <EmbeddedResource Include="UC_P22.resx">
+      <DependentUpon>UC_P22.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -258,6 +228,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\woman %282%291.png" />
+    <None Include="Resources\woman %282%29.png" />
     <None Include="Resources\questions.png" />
     <None Include="Resources\price-tag.png" />
     <None Include="Resources\signs.png" />
@@ -280,6 +252,8 @@
     <None Include="Resources\background2.jpg" />
     <None Include="Resources\background3.jpg" />
     <None Include="Resources\1ca4c21e22a2a15cf4ac727015406350.jpg" />
+    <None Include="Resources\3120fb3d144294430cb4ce90b4087d97.jpg" />
+    <Content Include="Resources\bg1.jpg" />
     <Content Include="Resources\cancel.png" />
     <None Include="Resources\Webp.net-resizeimage.png" />
     <None Include="Resources\logo-allers-resizeimage.png" />

@@ -42,18 +42,18 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.uC_G21 = new AllersGroup.UC_G22();
+            this.uC_P11 = new AllersGroup.UC_P11();
+            this.uC_P21 = new AllersGroup.UC_P22();
+            this.uC_P31 = new AllersGroup.UC_P33();
+            this.uC_P41 = new AllersGroup.UC_P44();
             this.PanelSlide = new System.Windows.Forms.Panel();
-            this.uC_MenuRecommendations1 = new AllersGroup.UC_MenuRecommendations();
-            this.uC_P11 = new AllersGroup.UC_P1();
-            this.uC_P21 = new AllersGroup.UC_P2();
-            this.uC_P31 = new AllersGroup.UC_P3();
-            this.uC_P41 = new AllersGroup.UC_P4();
-            this.uC_G31 = new AllersGroup.UC_G3();
-            this.uC_G21 = new AllersGroup.UC_G2();
-            this.uC_G41 = new AllersGroup.UC_G4();
             this.panel4 = new System.Windows.Forms.Panel();
             this.uC_AnalysisTools1 = new AllersGroup.UC_AnalysisTools();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.uC_G31 = new AllersGroup.UC_G3();
+            this.uC_G41 = new AllersGroup.UC_G4();
+            this.uC_G51 = new AllersGroup.UC_G5();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
@@ -202,25 +202,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // PanelSlide
+            // uC_G21
             // 
-            this.PanelSlide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(83)))), ((int)(((byte)(105)))));
-            this.PanelSlide.Controls.Add(this.uC_MenuRecommendations1);
-            this.PanelSlide.Controls.Add(this.uC_MenuPredictions1);
-            this.PanelSlide.Controls.Add(this.uC_MenuGroups1);
-            this.PanelSlide.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanelSlide.Location = new System.Drawing.Point(70, 42);
-            this.PanelSlide.Name = "PanelSlide";
-            this.PanelSlide.Size = new System.Drawing.Size(239, 486);
-            this.PanelSlide.TabIndex = 2;
+            this.uC_G21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G21.Location = new System.Drawing.Point(0, 0);
+            this.uC_G21.Name = "uC_G21";
+            this.uC_G21.Size = new System.Drawing.Size(720, 1621);
+            this.uC_G21.TabIndex = 4;
             // 
-            // uC_MenuRecommendations1
+            // uC_MenuGroups1
             // 
-            this.uC_MenuRecommendations1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
-            this.uC_MenuRecommendations1.Location = new System.Drawing.Point(-6, 133);
-            this.uC_MenuRecommendations1.Name = "uC_MenuRecommendations1";
-            this.uC_MenuRecommendations1.Size = new System.Drawing.Size(239, 487);
-            this.uC_MenuRecommendations1.TabIndex = 2;
+            this.uC_MenuGroups1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(107)))), ((int)(((byte)(128)))));
+            this.uC_MenuGroups1.Location = new System.Drawing.Point(0, 0);
+            this.uC_MenuGroups1.Name = "uC_MenuGroups1";
+            this.uC_MenuGroups1.Size = new System.Drawing.Size(240, 487);
+            this.uC_MenuGroups1.TabIndex = 0;
             // 
             // uC_P11
             // 
@@ -229,85 +225,65 @@
             this.uC_P11.ForeColor = System.Drawing.Color.BurlyWood;
             this.uC_P11.Location = new System.Drawing.Point(0, 0);
             this.uC_P11.Name = "uC_P11";
-            this.uC_P11.Size = new System.Drawing.Size(738, 486);
-            this.uC_P11.TabIndex = 4;
+            this.uC_P11.Size = new System.Drawing.Size(720, 1172);
+            this.uC_P11.TabIndex = 5;
             // 
             // uC_P21
             // 
             this.uC_P21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.uC_P21.Location = new System.Drawing.Point(0, 0);
             this.uC_P21.Name = "uC_P21";
-            this.uC_P21.Size = new System.Drawing.Size(738, 486);
-            this.uC_P21.TabIndex = 5;
+            this.uC_P21.Size = new System.Drawing.Size(720, 867);
+            this.uC_P21.TabIndex = 6;
             // 
             // uC_P31
             // 
             this.uC_P31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_P31.Location = new System.Drawing.Point(105, 33);
+            this.uC_P31.Location = new System.Drawing.Point(0, 0);
             this.uC_P31.Name = "uC_P31";
-            this.uC_P31.Size = new System.Drawing.Size(738, 486);
-            this.uC_P31.TabIndex = 6;
+            this.uC_P31.Size = new System.Drawing.Size(720, 907);
+            this.uC_P31.TabIndex = 7;
             // 
             // uC_P41
             // 
             this.uC_P41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_P41.Location = new System.Drawing.Point(118, 6);
+            this.uC_P41.Location = new System.Drawing.Point(0, 0);
             this.uC_P41.Name = "uC_P41";
-            this.uC_P41.Size = new System.Drawing.Size(738, 486);
-            this.uC_P41.TabIndex = 7;
+            this.uC_P41.Size = new System.Drawing.Size(720, 911);
+            this.uC_P41.TabIndex = 8;
             // 
             // uC_MenuPredictions1
             // 
-            this.uC_MenuPredictions1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
-            this.uC_MenuPredictions1.Location = new System.Drawing.Point(-3, 168);
+            this.uC_MenuPredictions1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(107)))), ((int)(((byte)(128)))));
+            this.uC_MenuPredictions1.Location = new System.Drawing.Point(0, 0);
             this.uC_MenuPredictions1.Name = "uC_MenuPredictions1";
-            this.uC_MenuPredictions1.Size = new System.Drawing.Size(239, 487);
+            this.uC_MenuPredictions1.Size = new System.Drawing.Size(240, 487);
             this.uC_MenuPredictions1.TabIndex = 1;
             // 
-            // uC_G31
+            // PanelSlide
             // 
-            this.uC_G31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G31.Location = new System.Drawing.Point(0, 0);
-            this.uC_G31.Name = "uC_G31";
-            this.uC_G31.Size = new System.Drawing.Size(720, 1904);
-            this.uC_G31.TabIndex = 1;
-            // 
-            // uC_G21
-            // 
-            this.uC_G21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G21.Location = new System.Drawing.Point(0, 0);
-            this.uC_G21.Name = "uC_G21";
-            this.uC_G21.Size = new System.Drawing.Size(720, 1151);
-            this.uC_G21.TabIndex = 2;
-            // 
-            // uC_G41
-            // 
-            this.uC_G41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G41.Location = new System.Drawing.Point(0, 0);
-            this.uC_G41.Name = "uC_G41";
-            this.uC_G41.Size = new System.Drawing.Size(720, 1178);
-            this.uC_G41.TabIndex = 3;
-            // 
-            // uC_MenuGroups1
-            // 
-            this.uC_MenuGroups1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
-            this.uC_MenuGroups1.Location = new System.Drawing.Point(0, 193);
-            this.uC_MenuGroups1.Name = "uC_MenuGroups1";
-            this.uC_MenuGroups1.Size = new System.Drawing.Size(239, 487);
-            this.uC_MenuGroups1.TabIndex = 0;
+            this.PanelSlide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(83)))), ((int)(((byte)(105)))));
+            this.PanelSlide.Controls.Add(this.uC_MenuPredictions1);
+            this.PanelSlide.Controls.Add(this.uC_MenuGroups1);
+            this.PanelSlide.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelSlide.Location = new System.Drawing.Point(70, 42);
+            this.PanelSlide.Name = "PanelSlide";
+            this.PanelSlide.Size = new System.Drawing.Size(239, 486);
+            this.PanelSlide.TabIndex = 2;
             // 
             // panel4
             // 
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.panel4.Controls.Add(this.uC_G51);
+            this.panel4.Controls.Add(this.uC_G41);
+            this.panel4.Controls.Add(this.uC_G31);
+            this.panel4.Controls.Add(this.uC_AnalysisTools1);
             this.panel4.Controls.Add(this.uC_P41);
             this.panel4.Controls.Add(this.uC_P31);
             this.panel4.Controls.Add(this.uC_P21);
             this.panel4.Controls.Add(this.uC_P11);
-            this.panel4.Controls.Add(this.uC_G41);
             this.panel4.Controls.Add(this.uC_G21);
-            this.panel4.Controls.Add(this.uC_G31);
-            this.panel4.Controls.Add(this.uC_AnalysisTools1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(309, 42);
             this.panel4.Name = "panel4";
@@ -329,6 +305,30 @@
             // 
             this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // uC_G31
+            // 
+            this.uC_G31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G31.Location = new System.Drawing.Point(0, 0);
+            this.uC_G31.Name = "uC_G31";
+            this.uC_G31.Size = new System.Drawing.Size(720, 1486);
+            this.uC_G31.TabIndex = 9;
+            // 
+            // uC_G41
+            // 
+            this.uC_G41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G41.Location = new System.Drawing.Point(0, 0);
+            this.uC_G41.Name = "uC_G41";
+            this.uC_G41.Size = new System.Drawing.Size(720, 1635);
+            this.uC_G41.TabIndex = 10;
+            // 
+            // uC_G51
+            // 
+            this.uC_G51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G51.Location = new System.Drawing.Point(0, 0);
+            this.uC_G51.Name = "uC_G51";
+            this.uC_G51.Size = new System.Drawing.Size(720, 1378);
+            this.uC_G51.TabIndex = 11;
             // 
             // MainForm
             // 
@@ -369,16 +369,16 @@
         private System.Windows.Forms.PictureBox minimize;
         private System.Windows.Forms.PictureBox close;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private UC_MenuG uC_MenuGroups1;
+        private UC_MenuP uC_MenuPredictions1;
         private UC_AnalysisTools uC_AnalysisTools1;
-        private UC_MenuGroups uC_MenuGroups1;
-        private UC_MenuPredictions uC_MenuPredictions1;
-        private UC_MenuRecommendations uC_MenuRecommendations1;
+        private UC_P44 uC_P41;
+        private UC_P33 uC_P31;
+        private UC_P22 uC_P21;
+        private UC_P11 uC_P11;
+        private UC_G22 uC_G21;
         private UC_G3 uC_G31;
         private UC_G4 uC_G41;
-        private UC_G2 uC_G21;
-        private UC_P4 uC_P41;
-        private UC_P3 uC_P31;
-        private UC_P2 uC_P21;
-        private UC_P1 uC_P11;
+        private UC_G5 uC_G51;
     }
 }

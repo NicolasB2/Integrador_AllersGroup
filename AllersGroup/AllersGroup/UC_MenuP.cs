@@ -10,23 +10,22 @@ using System.Windows.Forms;
 
 namespace AllersGroup
 {
-    public partial class UC_MenuPredictions : UserControl
+    public partial class UC_MenuP : UserControl
     {
-        public UC_P1 ucp1;
-        public UC_P2 ucp2;
-        public UC_P3 ucp3;
-        public UC_P4 ucp4;
+        UC_P11 ucp_1;
+        UC_P22 ucp_2;
+        UC_P33 ucp_3;
+        UC_P44 ucp_4;
 
-
-        public UC_MenuPredictions(UC_P1 ucp1, UC_P2 ucp2, UC_P3 ucp3, UC_P4 ucp4)
+        public UC_MenuP(UC_P11 ucp_1, UC_P22 ucp_2, UC_P33 ucp_3, UC_P44 ucp_4)
         {
             InitializeComponent();
             timer1.Start();
 
-            this.ucp1 = ucp1;
-            this.ucp2 = ucp2;
-            this.ucp3 = ucp3;
-            this.ucp4 = ucp4;
+            this.ucp_1 = ucp_1;
+            this.ucp_2 = ucp_2;
+            this.ucp_3 = ucp_3;
+            this.ucp_4 = ucp_4;
         }
 
         public void loadButtons(bool b1, bool b2, bool b3)
@@ -83,37 +82,53 @@ namespace AllersGroup
             if (button3.Top <= 274)
             {
                 timer4.Stop();
+                timer5.Start();
             }
         }
         // 1 CLIENTE 2 depto 3 periodo tiempo 
         //tipo cliente
         private void button2_Click(object sender, EventArgs e)
         {
+            ucp_3.Hide();
+            ucp_4.Hide();
+            ucp_1.Show();
+            ucp_2.Hide();
 
-            ucp1.Show();
-            ucp2.Hide();
-            ucp3.Hide();
-            ucp4.Hide();
         }
 
         //periodo
         private void button1_Click(object sender, EventArgs e)
         {
-            ucp2.Hide();
-            ucp1.Hide();
-            ucp4.Hide();
-            ucp3.Show();
-
+            ucp_3.Show();
+            ucp_4.Hide();
+            ucp_1.Hide();
+            ucp_2.Hide();
         }
 
         //departamento
         private void button3_Click(object sender, EventArgs e)
         {
-            ucp1.Hide();
-            ucp2.Show();
-            ucp4.Hide();
-            ucp3.Hide();
+            ucp_3.Hide();
+            ucp_1.Hide();
+            ucp_4.Hide();
+            ucp_2.Show();
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ucp_4.Show();
+            ucp_3.Hide();
+            ucp_1.Hide();
+            ucp_2.Hide();
+        }
+
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            button4.Top -= 5;
+            if (button4.Top <= 366)
+            {
+                timer5.Stop();
+            }
         }
     }
 }

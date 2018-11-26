@@ -4,20 +4,22 @@ using System.Windows.Forms;
 namespace AllersGroup
 {
 
-    public partial class UC_MenuGroups : UserControl
+    public partial class UC_MenuG : UserControl
     {
-        public UC_G2 ucg2;
-        public UC_G3 ucg3; 
-        public UC_G4 ucg4;
+        private UC_G22 uc_g22;
+        private UC_G3 uc_g3;
+        private UC_G4 uc_g4;
+        private UC_G5 uc_g5;
 
-        public UC_MenuGroups(UC_G3 ucg3, UC_G2 ucg2, UC_G4 ucg4)
+        public UC_MenuG(UC_G22 uc_g22, UC_G3 uc_g3, UC_G4 uc_g4, UC_G5 uc_g5)
         {
             InitializeComponent();
             timer1.Start();
 
-            this.ucg3 = ucg3;
-            this.ucg2 = ucg2;
-            this.ucg4 = ucg4;
+            this.uc_g22 = uc_g22;
+            this.uc_g3 = uc_g3;
+            this.uc_g4 = uc_g4;
+            this.uc_g5 = uc_g5;
         }
 
 
@@ -75,32 +77,53 @@ namespace AllersGroup
             if (button3.Top <= 274)
             {
                 timer4.Stop();
+                timer5.Start();
+
             }
         }
 
         //Departamento
         private void button1_Click(object sender, EventArgs e)
         {
-            ucg2.Hide();
-            ucg4.Hide();
-            ucg2.Show();
-
+            uc_g22.Show();
+            uc_g3.Hide();
+            uc_g5.Hide();
+            uc_g4.Hide();
         }
 
         //Periodo de tiempo
         private void button2_Click(object sender, EventArgs e)
         {
-            ucg2.Hide();
-            ucg4.Hide();
-            ucg3.Show();
+            uc_g22.Hide();
+            uc_g3.Show();
+            uc_g5.Hide();
+            uc_g4.Hide();
         }
 
         //Similitud en compras
         private void button3_Click(object sender, EventArgs e)
         {
-            ucg2.Hide();
-            ucg3.Hide();
-            ucg4.Show();
+            uc_g22.Hide();
+            uc_g3.Hide();
+            uc_g5.Hide();
+            uc_g4.Show();
+        }
+
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            button4.Top -= 5;
+            if (button4.Top <= 366)
+            {
+                timer5.Stop();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            uc_g22.Hide();
+            uc_g3.Hide();
+            uc_g4.Hide();
+            uc_g5.Show();
         }
     }
 }

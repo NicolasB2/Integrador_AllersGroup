@@ -130,6 +130,27 @@ namespace Model
 
         }
 
+        public IEnumerable<String> Items_without_sales(List<int> purchased)
+        {
+            List<int> aux = new List<int>();
+            List<int> data = new List<int>();
+
+            foreach (int x in purchased)
+            {
+                var r = Rules[x];
+                aux.AddRange(r.SelectMany(n=>n));
+            }
+
+            aux.Distinct();
+            data = aux;
+            data.Where(n => !purchased.Contains(n));
+
+            data.Distinct();
+
+            
+            return data.Select(n=>n+"");
+        }
+
         //**********************************************************************************************
         //************ PRUNNINGS ***********************************************************************
         //**********************************************************************************************
@@ -411,7 +432,7 @@ namespace Model
             string[] pos = new string[2];
             int mayor = 0;
             string client = "";
-            for (int i = 0; i < clients.Count(); i++)
+            for (int i = 0; i < clients.ElementAt(0).Count(); i++)
             {
                 if (totalTransactionsClient(clients.ElementAt(0).ElementAt(i)) > mayor)
                 {
@@ -431,7 +452,7 @@ namespace Model
             string[] pos = new string[2];
             int menor = int.MaxValue;
             string client = "";
-            for (int i = 0; i < clusterResult.Count(); i++)
+            for (int i = 0; i < clients.ElementAt(0).Count(); i++)
             {
                 if (totalTransactionsClient(clients.ElementAt(0).ElementAt(i)) < menor)
                 {
@@ -450,7 +471,7 @@ namespace Model
             string[] pos = new string[2];
             double mayor = 0;
             string client = "";
-            for (int i = 0; i < clusterResult.Count(); i++)
+            for (int i = 0; i < clients.ElementAt(0).Count(); i++)
             {
                 if (TotalSellsClient(clients.ElementAt(0).ElementAt(i)) > mayor)
                 {
@@ -469,7 +490,7 @@ namespace Model
             string[] pos = new string[2];
             double menor = Double.MaxValue;
             string client = "";
-            for (int i = 0; i < clusterResult.Count(); i++)
+            for (int i = 0; i < clients.ElementAt(0).Count(); i++)
             {
                 if (TotalSellsClient(clients.ElementAt(0).ElementAt(i)) < menor)
                 {
@@ -551,6 +572,7 @@ namespace Model
         //**********************************************************************************************
         //************ FORMATS *************************************************************************
         //**********************************************************************************************
+
         public List<String> formatItemSets(IEnumerable<int[]> frequent)
         {
             List<String> ret = new List<string>();
@@ -780,7 +802,8 @@ namespace Model
 
         //retorna un arreglo con [0]=codigo del item y [1]=porcentaje de aparicion del 
         // item en las compras de ese departamento
-        public IEnumerable<String[]> FrequentItems_by_Department(String department)        {
+        public IEnumerable<String[]> FrequentItems_by_Department(String department)
+        {
 
             var y = TransactionsByDepartment(department);
             var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", (n.Count() / (double)y.Count()) + "" });
@@ -868,7 +891,7 @@ namespace Model
         // Arreglo de clientesCode dado un mes
         public IEnumerable<String> ClientsByMonth(int month)
         {
-            var x = TransactionsByMonth(month).Select(t=>t.ClientCode).Distinct();
+            var x = TransactionsByMonth(month).Select(t => t.ClientCode).Distinct();
             return x;
         }
 
@@ -886,7 +909,7 @@ namespace Model
                     info[0] = clients.ElementAt(i)[0];
                 }
             }
-            info[1] = mayor+"";
+            info[1] = mayor + "";
             return info;
         }
 
@@ -956,7 +979,7 @@ namespace Model
                 if (totalSellsListClients2(ClientsByMonth(i).ToList()) > mayor)
                 {
                     mayor = totalSellsListClients2(ClientsByMonth(i).ToList());
-                    info[0] = i+"";
+                    info[0] = i + "";
                 }
             }
 
@@ -989,7 +1012,7 @@ namespace Model
             var x = context.Transactions.Select(n => n.Value).Where(n => n.Date.Month == month);
             return x;
         }
-        
+
         // [0] mes con más transacciones [1] cuantas transacciones
         public int[] Groups_MonthWithMostTransactions()
         {
@@ -1044,13 +1067,13 @@ namespace Model
             var list = m1.Union(m2).Distinct();
 
             return list;
-            
+
         }
-        
+
         //retorna un arreglo con [0]=codigo del cliente y [1]=numero de compras de compras de ese cliente en ese mes
         public IEnumerable<String[]> Frequent_Clients_ByMonth(int month)
         {
-            
+
             var x = TransactionsByMonth(month).GroupBy(t => t.ClientCode).
                 OrderBy(g => g.Count()).Select(n => new String[] { n.Key, n.Count() + "" });
 
@@ -1066,7 +1089,7 @@ namespace Model
 
             var list = c1.Union(c2).Distinct().OrderByDescending(n => int.Parse(n[1]));
 
-            return list; 
+            return list;
         }
 
         //retorna un arreglo con [0]=codigo del item y [1]=porcentaje de aparición del 
@@ -1074,7 +1097,7 @@ namespace Model
         public IEnumerable<String[]> Frequent_Items_ByMonth(int month)
         {
             var y = TransactionsByMonth(month);
-            var x = y.SelectMany(n => n.Items).GroupBy(i=>i).Select(n => new String[] { n.Key+"", Math.Round((n.Count()/ (double)y.Count())*100,2) + "" });
+            var x = y.SelectMany(n => n.Items).GroupBy(i => i).Select(n => new String[] { n.Key + "", Math.Round((n.Count() / (double)y.Count()) * 100, 2) + "" });
             return x.OrderByDescending(i => Double.Parse(i[1]));
         }
 
@@ -1082,7 +1105,7 @@ namespace Model
         {
             var i1 = Frequent_Items_ByMonth(month1);
             var i2 = Frequent_Items_ByMonth(month2);
-            
+
             var list = i1.Union(i2).Distinct().OrderByDescending(i => Double.Parse(i[1]));
 
             return list;
@@ -1120,12 +1143,12 @@ namespace Model
         public double TotalSellsClient(string clientCode)
         {
             double total = 0;
-            
+
             if (context.Clients.ContainsKey(clientCode))
             {
                 total = context.Clients[clientCode].Transactions.Select(t => t.Total).Sum();
             }
-            return total; 
+            return total;
         }
 
         //Devuelve el [0] cliente con mayor cantidad de dinero en ventas en ($) y [1] cuanto
@@ -1207,7 +1230,7 @@ namespace Model
             {
                 string[] aux = new string[2];
                 aux[0] = clients.ElementAt(0)[0];
-                aux[1] = TotalSellsClient(clients.ElementAt(i)[0])+"";
+                aux[1] = TotalSellsClient(clients.ElementAt(i)[0]) + "";
             }
 
             return list;
@@ -1215,13 +1238,13 @@ namespace Model
 
         public List<String> itemsbyClient(String clientCode)
         {
-            List<String> itemsets = context.Clients[clientCode].Transactions.SelectMany(t => t.Items).Distinct().Select(t=>""+t).ToList();
+            List<String> itemsets = context.Clients[clientCode].Transactions.SelectMany(t => t.Items).Distinct().Select(t => "" + t).ToList();
             return itemsets;
         }
 
         public List<String> itemSetsFrecuentesByClient(String clientCode, double Support)
         {
-            List<int[]> itemsets = context.Clients[clientCode].Transactions.SelectMany(t=>t.Items).Distinct().Select(s => new int[] { s }).ToList();
+            List<int[]> itemsets = context.Clients[clientCode].Transactions.SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
             List<List<int>> transactions = context.Clients[clientCode].Transactions.Select(t => t.Items).ToList();
             var frequent = Apriori.GenerateAllFrecuentItemsets(itemsets, transactions, Support).ToList();
 
@@ -1268,7 +1291,12 @@ namespace Model
             //    Console.WriteLine(a);
             //}
 
-            Console.WriteLine();
+            c.GenerateRules(Double.Parse("3") / 100);
+            var x  = c.ItemsByMonth(2).Where(n => c.Rules.ContainsKey(n));
+            var y=  c.Items_without_sales(x.ToList());
+
+            Console.WriteLine(x.Count());
+            Console.WriteLine(y.Count());
             Console.WriteLine("END");
             Console.ReadLine();
         }

@@ -11,10 +11,10 @@ using Model;
 
 namespace AllersGroup
 {
-    public partial class UC_P4 : UserControl
+    public partial class UC_P44 : UserControl
     {
         public Consult model;
-        public UC_P4()
+        public UC_P44()
         {
             InitializeComponent();
             loadpercentage();
@@ -33,21 +33,15 @@ namespace AllersGroup
             loadType();
         }
 
-        private void loadItems()
-        {
-            listBox3.Items.Clear();
-            listBox3.Items.AddRange(model.Items_ClientsType(comboBox_type.SelectedItem.ToString()).Select(c => c + "").ToArray());
-        }
 
         public void loadpercentage()
         {
-            comboBox1.Items.Clear();
             comboBox2.Items.Clear();
 
             string[] supports = new string[]
                         {  "10", "20", "30","40" ,"50", "60", "70", "80", "90", "95"};
 
-            comboBox1.Items.AddRange(supports);
+
 
             supports = new string[]
             {  "0,6", "0,7","0,8" ,"0,9","1", "2", "3","4" ,"5", "6", "7", "8", "9", "10"};
@@ -57,41 +51,16 @@ namespace AllersGroup
 
         private void comboBox_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadItems();
+
             label8.Text = model.Transactions_ByClientsType(comboBox_type.SelectedItem.ToString()).Count() + "";
             label9.Text = model.Clients_ByType(comboBox_type.SelectedItem.ToString()).Count() + "";
             label10.Text = model.Items_ClientsType(comboBox_type.SelectedItem.ToString()).Count() + "";
-            label8.Visible = label9.Visible = label10.Visible = false;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (comboBox1.SelectedItem == null)
-                {
-                    MessageBox.Show("Se debe seleccionar un porcentaje.");
-                }
-
-                else
-                {
-                    listBox2.Items.Clear();
-                    listBox2.Items.AddRange(model.FrequentItemSetsByClienttType(comboBox_type.SelectedItem.ToString(), Double.Parse(comboBox1.SelectedItem.ToString()) / 100).ToArray());
-                }
-            }
-            catch
-            {
-
-            }
-           
+            label8.Visible = label9.Visible = label10.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (comboBox2.SelectedItem == null)
-            {
-                MessageBox.Show("Se debe seleccionar un porcentaje.");
-            }
+
             if (listBox3.SelectedItem == null)
             {
                 MessageBox.Show("Se debe seleccionar un producto.");
@@ -117,7 +86,22 @@ namespace AllersGroup
                 {
 
                 }
-              
+
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Se debe seleccionar un porcentaje.");
+            }
+            else
+            {
+                listBox3.Items.Clear();
+                model.GenerateRules(Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
+                var x = model.Items_ClientsType(comboBox_type.SelectedItem.ToString()).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "").ToArray();
+                listBox3.Items.AddRange(x);
             }
         }
     }

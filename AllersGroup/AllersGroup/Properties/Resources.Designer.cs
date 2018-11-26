@@ -83,6 +83,16 @@ namespace AllersGroup.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3120fb3d144294430cb4ce90b4087d97 {
+            get {
+                object obj = ResourceManager.GetObject("3120fb3d144294430cb4ce90b4087d97", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _9a24dc9d88496d3c8b6e8fa187de769f {
             get {
                 object obj = ResourceManager.GetObject("9a24dc9d88496d3c8b6e8fa187de769f", resourceCulture);
@@ -646,6 +656,26 @@ namespace AllersGroup.Properties {
         internal static System.Drawing.Bitmap Webp_net_resizeimage {
             get {
                 object obj = ResourceManager.GetObject("Webp.net-resizeimage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap woman__2_ {
+            get {
+                object obj = ResourceManager.GetObject("woman (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap woman__2_1 {
+            get {
+                object obj = ResourceManager.GetObject("woman (2)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

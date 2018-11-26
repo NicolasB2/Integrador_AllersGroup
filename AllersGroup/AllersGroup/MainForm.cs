@@ -13,8 +13,8 @@ namespace AllersGroup
         public MainForm()
         {
 
-            this.uC_MenuGroups1 = new AllersGroup.UC_MenuGroups(this.uC_G31, this.uC_G21, this.uC_G41);
-            this.uC_MenuPredictions1 = new AllersGroup.UC_MenuPredictions(this.uC_P11, this.uC_P21, this.uC_P31, this.uC_P41);
+            this.uC_MenuGroups1 = new AllersGroup.UC_MenuG(this.uC_G21, this.uC_G31,this.uC_G41, this.uC_G51);
+            this.uC_MenuPredictions1 = new AllersGroup.UC_MenuP(this.uC_P11,this.uC_P21,this.uC_P31,this.uC_P41);
             InitializeComponent();
             model = new Consult();
 
@@ -24,15 +24,16 @@ namespace AllersGroup
             uC_AnalysisTools1.Hide();
             uC_MenuGroups1.Hide();
             uC_MenuPredictions1.Hide();
-            uC_MenuRecommendations1.Hide();
             uC_G21.Hide();
             uC_G31.Hide();
             uC_G41.Hide();
+            uC_G51.Hide();
             uC_P11.Hide();
             uC_P21.Hide();
             uC_P31.Hide();
             uC_P41.Hide();
-            
+
+
             load_UserControls();
 
         }
@@ -40,6 +41,7 @@ namespace AllersGroup
         {
             uC_G21.LoadModel(model);
             uC_G31.LoadModel(model);
+            uC_G51.LoadModel(model);
             uC_G41.LoadModel(model);
             uC_P11.loadModel(model);
             uC_P21.loadModel(model);
@@ -50,11 +52,11 @@ namespace AllersGroup
         private void button1_Click(object sender, EventArgs e)
         {
             uC_MenuPredictions1.Hide();
-            uC_MenuRecommendations1.Hide();
             uC_MenuGroups1.Hide();
             uC_G21.Hide();
             uC_G31.Hide();
             uC_G41.Hide();
+            uC_G51.Hide();
             uC_P11.Hide();
             uC_P21.Hide();
             uC_P31.Hide();
@@ -101,10 +103,11 @@ namespace AllersGroup
         private void button2_Click(object sender, EventArgs e)
         {
             uC_MenuPredictions1.Hide();
-            uC_MenuRecommendations1.Hide();
+            //uC_MenuRecommendations1.Hide();
             uC_AnalysisTools1.Hide();
             uC_G21.Hide();
             uC_G31.Hide();
+            uC_G51.Hide();
             uC_G41.Hide();
             uC_P11.Hide();
             uC_P21.Hide();
@@ -117,7 +120,7 @@ namespace AllersGroup
             }
             else
             {
-                uC_MenuGroups1 = new UC_MenuGroups(uC_G31, uC_G21, uC_G41);
+                uC_MenuGroups1 = new UC_MenuG(this.uC_G21, this.uC_G31, this.uC_G41, this.uC_G51);
                 PanelSlide.Controls.Add(uC_MenuGroups1);
                 uC_MenuGroups1.Show();
                 uC_MenuGroups1.loadButtonsGroups(uC_AnalysisTools1.b1, uC_AnalysisTools1.b2, uC_AnalysisTools1.b3);
@@ -131,9 +134,10 @@ namespace AllersGroup
         private void button3_Click(object sender, EventArgs e)
         {
             uC_MenuGroups1.Hide();
-            uC_MenuRecommendations1.Hide();
+            //uC_MenuRecommendations1.Hide();
             uC_AnalysisTools1.Hide();
             uC_G21.Hide();
+            uC_G51.Hide();
             uC_G31.Hide();
             uC_G41.Hide();
 
@@ -144,7 +148,7 @@ namespace AllersGroup
             }
             else
             {
-                uC_MenuPredictions1 = new UC_MenuPredictions(uC_P11, uC_P21, uC_P31, uC_P41);
+                uC_MenuPredictions1 = new UC_MenuP(this.uC_P11, this.uC_P21, this.uC_P31, this.uC_P41);
                 PanelSlide.Controls.Add(uC_MenuPredictions1);
                 uC_MenuPredictions1.Show();
                 uC_MenuPredictions1.loadButtons(uC_AnalysisTools1.b4, uC_AnalysisTools1.b5, uC_AnalysisTools1.b6);
@@ -163,6 +167,7 @@ namespace AllersGroup
             uC_AnalysisTools1.Hide();
             uC_G21.Hide();
             uC_G31.Hide();
+            uC_G51.Hide();
             uC_G41.Hide();
             uC_P11.Hide();
             uC_P21.Hide();
@@ -171,14 +176,14 @@ namespace AllersGroup
 
             if (!Hidden)
             {
-                uC_MenuRecommendations1.Hide();
+                //uC_MenuRecommendations1.Hide();
             }
             else
             {
-                uC_MenuRecommendations1 = new UC_MenuRecommendations();
-                PanelSlide.Controls.Add(uC_MenuRecommendations1);
-                uC_MenuRecommendations1.Show();
-                uC_MenuRecommendations1.loadButtons(uC_AnalysisTools1.b7, uC_AnalysisTools1.b8, uC_AnalysisTools1.b9);
+                //uC_MenuRecommendations1 = new UC_MenuRecommendations();
+                //PanelSlide.Controls.Add(uC_MenuRecommendations1);
+                //uC_MenuRecommendations1.Show();
+                //uC_MenuRecommendations1.loadButtons(uC_AnalysisTools1.b7, uC_AnalysisTools1.b8, uC_AnalysisTools1.b9);
             }
 
             mini_slide.Height = button4.Height;
@@ -190,10 +195,11 @@ namespace AllersGroup
         {
             uC_MenuGroups1.Hide();
             uC_MenuPredictions1.Hide();
-            uC_MenuRecommendations1.Hide();
+            //uC_MenuRecommendations1.Hide();
             uC_AnalysisTools1.Hide();
             uC_G21.Hide();
             uC_G31.Hide();
+            uC_G51.Hide();
             uC_G41.Hide();
             uC_P11.Hide();
             uC_P21.Hide();
@@ -209,10 +215,11 @@ namespace AllersGroup
         {
             uC_MenuGroups1.Hide();
             uC_MenuPredictions1.Hide();
-            uC_MenuRecommendations1.Hide();
+            //uC_MenuRecommendations1.Hide();
             uC_AnalysisTools1.Hide();
             uC_G21.Hide();
             uC_G31.Hide();
+            uC_G51.Hide();
             uC_G41.Hide();
             uC_P11.Hide();
             uC_P21.Hide();

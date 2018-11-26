@@ -35,14 +35,14 @@ namespace AllersGroup
 
             comboBox1.Items.AddRange(percentages.Keys.ToArray());
 
-            button1.Visible = button2.Visible = false;
+            button1.Visible = button2.Visible = true;
 
             label1.Visible = label15.Visible = label6.Visible = label10.Visible = label7.Visible = false;
-            label11.Visible = label19.Visible = label20.Visible = label21.Visible = label22.Visible = false;
-            label23.Visible = label25.Visible = label26.Visible = label27.Visible = label28.Visible = false;
-            label35.Visible = label36.Visible = label37.Visible = label38.Visible = label39.Visible = false;
+            label11.Visible  = label22.Visible = false;
+            label23.Visible  = label27.Visible = label28.Visible = false;
+            label35.Visible = label36.Visible = label37.Visible = label39.Visible = false;
 
-
+            panel2.Visible = false;
 
 
         }
@@ -77,7 +77,6 @@ namespace AllersGroup
             label15.Visible = label6.Visible = label10.Visible = label7.Visible = label11.Visible = true;
 
             LoadListViewGroups();
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,6 +95,8 @@ namespace AllersGroup
                 ListViewItem list = new ListViewItem("Grupo: " + (i + 1));
                 listView1.Items.Add(list);
             }
+
+
         }
 
         private void Load_ClientsProducts(int pos)
@@ -103,7 +104,6 @@ namespace AllersGroup
             listView2.Items.Clear();
             listView3.Items.Clear();
 
-            MessageBox.Show(clusters.Count() + "  " + pos);
             List<List<string>> clusterPos = clusters.ElementAt(pos);
 
             for (int i = 0; i < clusterPos.ElementAt(0).Count(); i++)
@@ -116,7 +116,7 @@ namespace AllersGroup
             for (int i = 0; i < clusterPos.ElementAt(1).Count(); i++)
             {
                 ListViewItem list = new ListViewItem(clusterPos.ElementAt(1).ElementAt(i));
-
+                list.SubItems.Add(model.context.Items[int.Parse(clusterPos.ElementAt(1).ElementAt(i))].Name);
                 listView3.Items.Add(list);
             }
         }
@@ -124,21 +124,11 @@ namespace AllersGroup
         //Cargar
         private void button2_Click(object sender, EventArgs e)
         {
-            label19.Text = listView1.SelectedItems[0].Text;
+
+            int pos  = listView1.SelectedItems[0].Index;
+            label19.Text = "Grupo " + (pos+1);
             label19.Visible = true;
 
-            int pos = -1;
-            if (label19.Text.Substring(label19.Text.Count() - 2) == "10" ||
-                label19.Text.Substring(label19.Text.Count() - 1) == "11" ||
-                label19.Text.Substring(label19.Text.Count() - 1) == "12")
-            {
-                pos = int.Parse(label19.Text.Substring(label19.Text.Count() - 2)) - 1;
-            }
-            else
-            {
-                pos = int.Parse(label19.Text.Substring(label19.Text.Count() - 1)) - 1;
-
-            }
             label28.Text = model.Clustering_ClientWithMostTransactions(clusters.ElementAt(pos))[0];
             label23.Text = model.Clustering_ClientWithMostTransactions(clusters.ElementAt(pos))[1];
 
@@ -155,25 +145,16 @@ namespace AllersGroup
             lab36 = string.Format("{0:###,###,###,##0.00##}", Decimal.Parse(lab36));
 
             label37.Text = model.Clustering_ClientWithLeastSells(clusters.ElementAt(pos))[0];
-            label36.Text = "$ " +lab36;
+            label36.Text = "$ " + lab36;
 
 
 
             label28.Visible = label23.Visible = label27.Visible = label22.Visible = true;
             label20.Visible = label21.Visible = label25.Visible = label26.Visible = true;           
-            label35.Visible = label36.Visible = label37.Visible = label38.Visible = label39.Visible = true;
+            label35.Visible = label36.Visible = label37.Visible = label39.Visible = true;
 
 
             Load_ClientsProducts(pos);
-
-            chart_Clients.Series.Clear();
-            chart_Clients.Series.Add("clients");
-            var x = clusters.ElementAt(pos);
-
-            for (int i = 0; i < x.ElementAt(pos).Count() && i < 10; i++)
-            {
-                chart_Clients.Series["clients"].Points.AddXY(x.ElementAt(pos).ElementAt(i), int.Parse(x.ElementAt(pos).ElementAt(i)));
-            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,5 +162,9 @@ namespace AllersGroup
             button2.Visible = true;
         }
 
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
