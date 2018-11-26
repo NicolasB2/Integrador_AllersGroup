@@ -71,8 +71,10 @@ namespace Model
                 }
                     
                 String line;
-                while ((line = sr.ReadLine()) != null)
+                int x = 0;
+                while ((line = sr.ReadLine()) != null&& x<100)
                 {
+                    x++;
                     String[] datos = line.Split(';');
                     if (datos[2].Equals("NULL"))
                     {
@@ -158,6 +160,7 @@ namespace Model
                 }
 
                 String line;
+
                 while ((line = sr.ReadLine()) != null)
                 {
                     String[] datos = line.Split(';');

@@ -1251,17 +1251,28 @@ namespace Model
             return formatItemSets(frequent);
         }
 
+        //Metodos sin categoria **** ultimo momento
+
+        public String metodo_Pago(int item)
+        {
+            var n = context.Items[item].Transactions.GroupBy(t=>context.Clients[ t.ClientCode].Payment).OrderBy(g=>g.Count()).Last().Key;
+            return n;
+        }
+
+        
+
 
         static void Main(string[] args)
         {
             Consult c = new Consult();
 
-            //Console.WriteLine("Initial clients {0}", c.context.Clients.Count());
-            //Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
-            //Console.WriteLine("Initial Items {0}", c.context.Items.Count());
+            Console.WriteLine("Initial clients {0}", c.context.Clients.Count());
+            Console.WriteLine("Initial Transactions {0}", c.context.Transactions.Count());
+            Console.WriteLine("Initial Items {0}", c.context.Items.Count());
 
-            //c.Clustering(0.05);
-            //Console.WriteLine(c.clusterResult.Count());
+            c.Clustering(0.1);
+            Console.WriteLine("-------------");
+            c.clusterResult.ForEach(i => Console.WriteLine(i.ElementAt(0).Count()));
             //c.FrequentItemsets_Apriori(0.01);
             //c.GenerateRules(0.05);
 
@@ -1291,12 +1302,11 @@ namespace Model
             //    Console.WriteLine(a);
             //}
 
-            c.GenerateRules(Double.Parse("3") / 100);
-            var x  = c.ItemsByMonth(2).Where(n => c.Rules.ContainsKey(n));
-            var y=  c.Items_without_sales(x.ToList());
+            //c.GenerateRules(Double.Parse("3") / 100);
+            //var x  = c.ItemsByMonth(2).Where(n => c.Rules.ContainsKey(n));
+            //var y=  c.Items_without_sales(x.ToList());
 
-            Console.WriteLine(x.Count());
-            Console.WriteLine(y.Count());
+
             Console.WriteLine("END");
             Console.ReadLine();
         }
