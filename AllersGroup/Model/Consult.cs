@@ -130,26 +130,6 @@ namespace Model
 
         }
 
-        public IEnumerable<String> Items_without_sales(List<int> purchased)
-        {
-            List<int> aux = new List<int>();
-            List<int> data = new List<int>();
-
-            foreach (int x in purchased)
-            {
-                var r = Rules[x];
-                aux.AddRange(r.SelectMany(n=>n));
-            }
-
-            aux.Distinct();
-            data = aux;
-            data.Where(n => !purchased.Contains(n));
-
-            data.Distinct();
-
-            
-            return data.Select(n=>n+"");
-        }
 
         //**********************************************************************************************
         //************ PRUNNINGS ***********************************************************************
@@ -1253,13 +1233,34 @@ namespace Model
 
         //Metodos sin categoria **** ultimo momento
 
-        public String metodo_Pago(int item)
+        public String Type_of_payment(int item)
         {
             var n = context.Items[item].Transactions.GroupBy(t=>context.Clients[ t.ClientCode].Payment).OrderBy(g=>g.Count()).Last().Key;
             return n;
         }
 
-        
+
+        public IEnumerable<String> Items_without_sales(List<int> purchased)
+        {
+            List<int> aux = new List<int>();
+            List<int> data = new List<int>();
+
+            foreach (int x in purchased)
+            {
+                var r = Rules[x];
+                aux.AddRange(r.SelectMany(n => n));
+            }
+
+            aux.Distinct();
+            data = aux;
+            data.Where(n => !purchased.Contains(n));
+
+            data.Distinct();
+
+
+            return data.Select(n => n + "");
+        }
+
 
 
         static void Main(string[] args)

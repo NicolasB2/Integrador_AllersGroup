@@ -23,7 +23,6 @@ namespace AllersGroup
             department = "";
             //markers = new GMapOverlay("markers");
 
-            panel8.Visible = false;
             label_dep.Visible = false;
             label27.Visible = label28.Visible = label29.Visible = false;
             label8.Visible = label18.Visible = label19.Visible = label20.Visible = false;
@@ -116,7 +115,7 @@ namespace AllersGroup
             chart1.Series.Add("clients");
             chart1.Titles.Add("Clientes vs Transacciones");
 
-            for (int i = 0; i < x.Length && i < 5; i++)
+            for (int i = 0; i < x.Length && i < 8; i++)
             {
                 chart1.Series["clients"].Points.AddXY(x[i].Code, x[i].Transactions.Count());
             }
@@ -124,8 +123,6 @@ namespace AllersGroup
 
         private void button1_Click(object sender, EventArgs e)
         {
-            panel7.Visible = false;
-            panel8.Visible = true;
 
             label29.Text = model.TransactionsByDepartment(comboBox1.SelectedItem.ToString()).ToList().Count() + "";
             label27.Text = model.ClientsByDepartment(comboBox1.SelectedItem.ToString()).ToList().Count() + "";
@@ -146,6 +143,7 @@ namespace AllersGroup
 
             LoadListView_1(department);
             LoadListView_2(department);
+            
 
         }
 
@@ -185,28 +183,25 @@ namespace AllersGroup
             }
         }
 
+        private void LoadListView_3(List<String> x)
+        {
+            List<string> items = model.Items_without_sales(x.Select(s=>int.Parse(s)).ToList()).ToList();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i)+ "");
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+                listView3.Items.Add(list);
+            }
+        }
+
         private void UC_G22_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox2.SelectedItem == null)
-            {
-                MessageBox.Show("Se debe seleccionar un porcentaje.");
-            }
-            else
-            {
 
-                listBox3.Items.Clear();
-                model.GenerateRules(Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
-                var x = model.ItemsByDepartment(comboBox1.SelectedItem.ToString()).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "");
-                listBox3.Items.AddRange(x.ToArray());
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             if (listBox3.SelectedItem == null)
             {
@@ -235,6 +230,23 @@ namespace AllersGroup
 
                 }
 
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Se debe seleccionar un porcentaje.");
+            }
+            else
+            {
+                
+                listBox3.Items.Clear();
+                model.GenerateRules(Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
+                var x = model.ItemsByDepartment(comboBox1.SelectedItem.ToString()).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "");
+                listBox3.Items.AddRange(x.ToArray());
+                LoadListView_3(x.ToList());
             }
         }
     }
