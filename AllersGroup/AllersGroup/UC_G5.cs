@@ -28,6 +28,7 @@ namespace AllersGroup
            {  "0,6", "0,7","0,8" ,"0,9","1", "2", "3","4" ,"5", "6", "7", "8", "9", "10"};
 
             comboBox2.Items.AddRange(supports);
+
         }
 
         private void LoadListView2()
