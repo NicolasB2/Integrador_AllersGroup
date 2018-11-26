@@ -32,9 +32,9 @@ namespace AllersGroup
             // uC_G51
             // 
             this.uC_G51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G51.Location = new System.Drawing.Point(0, 0);
+            this.uC_G51.Location = new System.Drawing.Point(22, 24);
             this.uC_G51.Name = "uC_G51";
-            this.uC_G51.Size = new System.Drawing.Size(720, 2115);
+            this.uC_G51.Size = new System.Drawing.Size(1000, 2115);
             this.uC_G51.TabIndex = 0;
             // 
             // Form2
