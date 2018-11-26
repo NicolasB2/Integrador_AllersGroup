@@ -72,7 +72,7 @@ namespace Model
                     
                 String line;
                 int x = 0;
-                while ((line = sr.ReadLine()) != null&& x<100)
+                while ((line = sr.ReadLine()) != null)
                 {
                     x++;
                     String[] datos = line.Split(';');
