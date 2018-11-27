@@ -48,6 +48,7 @@ namespace AllersGroup
         {
             this.model = model;
             LoadComboBox();
+            
         }
 
         private void LoadComboBox()
@@ -163,15 +164,18 @@ namespace AllersGroup
 
         private void LoadListView_3()
         {
-            List <String> items = model.getDependence(int.Parse(label8.Text), 0.01);
 
-            for (int i = 0; i < items.Count; i++)
+            List <String> items = model.getDependence(int.Parse(label8.Text.ToString()), double.Parse("1")/100);
+
+            for (int i = 0; i < items.Count && items!=null; i++)
             {
                 ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
-                MessageBox.Show(items.ElementAt(i));
-                //list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
 
-                listView1.Items.Add(list);
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+                var x = model.context.Items[int.Parse(items.ElementAt(i))];
+                MessageBox.Show(x.Name);
+
+                listView3.Items.Add(list);
             }
         }
 

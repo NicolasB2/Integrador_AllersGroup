@@ -518,9 +518,9 @@ namespace Model
             }
             catch
             {
-                return new List<string> { "No se pudo generar ninguna oferta con el item de codigo " + itemCode };
+                return null;
             }
-            return formatItemSets(x);
+            return x.Select(n=>n[0]+"").ToList();
         }
 
         public List<String> getDependence(int[] itemsCode, double threshold)
