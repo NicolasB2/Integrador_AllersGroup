@@ -12,64 +12,17 @@ namespace AllersGroup
 
         public MainForm()
         {
-
-            this.uC_MenuGroups1 = new AllersGroup.UC_MenuG(this.uC_G21, this.uC_G31,this.uC_G41, this.uC_G51);
-            this.uC_MenuPredictions1 = new AllersGroup.UC_MenuP(this.uC_P11,this.uC_P21,this.uC_P31,this.uC_P41);
             InitializeComponent();
             model = new Consult();
 
             panelWidth = PanelSlide.Width;
             Hidden = false;
 
-            uC_AnalysisTools1.Hide();
-            uC_MenuGroups1.Hide();
-            uC_MenuPredictions1.Hide();
-            uC_G21.Hide();
-            uC_G31.Hide();
-            uC_G41.Hide();
-            uC_G51.Hide();
-            uC_P11.Hide();
-            uC_P21.Hide();
-            uC_P31.Hide();
-            uC_P41.Hide();
-
-
-            load_UserControls();
-
-        }
-        public void load_UserControls()
-        {
-            uC_G21.LoadModel(model);
-            uC_G31.LoadModel(model);
-            uC_G51.LoadModel(model);
-            uC_G41.LoadModel(model);
-            uC_P11.loadModel(model);
-            uC_P21.loadModel(model);
-            uC_P31.loadModel(model);
-            uC_P41.loadModel(model);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            uC_MenuPredictions1.Hide();
-            uC_MenuGroups1.Hide();
-            uC_G21.Hide();
-            uC_G31.Hide();
-            uC_G41.Hide();
-            uC_G51.Hide();
-            uC_P11.Hide();
-            uC_P21.Hide();
-            uC_P31.Hide();
-            uC_P41.Hide();
-
-            if (!Hidden)
-            {
-                uC_AnalysisTools1.Show();
-            }
-            else
-            {
-                uC_AnalysisTools1.Hide();
-            }
+ 
             timer1.Start();
             mini_slide.Height = button1.Height;
             mini_slide.Top = button1.Top;
@@ -102,29 +55,6 @@ namespace AllersGroup
 
         private void button2_Click(object sender, EventArgs e)
         {
-            uC_MenuPredictions1.Hide();
-            //uC_MenuRecommendations1.Hide();
-            uC_AnalysisTools1.Hide();
-            uC_G21.Hide();
-            uC_G31.Hide();
-            uC_G51.Hide();
-            uC_G41.Hide();
-            uC_P11.Hide();
-            uC_P21.Hide();
-            uC_P31.Hide();
-            uC_P41.Hide();
-
-            if (!Hidden)
-            {
-                uC_MenuGroups1.Hide();
-            }
-            else
-            {
-                uC_MenuGroups1 = new UC_MenuG(this.uC_G21, this.uC_G31, this.uC_G41, this.uC_G51);
-                PanelSlide.Controls.Add(uC_MenuGroups1);
-                uC_MenuGroups1.Show();
-                uC_MenuGroups1.loadButtonsGroups(uC_AnalysisTools1.b1, uC_AnalysisTools1.b2, uC_AnalysisTools1.b3);
-            }
 
             mini_slide.Height = button2.Height;
             mini_slide.Top = button2.Top;
@@ -133,27 +63,6 @@ namespace AllersGroup
 
         private void button3_Click(object sender, EventArgs e)
         {
-            uC_MenuGroups1.Hide();
-            //uC_MenuRecommendations1.Hide();
-            uC_AnalysisTools1.Hide();
-            uC_G21.Hide();
-            uC_G51.Hide();
-            uC_G31.Hide();
-            uC_G41.Hide();
-
-
-            if (!Hidden)
-            {
-                uC_MenuPredictions1.Hide();
-            }
-            else
-            {
-                uC_MenuPredictions1 = new UC_MenuP(this.uC_P11, this.uC_P21, this.uC_P31, this.uC_P41);
-                PanelSlide.Controls.Add(uC_MenuPredictions1);
-                uC_MenuPredictions1.Show();
-                uC_MenuPredictions1.loadButtons(uC_AnalysisTools1.b4, uC_AnalysisTools1.b5, uC_AnalysisTools1.b6);
-            }
-
 
             mini_slide.Height = button3.Height;
             mini_slide.Top = button3.Top;
@@ -162,29 +71,7 @@ namespace AllersGroup
 
         private void button4_Click(object sender, EventArgs e)
         {
-            uC_MenuGroups1.Hide();
-            uC_MenuPredictions1.Hide();
-            uC_AnalysisTools1.Hide();
-            uC_G21.Hide();
-            uC_G31.Hide();
-            uC_G51.Hide();
-            uC_G41.Hide();
-            uC_P11.Hide();
-            uC_P21.Hide();
-            uC_P31.Hide();
-            uC_P41.Hide();
-
-            if (!Hidden)
-            {
-                //uC_MenuRecommendations1.Hide();
-            }
-            else
-            {
-                //uC_MenuRecommendations1 = new UC_MenuRecommendations();
-                //PanelSlide.Controls.Add(uC_MenuRecommendations1);
-                //uC_MenuRecommendations1.Show();
-                //uC_MenuRecommendations1.loadButtons(uC_AnalysisTools1.b7, uC_AnalysisTools1.b8, uC_AnalysisTools1.b9);
-            }
+           
 
             mini_slide.Height = button4.Height;
             mini_slide.Top = button4.Top;
@@ -193,19 +80,7 @@ namespace AllersGroup
 
         private void button5_Click(object sender, EventArgs e)
         {
-            uC_MenuGroups1.Hide();
-            uC_MenuPredictions1.Hide();
-            //uC_MenuRecommendations1.Hide();
-            uC_AnalysisTools1.Hide();
-            uC_G21.Hide();
-            uC_G31.Hide();
-            uC_G51.Hide();
-            uC_G41.Hide();
-            uC_P11.Hide();
-            uC_P21.Hide();
-            uC_P31.Hide();
-            uC_P41.Hide();
-
+            
             mini_slide.Height = button5.Height;
             mini_slide.Top = button5.Top;
             timer1.Start();
@@ -213,21 +88,7 @@ namespace AllersGroup
 
         private void button6_Click(object sender, EventArgs e)
         {
-            uC_MenuGroups1.Hide();
-            uC_MenuPredictions1.Hide();
-            //uC_MenuRecommendations1.Hide();
-            uC_AnalysisTools1.Hide();
-            uC_G21.Hide();
-            uC_G31.Hide();
-            uC_G51.Hide();
-            uC_G41.Hide();
-            uC_P11.Hide();
-            uC_P21.Hide();
-            uC_P31.Hide();
-            uC_P41.Hide();
-
-
-            mini_slide.Height = button6.Height;
+                      mini_slide.Height = button6.Height;
             mini_slide.Top = button6.Top;
             timer1.Start();
         }
@@ -240,6 +101,11 @@ namespace AllersGroup
         private void minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void PanelSlide_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

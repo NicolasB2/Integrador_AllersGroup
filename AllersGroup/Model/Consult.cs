@@ -48,7 +48,6 @@ namespace Model
             }
 
         }
-
         public List<String> FrequentItemSetsByClient(String clientCode, double Support)
         {
             List<int[]> itemsets = context.Clients[clientCode].Transactions.SelectMany(t => t.Items).Distinct().Select(s => new int[] { s }).ToList();
@@ -1107,6 +1106,11 @@ namespace Model
             return context.Clients[clientCode].Transactions.Count();
         }
 
+        public int totalTransactionsItem(int itemCode)
+        {
+            return context.Items[itemCode].Transactions.Count();
+        }
+
         public int totalTransactionsListClients(List<string[]> clients)
         {
             int total = 0;
@@ -1128,6 +1132,18 @@ namespace Model
             {
                 total = context.Clients[clientCode].Transactions.Select(t => t.Total).Sum();
             }
+            return total;
+        }
+
+        public double TotalSellsItem(int itemCode)
+        {
+            double total = 0;
+
+            if (context.Items.ContainsKey(itemCode))
+            {
+                total = context.Items[itemCode].Transactions.Select(t => t.Total).Sum();
+            }
+
             return total;
         }
 

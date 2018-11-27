@@ -23,7 +23,8 @@ namespace AllersGroup
             label8.Visible = label18.Visible = label9.Visible = label5.Visible = false;
             label27.Visible = label28.Visible = label29.Visible = label1.Visible = false;
             mini_1.Visible = mini_2.Visible = mini_3.Visible = false;
-            label35.Visible = false;
+            label49.Visible = label35.Visible = label20.Visible = label22.Visible = label31.Visible = label40.Visible = label38.Visible = label36.Visible = false;
+            label51.Visible = label53.Visible = label56.Visible = label57.Visible = false;
 
             String [] supports = new string[]
            {  "0,6", "0,7","0,8" ,"0,9","1", "2", "3","4" ,"5", "6", "7", "8", "9", "10"};
@@ -39,6 +40,11 @@ namespace AllersGroup
             {
                 ListViewItem list = new ListViewItem(items.ElementAt(i)+"");
                 list.SubItems.Add(model.context.Items[(items.ElementAt(i))].Name);
+
+                string m = model.TotalSellsItem(items.ElementAt(i)) + "";
+                m = string.Format("{0:###,###,###,###}", Decimal.Parse(m));
+                list.SubItems.Add("$ " + m);
+                list.SubItems.Add(model.totalTransactionsItem(items.ElementAt(i))+"");
                 listView2.Items.Add(list);
             }
 
@@ -78,20 +84,22 @@ namespace AllersGroup
             clients = model.Clients_ByType(x).ToList();
             LoadListView_1();
 
-            var y = model.Clients_ByType(comboBox1.SelectedItem.ToString()).ToArray();
-            chart1.Series.Clear();
-            chart1.Titles.Clear();
-
-            chart1.Titles.Add("Clientes vs Transacciones");
-            chart1.Series.Add("clients");
-            MessageBox.Show(x.Length + "");
-            for (int i = 0; i < x.Length && i < 7; i++)
-            {
-                chart1.Series["clients"].Points.AddXY(y[i].Code, y[i].Transactions.Count());
-            }
-
             LoadListView2();
             LoadListView_3();
+
+            label51.Visible = label53.Visible = label56.Visible = label57.Visible = true;
+            label51.Text = model.totalTransactionsClient(label5.Text) + "";
+
+            string m = model.TotalSellsClient(label5.Text)+"";
+            m = string.Format("{0:###,###,###,###}", Decimal.Parse(m));
+            label53.Text = "$ " + m;
+
+            label56.Text = model.totalTransactionsClient(label9.Text) + "";
+
+            m = model.TotalSellsClient(label5.Text) + "";
+            m = string.Format("{0:###,###,###,###}", Decimal.Parse(m));
+            label57.Text = "$ " + m;
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,6 +141,7 @@ namespace AllersGroup
 
         private void button2_Click(object sender, EventArgs e)
         {
+            listView4.Items.Clear();
             if (listBox3.SelectedItem == null)
             {
                 MessageBox.Show("Se debe seleccionar un producto.");
@@ -142,15 +151,21 @@ namespace AllersGroup
             {
                 try
                 {
-                    listBox4.Items.Clear();
                     var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
+                    List<String> items = x.ToList();
                     if (x == null)
                     {
                         MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
                     }
                     else
-                    {
-                        listBox4.Items.AddRange(x.ToArray());
+                    {   
+                        for (int i = 0; i < items.Count && items != null; i++)
+                        {
+                            ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+                            list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+
+                            listView4.Items.Add(list);
+                        }
                     }
 
                 }
@@ -160,28 +175,37 @@ namespace AllersGroup
                 }
 
             }
+            if (listBox3.SelectedItem != null)
+            {
+                label49.Visible = true;
+                label49.Text = model.Type_of_payment(int.Parse(listBox3.SelectedItem.ToString()));
+            }
+
         }
 
         private void LoadListView_3()
         {
 
-            List <String> items = model.getDependence(int.Parse(label8.Text.ToString()), double.Parse("1")/100);
-
-            for (int i = 0; i < items.Count && items!=null; i++)
+            List<String> items = model.getDependence(int.Parse(label8.Text.ToString()), double.Parse("1") / 100);
+            if (items != null)
             {
-                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
 
-                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
-                var x = model.context.Items[int.Parse(items.ElementAt(i))];
-                MessageBox.Show(x.Name);
+                for (int i = 0; i < items.Count && items != null; i++)
+                {
+                    ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
 
-                listView3.Items.Add(list);
+                    list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+                    var x = model.context.Items[int.Parse(items.ElementAt(i))];
+
+
+                    listView3.Items.Add(list);
+                }
             }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void tabPage3_Click(object sender, EventArgs e)
         {
 
         }
     }
-    }
+}
