@@ -34,11 +34,6 @@
             this.minimize = new System.Windows.Forms.PictureBox();
             this.close = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.uC_P111 = new AllersGroup.UC_P11();
-            this.uC_G51 = new AllersGroup.UC_G5();
-            this.uC_G41 = new AllersGroup.UC_G4();
-            this.uC_G31 = new AllersGroup.UC_G3();
-            this.uC_G221 = new AllersGroup.UC_G22();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -46,6 +41,11 @@
             this.button6 = new System.Windows.Forms.Button();
             this.mini_slide = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.uC_G221 = new AllersGroup.UC_G22();
+            this.uC_G31 = new AllersGroup.UC_G3();
+            this.uC_G41 = new AllersGroup.UC_G4();
+            this.uC_G51 = new AllersGroup.UC_G5();
+            this.uC_P111 = new AllersGroup.UC_P11();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
@@ -68,7 +68,6 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(11, 1);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(129, 42);
@@ -77,6 +76,7 @@
             // 
             // minimize
             // 
+            this.minimize.Image = ((System.Drawing.Image)(resources.GetObject("minimize.Image")));
             this.minimize.Location = new System.Drawing.Point(1070, 4);
             this.minimize.Name = "minimize";
             this.minimize.Size = new System.Drawing.Size(30, 30);
@@ -87,6 +87,7 @@
             // 
             // close
             // 
+            this.close.Image = ((System.Drawing.Image)(resources.GetObject("close.Image")));
             this.close.Location = new System.Drawing.Point(1106, 4);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(30, 30);
@@ -99,76 +100,34 @@
             // 
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.panel4.Controls.Add(this.uC_G221);
             this.panel4.Controls.Add(this.uC_P111);
             this.panel4.Controls.Add(this.uC_G51);
             this.panel4.Controls.Add(this.uC_G41);
             this.panel4.Controls.Add(this.uC_G31);
+            this.panel4.Controls.Add(this.uC_G221);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(70, 42);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1071, 643);
             this.panel4.TabIndex = 3;
             // 
-            // uC_P111
-            // 
-            this.uC_P111.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_P111.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.uC_P111.ForeColor = System.Drawing.Color.BurlyWood;
-            this.uC_P111.Location = new System.Drawing.Point(0, 0);
-            this.uC_P111.Name = "uC_P111";
-            this.uC_P111.Size = new System.Drawing.Size(1000, 1704);
-            this.uC_P111.TabIndex = 4;
-            // 
-            // uC_G51
-            // 
-            this.uC_G51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G51.Location = new System.Drawing.Point(0, 0);
-            this.uC_G51.Name = "uC_G51";
-            this.uC_G51.Size = new System.Drawing.Size(1000, 1750);
-            this.uC_G51.TabIndex = 3;
-            // 
-            // uC_G41
-            // 
-            this.uC_G41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G41.Location = new System.Drawing.Point(0, 0);
-            this.uC_G41.Name = "uC_G41";
-            this.uC_G41.Size = new System.Drawing.Size(1000, 1484);
-            this.uC_G41.TabIndex = 2;
-            // 
-            // uC_G31
-            // 
-            this.uC_G31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G31.Location = new System.Drawing.Point(0, 0);
-            this.uC_G31.Name = "uC_G31";
-            this.uC_G31.Size = new System.Drawing.Size(1000, 2266);
-            this.uC_G31.TabIndex = 1;
-            // 
-            // uC_G221
-            // 
-            this.uC_G221.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G221.Location = new System.Drawing.Point(0, 0);
-            this.uC_G221.Name = "uC_G221";
-            this.uC_G221.Size = new System.Drawing.Size(1000, 1950);
-            this.uC_G221.TabIndex = 0;
-            // 
             // button2
             // 
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.Location = new System.Drawing.Point(12, 33);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(58, 37);
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            //this.button2.Image = global::AllersGroup.Properties.Resources;
-
             // 
             // button3
             // 
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(12, 87);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(58, 44);
@@ -180,6 +139,7 @@
             // 
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.Location = new System.Drawing.Point(22, 153);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(34, 34);
@@ -191,6 +151,7 @@
             // 
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.Location = new System.Drawing.Point(9, 221);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(58, 37);
@@ -202,6 +163,7 @@
             // 
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.Location = new System.Drawing.Point(11, 285);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(58, 37);
@@ -233,6 +195,48 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(70, 643);
             this.panel2.TabIndex = 1;
+            // 
+            // uC_G221
+            // 
+            this.uC_G221.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G221.Location = new System.Drawing.Point(0, 0);
+            this.uC_G221.Name = "uC_G221";
+            this.uC_G221.Size = new System.Drawing.Size(1000, 1950);
+            this.uC_G221.TabIndex = 0;
+            // 
+            // uC_G31
+            // 
+            this.uC_G31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G31.Location = new System.Drawing.Point(0, 0);
+            this.uC_G31.Name = "uC_G31";
+            this.uC_G31.Size = new System.Drawing.Size(1000, 2266);
+            this.uC_G31.TabIndex = 1;
+            // 
+            // uC_G41
+            // 
+            this.uC_G41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G41.Location = new System.Drawing.Point(0, 0);
+            this.uC_G41.Name = "uC_G41";
+            this.uC_G41.Size = new System.Drawing.Size(1000, 1484);
+            this.uC_G41.TabIndex = 2;
+            // 
+            // uC_G51
+            // 
+            this.uC_G51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G51.Location = new System.Drawing.Point(0, 0);
+            this.uC_G51.Name = "uC_G51";
+            this.uC_G51.Size = new System.Drawing.Size(1000, 1750);
+            this.uC_G51.TabIndex = 3;
+            // 
+            // uC_P111
+            // 
+            this.uC_P111.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_P111.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.uC_P111.ForeColor = System.Drawing.Color.BurlyWood;
+            this.uC_P111.Location = new System.Drawing.Point(0, 0);
+            this.uC_P111.Name = "uC_P111";
+            this.uC_P111.Size = new System.Drawing.Size(1000, 1704);
+            this.uC_P111.TabIndex = 4;
             // 
             // MainForm
             // 
