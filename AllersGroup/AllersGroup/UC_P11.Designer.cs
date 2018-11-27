@@ -55,7 +55,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -68,7 +67,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -81,10 +79,10 @@
             this.listBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(63, 79);
+            this.listBox1.Location = new System.Drawing.Point(270, 62);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(195, 87);
+            this.listBox1.Size = new System.Drawing.Size(294, 104);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -93,7 +91,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(60, 40);
+            this.label1.Location = new System.Drawing.Point(39, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(198, 17);
             this.label1.TabIndex = 1;
@@ -104,7 +102,7 @@
             this.label_client.AutoSize = true;
             this.label_client.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_client.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_client.Location = new System.Drawing.Point(330, 33);
+            this.label_client.Location = new System.Drawing.Point(35, 22);
             this.label_client.Name = "label_client";
             this.label_client.Size = new System.Drawing.Size(112, 40);
             this.label_client.TabIndex = 25;
@@ -119,7 +117,7 @@
             this.listBox3.Location = new System.Drawing.Point(30, 862);
             this.listBox3.Name = "listBox3";
             this.listBox3.ScrollAlwaysVisible = true;
-            this.listBox3.Size = new System.Drawing.Size(207, 206);
+            this.listBox3.Size = new System.Drawing.Size(309, 240);
             this.listBox3.TabIndex = 27;
             // 
             // label8
@@ -202,7 +200,7 @@
             this.listBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox4.FormattingEnabled = true;
             this.listBox4.ItemHeight = 17;
-            this.listBox4.Location = new System.Drawing.Point(302, 862);
+            this.listBox4.Location = new System.Drawing.Point(537, 862);
             this.listBox4.Name = "listBox4";
             this.listBox4.ScrollAlwaysVisible = true;
             this.listBox4.Size = new System.Drawing.Size(202, 206);
@@ -214,7 +212,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(327, 817);
+            this.button2.Location = new System.Drawing.Point(562, 817);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(158, 27);
             this.button2.TabIndex = 38;
@@ -346,15 +344,6 @@
             this.label13.TabIndex = 137;
             this.label13.Text = "Tipo de pago";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AllersGroup.Properties.Resources._1ca4c21e22a2a15cf4ac727015406350;
-            this.pictureBox1.Location = new System.Drawing.Point(338, 79);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 80);
-            this.pictureBox1.TabIndex = 62;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
@@ -458,7 +447,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(292, 785);
+            this.label4.Location = new System.Drawing.Point(527, 785);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(183, 17);
             this.label4.TabIndex = 26;
@@ -486,7 +475,6 @@
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox4);
             this.Controls.Add(this.comboBox2);
@@ -502,13 +490,12 @@
             this.Controls.Add(this.listBox1);
             this.ForeColor = System.Drawing.Color.BurlyWood;
             this.Name = "UC_P11";
-            this.Size = new System.Drawing.Size(720, 1172);
+            this.Size = new System.Drawing.Size(1000, 1172);
             this.Load += new System.EventHandler(this.UC_P1_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -538,7 +525,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel mini_2;

@@ -7,15 +7,12 @@ namespace AllersGroup
     public partial class MainForm : Form
     {
         public Consult model;
-        int panelWidth;
-        bool Hidden;
 
         public MainForm()
         {
             InitializeComponent();
             model = new Consult();
 
-            panelWidth = PanelSlide.Width;
             Hidden = false;
 
         }
@@ -28,30 +25,6 @@ namespace AllersGroup
             mini_slide.Top = button1.Top;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (Hidden)
-            {
-                PanelSlide.Width = PanelSlide.Width + 10;
-                if (PanelSlide.Width >= panelWidth)
-                {
-                    timer1.Stop();
-                    Hidden = false;
-                    this.Refresh();
-                }
-            }
-            else
-            {
-                PanelSlide.Width = PanelSlide.Width - 10;
-                if (PanelSlide.Width <= 0)
-                {
-                    timer1.Stop();
-                    Hidden = true;
-                    this.Refresh();
-                }
-            }
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {

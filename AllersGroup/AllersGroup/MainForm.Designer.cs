@@ -42,7 +42,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.PanelSlide = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
@@ -61,7 +60,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1047, 42);
+            this.panel1.Size = new System.Drawing.Size(1141, 42);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox4
@@ -75,7 +74,7 @@
             // 
             // minimize
             // 
-            this.minimize.Location = new System.Drawing.Point(978, 4);
+            this.minimize.Location = new System.Drawing.Point(1070, 4);
             this.minimize.Name = "minimize";
             this.minimize.Size = new System.Drawing.Size(30, 30);
             this.minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -85,7 +84,7 @@
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(1014, 4);
+            this.close.Location = new System.Drawing.Point(1106, 4);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(30, 30);
             this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,7 +105,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 42);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(70, 486);
+            this.panel2.Size = new System.Drawing.Size(70, 643);
             this.panel2.TabIndex = 1;
             // 
             // mini_slide
@@ -182,37 +181,21 @@
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // PanelSlide
-            // 
-            this.PanelSlide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(83)))), ((int)(((byte)(105)))));
-            this.PanelSlide.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanelSlide.Location = new System.Drawing.Point(70, 42);
-            this.PanelSlide.Name = "PanelSlide";
-            this.PanelSlide.Size = new System.Drawing.Size(239, 486);
-            this.PanelSlide.TabIndex = 2;
-            this.PanelSlide.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelSlide_Paint);
-            // 
             // panel4
             // 
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(309, 42);
+            this.panel4.Location = new System.Drawing.Point(70, 42);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(738, 486);
+            this.panel4.Size = new System.Drawing.Size(1071, 643);
             this.panel4.TabIndex = 3;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 30;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1047, 528);
+            this.ClientSize = new System.Drawing.Size(1141, 685);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.PanelSlide);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -231,7 +214,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel PanelSlide;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button6;

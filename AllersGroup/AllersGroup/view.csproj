@@ -94,12 +94,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UC_AnalysisTools.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_AnalysisTools.Designer.cs">
-      <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_G22.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,47 +118,11 @@
     <Compile Include="UC_G5.Designer.cs">
       <DependentUpon>UC_G5.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_MenuG.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_MenuG.Designer.cs">
-      <DependentUpon>UC_MenuG.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_MenuP.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_MenuP.Designer.cs">
-      <DependentUpon>UC_MenuP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_MenuRecommendations.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_MenuRecommendations.Designer.cs">
-      <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_P11.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_P11.Designer.cs">
       <DependentUpon>UC_P11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_P22.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_P22.Designer.cs">
-      <DependentUpon>UC_P22.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_P33.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_P33.Designer.cs">
-      <DependentUpon>UC_P33.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_P44.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_P44.Designer.cs">
-      <DependentUpon>UC_P44.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
@@ -176,9 +134,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_AnalysisTools.resx">
-      <DependentUpon>UC_AnalysisTools.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_G22.resx">
       <DependentUpon>UC_G22.cs</DependentUpon>
@@ -192,20 +147,8 @@
     <EmbeddedResource Include="UC_G5.resx">
       <DependentUpon>UC_G5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_MenuG.resx">
-      <DependentUpon>UC_MenuG.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_MenuP.resx">
-      <DependentUpon>UC_MenuP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_MenuRecommendations.resx">
-      <DependentUpon>UC_MenuRecommendations.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_P11.resx">
       <DependentUpon>UC_P11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_P22.resx">
-      <DependentUpon>UC_P22.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
