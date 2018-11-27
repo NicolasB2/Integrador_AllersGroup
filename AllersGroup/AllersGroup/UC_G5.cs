@@ -23,6 +23,7 @@ namespace AllersGroup
             label8.Visible = label18.Visible = label9.Visible = label5.Visible = false;
             label27.Visible = label28.Visible = label29.Visible = label1.Visible = false;
             mini_1.Visible = mini_2.Visible = mini_3.Visible = false;
+            label35.Visible = false;
 
             String [] supports = new string[]
            {  "0,6", "0,7","0,8" ,"0,9","1", "2", "3","4" ,"5", "6", "7", "8", "9", "10"};
@@ -64,9 +65,9 @@ namespace AllersGroup
             label28.Text = "$ " + model.totalSellsListClients(model.Clients_ByType(x).Select(c => c.Code).ToList());
 
             label27.Visible = label28.Visible = label29.Visible = true;
-            label8.Visible = label18.Visible = label9.Visible = label5.Visible = true;
+            label8.Visible = label18.Visible = label9.Visible = label5.Visible = label35.Visible = true;
 
-            label8.Text = model.Items_ClientsType(x).Last() + "";
+            label8.Text = label35.Text = model.Items_ClientsType(x).Last() + "";             
             label18.Text = model.Items_ClientsType(x).First() + "";
             label5.Text = model.ClientsOrderListByType(x).Last() + "";
             label9.Text = model.ClientsOrderListByType(x).First() + "";
@@ -89,6 +90,7 @@ namespace AllersGroup
             }
 
             LoadListView2();
+            LoadListView_3();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,5 +160,24 @@ namespace AllersGroup
 
             }
         }
+
+        private void LoadListView_3()
+        {
+            List <String> items = model.getDependence(int.Parse(label8.Text), 0.01);
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+                MessageBox.Show(items.ElementAt(i));
+                //list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+
+                listView1.Items.Add(list);
+            }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+    }
