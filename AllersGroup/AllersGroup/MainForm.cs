@@ -13,57 +13,63 @@ namespace AllersGroup
             InitializeComponent();
             model = new Consult();
 
-            //Hidden = false;
+            uC_G221.Visible = false;
+            uC_G31.Visible = false;
+            uC_G41.Visible = false;
+            uC_G51.Visible = false;
+            uC_P111.Visible = false;
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
- 
-            timer1.Start();
-            mini_slide.Height = button1.Height;
-            mini_slide.Top = button1.Top;
+            uC_G221.LoadModel(model);
+            uC_G31.LoadModel(model);
+            uC_G41.LoadModel(model);
+            uC_G51.LoadModel(model); 
+            uC_P111.loadModel(model);
         }
 
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            mini_slide.Height = button2.Height;
-            mini_slide.Top = button2.Top;
-            timer1.Start();
+            uC_G221.Visible = false;
+            uC_G31.Visible = false;
+            uC_G41.Visible = false;
+            uC_G51.Visible = true;
+            uC_P111.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-            mini_slide.Height = button3.Height;
-            mini_slide.Top = button3.Top;
-            timer1.Start();
+            uC_G221.Visible = true;
+            uC_G31.Visible = false;
+            uC_G41.Visible = false;
+            uC_G51.Visible = false;
+            uC_P111.Visible = false;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-           
-
-            mini_slide.Height = button4.Height;
-            mini_slide.Top = button4.Top;
-            timer1.Start();
+            uC_G221.Visible = false;
+            uC_G31.Visible = true;
+            uC_G41.Visible = false;
+            uC_G51.Visible = false;
+            uC_P111.Visible = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
-            mini_slide.Height = button5.Height;
-            mini_slide.Top = button5.Top;
-            timer1.Start();
+            uC_G221.Visible = false;
+            uC_G31.Visible = false;
+            uC_G41.Visible = false;
+            uC_G51.Visible = false;
+            uC_P111.Visible = true;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-                      mini_slide.Height = button6.Height;
-            mini_slide.Top = button6.Top;
-            timer1.Start();
+            uC_G221.Visible = false;
+            uC_G31.Visible = false;
+            uC_G41.Visible = true;
+            uC_G51.Visible = false;
+            uC_P111.Visible = false;
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -77,6 +83,11 @@ namespace AllersGroup
         }
 
         private void PanelSlide_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void mini_slide_Paint(object sender, PaintEventArgs e)
         {
 
         }
