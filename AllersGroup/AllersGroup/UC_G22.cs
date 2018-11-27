@@ -103,6 +103,16 @@ namespace AllersGroup
 
                 label59.Text = label60.Text = x0.Last() ;
                 label75.Text = label64.Text = x0.First();
+
+                label56.Text = model.context.Items[int.Parse(label59.Text)].Name;
+                label72.Text = model.context.Items[int.Parse(label75.Text)].Name;
+
+                label54.Text = "$ " + model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label59.Text.Equals( a.ItemCode+"")).Select(s => s.Subtotal).Sum(i => i);
+                label70.Text = "$ " + model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label75.Text.Equals(a.ItemCode+"")).Select(s => s.Subtotal).Sum(i => i);
+
+                label52.Text = model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label59.Text.Equals(a.ItemCode + "")).Count() + "";
+                label68.Text = model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label75.Text.Equals(a.ItemCode + "")).Count() + "";
+
                 LoadListView_4();
                 LoadListView_5();
 
@@ -129,11 +139,14 @@ namespace AllersGroup
 
                 //items
                 LoadListView_2(department);
+
                 listBox3.Items.Clear();
                 model.GenerateRules(Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
-                var x1 = model.ItemsByDepartment(comboBox1.SelectedItem.ToString()).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "");
+                var x1 = model.ItemsByDepartment(comboBox1.SelectedItem.ToString()).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "").ToList();
+
+                LoadListView_3(x1);
+
                 listBox3.Items.AddRange(x1.ToArray());
-                LoadListView_3(x1.ToList());
             }
         }
 
@@ -188,40 +201,41 @@ namespace AllersGroup
         private void LoadListView_4()
         {
 
-            List<String> items = model.getDependence(int.Parse(label59.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
+                List<String> items = model.getDependence(int.Parse(label59.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
 
-            for (int i = 0; items != null && i < items.Count ; i++)
-            {
-                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+                for (int i = 0; i < items.Count; i++)
+                {
+                    ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
 
-                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
-                var x = model.context.Items[int.Parse(items.ElementAt(i))];
-                MessageBox.Show(x.Name);
+                    list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
 
-                listView4.Items.Add(list);
-            }
+                    listView4.Items.Add(list);
+                }
+            
+
         }
 
         private void LoadListView_5()
         {
+  
+                List<String> items = model.getDependence(int.Parse(label75.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
 
-            List<String> items = model.getDependence(int.Parse(label75.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
+                for (int i = 0; items != null && i < items.Count; i++)
+                {
+                    ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
 
-            for (int i = 0; items != null && i < items.Count; i++)
-            {
-                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+                    list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
 
-                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
-                var x = model.context.Items[int.Parse(items.ElementAt(i))];
-                MessageBox.Show(x.Name);
-
-                listView5.Items.Add(list);
-            }
+                    listView5.Items.Add(list);
+                }
+            
+            
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            if (listBox3.SelectedItem == null)
+
+            if (listBox3.SelectedItems == null)
             {
                 MessageBox.Show("Se debe seleccionar un producto.");
 
@@ -230,7 +244,8 @@ namespace AllersGroup
             {
                 try
                 {
-
+                    
+                    Console.WriteLine(listBox3.SelectedItem.ToString());
                     listBox4.Items.Clear();
                     var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
                     if (x == null)

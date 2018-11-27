@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -300,6 +300,7 @@
             this.tabPage1.Size = new System.Drawing.Size(992, 1939);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // panel5
             // 
@@ -418,7 +419,7 @@
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label70.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label70.Location = new System.Drawing.Point(252, 1043);
+            this.label70.Location = new System.Drawing.Point(252, 1063);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(60, 20);
             this.label70.TabIndex = 179;
@@ -429,7 +430,7 @@
             this.label71.AutoSize = true;
             this.label71.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.label71.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label71.Location = new System.Drawing.Point(22, 1043);
+            this.label71.Location = new System.Drawing.Point(22, 1063);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(234, 20);
             this.label71.TabIndex = 178;
@@ -440,7 +441,7 @@
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label72.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label72.Location = new System.Drawing.Point(85, 1004);
+            this.label72.Location = new System.Drawing.Point(22, 1023);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(60, 20);
             this.label72.TabIndex = 177;
@@ -607,7 +608,7 @@
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label54.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label54.Location = new System.Drawing.Point(252, 670);
+            this.label54.Location = new System.Drawing.Point(252, 690);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(60, 20);
             this.label54.TabIndex = 170;
@@ -618,7 +619,7 @@
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.label55.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label55.Location = new System.Drawing.Point(22, 670);
+            this.label55.Location = new System.Drawing.Point(22, 690);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(234, 20);
             this.label55.TabIndex = 169;
@@ -629,7 +630,7 @@
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label56.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label56.Location = new System.Drawing.Point(85, 631);
+            this.label56.Location = new System.Drawing.Point(22, 651);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(60, 20);
             this.label56.TabIndex = 168;
@@ -988,16 +989,16 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(40, 1664);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(896, 255);
             this.chart1.TabIndex = 153;
             this.chart1.Text = "chart1";

@@ -50,7 +50,7 @@ namespace AllersGroup
 
             comboBox3.Items.AddRange(supports);
 
-            label8.Visible = label9.Visible  = label_meses.Visible = false;
+            label8.Visible = label9.Visible = label_meses.Visible = false;
             label18.Visible = label19.Visible = label20.Visible = false;
             label27.Visible = label28.Visible = label29.Visible = label42.Visible = label40.Visible = false;
 
@@ -62,7 +62,7 @@ namespace AllersGroup
         public void LoadModel(Consult model)
         {
             this.model = model;
-           
+
         }
 
 
@@ -158,7 +158,7 @@ namespace AllersGroup
 
                 listBox3.Items.Clear();
                 model.GenerateRules(Double.Parse(comboBox3.SelectedItem.ToString()) / 100);
-                var x = items.Select(s=>int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "");
+                var x = items.Select(s => int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "");
                 listBox3.Items.AddRange(x.ToArray());
             }
         }
@@ -200,7 +200,7 @@ namespace AllersGroup
                     items = model.Frequent_Items_ByMonth(month1).ToList();
                     clients = model.Frequent_Clients_ByMonth(month1).ToList();
 
-                  
+
                 }
                 else
                 {
@@ -216,15 +216,24 @@ namespace AllersGroup
                         y.Union(model.ItemsByMonth(i)).Distinct();
                     }
 
-                   
+
                 }
 
                 //general 
                 model.GenerateRules(Double.Parse("1") / 100);
-                var x0 = items.Select(s=>int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).OrderBy(o => model.Rules[o].Count).Select(c => c + "");
+                var x0 = items.Select(s => int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).OrderBy(o => model.Rules[o].Count).Select(c => c + "");
 
                 label59.Text = label60.Text = x0.Last();
                 label75.Text = label64.Text = x0.First();
+
+                label56.Text = model.context.Items[int.Parse(label59.Text)].Name;
+                label72.Text = model.context.Items[int.Parse(label75.Text)].Name;
+
+                label54.Text = "$ " + model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label59.Text.Equals(a.ItemCode + "")).Select(s => s.Subtotal).Sum(i => i);
+                label70.Text = "$ " + model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label75.Text.Equals(a.ItemCode + "")).Select(s => s.Subtotal).Sum(i => i);
+
+                label52.Text = model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label59.Text.Equals(a.ItemCode + "")).Count() + "";
+                label68.Text = model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label75.Text.Equals(a.ItemCode + "")).Count()+ "";
 
                 LoadListView_4();
 
@@ -274,6 +283,11 @@ namespace AllersGroup
                     chart1.Series["clients"].Points.AddXY(x[i][0], x[i][1]);
                 }
             }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void LoadListView_4()
