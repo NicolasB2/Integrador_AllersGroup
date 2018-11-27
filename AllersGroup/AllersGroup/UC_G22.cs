@@ -198,6 +198,18 @@ namespace AllersGroup
             }
         }
 
+        private void LoadListView_6(List<String> x)
+        {
+            
+
+            for (int i = 0; i < x.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(x.ElementAt(i) + "");
+                list.SubItems.Add(model.context.Items[int.Parse(x.ElementAt(i))].Name);
+                listView6.Items.Add(list);
+            }
+        }
+
         private void LoadListView_4()
         {
 
@@ -234,6 +246,7 @@ namespace AllersGroup
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            
 
             if (listBox3.SelectedItems == null)
             {
@@ -244,9 +257,14 @@ namespace AllersGroup
             {
                 try
                 {
-                    
-                    Console.WriteLine(listBox3.SelectedItem.ToString());
-                    listBox4.Items.Clear();
+                    panel12.Visible = panel13.Visible = panel4.Visible = true;
+                    label21.Visible = label4.Visible = label5.Visible = label7.Visible = label9.Visible = label10.Visible = true;
+                    label4.Text = model.context.Items[int.Parse(listBox3.SelectedItem.ToString())].Name;
+                    label7.Text = listBox3.SelectedItem.ToString();
+                    label10.Text = model.Type_of_payment(int.Parse(listBox3.SelectedItem.ToString()));
+
+                   listView6.Items.Clear();
+
                     var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
                     if (x == null)
                     {
@@ -254,7 +272,7 @@ namespace AllersGroup
                     }
                     else
                     {
-                        listBox4.Items.AddRange(x.ToArray());
+                        LoadListView_6(x.ToList());
                     }
 
                 }
@@ -266,6 +284,20 @@ namespace AllersGroup
             }
         }
 
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

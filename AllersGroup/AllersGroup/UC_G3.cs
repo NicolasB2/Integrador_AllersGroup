@@ -109,35 +109,6 @@ namespace AllersGroup
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (listBox3.SelectedItem == null)
-            {
-                MessageBox.Show("Se debe seleccionar un producto.");
-
-            }
-            else
-            {
-                try
-                {
-                    listBox4.Items.Clear();
-                    var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox3.SelectedItem.ToString()) / 100);
-                    if (x == null)
-                    {
-                        MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
-                    }
-                    else
-                    {
-                        listBox4.Items.AddRange(x.ToArray());
-                    }
-                }
-                catch
-                {
-
-                }
-            }
-        }
-
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -216,7 +187,6 @@ namespace AllersGroup
                         y.Union(model.ItemsByMonth(i)).Distinct();
                     }
 
-
                 }
 
                 //general 
@@ -236,8 +206,15 @@ namespace AllersGroup
                 label68.Text = model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label75.Text.Equals(a.ItemCode + "")).Count()+ "";
 
                 LoadListView_4();
-
                 LoadListView_5();
+
+                listBox3.Items.Clear();
+                model.GenerateRules(Double.Parse(comboBox3.SelectedItem.ToString()) / 100);
+                var x1 = items.Select(s => int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "").ToList();
+
+                LoadListView_3(x1);
+
+                listBox3.Items.AddRange(x1.ToArray());
 
 
                 //{{{{{{
@@ -285,16 +262,63 @@ namespace AllersGroup
             }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
 
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (listBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Se debe seleccionar un producto.");
+
+            }
+            else
+            {
+                try
+                {
+
+                    panel12.Visible = panel13.Visible = true;
+                    label30.Visible = label31.Visible = label32.Visible = label33.Visible = label22.Visible = label21.Visible = true;
+
+                    label21.Text = model.context.Items[int.Parse(listBox3.SelectedItem.ToString())].Name;
+                    label31.Text = listBox3.SelectedItem.ToString();
+                    label22.Text = model.Type_of_payment(int.Parse(listBox3.SelectedItem.ToString()));
+
+                    listView6.Items.Clear();
+                    var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox3.SelectedItem.ToString()) / 100);
+                    if (x == null)
+                    {
+                        MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
+                    }
+                    else
+                    {
+                        LoadListView_6(x);
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+
+
+        private void LoadListView_3(List<String> x)
+        {
+            List<string> items = model.Items_without_sales(x.Select(s => int.Parse(s)).ToList()).ToList();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+                listView3.Items.Add(list);
+            }
         }
 
         private void LoadListView_4()
         {
 
             List<String> items = model.getDependence(int.Parse(label59.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
-            MessageBox.Show(items.Count+"");
             listView4.Items.Clear();
 
             for (int i = 0; i < items.Count; i++)
@@ -302,8 +326,6 @@ namespace AllersGroup
                 ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
 
                 list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
-                var x = model.context.Items[int.Parse(items.ElementAt(i))];
-                MessageBox.Show(x.Name);
 
                 listView4.Items.Add(list);
             }
@@ -319,10 +341,20 @@ namespace AllersGroup
                 ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
 
                 list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
-                var x = model.context.Items[int.Parse(items.ElementAt(i))];
-                MessageBox.Show(x.Name);
 
                 listView5.Items.Add(list);
+            }
+        }
+
+        private void LoadListView_6(List<String> x)
+        {
+
+
+            for (int i = 0; i < x.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(x.ElementAt(i) + "");
+                list.SubItems.Add(model.context.Items[int.Parse(x.ElementAt(i))].Name);
+                listView6.Items.Add(list);
             }
         }
     }

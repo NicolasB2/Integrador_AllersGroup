@@ -92,6 +92,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label44 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -115,7 +122,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -136,6 +142,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.listView6 = new System.Windows.Forms.ListView();
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -147,6 +159,8 @@
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -179,7 +193,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(307, 236);
+            this.pictureBox1.Location = new System.Drawing.Point(306, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.TabIndex = 114;
@@ -188,7 +202,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(306, 585);
+            this.pictureBox3.Location = new System.Drawing.Point(305, 434);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.TabIndex = 119;
@@ -300,7 +314,6 @@
             this.tabPage1.Size = new System.Drawing.Size(992, 1939);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // panel5
             // 
@@ -799,6 +812,13 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.tabPage2.Controls.Add(this.label34);
+            this.tabPage2.Controls.Add(this.label35);
+            this.tabPage2.Controls.Add(this.listView6);
+            this.tabPage2.Controls.Add(this.panel13);
+            this.tabPage2.Controls.Add(this.label30);
+            this.tabPage2.Controls.Add(this.panel12);
+            this.tabPage2.Controls.Add(this.label32);
             this.tabPage2.Controls.Add(this.panel9);
             this.tabPage2.Controls.Add(this.chart1);
             this.tabPage2.Controls.Add(this.panel1);
@@ -808,7 +828,6 @@
             this.tabPage2.Controls.Add(this.listView1);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.listBox3);
-            this.tabPage2.Controls.Add(this.listBox4);
             this.tabPage2.Controls.Add(this.panel10);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.listView3);
@@ -820,12 +839,91 @@
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Controls.Add(this.label33);
+            this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(992, 1939);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
+            this.panel13.Controls.Add(this.label22);
+            this.panel13.Location = new System.Drawing.Point(705, 1101);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(238, 29);
+            this.panel13.TabIndex = 165;
+            this.panel13.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label22.Location = new System.Drawing.Point(21, 2);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 25);
+            this.label22.TabIndex = 101;
+            this.label22.Text = "Lab";
+            // 
+            // label30
+            // 
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label30.Location = new System.Drawing.Point(707, 1047);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(236, 67);
+            this.label30.TabIndex = 166;
+            this.label30.Text = "bajo la modalidad de : ";
+            this.label30.Visible = false;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
+            this.panel12.Controls.Add(this.label31);
+            this.panel12.Location = new System.Drawing.Point(851, 1009);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(92, 29);
+            this.panel12.TabIndex = 164;
+            this.panel12.Visible = false;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.BackColor = System.Drawing.Color.Transparent;
+            this.label31.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label31.Location = new System.Drawing.Point(21, 2);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(45, 25);
+            this.label31.TabIndex = 101;
+            this.label31.Text = "Lab";
+            // 
+            // label32
+            // 
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label32.Location = new System.Drawing.Point(700, 980);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(236, 67);
+            this.label32.TabIndex = 163;
+            this.label32.Text = "Se recomienda vender el item de codigo";
+            this.label32.Visible = false;
+            // 
+            // label21
+            // 
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label21.Location = new System.Drawing.Point(35, 899);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(415, 40);
+            this.label21.TabIndex = 154;
+            this.label21.Text = "Nombre";
+            this.label21.Visible = false;
             // 
             // panel9
             // 
@@ -1077,12 +1175,13 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(154, 1222);
+            this.button2.Location = new System.Drawing.Point(40, 1166);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(158, 27);
             this.button2.TabIndex = 145;
             this.button2.Text = "GENERAR PREDICCIÓN";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // listBox3
             // 
@@ -1090,29 +1189,17 @@
             this.listBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 17;
-            this.listBox3.Location = new System.Drawing.Point(37, 1010);
+            this.listBox3.Location = new System.Drawing.Point(37, 933);
             this.listBox3.Name = "listBox3";
             this.listBox3.ScrollAlwaysVisible = true;
-            this.listBox3.Size = new System.Drawing.Size(406, 206);
+            this.listBox3.Size = new System.Drawing.Size(170, 206);
             this.listBox3.TabIndex = 143;
-            // 
-            // listBox4
-            // 
-            this.listBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 17;
-            this.listBox4.Location = new System.Drawing.Point(517, 1010);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.ScrollAlwaysVisible = true;
-            this.listBox4.Size = new System.Drawing.Size(395, 206);
-            this.listBox4.TabIndex = 144;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
             this.panel10.Controls.Add(this.label17);
-            this.panel10.Location = new System.Drawing.Point(26, 933);
+            this.panel10.Location = new System.Drawing.Point(12, 822);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(275, 30);
             this.panel10.TabIndex = 146;
@@ -1130,18 +1217,18 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(28, 632);
+            this.label6.Location = new System.Drawing.Point(24, 481);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 17);
+            this.label6.Size = new System.Drawing.Size(107, 28);
             this.label6.TabIndex = 123;
             this.label6.Text = "Código del item";
             // 
             // listView3
             // 
-            this.listView3.BackColor = System.Drawing.Color.CadetBlue;
+            this.listView3.BackColor = System.Drawing.Color.White;
             this.listView3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
@@ -1149,7 +1236,7 @@
             this.columnHeader7});
             this.listView3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView3.Location = new System.Drawing.Point(25, 653);
+            this.listView3.Location = new System.Drawing.Point(24, 502);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(928, 198);
             this.listView3.TabIndex = 122;
@@ -1174,7 +1261,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Location = new System.Drawing.Point(25, 581);
+            this.panel4.Location = new System.Drawing.Point(24, 430);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(275, 30);
             this.panel4.TabIndex = 121;
@@ -1192,29 +1279,29 @@
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(140, 632);
+            this.label9.Location = new System.Drawing.Point(136, 481);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(141, 17);
+            this.label9.Size = new System.Drawing.Size(144, 28);
             this.label9.TabIndex = 120;
-            this.label9.Text = "| Número de compras";
+            this.label9.Text = "Número de compras";
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.White;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(31, 278);
+            this.label14.Location = new System.Drawing.Point(27, 128);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(104, 17);
+            this.label14.Size = new System.Drawing.Size(107, 28);
             this.label14.TabIndex = 118;
             this.label14.Text = "Código del item";
             // 
             // listView2
             // 
-            this.listView2.BackColor = System.Drawing.Color.CadetBlue;
+            this.listView2.BackColor = System.Drawing.Color.White;
             this.listView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
@@ -1222,7 +1309,7 @@
             this.nombre});
             this.listView2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView2.Location = new System.Drawing.Point(28, 299);
+            this.listView2.Location = new System.Drawing.Point(27, 148);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(928, 193);
             this.listView2.TabIndex = 117;
@@ -1247,7 +1334,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(145)))));
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(26, 232);
+            this.panel2.Location = new System.Drawing.Point(25, 81);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(275, 30);
             this.panel2.TabIndex = 116;
@@ -1265,14 +1352,14 @@
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.White;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(143, 278);
+            this.label13.Location = new System.Drawing.Point(139, 128);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(141, 17);
+            this.label13.Size = new System.Drawing.Size(144, 28);
             this.label13.TabIndex = 115;
-            this.label13.Text = "| Número de compras";
+            this.label13.Text = "Número de compras";
             // 
             // comboBox3
             // 
@@ -1292,6 +1379,65 @@
             this.label10.Size = new System.Drawing.Size(29, 17);
             this.label10.TabIndex = 148;
             this.label10.Text = "con";
+            // 
+            // listView6
+            // 
+            this.listView6.BackColor = System.Drawing.Color.White;
+            this.listView6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView6.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader15,
+            this.columnHeader16});
+            this.listView6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView6.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listView6.Location = new System.Drawing.Point(214, 1005);
+            this.listView6.Name = "listView6";
+            this.listView6.Size = new System.Drawing.Size(476, 133);
+            this.listView6.TabIndex = 167;
+            this.listView6.UseCompatibleStateImageBehavior = false;
+            this.listView6.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Código del cliente";
+            this.columnHeader15.Width = 70;
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Width = 360;
+            // 
+            // label33
+            // 
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label33.Location = new System.Drawing.Point(226, 953);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(437, 67);
+            this.label33.TabIndex = 168;
+            this.label33.Text = "Con el item seleccionado se pueden vender los                                    " +
+    "                               siguientes productos";
+            this.label33.Visible = false;
+            // 
+            // label34
+            // 
+            this.label34.BackColor = System.Drawing.Color.White;
+            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label34.Location = new System.Drawing.Point(289, 986);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(79, 19);
+            this.label34.TabIndex = 170;
+            this.label34.Text = "Nombre";
+            // 
+            // label35
+            // 
+            this.label35.BackColor = System.Drawing.Color.White;
+            this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label35.Location = new System.Drawing.Point(214, 986);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(70, 19);
+            this.label35.TabIndex = 169;
+            this.label35.Text = "   Items";
             // 
             // UC_G3
             // 
@@ -1330,6 +1476,10 @@
             this.panel3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -1370,7 +1520,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label17;
@@ -1451,5 +1600,18 @@
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ListView listView6;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
     }
 }

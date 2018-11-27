@@ -21,27 +21,27 @@ namespace AllersGroup
             InitializeComponent();
 
             Consult model = new Consult();
-            uC_G221.LoadModel(model);
+            uC_G31.LoadModel(model);
         }
 
         private void InitializeComponent()
         {
-            this.uC_G221 = new AllersGroup.UC_G22();
+            this.uC_G31 = new AllersGroup.UC_G3();
             this.SuspendLayout();
             // 
-            // uC_G221
+            // uC_G31
             // 
-            this.uC_G221.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G221.Location = new System.Drawing.Point(12, 12);
-            this.uC_G221.Name = "uC_G221";
-            this.uC_G221.Size = new System.Drawing.Size(1000, 1950);
-            this.uC_G221.TabIndex = 0;
+            this.uC_G31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_G31.Location = new System.Drawing.Point(23, 12);
+            this.uC_G31.Name = "uC_G31";
+            this.uC_G31.Size = new System.Drawing.Size(1000, 2266);
+            this.uC_G31.TabIndex = 0;
             // 
             // Form2
             // 
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1271, 436);
-            this.Controls.Add(this.uC_G221);
+            this.Controls.Add(this.uC_G31);
             this.Name = "Form2";
             this.ResumeLayout(false);
 
