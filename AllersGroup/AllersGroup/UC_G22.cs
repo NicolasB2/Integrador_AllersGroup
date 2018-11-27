@@ -198,9 +198,10 @@ namespace AllersGroup
             }
         }
 
-        private void LoadListView_6(List<String> x)
+        private void LoadListView_6(List<String> y)
         {
-            
+
+            List<string> x = model.Items_without_sales(y.Select(s => int.Parse(s)).ToList()).ToList();
 
             for (int i = 0; i < x.Count; i++)
             {

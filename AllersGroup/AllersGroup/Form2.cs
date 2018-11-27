@@ -32,15 +32,15 @@ namespace AllersGroup
             // uC_G41
             // 
             this.uC_G41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G41.Location = new System.Drawing.Point(34, 12);
+            this.uC_G41.Location = new System.Drawing.Point(28, 12);
             this.uC_G41.Name = "uC_G41";
-            this.uC_G41.Size = new System.Drawing.Size(1000, 977);
+            this.uC_G41.Size = new System.Drawing.Size(1000, 1484);
             this.uC_G41.TabIndex = 0;
             // 
             // Form2
             // 
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1271, 436);
+            this.ClientSize = new System.Drawing.Size(1370, 436);
             this.Controls.Add(this.uC_G41);
             this.Name = "Form2";
             this.ResumeLayout(false);
