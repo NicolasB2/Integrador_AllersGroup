@@ -37,15 +37,11 @@ namespace AllersGroup
 
             button1.Visible = button2.Visible = true;
 
-            label1.Visible = label15.Visible = label6.Visible = label10.Visible = label7.Visible = false;
-            label11.Visible  = label22.Visible = false;
+            label1.Visible =  label22.Visible = false;
             label23.Visible  = label27.Visible = label28.Visible = false;
             label35.Visible = label36.Visible = label37.Visible = label39.Visible = false;
-
-            panel2.Visible = false;
-
-
         }
+
         public void LoadModel(Consult model)
         {
             this.model = model;
@@ -58,23 +54,6 @@ namespace AllersGroup
             double percentage = percentages[comboBox1.SelectedItem.ToString()];
             model.Clustering(percentage);
             clusters = model.clusterResult;
-
-            label15.Text = clusters.Count() + "";
-            label6.Text = "Grupo " + (model.ClusterWithMostClients()[0] + 1);
-            label10.Text = model.ClusterWithMostClients()[1] + "";
-            label7.Text = "Grupo " + (model.ClusterWithLeastClients()[0] + 1);
-            label11.Text = model.ClusterWithLeastClients()[1] + "";
-
-            if (model.ClusterWithLeastClients()[1] > 1)
-            {
-                label12.Text = "clientes.";
-            }
-            else
-            {
-                label12.Text = "cliente.";
-            }
-
-            label15.Visible = label6.Visible = label10.Visible = label7.Visible = label11.Visible = true;
 
             LoadListViewGroups();
         }
