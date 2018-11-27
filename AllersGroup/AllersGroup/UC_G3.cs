@@ -62,21 +62,10 @@ namespace AllersGroup
         public void LoadModel(Consult model)
         {
             this.model = model;
-            GeneralInfo();
+           
         }
 
-        private void GeneralInfo()
-        {
 
-            label38.Text = months2[model.Groups_MonthWithMostTransactions()[0]];
-            label39.Text = months2[model.Groups_MonthWithLeastTransactions()[0]];
-
-            label34.Text = months2[model.Groups_MonthWithMostClients()[0]];
-            label35.Text = months2[model.Groups_MonthWithLeastClients()[0]];
-
-            label22.Text = months2[int.Parse(model.Groups_MonthWithMostSells()[0])];
-            label31.Text = months2[int.Parse(model.Groups_MonthWithLeastSells()[0])];
-        }
 
         private void LoadListView1()
         {
@@ -230,6 +219,19 @@ namespace AllersGroup
                    
                 }
 
+                //general 
+                model.GenerateRules(Double.Parse("1") / 100);
+                var x0 = items.Select(s=>int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).OrderBy(o => model.Rules[o].Count).Select(c => c + "");
+
+                label59.Text = label60.Text = x0.Last();
+                label75.Text = label64.Text = x0.First();
+
+                LoadListView_4();
+
+                LoadListView_5();
+
+
+                //{{{{{{
                 label27.Text = clients.Count + "";
                 label29.Text = model.totalTransactionsListClients(clients) + "";
 
@@ -271,6 +273,42 @@ namespace AllersGroup
                 {
                     chart1.Series["clients"].Points.AddXY(x[i][0], x[i][1]);
                 }
+            }
+        }
+
+        private void LoadListView_4()
+        {
+
+            List<String> items = model.getDependence(int.Parse(label59.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
+            MessageBox.Show(items.Count+"");
+            listView4.Items.Clear();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+                var x = model.context.Items[int.Parse(items.ElementAt(i))];
+                MessageBox.Show(x.Name);
+
+                listView4.Items.Add(list);
+            }
+        }
+
+        private void LoadListView_5()
+        {
+
+            List<String> items = model.getDependence(int.Parse(label75.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
+            listView5.Items.Clear();
+            for (int i = 0; items != null && i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+                var x = model.context.Items[int.Parse(items.ElementAt(i))];
+                MessageBox.Show(x.Name);
+
+                listView5.Items.Add(list);
             }
         }
     }

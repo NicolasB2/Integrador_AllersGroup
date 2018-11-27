@@ -1269,7 +1269,6 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "UC_G22";
             this.Size = new System.Drawing.Size(1000, 1950);
-            this.Load += new System.EventHandler(this.UC_G22_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

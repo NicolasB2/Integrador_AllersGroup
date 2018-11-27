@@ -98,9 +98,13 @@ namespace AllersGroup
                 mini_1.Visible = mini_2.Visible = mini_3.Visible = true;
                 label29.Visible = label28.Visible = label27.Visible = true;
 
-                label59.Text = label60.Text = model.ItemsByDepartment(comboBox1.SelectedItem.ToString()).Last() + "";
-                label75.Text = label64.Text = model.ItemsByDepartment(comboBox1.SelectedItem.ToString()).First() + "";
+                model.GenerateRules(Double.Parse("1") / 100);
+                var x0 = model.ItemsByDepartment(comboBox1.SelectedItem.ToString()).Where(c => model.Rules.ContainsKey(c)).OrderBy(o => model.Rules[o].Count).Select(c => c + "");
 
+                label59.Text = label60.Text = x0.Last() ;
+                label75.Text = label64.Text = x0.First();
+                LoadListView_4();
+                LoadListView_5();
 
                 //clients
                 label8.Text = model.Groups_Department_ClientWithMostTransactions(department)[0];
@@ -181,11 +185,39 @@ namespace AllersGroup
             }
         }
 
-        private void UC_G22_Load(object sender, EventArgs e)
+        private void LoadListView_4()
         {
 
+            List<String> items = model.getDependence(int.Parse(label59.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
+
+            for (int i = 0; items != null && i < items.Count ; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+                var x = model.context.Items[int.Parse(items.ElementAt(i))];
+                MessageBox.Show(x.Name);
+
+                listView4.Items.Add(list);
+            }
         }
 
+        private void LoadListView_5()
+        {
+
+            List<String> items = model.getDependence(int.Parse(label75.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
+
+            for (int i = 0; items != null && i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+                var x = model.context.Items[int.Parse(items.ElementAt(i))];
+                MessageBox.Show(x.Name);
+
+                listView5.Items.Add(list);
+            }
+        }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
