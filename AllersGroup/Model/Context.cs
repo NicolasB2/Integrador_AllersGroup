@@ -9,7 +9,7 @@ namespace Model
     public class Context
     {
        
-        public String path = @"C:\Users\Sara\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
+        public String path = @"C:\Users\Nicolas\Source\Repos\saradrada\AllersGroup_IntegradorI\AllersGroup\Model\Data\";
         public String[] pathNames = { "PrunnedItems.txt", "PrunnedClients.txt", "PrunnedTransactions.txt"  };
         
         public Dictionary<String, double[]> Locations; 
@@ -71,8 +71,10 @@ namespace Model
                 }
                     
                 String line;
+                int x = 0;
                 while ((line = sr.ReadLine()) != null)
                 {
+                    x++;
                     String[] datos = line.Split(';');
                     if (datos[2].Equals("NULL"))
                     {
@@ -158,6 +160,7 @@ namespace Model
                 }
 
                 String line;
+
                 while ((line = sr.ReadLine()) != null)
                 {
                     String[] datos = line.Split(';');

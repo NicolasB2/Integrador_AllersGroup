@@ -50,13 +50,8 @@ namespace AllersGroup
 
             comboBox3.Items.AddRange(supports);
 
-            string[] Months = new string[]
-           { "1", "2", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
-            comboBox_month.Items.AddRange(Months);
-
-
-            label8.Visible = label9.Visible = label10.Visible = label_meses.Visible = false;
-            label18.Visible = label19.Visible = label20.Visible = label46.Visible = false;
+            label8.Visible = label9.Visible  = label_meses.Visible = false;
+            label18.Visible = label19.Visible = label20.Visible = false;
             label27.Visible = label28.Visible = label29.Visible = label42.Visible = label40.Visible = false;
 
             mini_1.Visible = mini_2.Visible = mini_3.Visible = false;
@@ -163,17 +158,23 @@ namespace AllersGroup
             }
             else
             {
+                if (month1 == month2)
+                {
+                    items = model.Frequent_Items_ByMonth(month1).ToList();
+                }
+                else
+                {
+                    items = model.ItemsByTimePeriod(month1, month2).ToList();
+                }
+
                 listBox3.Items.Clear();
                 model.GenerateRules(Double.Parse(comboBox3.SelectedItem.ToString()) / 100);
-                var x = model.ItemsByMonth(int.Parse(comboBox_month.SelectedItem.ToString())).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "");
+                var x = items.Select(s=>int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "");
                 listBox3.Items.AddRange(x.ToArray());
             }
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
         //Cargar itemsets frecuentes
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -187,13 +188,14 @@ namespace AllersGroup
                 comboBox1.SelectedItem = "Enero";
             }
 
+
+
         }
 
         //Cargar
         private void button1_Click(object sender, EventArgs e)
         {
             panel4.Visible = true;
-            panel5.Visible = false;
 
             if (month1 == 0 || month2 == 0)
             {
@@ -209,7 +211,7 @@ namespace AllersGroup
                     items = model.Frequent_Items_ByMonth(month1).ToList();
                     clients = model.Frequent_Clients_ByMonth(month1).ToList();
 
-                    label46.Text = model.ItemsByMonth(month1).Distinct().Count() + "";
+                  
                 }
                 else
                 {
@@ -225,7 +227,7 @@ namespace AllersGroup
                         y.Union(model.ItemsByMonth(i)).Distinct();
                     }
 
-                    label46.Text = y.Distinct().Count() + "";
+                   
                 }
 
                 label27.Text = clients.Count + "";
@@ -242,10 +244,10 @@ namespace AllersGroup
 
                 label8.Text = clients.ElementAt(0)[0];
                 label9.Text = items.ElementAt(0)[0];
-                label10.Text = items.ElementAt(items.Count() - 1)[0];
+              
 
-                label8.Visible = label9.Visible = label10.Visible = label27.Visible = label28.Visible = label29.Visible = true;
-                label18.Visible = label19.Visible = label20.Visible = label46.Visible = true;
+                label8.Visible = label9.Visible =  label27.Visible = label28.Visible = label29.Visible = true;
+                label18.Visible = label19.Visible = label20.Visible  = true;
 
                 LoadListView2();
                 LoadListView1();

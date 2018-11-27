@@ -24,14 +24,45 @@ namespace Algorithms
         public static double Relation_level(List<T> Left, List<T> Right)
         {
             double x = 0.0;
-            foreach (T data in Right)
+            //List<T> n = new List<T>();
+            //n.AddRange(Right);
+            //n.AddRange(Left);
+
+            if (Left.Count() < Right.Count())
             {
-                if (Left.Contains(data))
-                    x++;
+                foreach (T data in Left)
+                {
+                    if (Right.Contains(data))
+                        x++;
+                }
+                x = (double)x / Left.Count();
+            }
+            else
+            {
+                foreach (T data in Right)
+                {
+                    if (Left.Contains(data))
+                        x++;
+                }
+                x = (double)x / Right.Count();
             }
 
-            x = (double)x / Right.Count();
+
+           
+
+
             return x;
+
+
+            //double x = 0.0;
+            //foreach (T data in Right)
+            //{
+            //    if (Left.Contains(data))
+            //        x++;
+            //}
+
+            //x = (double)x / Right.Count();
+            //return x;
         }
 
         private void GeneratePosition()
@@ -102,9 +133,8 @@ namespace Algorithms
             
             if (max>=Similarity_level)
             {
-                
-                Clients[one].AddRange(Clients[two]);
-                List<T> aux = Clients[one].Distinct().ToList();
+               
+                List<T> aux = Clients[one].ToList();
                 Clients.Remove(one);
                 Clients.Remove(two);
 
