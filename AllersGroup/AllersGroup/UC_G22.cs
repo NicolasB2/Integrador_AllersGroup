@@ -48,11 +48,35 @@ namespace AllersGroup
             label21.Text = model.Groups_DepartmentWithMostClients()[0];
             label32.Text = model.Groups_DepartmentWithLeastClients()[0];
 
+            label48.Text = model.Groups_DepartmentWithMostClients()[1];
+            label49.Text = model.Groups_DepartmentWithLeastClients()[1];
+
+            chart2.Titles.Clear();
+            chart2.Series["Productos"].Points.AddXY(model.Groups_DepartmentWithMostClients()[0],
+                int.Parse(model.Groups_DepartmentWithMostClients()[1]));
+
+            chart2.Series["Productos"].Points.AddXY(model.Groups_DepartmentWithLeastClients()[0],
+                int.Parse(model.Groups_DepartmentWithLeastClients()[1]));
+
             label20.Text = model.Groups_DepartmentWithMostTransactions()[0];
             label9.Text = model.Groups_DepartmentWithLeastTransactions()[0];
 
+            label50.Text = model.Groups_DepartmentWithMostTransactions()[1];
+            label51.Text = model.Groups_DepartmentWithLeastTransactions()[1];
+
+            chart4.Titles.Clear();
+            chart4.Series["Transacciones"].Points.AddXY(model.Groups_DepartmentWithMostClients()[0],
+                int.Parse(model.Groups_DepartmentWithMostClients()[1]));
+
+            chart4.Series["Transacciones"].Points.AddXY(model.Groups_DepartmentWithLeastClients()[0],
+                int.Parse(model.Groups_DepartmentWithLeastClients()[1]));
+
             label33.Text = model.Groups_DepartmentWithMostItems()[0];
             label36.Text = model.Groups_DepartmentWithLeastItems()[0];
+
+            label47.Text = model.Groups_DepartmentWithMostItems()[1];
+            label44.Text = model.Groups_DepartmentWithLeastItems()[1];
+
         }
 
         private void LoadListView1()
@@ -109,7 +133,6 @@ namespace AllersGroup
             }
 
             chart1.Titles.Clear();
-
             chart1.Series.Clear();
             var x = model.ClientsByDepartment(comboBox1.SelectedItem.ToString()).ToArray();
             chart1.Series.Add("clients");

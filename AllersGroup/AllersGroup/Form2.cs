@@ -32,7 +32,7 @@ namespace AllersGroup
             // uC_G221
             // 
             this.uC_G221.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G221.Location = new System.Drawing.Point(12, 2);
+            this.uC_G221.Location = new System.Drawing.Point(20, -12);
             this.uC_G221.Name = "uC_G221";
             this.uC_G221.Size = new System.Drawing.Size(1000, 1950);
             this.uC_G221.TabIndex = 0;
