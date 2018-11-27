@@ -50,7 +50,7 @@ namespace AllersGroup
 
             comboBox3.Items.AddRange(supports);
 
-            label8.Visible = label9.Visible  = label_meses.Visible = false;
+            label8.Visible = label9.Visible = label_meses.Visible = false;
             label18.Visible = label19.Visible = label20.Visible = false;
             label27.Visible = label28.Visible = label29.Visible = label42.Visible = label40.Visible = false;
 
@@ -62,21 +62,10 @@ namespace AllersGroup
         public void LoadModel(Consult model)
         {
             this.model = model;
-            GeneralInfo();
+
         }
 
-        private void GeneralInfo()
-        {
 
-            label38.Text = months2[model.Groups_MonthWithMostTransactions()[0]];
-            label39.Text = months2[model.Groups_MonthWithLeastTransactions()[0]];
-
-            label34.Text = months2[model.Groups_MonthWithMostClients()[0]];
-            label35.Text = months2[model.Groups_MonthWithLeastClients()[0]];
-
-            label22.Text = months2[int.Parse(model.Groups_MonthWithMostSells()[0])];
-            label31.Text = months2[int.Parse(model.Groups_MonthWithLeastSells()[0])];
-        }
 
         private void LoadListView1()
         {
@@ -120,35 +109,6 @@ namespace AllersGroup
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (listBox3.SelectedItem == null)
-            {
-                MessageBox.Show("Se debe seleccionar un producto.");
-
-            }
-            else
-            {
-                try
-                {
-                    listBox4.Items.Clear();
-                    var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox3.SelectedItem.ToString()) / 100);
-                    if (x == null)
-                    {
-                        MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
-                    }
-                    else
-                    {
-                        listBox4.Items.AddRange(x.ToArray());
-                    }
-                }
-                catch
-                {
-
-                }
-            }
-        }
-
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -169,7 +129,7 @@ namespace AllersGroup
 
                 listBox3.Items.Clear();
                 model.GenerateRules(Double.Parse(comboBox3.SelectedItem.ToString()) / 100);
-                var x = items.Select(s=>int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "");
+                var x = items.Select(s => int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "");
                 listBox3.Items.AddRange(x.ToArray());
             }
         }
@@ -211,7 +171,7 @@ namespace AllersGroup
                     items = model.Frequent_Items_ByMonth(month1).ToList();
                     clients = model.Frequent_Clients_ByMonth(month1).ToList();
 
-                  
+
                 }
                 else
                 {
@@ -227,9 +187,37 @@ namespace AllersGroup
                         y.Union(model.ItemsByMonth(i)).Distinct();
                     }
 
-                   
                 }
 
+                //general 
+                model.GenerateRules(Double.Parse("1") / 100);
+                var x0 = items.Select(s => int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).OrderBy(o => model.Rules[o].Count).Select(c => c + "");
+
+                label59.Text = label60.Text = x0.Last();
+                label75.Text = label64.Text = x0.First();
+
+                label56.Text = model.context.Items[int.Parse(label59.Text)].Name;
+                label72.Text = model.context.Items[int.Parse(label75.Text)].Name;
+
+                label54.Text = "$ " + model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label59.Text.Equals(a.ItemCode + "")).Select(s => s.Subtotal).Sum(i => i);
+                label70.Text = "$ " + model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label75.Text.Equals(a.ItemCode + "")).Select(s => s.Subtotal).Sum(i => i);
+
+                label52.Text = model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label59.Text.Equals(a.ItemCode + "")).Count() + "";
+                label68.Text = model.context.Transactions.Values.SelectMany(n => n.Assets).Where(a => label75.Text.Equals(a.ItemCode + "")).Count()+ "";
+
+                LoadListView_4();
+                LoadListView_5();
+
+                listBox3.Items.Clear();
+                model.GenerateRules(Double.Parse(comboBox3.SelectedItem.ToString()) / 100);
+                var x1 = items.Select(s => int.Parse(s[0])).Where(c => model.Rules.ContainsKey(c)).Select(c => c + "").ToList();
+
+                LoadListView_3(x1);
+
+                listBox3.Items.AddRange(x1.ToArray());
+
+
+                //{{{{{{
                 label27.Text = clients.Count + "";
                 label29.Text = model.totalTransactionsListClients(clients) + "";
 
@@ -271,6 +259,102 @@ namespace AllersGroup
                 {
                     chart1.Series["clients"].Points.AddXY(x[i][0], x[i][1]);
                 }
+            }
+        }
+
+
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (listBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Se debe seleccionar un producto.");
+
+            }
+            else
+            {
+                try
+                {
+
+                    panel12.Visible = panel13.Visible = true;
+                    label30.Visible = label31.Visible = label32.Visible = label33.Visible = label22.Visible = label21.Visible = true;
+
+                    label21.Text = model.context.Items[int.Parse(listBox3.SelectedItem.ToString())].Name;
+                    label31.Text = listBox3.SelectedItem.ToString();
+                    label22.Text = model.Type_of_payment(int.Parse(listBox3.SelectedItem.ToString()));
+
+                    listView6.Items.Clear();
+                    var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox3.SelectedItem.ToString()) / 100);
+                    if (x == null)
+                    {
+                        MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados ");
+                    }
+                    else
+                    {
+                        LoadListView_6(x);
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+
+
+        private void LoadListView_3(List<String> x)
+        {
+            List<string> items = model.Items_without_sales(x.Select(s => int.Parse(s)).ToList()).ToList();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+                listView3.Items.Add(list);
+            }
+        }
+
+        private void LoadListView_4()
+        {
+
+            List<String> items = model.getDependence(int.Parse(label59.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
+            listView4.Items.Clear();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+
+                listView4.Items.Add(list);
+            }
+        }
+
+        private void LoadListView_5()
+        {
+
+            List<String> items = model.getDependence(int.Parse(label75.Text.ToString()), double.Parse("1") / 100).Distinct().ToList();
+            listView5.Items.Clear();
+            for (int i = 0; items != null && i < items.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(items.ElementAt(i) + "");
+
+                list.SubItems.Add(model.context.Items[int.Parse(items.ElementAt(i))].Name);
+
+                listView5.Items.Add(list);
+            }
+        }
+
+        private void LoadListView_6(List<String> x)
+        {
+
+
+            for (int i = 0; i < x.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(x.ElementAt(i) + "");
+                list.SubItems.Add(model.context.Items[int.Parse(x.ElementAt(i))].Name);
+                listView6.Items.Add(list);
             }
         }
     }
