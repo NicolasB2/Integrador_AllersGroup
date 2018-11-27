@@ -21,7 +21,7 @@ namespace AllersGroup
             comboBox2.Items.AddRange(supports);
             label18.Visible = label19.Visible = label20.Visible = label21.Visible = label8.Visible = label9.Visible = label10.Visible = false;
             label_client.Visible = false;
-            mini_1.Visible = mini_2.Visible = mini_3.Visible = false;
+            mini_1.Visible = mini_2.Visible = panel1.Visible = false;
         }
 
         public void loadModel(Consult model)
@@ -39,17 +39,19 @@ namespace AllersGroup
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            mini_1.Visible = mini_2.Visible = mini_3.Visible = true;
+            mini_1.Visible = mini_2.Visible = panel1.Visible = true;
 
             client = listBox1.SelectedItem.ToString();
             label_client.Text = client;
             label_client.Visible = true;
 
-
+            model.GenerateRules(Double.Parse("1") / 100);
             label8.Text = model.totalTransactionsClient(listBox1.SelectedItem.ToString()) + "";
-            label9.Text = model.itemsbyClient(listBox1.SelectedItem.ToString()).Last() + "";
+            var y = model.itemsbyClient(listBox1.SelectedItem.ToString()).Where(n => model.Rules.ContainsKey(int.Parse(n))).OrderBy(n => model.Rules[int.Parse(n)].Count()).ToList();
+              label23.Text = label9.Text = y.Last() + "";
             label10.Text = model.itemsbyClient(listBox1.SelectedItem.ToString()).First() + "";
-
+            label3.Text = model.itemsbyClient(listBox1.SelectedItem.ToString()).Count() + "";
+            label17.Text = model.Type_of_payment(int.Parse(label9.Text));
 
 
             string sells = model.TotalSellsClient(client) + "";
@@ -60,8 +62,8 @@ namespace AllersGroup
             label20.Text = model.context.Clients[client].Type;
             label21.Text = model.context.Clients[client].Payment;
 
-            label18.Visible = label19.Visible = label20.Visible = label21.Visible = label8.Visible = label9.Visible = label10.Visible = true;
-
+           label23.Visible = label17.Visible = label3.Visible = label18.Visible = label19.Visible = label20.Visible = label21.Visible = label8.Visible = label9.Visible = label10.Visible = true;
+            LoadListView_6(y);
         }
 
         //Generar predicciones.
@@ -77,24 +79,46 @@ namespace AllersGroup
             {
                 try
                 {
-                    listBox4.Items.Clear();
-                    var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100);
+                    listView1.Items.Clear();
+                    var x = model.getDependence(int.Parse(listBox3.SelectedItem.ToString()), Double.Parse(comboBox2.SelectedItem.ToString()) / 100).ToList();
                     if (x == null)
                     {
                         MessageBox.Show("No se pudo generar ninguna oferta con los items seleccionados");
                     }
                     else
                     {
-                        listBox4.Items.AddRange(x.ToArray());
+                        label31.Visible = label32.Visible = true;
+                        label32.Text = label33.Text;
+                        LoadListView_1(x);
                     }
                 }
                 catch
                 {
-                };
-
-
+                }
             }
 
+        }
+
+        private void LoadListView_1(List<String> y)
+        {
+            for (int i = 0; i < y.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(y.ElementAt(i) + "");
+                list.SubItems.Add(model.context.Items[int.Parse(y.ElementAt(i))].Name);
+                listView1.Items.Add(list);
+            }
+        }
+        private void LoadListView_6(List<String> y)
+        {
+
+            List<string> x = model.Items_without_sales(y.Select(s => int.Parse(s)).ToList()).ToList();
+
+            for (int i = 0; i < x.Count; i++)
+            {
+                ListViewItem list = new ListViewItem(x.ElementAt(i) + "");
+                list.SubItems.Add(model.context.Items[int.Parse(x.ElementAt(i))].Name);
+                listView6.Items.Add(list);
+            }
         }
 
         private void UC_P1_Load(object sender, EventArgs e)
@@ -115,6 +139,42 @@ namespace AllersGroup
                 var x = model.itemsbyClient(listBox1.SelectedItem.ToString()).Where(c => model.Rules.ContainsKey(int.Parse(c)));
                 listBox3.Items.AddRange(x.ToArray());
             }
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mini_3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label33.Visible = true;
+            label33.Text = model.context.Items[int.Parse(listBox3.SelectedItem.ToString())].Name;
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

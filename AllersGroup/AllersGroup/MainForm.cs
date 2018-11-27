@@ -13,7 +13,7 @@ namespace AllersGroup
             InitializeComponent();
             model = new Consult();
 
-            Hidden = false;
+            //Hidden = false;
 
         }
 

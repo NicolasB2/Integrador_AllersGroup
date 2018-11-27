@@ -21,29 +21,36 @@ namespace AllersGroup
             InitializeComponent();
 
             Consult model = new Consult();
-            uC_G41.LoadModel(model);
+            uC_P111.loadModel(model);
         }
 
         private void InitializeComponent()
         {
-            this.uC_G41 = new AllersGroup.UC_G4();
+            this.uC_P111 = new AllersGroup.UC_P11();
             this.SuspendLayout();
             // 
-            // uC_G41
+            // uC_P111
             // 
-            this.uC_G41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
-            this.uC_G41.Location = new System.Drawing.Point(28, 12);
-            this.uC_G41.Name = "uC_G41";
-            this.uC_G41.Size = new System.Drawing.Size(1000, 1484);
-            this.uC_G41.TabIndex = 0;
+            this.uC_P111.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.uC_P111.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.uC_P111.ForeColor = System.Drawing.Color.BurlyWood;
+            this.uC_P111.Location = new System.Drawing.Point(73, 30);
+            this.uC_P111.Name = "uC_P111";
+            this.uC_P111.Size = new System.Drawing.Size(1000, 1704);
+            this.uC_P111.TabIndex = 0;
             // 
             // Form2
             // 
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1370, 436);
-            this.Controls.Add(this.uC_G41);
+            this.ClientSize = new System.Drawing.Size(1252, 749);
+            this.Controls.Add(this.uC_P111);
             this.Name = "Form2";
             this.ResumeLayout(false);
+
+        }
+
+        private void uC_P111_Load(object sender, EventArgs e)
+        {
 
         }
     }
