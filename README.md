@@ -1,11 +1,14 @@
 # AllersGroup IntegradorI
 
-Presentación Hito 3
-https://www.emaze.com/@AOFLCOTRT/
+**Presentations**
 
-Presentación Final: https://www.emaze.com/@AOFZTCLCL/
+- Hito 3: https://www.emaze.com/@AOFLCOTRT/
+- Final: https://www.emaze.com/@AOFZTCLCL/<br>
 
-Video: https://youtu.be/7GBSFI6DQGY
+**Video**
+https://youtu.be/7GBSFI6DQGY <br>
 
-Nicolás Biojo Bermeo <br/>
+
+**Developers**
+Nicolás Biojo Bermeo <br>
 Sara Ortiz Drada
